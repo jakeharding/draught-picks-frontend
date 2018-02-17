@@ -1,8 +1,6 @@
 import {IonicPage, NavController, ToastController,} from 'ionic-angular';
 import { Component } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
-import { OnInit } from '@angular/core';
-import { ToastController} from "ionic-angular";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 /**
  * Generated class for the SignInPage page.
@@ -16,7 +14,7 @@ import { ToastController} from "ionic-angular";
   selector: 'page-sign-in',
   templateUrl: 'sign-in.html',
 })
-export class SignInPage implements OnInit{
+export class SignInPage{
   signInForm: FormGroup;
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController) {
@@ -29,7 +27,9 @@ export class SignInPage implements OnInit{
       console.log('Hello World');
       let toast = this.toastCtrl.create({
           message: 'No network connection, try again later',
-          duration: 3000
+          duration: 3000,
+          position: "top",
+          cssClass: "error-toast"
       });
       toast.present();
   }
