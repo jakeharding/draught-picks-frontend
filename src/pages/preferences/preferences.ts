@@ -18,14 +18,14 @@ export class PreferencesPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
   }
 
-  showToastWithButton(position: string) {
-        let toast = this.toastCtrl.create({
-            message: 'No Network Connection, please try again later!',
-            duration: 3000,
-            position: position
-        });
-
-        toast.present(toast);
-    }
-
+  public showErrorToastWithButton(position: string) {
+      console.log('Test : showErrorToastWithButton')
+      let toast = this.toastCtrl.create({
+          message: 'No network connection, try again later',
+          duration: 3000,
+          position: "top",
+          cssClass: "error-toast"
+      });
+      toast.present();
+  }
 }
