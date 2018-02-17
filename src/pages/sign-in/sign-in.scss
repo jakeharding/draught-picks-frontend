@@ -1,0 +1,28 @@
+page-sign-in {
+  ion-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+  }
+  ion-content{
+    text-align: center;
+  }
+
+//ion-input{
+//    border:
+//    width: 25%;
+//    display: block;
+//  }
+  a{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  form{
+    text-align: center;
+  }
+}
