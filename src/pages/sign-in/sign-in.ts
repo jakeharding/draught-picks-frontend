@@ -1,6 +1,7 @@
+import { IonicPage, NavController, } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { FormControl, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { OnInit } from '@angular/core';
 /**
  * Generated class for the SignInPage page.
  *
@@ -13,13 +14,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-sign-in',
   templateUrl: 'sign-in.html',
 })
-export class SignInPage {
+export class SignInPage implements OnInit{
+  signInForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignInPage');
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
+        this.signInForm = formBuilder.group({
+            userName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_]*')])],
+            password: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_]*')])]
+        });
   }
 
 }
+
