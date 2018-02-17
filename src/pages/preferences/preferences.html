@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>Draught Picks</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+
+      <h1>Tell us about the beer you like!</h1>
+
+      <p><i>The more you tell us the better we can recommend beers.</i></p>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Enter Beer"></ion-input>
+      </ion-item>
+
+      <button ion-button clear icon-start (click)="showToastWithButton('top')">
+        <ion-icon name='beer'></ion-icon>
+        ADD ANOTHER
+      </button>
+
+      <button ion-button color="danger" clear icon-start>
+        <ion-icon name='md-remove' is-active="false"></ion-icon>
+        DELETE LAST BEER
+      </button>
+
+
+      <h2>Ranges of ABV and IBU
+        <button ion-button clear icon-start>
+          <ion-icon color="primary" name="information-circle"></ion-icon>
+        </button>
+      </h2>
+
+      <div class="row" text-center>
+        <div class="col"><h3>ABV</h3></div>
+        <div class="col"><h3>IBU</h3></div>
+      </div>
+
+      <div class="row" text-center>
+
+
+        <div class="col" text center>
+          <ion-item>
+            <ion-label color="primary" floating>High</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" floating>Low</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </div>
+
+        <div class="col" text center>
+          <ion-item>
+            <ion-label color="primary" floating>High</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" floating>Low</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </div>
+
+      </div>
+
+      <h2>Describe Your Ideal Beer(s)</h2>
+
+
+      <ion-label color="primary" stacked>Describe your favorite beer(s) below:</ion-label>
+      <ion-textarea> [(ngModel)]="msg"></ion-textarea>
+
+      <button ion-button>
+        Submit
+      </button>
+
+
+
+    </ion-col>
+  </ion-row>
+</ion-content>
