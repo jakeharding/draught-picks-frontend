@@ -23,6 +23,10 @@ export class SignInPage implements OnInit{
             password: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_]*')])]
         });
   }
+  public signIn(){
+      console.log('Hello World');
+  }
+
 
 }
 
