@@ -17,20 +17,20 @@
   <ion-row>
     <ion-col col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
       <h1>Please Sign In</h1>
-        <form [formGroup]="signInForm">
-            <ion-item>
-                 <ion-label floating>Username or Email</ion-label>
-                 <ion-input formControlName="userName" type="text" ></ion-input>
-            </ion-item>
-            <br>
-            <ion-item>
-                <ion-label floating>Password</ion-label>
-                <ion-input formControlName="password" type="text" ></ion-input>
-            </ion-item>
-            <button ion-button (click)="signIn();" margin-top>Sign In</button>
-            <p>Do you not have an account?</p>
-            <a (click)="nextPage();">Click here to register</a>
-         </form>
-     </ion-col>
+      <form [formGroup]="signInForm">
+        <ion-item>
+          <ion-label floating>Username or Email</ion-label>
+          <ion-input formControlName="userName" type="text"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input formControlName="password" type="text"></ion-input>
+        </ion-item>
+        <button ion-button (click)="signIn();" margin-top>Sign In</button>
+        <p>Do you not have an account?</p>
+        <a [navPush]="goToRegistration">Click here to register</a>
+      </form>
+    </ion-col>
   </ion-row>
 </ion-content>

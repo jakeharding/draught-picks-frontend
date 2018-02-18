@@ -18,19 +18,19 @@
       <h1>Please Register Below</h1>
       <ion-label color="primary" text-left stacked>Name</ion-label>
 
-      <div class="row" text-center>
-        <div class="col" text center>
+      <ion-row text-center>
+        <ion-col text-center>
           <ion-item>
             <ion-input type="text" placeholder="First Name"></ion-input>
           </ion-item>
-        </div>
+        </ion-col>
 
-        <div class="col" text center>
+        <ion-col text-center>
           <ion-item>
             <ion-input type="text" placeholder="Last Name"></ion-input>
           </ion-item>
-        </div>
-      </div>
+        </ion-col>
+      </ion-row>
 
       <ion-label color="primary" text-left stacked>Email</ion-label>
       <ion-item>
@@ -68,7 +68,7 @@
       </button>
 
       <p>Already have an account?</p>
-      <a (click)="nextPage();">Sign in.</a>
+      <a [navPush]="goToSignIn">Sign in.</a>
 
     </ion-col>
   </ion-row>

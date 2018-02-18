@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
+import {ToastController} from 'ionic-angular';
 import {SignInPage} from "../sign-in/sign-in";
 
 /**
@@ -16,25 +16,24 @@ import {SignInPage} from "../sign-in/sign-in";
     templateUrl: 'registration.html',
 })
 export class RegistrationPage {
+  goToSignIn: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+    this.goToSignIn = SignInPage;
+  }
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
-    }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad RegistrationPage');
+  }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad RegistrationPage');
-    }
-    public nextPage() {
-        this.navCtrl.push(SignInPage);
-    }
-    public showErrorToastWithButton(position: string) {
-        console.log('Test : showErrorToastWithButton')
-        let toast = this.toastCtrl.create({
-            message: 'No network connection, try again later',
-            duration: 3000,
-            position: "top",
-            cssClass: "error-toast"
-        });
-        toast.present();
-    }
+  public showErrorToastWithButton(position: string) {
+    console.log('Test : showErrorToastWithButton')
+    let toast = this.toastCtrl.create({
+      message: 'No network connection, try again later',
+      duration: 3000,
+      position: "top",
+      cssClass: "error-toast"
+    });
+    toast.present();
+  }
 
 }
