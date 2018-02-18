@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {ToastController} from 'ionic-angular';
+import {SignInPage} from "../sign-in/sign-in";
 
 /**
  * Generated class for the RegistrationPage page.
@@ -10,16 +12,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-registration',
-  templateUrl: 'registration.html',
+    selector: 'page-registration',
+    templateUrl: 'registration.html',
 })
 export class RegistrationPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  goToSignInPage: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+    this.goToSignInPage = SignInPage;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrationPage');
+  }
+
+  public showErrorToastWithButton(position: string) {
+    let toast = this.toastCtrl.create({
+      message: 'No network connection, try again later',
+      duration: 3000,
+      position: "top",
+      cssClass: "error-toast"
+    });
+    toast.present();
   }
 
 }

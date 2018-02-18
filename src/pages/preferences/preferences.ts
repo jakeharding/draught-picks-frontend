@@ -19,13 +19,13 @@ export class PreferencesPage {
   }
 
   public showErrorToastWithButton(position: string) {
-      console.log('Test : showErrorToastWithButton')
-      let toast = this.toastCtrl.create({
-          message: 'No network connection, try again later',
-          duration: 3000,
-          position: "top",
-          cssClass: "error-toast"
-      });
-      toast.present();
+    console.log('Test : showErrorToastWithButton')
+    let toast = this.toastCtrl.create({
+      message: 'No network connection, try again later',
+      duration: 3000,
+      position: "top",
+      cssClass: "error-toast"
+    });
+    toast.present();
   }
 }

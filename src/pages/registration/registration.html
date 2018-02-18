@@ -5,15 +5,72 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>registration</ion-title>
+  <ion-navbar color="primary">
+    <ion-title text-center>Draught Picks</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-  <ion-input placeholder="Username"></ion-input>
+  <ion-row>
+    <ion-col text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+
+      <h1>Please Register Below</h1>
+      <ion-label color="primary" text-left stacked>Name</ion-label>
+
+      <ion-row text-center>
+        <ion-col text-center>
+          <ion-item>
+            <ion-input type="text" placeholder="First Name"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col text-center>
+          <ion-item>
+            <ion-input type="text" placeholder="Last Name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-label color="primary" text-left stacked>Email</ion-label>
+      <ion-item>
+        <ion-input type="text" placeholder="Email"></ion-input>
+      </ion-item>
+
+      <ion-label color="primary" text-left stacked>Create Password</ion-label>
+      <ion-item>
+        <ion-input type="password" placeholder="password"></ion-input>
+      </ion-item>
+
+      <ion-label color="primary" text-left stacked>Confirm Password</ion-label>
+      <ion-item>
+        <ion-input type="password" placeholder="password"></ion-input>
+      </ion-item>
+
+      <ion-label color="primary" text-left stacked>Birthday</ion-label>
+      <ion-item>
+        <ion-label>Your          Birthday</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+
+      <ion-label color="primary" text-left stacked>Legal Age Confirmation and Disclaimer</ion-label>
+      <ion-item>
+        <ion-label>I am at least 21 years old</ion-label>
+        <ion-checkbox color="primary"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>I have read the disclaimer</ion-label>
+        <ion-checkbox color="primary"></ion-checkbox>
+      </ion-item>
+
+      <button ion-button (click)="showErrorToastWithButton('top');" margin-top="20px">
+        Register
+      </button>
+
+      <p>Already have an account?</p>
+      <a [navPush]="goToSignInPage">Sign in.</a>
+
+    </ion-col>
+  </ion-row>
 
 </ion-content>
