@@ -16,9 +16,9 @@ import {SignInPage} from "../sign-in/sign-in";
     templateUrl: 'registration.html',
 })
 export class RegistrationPage {
-  goToSignIn: any;
+  goToSignInPage: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
-    this.goToSignIn = SignInPage;
+    this.goToSignInPage = SignInPage;
   }
 
   ionViewDidLoad() {
