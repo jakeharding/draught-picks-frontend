@@ -26,7 +26,6 @@ export class RegistrationPage {
   }
 
   public showErrorToastWithButton(position: string) {
-    console.log('Test : showErrorToastWithButton')
     let toast = this.toastCtrl.create({
       message: 'No network connection, try again later',
       duration: 3000,
