@@ -10,6 +10,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {PreferencesPage} from "../pages/preferences/preferences";
+import {SignInPage} from "../pages/sign-in/sign-in";
+import {RegistrationPage} from "../pages/registration/registration";
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import {PreferencesPage} from "../pages/preferences/preferences";
     HomePage,
     TabsPage,
     PreferencesPage,
+    SignInPage,
+    RegistrationPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import {PreferencesPage} from "../pages/preferences/preferences";
     ContactPage,
     HomePage,
     TabsPage,
-    PreferencesPage
+    PreferencesPage,
+    SignInPage,
+    RegistrationPage
   ],
   providers: [
     StatusBar,

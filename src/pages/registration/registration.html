@@ -49,7 +49,7 @@
 
       <ion-label color="primary" text-left stacked>Birthday</ion-label>
       <ion-item>
-        <ion-label>Confirm Birthday</ion-label>
+        <ion-label>Your          Birthday</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
       </ion-item>
 
@@ -66,6 +66,9 @@
       <button ion-button (click)="showErrorToastWithButton('top');" margin-top="20px">
         Register
       </button>
+
+      <p>Already have an account?</p>
+      <a (click)="nextPage();">Sign in.</a>
 
     </ion-col>
   </ion-row>

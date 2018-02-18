@@ -1,6 +1,7 @@
 import {IonicPage, NavController, ToastController,} from 'ionic-angular';
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {RegistrationPage} from "../registration/registration";
 
 /**
  * Generated class for the SignInPage page.
@@ -22,6 +23,9 @@ export class SignInPage{
             userName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_]*')])],
             password: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_]*')])]
         });
+  }
+  public nextPage() {
+      this.navCtrl.push(RegistrationPage);
   }
   public signIn(){
       console.log('Hello World');

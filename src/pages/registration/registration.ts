@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import {SignInPage} from "../sign-in/sign-in";
 
 /**
  * Generated class for the RegistrationPage page.
@@ -22,7 +23,9 @@ export class RegistrationPage {
     ionViewDidLoad() {
         console.log('ionViewDidLoad RegistrationPage');
     }
-
+    public nextPage() {
+        this.navCtrl.push(SignInPage);
+    }
     public showErrorToastWithButton(position: string) {
         console.log('Test : showErrorToastWithButton')
         let toast = this.toastCtrl.create({
