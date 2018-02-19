@@ -1,3 +1,4 @@
+import {browser, element, by, ElementFinder} from 'protractor';
 
 
 describe('preferences page test', function() {
