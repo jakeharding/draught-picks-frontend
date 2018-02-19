@@ -20,6 +20,8 @@ describe('Sign in tests', () => {
     page = new SignInPageObject();
   });
   it('should call signIn', () => {
+    // Can't use spies in the specs to expect a method has been called
+    //TODO enter some input to the fields and maybe slow the tests down for the demo using browser.sleep
     page.signInButton.click();
     expect(by.css('.error-toast')).toBeTruthy()
   });
