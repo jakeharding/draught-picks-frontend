@@ -20,16 +20,16 @@
       <form [formGroup]="signInForm">
         <ion-item>
           <ion-label floating>Username or Email</ion-label>
-          <ion-input formControlName="userName" type="text"></ion-input>
+          <ion-input tid="usernameField" formControlName="userName" type="text"></ion-input>
         </ion-item>
         <br>
         <ion-item>
           <ion-label floating>Password</ion-label>
-          <ion-input formControlName="password" type="password"></ion-input>
+          <ion-input tid="passwordField" formControlName="password" type="password"></ion-input>
         </ion-item>
-        <button ion-button (click)="signIn();" margin-top>Sign In</button>
+        <button ion-button tid="signInButton" (click)="signIn();" margin-top>Sign In</button>
         <p>Do you not have an account?</p>
-        <a [navPush]="goToRegistration">Click here to register</a>
+        <a [navPush]="goToRegistration" tid="registrationLink">Click here to register</a>
       </form>
     </ion-col>
   </ion-row>

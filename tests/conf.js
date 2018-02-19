@@ -8,5 +8,5 @@ then set up the run configs above as protractor and point it to the tests file.
 exports.config = {
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub/',
-    specs: ['../tests/addanotherbutton.js']
+    specs: ['../tests/spec.js','../tests/addanotherbutton.js' ]
 };
