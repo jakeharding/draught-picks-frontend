@@ -7,11 +7,17 @@
  * Base page object for protractor tests.
  */
 
-import {by, element, ElementFinder} from 'protractor';
+import {$$, by, element, ElementFinder} from 'protractor';
 
 export default class BasePage {
 
-  byTid (tid: string): ElementFinder {
+  getElementByTid (tid: string): ElementFinder {
     return element(by.css(`[tid="${tid}"]`));
+  }
+
+  expectErrorIsDisplayed () {
+    return $$('.error-toast').count().then(count => count > 0).then(isDisplayed => {
+      expect(isDisplayed).toBe(true);
+    });
   }
 }

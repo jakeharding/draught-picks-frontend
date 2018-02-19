@@ -9,25 +9,24 @@
  * - Jake
  */
 
-import { browser, by } from 'protractor';
+import { browser } from 'protractor';
+import PreferencesPageObject from './PreferencesPageObject';
 
-import SignInPageObject from './SignInPageObject';
 
-describe('Sign in tests', () => {
+describe('preferences page test', function() {
 
-  let page: SignInPageObject;
+  let page: PreferencesPageObject;
 
   beforeEach(() => {
     //to open the page in the browser
-    browser.get('#/sign-in');
+    browser.get('#/preferences');
     browser.waitForAngular();
-    page = new SignInPageObject();
+    page = new PreferencesPageObject();
   });
 
-  it('should call signIn', () => {
-    // Can't use spies in the specs to expect a method has been called
-    //TODO enter some input to the fields
-    page.signInButton.click();
+  it('Test submit button', function() {
+    //TODO enter some input to the fields using the page object
+    page.submitBtn.click();
     page.expectErrorIsDisplayed();
   });
 });

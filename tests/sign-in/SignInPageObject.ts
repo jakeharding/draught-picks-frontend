@@ -4,7 +4,7 @@
  * Created by jake
  * Created on 2/18/18
  *
- * Sign in page object
+ * Sign in page object.  Used to describe the elements on a page and provide easy interaction with them.
  */
 
 import BasePage from '../base/BasePage';
@@ -18,8 +18,8 @@ export default class SignInPageObject extends BasePage {
 
   constructor () {
     super();
-    this.signInButton = this.byTid("signInButton");
-    this.passwordInput = this.byTid("passwordField");
-    this.usernameInput = this.byTid("usernameField");
+    this.signInButton = this.getElementByTid("signInButton");
+    this.passwordInput = this.getElementByTid("passwordField");
+    this.usernameInput = this.getElementByTid("usernameField");
   }
 }
