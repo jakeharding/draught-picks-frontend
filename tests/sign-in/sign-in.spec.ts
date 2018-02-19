@@ -27,6 +27,7 @@ describe('Sign in tests', () => {
   it('should call signIn', () => {
     // Can't use spies in the specs to expect a method has been called
     //TODO enter some input to the fields
+    page.usernameInput.enterText("Hello world");
     page.signInButton.click();
     page.expectErrorIsDisplayed();
   });

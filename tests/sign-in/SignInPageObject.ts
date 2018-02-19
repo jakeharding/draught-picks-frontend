@@ -9,17 +9,18 @@
 
 import BasePage from '../base/BasePage';
 import { ElementFinder } from "protractor";
+import {Input} from "../base/Input";
 
 
 export default class SignInPageObject extends BasePage {
   signInButton: ElementFinder;
-  usernameInput: ElementFinder;
+  usernameInput: Input;
   passwordInput: ElementFinder;
 
   constructor () {
     super();
     this.signInButton = this.getElementByTid("signInButton");
     this.passwordInput = this.getElementByTid("passwordField");
-    this.usernameInput = this.getElementByTid("usernameField");
+    this.usernameInput = new Input("usernameField");
   }
 }
