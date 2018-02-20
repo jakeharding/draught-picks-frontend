@@ -1,12 +1,3 @@
-/**
- * PreferencesPageObject.ts
- *
- * Created by jake
- * Created on 2/18/18
- *
- * Preferences page object.
- */
-
 import { ElementFinder, by, ElementArrayFinder } from "protractor";
 import BasePage from "../base/BasePage";
 import {Input} from "../base/Input";
