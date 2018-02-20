@@ -1,14 +1,3 @@
-/**
- *
- * Best practice: Add some info about the file at the top in a multi-line comment.
- * This not only helps the next person using the file, but also gives you credit for writing it
- * because you should also add your name as the author. Remove this after you have added your info.
- *
- * Default file headings can be configured in jet brains products so you don't have to write them out every time.
- * I can show you how in person.
- * - Jake
- */
-
 import { browser } from 'protractor';
 import PreferencesPageObject from './PreferencesPageObject';
 
@@ -24,7 +13,6 @@ describe('preferences page test', () => {
     page = new PreferencesPageObject();
   });
   it('Test submit button', () => {
-    //TODO enter some input to the fields using the page object
     page.enterBeerInput.enterText("Blue Moon")
     page.enterAbvHigh.enterText("12")
     page.enterAbvLow.enterText("Low")
@@ -36,7 +24,6 @@ describe('preferences page test', () => {
   });
 
   it('Test add another button', () => {
-    //TODO enter some input to the fields using the page object
     page.enterBeerInput.enterText("Budlight")
     page.enterAbvHigh.enterText("25")
     page.enterAbvLow.enterText("30")

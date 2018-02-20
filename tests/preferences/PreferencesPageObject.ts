@@ -21,7 +21,6 @@ export default class PreferencesPageObject extends BasePage {
   enterIbuHigh: Input;
   enterIbuLow: Input;
   enterTextArea: ElementArrayFinder;
-  // TODO Add the other elements on the page
 
   constructor () {
     super();
@@ -33,6 +32,5 @@ export default class PreferencesPageObject extends BasePage {
     this.enterIbuHigh = new Input("enterIbuHigh");
     this.enterIbuLow = new Input("enterIbuLow");
     this.enterTextArea = this.getElementByTid("enterTextArea").all(by.tagName("textarea"))
-    // TODO Instantiate the other objects needed for other elements on the page.
   }
 }
