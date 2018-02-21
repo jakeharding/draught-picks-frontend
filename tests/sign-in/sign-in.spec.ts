@@ -36,6 +36,7 @@ describe('Sign in tests', () => {
 
   it('should go to registration page', () => {
     page.regLink.click();
+    browser.sleep(2000);
     browser.getCurrentUrl().then((url) => {
       expect(url).toContain('/#/registration');
     });
