@@ -11,11 +11,11 @@ import {$$, by, element, ElementFinder} from 'protractor';
 
 export default class BasePage {
 
-  getElementByTid (tid: string): ElementFinder {
+  getElementByTid(tid: string): ElementFinder {
     return element(by.css(`[tid="${tid}"]`));
   }
 
-  expectErrorIsDisplayed () {
+  expectErrorIsDisplayed() {
     return $$('.error-toast').count().then(count => count > 0).then(isDisplayed => {
       expect(isDisplayed).toBe(true);
     });

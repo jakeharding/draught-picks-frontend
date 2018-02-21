@@ -7,22 +7,22 @@
  * Holds test for the sign in page.
  */
 
-import { browser, by } from 'protractor';
+import {browser, by} from 'protractor';
 
 import SignInPageObject from './SignInPageObject';
-import {RegistrationPage} from "../../src/pages/registration/registration";
+import RegistrationPageObject from "../registration/RegistrationPageObject";
 
 describe('Sign in tests', () => {
 
   let page: SignInPageObject;
-  let redirectPAge : RegistrationPageObject;
+  let redirectPage: RegistrationPageObject;
 
   beforeEach(() => {
     //to open the page in the browser
     browser.get('#/sign-in');
     browser.waitForAngular();
     page = new SignInPageObject();
-    redirectPage = new RegistrationPage();
+    redirectPage = new RegistrationPageObject();
 
   });
 
@@ -35,7 +35,9 @@ describe('Sign in tests', () => {
 
 
   it('should go to registration page', () => {
-      page.regLink.click();
-      expect( browser.getCurrentUrl).toBe({});
+    page.regLink.click();
+    browser.getCurrentUrl().then((url) => {
+      expect(url).toContain('/#/registration');
     });
+  });
 });
