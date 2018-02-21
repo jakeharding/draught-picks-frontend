@@ -34,5 +34,9 @@ describe('Registration tests', () => {
     });
   it('should call goToSignInPage function', () => {
     page.signInLink.click();
+    browser.sleep(2000);
+    browser.getCurrentUrl().then((url) => {
+      expect(url).toContain('#/sign-in');
+    });
   });
 });
