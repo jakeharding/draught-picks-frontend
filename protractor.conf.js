@@ -4,7 +4,12 @@ exports.config = {
   allScriptsTimeout: 11000,
   directConnect: true,
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'loggingPrefs': {
+      'driver': 'OFF',
+      'server': 'OFF',
+      'browser': 'OFF'
+    }
   },
   framework: 'jasmine',
   jasmineNodeOpts: {
