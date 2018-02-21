@@ -13,11 +13,10 @@
       <p><i>The more you tell us the better we can recommend beers.</i></p>
 
       <ion-item>
-
-        <ion-input type="text" placeholder="Enter Beer"></ion-input>
+        <ion-input tid="enterBeerInput" type="text" placeholder="Enter Beer"></ion-input>
       </ion-item>
 
-      <button ion-button clear icon-start (click)="showErrorToastWithButton('top');">
+      <button ion-button tid="addAnotherBtn"  clear icon-start (click)="showErrorToastWithButton('top');">
         <ion-icon name='beer'></ion-icon>
         ADD ANOTHER
       </button>
@@ -45,22 +44,22 @@
         <ion-col text-center>
           <ion-item>
             <ion-label color="primary" floating>High</ion-label>
-            <ion-input></ion-input>
+            <ion-input tid="enterAbvHigh"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label color="primary" floating>Low</ion-label>
-            <ion-input></ion-input>
+            <ion-input tid="enterAbvLow"></ion-input>
           </ion-item>
         </ion-col>
 
         <ion-col text-center>
           <ion-item>
             <ion-label color="primary" floating>High</ion-label>
-            <ion-input></ion-input>
+            <ion-input tid="enterIbuHigh"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label color="primary" floating>Low</ion-label>
-            <ion-input></ion-input>
+            <ion-input tid="enterIbuLow"></ion-input>
           </ion-item>
         </ion-col>
 
@@ -72,7 +71,7 @@
       <ion-label color="primary" stacked>Describe your favorite beer(s) below:</ion-label>
 
       <ion-row>
-        <ion-textarea rows="7"> [(ngModel)]="msg"></ion-textarea>
+        <ion-textarea tid="enterTextArea" rows="7"> [(ngModel)]="msg"></ion-textarea>
       </ion-row>
 
       <button ion-button tid="submitBtn" (click)="showErrorToastWithButton('top');">
