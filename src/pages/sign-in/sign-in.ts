@@ -1,7 +1,8 @@
-import {IonicPage, NavController, ToastController,} from 'ionic-angular';
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {RegistrationPage} from "../registration/registration";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegistrationPage } from "../registration/registration";
+import { UserProvider } from "../../providers/user/user";
 
 /**
  * Generated class for the SignInPage page.
@@ -18,7 +19,8 @@ import {RegistrationPage} from "../registration/registration";
 export class SignInPage{
   signInForm: FormGroup;
   goToRegistration: any;
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController,
+              public userProvider: UserProvider) {
     this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
       userName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_]*')])],
@@ -26,7 +28,6 @@ export class SignInPage{
     });
   }
   public signIn(){
-    console.log('Hello World');
     let toast = this.toastCtrl.create({
       message: 'No network connection, try again later',
       duration: 3000,

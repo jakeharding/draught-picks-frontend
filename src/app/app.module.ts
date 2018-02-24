@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -12,7 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {RegistrationPageModule} from "../pages/registration/registration.module";
 import {PreferencesPageModule} from "../pages/preferences/preferences.module";
 import {SignInPageModule} from "../pages/sign-in/sign-in.module";
-
+import { UserProvider } from '../providers/user/user';
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -29,7 +31,8 @@ import {SignInPageModule} from "../pages/sign-in/sign-in.module";
     IonicModule.forRoot(MyApp),
     RegistrationPageModule,
     PreferencesPageModule,
-    SignInPageModule
+    SignInPageModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +45,8 @@ import {SignInPageModule} from "../pages/sign-in/sign-in.module";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserProvider
   ]
 })
 export class AppModule {}
