@@ -20,14 +20,20 @@
       <form [formGroup]="signInForm">
         <ion-item>
           <ion-label floating>Username or Email</ion-label>
-          <ion-input tid="usernameField" formControlName="userName" type="text"></ion-input>
+          <ion-input tid="usernameField" formControlName="username" type="text"></ion-input>
         </ion-item>
         <br>
         <ion-item>
           <ion-label floating>Password</ion-label>
           <ion-input tid="passwordField" formControlName="password" type="password"></ion-input>
         </ion-item>
-        <button ion-button tid="signInButton" (click)="signIn();" margin-top>Sign In</button>
+        <button
+            ion-button
+            tid="signInButton"
+            (click)="signIn();"
+            margin-top
+            [disabled]="signInForm.invalid"
+        >Sign In</button>
         <p>Do you not have an account?</p>
         <a href="#/registration" tid="registrationLink">Click here to register</a>
       </form>

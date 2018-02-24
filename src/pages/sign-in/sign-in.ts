@@ -2,7 +2,7 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationPage } from "../registration/registration";
-import { UserProvider } from "../../providers/user/user";
+import { AuthProvider } from "../../providers/auth/auth";
 
 /**
  * Generated class for the SignInPage page.
@@ -19,22 +19,33 @@ import { UserProvider } from "../../providers/user/user";
 export class SignInPage{
   signInForm: FormGroup;
   goToRegistration: any;
+  private username: string;
+  private password: string;
+
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController,
-              public userProvider: UserProvider) {
+              public authProvider: AuthProvider) {
     this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
-      userName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_]*')])],
-      password: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_]*')])]
+      username: [this.username, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9_]*')])],
+      password: [this.password, Validators.compose([Validators.required, Validators.minLength(4)])]
     });
   }
   public signIn(){
-    let toast = this.toastCtrl.create({
-      message: 'No network connection, try again later',
-      duration: 3000,
-      position: "top",
-      cssClass: "error-toast"
-    });
-    toast.present();
+    this.authProvider.signIn(this.signInForm.value).subscribe(
+      (response) => {
+        this.authProvider.setToken(response.token);
+      },
+      () => {
+        let toast = this.toastCtrl.create({
+          message: 'An error occurred please check your connection and try again.',
+          duration: 3000,
+          position: "top",
+          cssClass: "error-toast"
+        });
+        toast.present();
+      }
+    )
+
   }
 }
 

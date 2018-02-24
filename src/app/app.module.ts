@@ -10,11 +10,11 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {RegistrationPageModule} from "../pages/registration/registration.module";
-import {PreferencesPageModule} from "../pages/preferences/preferences.module";
-import {SignInPageModule} from "../pages/sign-in/sign-in.module";
-import { UserProvider } from '../providers/user/user';
-import {HttpClientModule} from "@angular/common/http";
+import { RegistrationPageModule } from "../pages/registration/registration.module";
+import { PreferencesPageModule } from "../pages/preferences/preferences.module";
+import { SignInPageModule } from "../pages/sign-in/sign-in.module";
+import { HttpClientModule } from "@angular/common/http";
+import { AuthProvider } from '../providers/auth/auth';
 
 
 
@@ -46,7 +46,7 @@ import {HttpClientModule} from "@angular/common/http";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    AuthProvider
   ]
 })
 export class AppModule {}
