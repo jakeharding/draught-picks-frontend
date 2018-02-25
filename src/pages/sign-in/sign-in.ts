@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationPage } from "../registration/registration";
 import { AuthProvider } from "../../providers/auth/auth";
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the SignInPage page.
@@ -24,6 +25,9 @@ export class SignInPage{
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController,
               public authProvider: AuthProvider) {
+    if (this.authProvider.isLoggedIn()) {
+      location.replace('/');
+    }
     this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
       username: [this.username, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9_]*')])],
@@ -34,6 +38,8 @@ export class SignInPage{
     this.authProvider.signIn(this.signInForm.value).subscribe(
       (response) => {
         this.authProvider.setToken(response.token);
+        location.replace("/");
+        this.navCtrl.push(TabsPage);
       },
       () => {
         let toast = this.toastCtrl.create({
