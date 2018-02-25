@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
-import {PreferencesPage} from "../preferences/preferences";
-import {SearchPage} from "../search/search";
+import { PreferencesPage } from "../preferences/preferences";
+import { SearchPage } from "../search/search";
 
 @Component({
   templateUrl: 'tabs.html'

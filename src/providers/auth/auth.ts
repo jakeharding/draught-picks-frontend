@@ -1,5 +1,5 @@
 import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import {Injectable, Injector, ReflectiveInjector, StaticProvider} from '@angular/core';
+import {Injectable, Injector } from '@angular/core';
 import Env from "../../env";
 import { Observable } from "rxjs/Observable";
 

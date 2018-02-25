@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {LoginRequired} from "../../providers/auth/auth";
+import { LoginRequired } from "../../providers/auth/auth";
 
 /**
  * Generated class for the SearchPage page.
