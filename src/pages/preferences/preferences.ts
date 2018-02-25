@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Inject, Injector} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import {AuthProvider, LoginRequired} from '../../providers/auth/auth';
 /**
  * Generated class for the PreferencesPage page.
  *
@@ -8,6 +9,7 @@ import { ToastController } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+@LoginRequired
 @IonicPage()
 @Component({
   selector: 'page-preferences',

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {LoginRequired} from "../../providers/auth/auth";
 
 /**
  * Generated class for the HomePage page.
@@ -8,6 +9,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+@LoginRequired
 @IonicPage()
 @Component({
   selector: 'page-home',

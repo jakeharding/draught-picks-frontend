@@ -1,7 +1,7 @@
-import {HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import {Injectable, Injector, ReflectiveInjector, StaticProvider} from '@angular/core';
 import Env from "../../env";
-import {Observable} from "rxjs/Observable";
+import { Observable } from "rxjs/Observable";
 
 /*
   Generated class for the AuthProvider provider.
@@ -12,6 +12,7 @@ import {Observable} from "rxjs/Observable";
 
 export const TOKEN_STO_KEY = "draughtPicksToken";
 
+
 @Injectable()
 export class AuthProvider implements HttpInterceptor {
 
@@ -19,7 +20,6 @@ export class AuthProvider implements HttpInterceptor {
 
   constructor(public http: HttpClient) {
     this.signInUrl = `${Env.REST_API_ROOT}login`;
-    console.log(this.signInUrl);
   }
 
   intercept (request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -52,5 +52,14 @@ export class AuthProvider implements HttpInterceptor {
   isLoggedIn() {
     return  !!this.getToken();
   }
-
 }
+
+export const LoginRequired = (target: Function) => {
+  const authProvider = Injector.create([{provide: AuthProvider, deps: [] }]).get(AuthProvider);
+  target.prototype.ionViewCanEnter = () => {
+    if(!authProvider.isLoggedIn()) {
+      location.href = "#/sign-in";
+    }
+    return authProvider.isLoggedIn();
+  };
+};
