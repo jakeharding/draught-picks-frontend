@@ -13,7 +13,8 @@
       <p><i>The more you tell us the better we can recommend beers.</i></p>
 
       <ion-item>
-        <ion-input tid="enterBeerInput" type="text" placeholder="Enter Beer"></ion-input>
+        <!--<ion-input tid="enterBeerInput" type="text" placeholder="Enter Beer"></ion-input>-->
+        <ion-searchbar (ionInput)="search($event)" [(ngModel)]="beerSearch"></ion-searchbar>
       </ion-item>
 
       <button ion-button tid="addAnotherBtn"  clear icon-start (click)="showErrorToastWithButton('top');">

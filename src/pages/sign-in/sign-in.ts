@@ -35,7 +35,7 @@ export class SignInPage{
     });
   }
   public signIn(){
-    this.authProvider.signIn(this.signInForm.value).subscribe(
+    this.authProvider.signIn(this.signInForm.value).then(
       (response) => {
         this.authProvider.setToken(response.token);
         location.replace("/");
