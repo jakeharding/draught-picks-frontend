@@ -44,12 +44,14 @@ export class PreferencesPage {
 
   favoriteSelected (beer: Beer) {
     this.user.favorite_beers.push(beer);
+    this.userProvider.update(this.user);
   }
 
   removeFavorite (beer: Beer) {
     this.user.favorite_beers = this.user.favorite_beers.filter((b: Beer) => {
       return b.uuid != beer.uuid;
-    })
+    });
+    this.userProvider.update(this.user);
   }
 
   search (event:Event) {
