@@ -14,62 +14,71 @@
 <ion-content padding>
   <ion-row>
     <ion-col text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+      <form [formGroup]="registerForm">
+        <h1>Please Register Below</h1>
 
-      <h1>Please Register Below</h1>
-      <ion-label color="primary" text-left stacked>Name</ion-label>
+        <ion-row text-center>
+          <ion-col text-center>
+            <ion-item>
+              <ion-label color="primary" text-left floating>First Name</ion-label>
+              <ion-input type="text" formControlName="first_name" tid="firstNameInput"></ion-input>
+            </ion-item>
+          </ion-col>
 
-      <ion-row text-center>
-        <ion-col text-center>
-          <ion-item>
-            <ion-input type="text" tid="firstNameInput" placeholder="First Name"></ion-input>
-          </ion-item>
-        </ion-col>
+          <ion-col text-center>
+            <ion-item>
+              <ion-label color="primary" text-left floating>Last Name</ion-label>
+              <ion-input type="text" formControlName="last_name" tid="lastNameInput"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
 
-        <ion-col text-center>
-          <ion-item>
-            <ion-input type="text" tid="lastNameInput" placeholder="Last Name"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+        <ion-item>
+          <ion-label color="primary" text-left floating>Username</ion-label>
+          <ion-input type="text" formControlName="username" tid="usernameInput"></ion-input>
+        </ion-item>
 
-      <ion-label color="primary" text-left stacked>Email</ion-label>
-      <ion-item>
-        <ion-input type="text" tid="emailInput" placeholder="Email"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label color="primary" text-left floating>Email</ion-label>
+          <ion-input type="text" formControlName="email" tid="emailInput"></ion-input>
+        </ion-item>
 
-      <ion-label color="primary" text-left stacked>Create Password</ion-label>
-      <ion-item>
-        <ion-input type="password" tid="passwordInput" placeholder="password"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label color="primary" text-left floating>Create Password</ion-label>
+          <ion-input type="password" formControlName="password" tid="passwordInput"></ion-input>
+        </ion-item>
 
-      <ion-label color="primary" text-left stacked>Confirm Password</ion-label>
-      <ion-item>
-        <ion-input type="password" tid="passwordInput2" placeholder="password"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label color="primary" text-left floating>Confirm Password</ion-label>
+          <ion-input type="password" formControlName="confirm_password" tid="passwordInput2"></ion-input>
+        </ion-item>
 
-      <ion-label color="primary" text-left stacked>Birthday</ion-label>
-      <ion-item>
-        <ion-label tid="birthDate">Your          Birthday</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
-      </ion-item>
+        <ion-item>
+          <ion-label color="primary" text-left floating>Birthday</ion-label>
+          <ion-datetime (ionChange)="dateSelected()" formControlName="date_of_birth" displayFormat="MM/DD/YYYY" max="{{ maxDate }}"></ion-datetime>
+       </ion-item>
 
-      <ion-label color="primary" text-left stacked>Legal Age Confirmation and Disclaimer</ion-label>
-      <ion-item>
-        <ion-label >I am at least 21 years old</ion-label>
-        <ion-checkbox tid="ageVerification" color="primary"></ion-checkbox>
-      </ion-item>
-      <ion-item>
-        <ion-label>I have read the disclaimer</ion-label>
-        <ion-checkbox tid="disclaimerVerification" color="primary"></ion-checkbox>
-      </ion-item>
+        <ion-label color="primary" text-left stacked>Legal Age Confirmation and Disclaimer</ion-label>
+        <ion-item>
+          <ion-label >I am at least 21 years old</ion-label>
+          <ion-checkbox formControlName="verify_age" tid="ageVerification" color="primary"></ion-checkbox>
+        </ion-item>
+       <ion-item>
+          <ion-label>I have read the disclaimer</ion-label>
+          <ion-checkbox formControlName="disclaimer_check" tid="disclaimerVerification" color="primary"></ion-checkbox>
+        </ion-item>
 
-      <button ion-button (click)="showErrorToastWithButton('top');"tid="registerButton" margin-top="20px">
-        Register
-      </button>
+        <button ion-button
+                (click)="createUser(data);"
+                tid="registerButton"
+                margin-top="20px"
+                [disabled]="registerForm.invalid">
+         Register
+        </button>
 
-      <p>Already have an account?</p>
-      <a tid="signInLink" href="#/sign-in">Sign in.</a>
-
+        <p>Already have an account?</p>
+        <a tid="signInLink" href="#/sign-in">Sign in.</a>
+      </form>
     </ion-col>
   </ion-row>
 

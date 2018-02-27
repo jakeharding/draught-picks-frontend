@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AuthProvider } from '../providers/auth/auth';
 import { SearchPageModule } from "../pages/search/search.module";
 import { HomePageModule } from "../pages/home/home.module";
+import {UserProvider} from "../providers/user/user";
 
 
 
@@ -40,7 +41,8 @@ import { HomePageModule } from "../pages/home/home.module";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    UserProvider
   ]
 })
 export class AppModule {}
