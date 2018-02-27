@@ -3,6 +3,8 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {SignInPage} from "../sign-in/sign-in";
 import {UserProvider} from "../../providers/user/user";
+import CheckboxValidator from "../../validators/CheckboxValidator";
+import PasswordValidator from "../../validators/PasswordValidator";
 
 /**
  * Generated class for the RegistrationPage page.
@@ -27,37 +29,32 @@ export class RegistrationPage {
 
     this.goToSignInPage = SignInPage;
     this.registerForm = formBuilder.group({
-      first_name: ['', Validators.compose([Validators.maxLength(30)])],
-      last_name: ['', Validators.compose([Validators.maxLength(30)])],
-      date_of_birth: ['', Validators.compose([Validators.maxLength(30)])],
-      email: ['', Validators.compose([Validators.maxLength(30)])],
-      password: ['', Validators.compose([Validators.maxLength(30)])],
-      username: ['', Validators.compose([Validators.maxLength(30)])]
-    })
+      first_name: ['', [Validators.required]],
+      last_name: ['', [Validators.required]],
+      date_of_birth: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [PasswordValidator.matches, Validators.required]],
+      confirm_password: ['', [PasswordValidator.matches, Validators.required]],
+      username: ['', [Validators.required]],
+      verify_age: [undefined, [CheckboxValidator.isChecked, Validators.required]],
+      disclaimer_check: [undefined, [CheckboxValidator.isChecked, Validators.required]]
+    }, {validator: PasswordValidator.matches})
 
   }
 
   public createUser(){
-    this.userProvider.createUser(this.registerForm.value).subscribe(
-      (response) => {
+    this.userProvider.create(this.registerForm.value).then(
+      () => {
         location.replace("#/sign-in");
+      }, () => {
+        let toast = this.toastCtrl.create({
+          message: 'Unable to register at the moment. Please try again.',
+          duration: 3000,
+          position: "top",
+          cssClass: "error-toast"
+        });
+        toast.present();
       }
     )
   }
-  //
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad RegistrationPage');
-  // }
-
-  public showErrorToastWithButton(userProvider: UserProvider, position: string){
-    //this.userProvider.subscribe();
-    let toast = this.toastCtrl.create({
-      message: 'No network connection, try again later',
-      duration: 3000,
-      position: "top",
-      cssClass: "error-toast"
-    });
-    toast.present();
-  }
-
 }
