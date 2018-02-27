@@ -20,7 +20,7 @@ export default class PasswordValidator {
         pw.setErrors(null);
         return null;
       } else {
-        pw.setErrors(null); // Always show error on the confirm password field
+        pw.setErrors(null); // Only show error on the confirm password field
         c_pw.setErrors({mismatches: true});
         return {mismatches: true}
       }

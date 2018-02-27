@@ -21,25 +21,33 @@ import PasswordValidator from "../../validators/PasswordValidator";
 export class RegistrationPage {
   registerForm: FormGroup;
   goToSignInPage: any;
+  maxDate: any;
+  verifyAge: boolean = false;
+  MS_IN_21_YEARS = 662709600000;
+
   constructor(public formBuilder: FormBuilder,
               public navCtrl: NavController,
               public navParams: NavParams,
               public toastCtrl: ToastController,
               public userProvider: UserProvider ){
-
+    this.maxDate = new Date(Date.now() - this.MS_IN_21_YEARS).toISOString();
     this.goToSignInPage = SignInPage;
     this.registerForm = formBuilder.group({
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       date_of_birth: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [PasswordValidator.matches, Validators.required]],
-      confirm_password: ['', [PasswordValidator.matches, Validators.required]],
+      password: ['', [Validators.required]],
+      confirm_password: ['', [Validators.required]],
       username: ['', [Validators.required]],
-      verify_age: [undefined, [CheckboxValidator.isChecked, Validators.required]],
+      verify_age: [this.verifyAge, [CheckboxValidator.isChecked, Validators.required]],
       disclaimer_check: [undefined, [CheckboxValidator.isChecked, Validators.required]]
     }, {validator: PasswordValidator.matches})
 
+  }
+
+  dateSelected() {
+    this.registerForm.controls['verify_age'].setValue(true);
   }
 
   public createUser(){
