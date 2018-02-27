@@ -9,11 +9,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegistrationPageModule } from "../pages/registration/registration.module";
 import { PreferencesPageModule } from "../pages/preferences/preferences.module";
 import { SignInPageModule } from "../pages/sign-in/sign-in.module";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthProvider } from '../providers/auth/auth';
 import { SearchPageModule } from "../pages/search/search.module";
 import { HomePageModule } from "../pages/home/home.module";
-import {UserProvider} from "../providers/user/user";
+import { UserProvider } from "../providers/user/user";
+import { BeerProvider } from '../providers/beer/beer';
+import {HttpModule} from "@angular/http";
 
 
 
@@ -30,7 +32,8 @@ import {UserProvider} from "../providers/user/user";
     SignInPageModule,
     SearchPageModule,
     HomePageModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,8 +44,14 @@ import {UserProvider} from "../providers/user/user";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthProvider,
+      multi: true
+    },
     AuthProvider,
-    UserProvider
+    UserProvider,
+    BeerProvider
   ]
 })
 export class AppModule {}

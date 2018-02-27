@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Env from "../../env";
+import PageResponse from "../../models/PageResponse";
+import User from "../../models/User";
 
 /*
   Generated class for the UserProvider provider.
@@ -18,5 +20,15 @@ export class UserProvider {
 
   create(userData: any) {
     return this.http.post(this.url, userData).toPromise();
+  }
+
+  retrieve() {
+    return this.http.get(this.url).toPromise().then(({ results }: PageResponse<User>) => {
+      return results[0];
+    });
+  }
+
+  update(user: User) {
+    this.http.put(`${this.url}/${user.uuid}`, user).toPromise();
   }
 }

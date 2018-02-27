@@ -2,6 +2,9 @@ import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from
 import {Injectable, Injector } from '@angular/core';
 import Env from "../../env";
 import { Observable } from "rxjs/Observable";
+import {Http} from "@angular/http";
+import 'rxjs/add/operator/map';
+import AuthResponse from "../../models/AuthResponse";
 
 /*
   Generated class for the AuthProvider provider.
@@ -18,7 +21,7 @@ export class AuthProvider implements HttpInterceptor {
 
   signInUrl: string;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: Http) {
     this.signInUrl = `${Env.REST_API_ROOT}login`;
   }
 
@@ -33,8 +36,10 @@ export class AuthProvider implements HttpInterceptor {
     return next.handle(request);
   }
 
-  signIn (creds: any): Observable<any> {
-    return this.http.post(this.signInUrl, creds);
+  signIn (creds: any): Promise<AuthResponse> {
+    return this.http.post(this.signInUrl, creds).map(resp => resp.json()).toPromise().then((resp) => {
+      return resp;
+    })
   }
 
   getToken(): string {
