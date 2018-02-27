@@ -28,7 +28,7 @@ export class UserProvider {
     });
   }
 
-  update(user: User) {
-    this.http.put(`${this.url}/${user.uuid}`, user).toPromise();
+  update(user: User): Promise<any> {
+    return this.http.put(`${this.url}/${user.uuid}`, user).toPromise();
   }
 }

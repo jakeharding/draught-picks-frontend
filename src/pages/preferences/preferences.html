@@ -11,7 +11,10 @@
       <h1>Tell us about the beer you like!</h1>
 
       <p><i>The more you tell us the better we can recommend beers.</i></p>
-      <ion-auto-complete (itemSelected)="favoriteSelected($event)" [dataProvider]="beerProvider"></ion-auto-complete>
+
+      <ion-row>
+        <ion-auto-complete (itemSelected)="favoriteSelected($event)" [dataProvider]="beerProvider"></ion-auto-complete>
+      </ion-row>
 
       <div *ngFor="let b of user?.favorite_beers">
         <ion-item>
@@ -31,46 +34,54 @@
         <ion-col><h3>IBU</h3></ion-col>
       </ion-row>
 
-      <ion-row text-center>
+      <form [formGroup]="prefsForm" (ngSubmit)="savePrefs()">
+        <ion-row text-center>
+          <ion-col text-center>
+            <ion-item>
+              <ion-label color="primary" floating>High</ion-label>
+              <ion-input formControlName="abv_hi" tid="enterAbvHigh" [(ngModel)]="prefs.abv_hi"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary" floating>Low</ion-label>
+              <ion-input formControlName="abv_low" tid="enterAbvLow" [(ngModel)]="prefs.abv_low"></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col text-center>
+            <ion-item>
+              <ion-label color="primary" floating>High</ion-label>
+              <ion-input formControlName="ibu_hi" tid="enterIbuHigh" [(ngModel)]="prefs.ibu_hi"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary" floating>Low</ion-label>
+              <ion-input formControlName="ibu_low" tid="enterIbuLow" [(ngModel)]="prefs.ibu_low"></ion-input>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+
+        <h2>Describe Your Ideal Beer(s)</h2>
 
 
-        <ion-col text-center>
-          <ion-item>
-            <ion-label color="primary" floating>High</ion-label>
-            <ion-input tid="enterAbvHigh"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label color="primary" floating>Low</ion-label>
-            <ion-input tid="enterAbvLow"></ion-input>
-          </ion-item>
-        </ion-col>
+        <ion-label color="primary" stacked>Describe your favorite beer(s) below:</ion-label>
 
-        <ion-col text-center>
-          <ion-item>
-            <ion-label color="primary" floating>High</ion-label>
-            <ion-input tid="enterIbuHigh"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label color="primary" floating>Low</ion-label>
-            <ion-input tid="enterIbuLow"></ion-input>
-          </ion-item>
-        </ion-col>
+        <ion-row>
+          <ion-textarea
+              formControlName="like_description"
+              tid="enterTextArea"
+              rows="7"
+              [(ngModel)]="prefs.like_description">
+          </ion-textarea>
+        </ion-row>
 
-      </ion-row>
-
-      <h2>Describe Your Ideal Beer(s)</h2>
-
-
-      <ion-label color="primary" stacked>Describe your favorite beer(s) below:</ion-label>
-
-      <ion-row>
-        <ion-textarea tid="enterTextArea" rows="7"> [(ngModel)]="msg"></ion-textarea>
-      </ion-row>
-
-      <button ion-button tid="submitBtn" (click)="showErrorToastWithButton('top');">
-        Submit
-      </button>
-
+        <button
+            ion-button
+            tid="submitBtn"
+            [disabled]="prefsForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
     </ion-col>
   </ion-row>
 </ion-content>
