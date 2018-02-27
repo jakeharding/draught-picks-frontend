@@ -6,10 +6,16 @@
 -->
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Draught Picks</ion-title>
+    <ion-title text-center>Draught Picks</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>Hello World!</h1>
+ <div *ngIf="!prefs">
+   <p>You don't have preferences! <a (click)="navCtrl.parent.select(2)">Visit your profile.</a></p>
+ </div>
+
+  <div *ngIf="prefs">
+    <p>Your recommendations will arrive soon!</p>
+  </div>
 </ion-content>
