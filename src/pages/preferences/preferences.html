@@ -11,21 +11,24 @@
       <h1>Tell us about the beer you like!</h1>
 
       <p><i>The more you tell us the better we can recommend beers.</i></p>
+      <ion-auto-complete (itemSelected)="favoriteSelected($event)" [dataProvider]="beerProvider"></ion-auto-complete>
 
-      <ion-item>
-        <!--<ion-input tid="enterBeerInput" type="text" placeholder="Enter Beer"></ion-input>-->
-        <ion-searchbar (ionInput)="search($event)" [(ngModel)]="beerSearch"></ion-searchbar>
-      </ion-item>
+      <div *ngFor="let b of user?.favorite_beers">
+        <ion-item>
+          {{ b.name }}
+          <b (click)="removeFavorite(b)" float-right>X</b>
+        </ion-item>
+      </div>
 
-      <button ion-button tid="addAnotherBtn"  clear icon-start (click)="showErrorToastWithButton('top');">
-        <ion-icon name='beer'></ion-icon>
-        ADD ANOTHER
-      </button>
+      <!--<button ion-button tid="addAnotherBtn"  clear icon-start (click)="showErrorToastWithButton('top');">-->
+        <!--<ion-icon name='beer'></ion-icon>-->
+        <!--ADD ANOTHER-->
+      <!--</button>-->
 
-      <button ion-button color="danger" clear icon-start>
-        <ion-icon name='md-remove' is-active="false"></ion-icon>
-        DELETE LAST BEER
-      </button>
+      <!--<button ion-button color="danger" clear icon-start>-->
+        <!--<ion-icon name='md-remove' is-active="false"></ion-icon>-->
+        <!--DELETE LAST BEER-->
+      <!--</button>-->
 
 
       <h2>Ranges of ABV and IBU

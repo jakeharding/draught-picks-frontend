@@ -15,7 +15,7 @@ import { SearchPageModule } from "../pages/search/search.module";
 import { HomePageModule } from "../pages/home/home.module";
 import { UserProvider } from "../providers/user/user";
 import { BeerProvider } from '../providers/beer/beer';
-import { HttpModule } from "@angular/http";
+import {HttpModule} from "@angular/http";
 
 
 
@@ -33,7 +33,7 @@ import { HttpModule } from "@angular/http";
     SearchPageModule,
     HomePageModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

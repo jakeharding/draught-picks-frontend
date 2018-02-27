@@ -26,7 +26,8 @@ export class SignInPage{
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController,
               public authProvider: AuthProvider) {
     if (this.authProvider.isLoggedIn()) {
-      location.replace('/');
+      this.navCtrl.setRoot(TabsPage);
+      location.hash = "";
     }
     this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
@@ -38,8 +39,8 @@ export class SignInPage{
     this.authProvider.signIn(this.signInForm.value).then(
       (response) => {
         this.authProvider.setToken(response.token);
-        location.replace("/");
-        this.navCtrl.push(TabsPage);
+        this.navCtrl.setRoot(TabsPage);
+        location.hash = "";
       },
       () => {
         let toast = this.toastCtrl.create({

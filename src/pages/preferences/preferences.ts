@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { LoginRequired } from '../../providers/auth/auth';
 import {BeerProvider} from "../../providers/beer/beer";
 import Beer from "../../models/Beer";
-import PageResponse from "../../models/PageResponse";
 import {UserProvider} from "../../providers/user/user";
 import User from "../../models/User";
 /**
@@ -27,7 +26,7 @@ export class PreferencesPage {
   user: User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public toastCtrl: ToastController, private beerProvider: BeerProvider, private userProvider: UserProvider) {
+              public toastCtrl: ToastController, public beerProvider: BeerProvider, private userProvider: UserProvider) {
     this.userProvider.retrieve().then( (user: User) => {
       this.user = user;
     });
@@ -43,11 +42,20 @@ export class PreferencesPage {
     toast.present();
   }
 
+  favoriteSelected (beer: Beer) {
+    this.user.favorite_beers.push(beer);
+  }
+
+  removeFavorite (beer: Beer) {
+    this.user.favorite_beers = this.user.favorite_beers.filter((b: Beer) => {
+      return b.uuid != beer.uuid;
+    })
+  }
+
   search (event:Event) {
     if(this.beerSearch && this.beerSearch.length > 0) {
-      this.beerProvider.search(this.beerSearch).then(({results}: PageResponse<Beer>) => {
+      this.beerProvider.search(this.beerSearch).then((results: Array<Beer>) => {
         this.beerResults = results;
-        console.log(results);
       });
     }
   }
