@@ -16,6 +16,7 @@ import { HomePageModule } from "../pages/home/home.module";
 import { UserProvider } from "../providers/user/user";
 import { BeerProvider } from '../providers/beer/beer';
 import {HttpModule} from "@angular/http";
+import { PreferencesProvider } from '../providers/preferences/preferences';
 
 
 
@@ -51,7 +52,8 @@ import {HttpModule} from "@angular/http";
     },
     AuthProvider,
     UserProvider,
-    BeerProvider
+    BeerProvider,
+    PreferencesProvider
   ]
 })
 export class AppModule {}
