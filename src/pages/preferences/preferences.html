@@ -13,7 +13,8 @@
       <p><i>The more you tell us the better we can recommend beers.</i></p>
 
       <ion-row>
-        <ion-auto-complete (itemSelected)="favoriteSelected($event)" [dataProvider]="beerProvider"></ion-auto-complete>
+        <h3>Select some of your favorites:</h3>
+        <ion-auto-complete [(ngModel)]="beerSearch" (itemSelected)="favoriteSelected($event)" [dataProvider]="beerProvider"></ion-auto-complete>
       </ion-row>
 
       <div *ngFor="let b of user?.favorite_beers">
