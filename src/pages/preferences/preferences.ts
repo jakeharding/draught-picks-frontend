@@ -86,10 +86,12 @@ export class PreferencesPage {
   }
 
   favoriteSelected (beer: Beer) {
-    this.userProvider.update(this.user).then((user: User) => {
+    if (this.user.favorite_beers.indexOf(beer) < 0) {
       this.user.favorite_beers.push(beer);
-      this.beerSearch = '';
-    });
+      this.userProvider.update(this.user).then((user: User) => {
+        this.user.favorite_beers = user.favorite_beers;
+      });
+    }
   }
 
   removeFavorite (beer: Beer) {
