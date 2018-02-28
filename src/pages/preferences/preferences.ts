@@ -92,6 +92,7 @@ export class PreferencesPage {
         this.user.favorite_beers = user.favorite_beers;
       });
     }
+    this.beerSearch = "";
   }
 
   removeFavorite (beer: Beer) {
