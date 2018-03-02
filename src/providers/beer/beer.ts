@@ -12,12 +12,14 @@ import PageResponse from "../../models/PageResponse";
   and Angular DI.
 */
 @Injectable()
-export class BeerProvider implements AutoCompleteService{
+export class BeerProvider implements AutoCompleteService {
   url:string;
-  labelAttribute = "name";
+  recentsUrl: string;
+  labelAttribute = "name"; // Attribute needed for the AutoCompleteService
 
   constructor(public http: HttpClient) {
-    this.url = `${Env.REST_API_ROOT}beers`
+    this.url = `${Env.REST_API_ROOT}beers`;
+    this.recentsUrl = `${Env.REST_API_ROOT}recent-beers`;
   }
 
   search (beerName:string) {
@@ -28,6 +30,12 @@ export class BeerProvider implements AutoCompleteService{
 
   getResults (beerName:string) {
     return this.search(beerName);
+  }
+
+  recents (): Promise<Beer[]> {
+    return this.http.get(this.recentsUrl).toPromise().then( ( { results }: PageResponse<Beer>) => {
+      return results;
+    });
   }
 
 }

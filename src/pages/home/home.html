@@ -11,11 +11,11 @@
 </ion-header>
 
 <ion-content padding>
- <div *ngIf="!prefs">
-   <p>You don't have preferences! <a (click)="navCtrl.parent.select(2)">Visit your profile.</a></p>
+ <div *ngIf="!recents">
+   <p>You haven't had any beers yet! <a (click)="navCtrl.parent.select(0)">Search for what you are drinking.</a></p>
  </div>
 
-  <div *ngIf="prefs">
-    <p>Your recommendations will arrive soon!</p>
+  <div *ngIf="recents">
+    <p *ngFor="let r of recents">{{ r.name }}</p>
   </div>
 </ion-content>
