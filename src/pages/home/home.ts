@@ -25,6 +25,6 @@ export class HomePage {
 
     this.beerProvider.recents().then(results => {
       this.recents = results;
-    })
+    });
   }
 }

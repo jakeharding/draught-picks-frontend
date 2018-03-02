@@ -16,6 +16,8 @@
  </div>
 
   <div *ngIf="recents">
-    <p *ngFor="let r of recents">{{ r.name }}</p>
+    <h1>Your recent beers:</h1>
+    <hr>
+    <beer-list [beers]="recents"></beer-list>
   </div>
 </ion-content>
