@@ -11,7 +11,18 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-row>
+    <ion-col text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
 
-<ion-content padding>
 
+      <ion-searchbar [(ngModel)]="beerSearch" (ionInput)="search($event)" placeholder="Search Beer By Name"></ion-searchbar>
+      <ion-list>
+        <ion-item *ngFor="let beer of beerResults">
+          {{ beer?.name }}
+        </ion-item>
+      </ion-list>
+
+    </ion-col>
+  </ion-row>
 </ion-content>
+
