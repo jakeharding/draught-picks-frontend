@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginRequired} from "../../providers/auth/auth";
-import {PreferencesProvider} from "../../providers/preferences/preferences";
-import UserPreferences from "../../models/UserPreferences";
+import Beer from "../../models/Beer";
+import {BeerProvider} from "../../providers/beer/beer";
 
 /**
  * Generated class for the HomePage page.
@@ -18,12 +18,13 @@ import UserPreferences from "../../models/UserPreferences";
   templateUrl: 'home.html',
 })
 export class HomePage {
-  prefs: UserPreferences;
+  recents: Array<Beer>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public prefsProvider: PreferencesProvider) {
-    this.prefsProvider.retrieve().then((prefs: UserPreferences) => {
-      this.prefs = prefs;
+              public beerProvider: BeerProvider) {
+
+    this.beerProvider.recents().then(results => {
+      this.recents = results;
     });
   }
 }

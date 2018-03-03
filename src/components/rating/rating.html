@@ -1,0 +1,9 @@
+<!-- Generated template for the RatingComponent component -->
+
+<ion-row>
+  <div [ngClass]="{'color-mug': rating?.rating >= 1, 'no-color-mug': rating?.rating < 1}"></div>
+  <div [ngClass]="{'color-mug': rating?.rating >= 2, 'no-color-mug': rating?.rating < 2}"></div>
+  <div [ngClass]="{'color-mug': rating?.rating >= 3, 'no-color-mug': rating?.rating < 3}"></div>
+  <div [ngClass]="{'color-mug': rating?.rating >= 4, 'no-color-mug': rating?.rating < 4}"></div>
+  <div [ngClass]="{'color-mug': rating?.rating >= 5, 'no-color-mug': rating?.rating < 5}"></div>
+</ion-row>

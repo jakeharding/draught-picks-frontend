@@ -6,6 +6,7 @@
  *
  * Model the beers
  */
+import BeerRating from "./BeerRating";
 
 
 export default interface Beer {
@@ -17,4 +18,5 @@ export default interface Beer {
   api_id: string;
   name_of_api: string;
   created_at: Date;
+  rating?: Array<BeerRating>;
 }
