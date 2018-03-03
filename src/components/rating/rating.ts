@@ -15,8 +15,10 @@ import {RatingProvider} from "../../providers/rating/rating";
 export class RatingComponent {
 
   @Input() rating: BeerRating;
+  @Input() size: string = 'small';
 
-  constructor(public ratingProvider: RatingProvider) {}
+  constructor(public ratingProvider: RatingProvider) {
+  }
 
   updateRating (rating: number) {
 
@@ -29,4 +31,7 @@ export class RatingComponent {
     })
   }
 
+  ngOnInit () {
+    console.log(this.size);
+  }
 }

@@ -1,4 +1,7 @@
 rating {
+  display: flex;
+  flex-direction: row;
+
   .color-mug{
     background-image: url("../../assets/imgs/rating/mug_color.png");
     background-size: cover;
@@ -13,5 +16,23 @@ rating {
     height: 30px;
     width: 30px;
     margin-right: 5px;
+  }
+
+  div {
+    flex: 1;
+  }
+
+  .large {
+    height: 55px;
+    width: 55px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    .large {
+      height: 50px;
+      width: 50px;
+      margin-right: 0px;
+    }
   }
 }

@@ -38,4 +38,9 @@ export class BeerProvider implements AutoCompleteService {
     });
   }
 
+  retrieve (uuid: string) {
+    return this.http.get(`${this.url}/${uuid}`).toPromise()
+  }
+
+
 }
