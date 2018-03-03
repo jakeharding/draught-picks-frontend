@@ -1,8 +1,17 @@
 rating {
-  .color-mug {
+  .color-mug{
     background-image: url("../../assets/imgs/rating/mug_color.png");
-    height: 50px;
-    width: 50px;
-    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+  }
+
+  .no-color-mug {
+    background-image: url("../../assets/imgs/rating/mug.png");
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
   }
 }
