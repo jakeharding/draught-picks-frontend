@@ -25,9 +25,7 @@ export class SearchPage {
   beerSearch: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public beerProvider: BeerProvider,
-              private userProvider: UserProvider,
-              public formBuilder: FormBuilder) {
+              public beerProvider: BeerProvider) {
   }
 
   search (event:Event) {
@@ -35,6 +33,8 @@ export class SearchPage {
         this.beerProvider.search(this.beerSearch).then((results: Array<Beer>) => {
             this.beerResults = results;
         });
+    } else {
+        this.beerResults = []
     }
   }
 

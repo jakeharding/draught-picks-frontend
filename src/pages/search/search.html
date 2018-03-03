@@ -13,16 +13,14 @@
 <ion-content padding>
   <ion-row>
     <ion-col text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
-
-
+      <h1 text-left>What are you drinking?</h1>
       <ion-searchbar [(ngModel)]="beerSearch" (ionInput)="search($event)" placeholder="Search Beer By Name"></ion-searchbar>
-      <!--&lt;!&ndash;<ion-list>&ndash;&gt;-->
-        <!--<ion-item *ngFor="let beer of beerResults">-->
-          <!--{{ beer?.name }}-->
-        <!--</ion-item>-->
-      <!--&lt;!&ndash;</ion-list>&ndash;&gt;-->
 
       <beer-list [beers]="beerResults" ></beer-list>
+
+      <div class="notYetSearch" text-left *ngIf="!beerResults || beerResults.length == 0">
+        <p><i>Search for a beer and let us know what you liked about it. </i></p>
+      </div>
 
     </ion-col>
   </ion-row>
