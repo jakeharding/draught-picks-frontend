@@ -2,19 +2,19 @@
 <div>
   <ion-row>
     <ion-col col-9>
-      <strong class="title">{{beer.name}}</strong>
+      <h1>{{beer.name}}</h1>
     </ion-col>
     <ion-col text-right col-3>
-      <strong class="title">98%</strong>
+      <span class="percent">98%</span>
+      <span text-center>match</span>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col col-9>
-      <p>Your rating: (Tap to rate)</p>
+      <p>Your rating:</p>
     </ion-col>
     <ion-col col-2 offset-1 col-xl-1 offset-xl-2 text-center>
-      <span>match</span>
     </ion-col>
   </ion-row>
 
@@ -24,9 +24,9 @@
     </ion-col>
 
     <ion-col col-2 text-right>
-        <strong *ngIf="beer.abv">{{ beer.abv }}</strong>
-        <strong *ngIf="!beer.abv">N/A</strong>
-        <p><strong>ABV</strong></p>
+      <strong *ngIf="beer.abv">{{ beer.abv }}</strong>
+      <strong *ngIf="!beer.abv">N/A</strong>
+      <p><strong>ABV</strong></p>
     </ion-col>
 
     <ion-col col-2 text-right>

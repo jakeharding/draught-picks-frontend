@@ -18,6 +18,7 @@ import { BeerProvider } from '../providers/beer/beer';
 import {HttpModule} from "@angular/http";
 import { PreferencesProvider } from '../providers/preferences/preferences';
 import {ComponentsModule} from "../components/components.module";
+import { RatingProvider } from '../providers/rating/rating';
 
 
 
@@ -55,7 +56,8 @@ import {ComponentsModule} from "../components/components.module";
     AuthProvider,
     UserProvider,
     BeerProvider,
-    PreferencesProvider
+    PreferencesProvider,
+    RatingProvider
   ]
 })
 export class AppModule {}
