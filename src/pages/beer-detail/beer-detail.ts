@@ -32,25 +32,26 @@ export class BeerDetailPage {
               public beerProvider: BeerProvider, public ratingProvider: RatingProvider,
               public toastController: ToastController) {
     this.beer = this.navParams.data;
+    this.beerRating = {
+      description: '',
+      rating: 0,
+      beer: this.beer.uuid,
+    } as BeerRating;
+
     this.beerProvider.retrieve(this.beer.uuid).then((beer: Beer) => {
       this.beer = beer;
-      this.beerRating = beer.rating[0];
+      if(beer.rating.length > 0) {
+        this.beerRating = beer.rating[0];
+      }
     });
     if(this.beer.rating && this.beer.rating.length > 0) {
       this.hasRating = true;
       this.beerRating = this.beer.rating[0];
-    } else {
-      this.beerRating = {
-        description: '',
-        rating: 0,
-        beer: this.beer.uuid,
-      } as BeerRating
     }
   }
 
   createRecent () {
-    const success = (rating) => {
-      this.beerRating = rating;
+    const success = (recent) => {
       const toast = this.toastController.create({
         message: "Your description has been saved!",
         duration: 3000,
