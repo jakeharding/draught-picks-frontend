@@ -38,6 +38,10 @@ export class BeerProvider implements AutoCompleteService {
     });
   }
 
+  createRecent (recent: Beer) {
+    return this.http.post(this.recentsUrl, {beer: recent.uuid}).toPromise();
+  }
+
   retrieve (uuid: string) {
     return this.http.get(`${this.url}/${uuid}`).toPromise()
   }

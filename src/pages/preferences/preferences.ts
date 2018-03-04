@@ -70,7 +70,7 @@ export class PreferencesPage {
         message: "Preferences are saved! Your recommendations will here soon!",
         duration: 3000,
         position: "top",
-        cssClass: "error-success"
+        cssClass: "success-toast"
       });
       toast.present();
     }, () => {

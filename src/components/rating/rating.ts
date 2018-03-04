@@ -30,8 +30,4 @@ export class RatingComponent {
       this.rating = rating;
     })
   }
-
-  ngOnInit () {
-    console.log(this.size);
-  }
 }

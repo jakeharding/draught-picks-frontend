@@ -50,14 +50,21 @@
       </ion-row>
 
       <ion-row>
+        <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2 text-center>
+          <button ion-button (click)="createRecent()">I'm drinking this now!</button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
         <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2>
-          <p>Your rating:</p>
+          <p *ngIf="hasRating">Your rating:</p>
+          <p *ngIf="!hasRating">You haven't rated this beer yet. Tap to rate!</p>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col col-sm-9 offset-sm-1 col-md-9 offset-md-2>
-          <rating [rating]="beer.rating[0]" [size]="'large'"></rating>
+          <rating [rating]="beerRating" [size]="'large'"></rating>
         </ion-col>
       </ion-row>
 
@@ -73,10 +80,16 @@
         <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2>
           <ion-item>
             <ion-label floating>
-              Your description:
+              Tell us what you like:
             </ion-label>
-            <ion-textarea></ion-textarea>
+            <ion-textarea rows="5" [(ngModel)]="beerRating.description"></ion-textarea>
           </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row text-center>
+        <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2>
+          <button (click)="saveRatingDescription()" ion-button>Submit</button>
         </ion-col>
       </ion-row>
 
