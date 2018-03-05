@@ -64,7 +64,7 @@
 
       <ion-row>
         <ion-col col-sm-9 offset-sm-1 col-md-9 offset-md-2>
-          <rating [rating]="beerRating" [size]="'large'"></rating>
+          <rating [rating]="beerRating" [size]="'large'" (setRating)="setRating($event)"></rating>
         </ion-col>
       </ion-row>
 

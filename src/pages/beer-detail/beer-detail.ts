@@ -103,4 +103,8 @@ export class BeerDetailPage {
       this.ratingProvider.create(this.beerRating).then(success, error);
     }
   }
+
+  setRating(rating: BeerRating): void {
+    this.beerRating = rating;
+  }
 }
