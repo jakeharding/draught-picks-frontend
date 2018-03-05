@@ -14,8 +14,5 @@ export class BeerItemComponent {
 
   @Input() beer;
 
-  constructor() {
-    console.log('Hello BeerItemComponent Component');
-  }
-
+  constructor() {}
 }

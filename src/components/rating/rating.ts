@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import BeerRating from "../../models/BeerRating";
 import {RatingProvider} from "../../providers/rating/rating";
+import {ToastController} from "ionic-angular";
 
 /**
  * Generated class for the RatingComponent component.
@@ -15,11 +16,28 @@ import {RatingProvider} from "../../providers/rating/rating";
 export class RatingComponent {
 
   @Input() rating: BeerRating;
+  @Input() size: string = 'small';
 
-  constructor(public ratingProvider: RatingProvider) {}
+  constructor(public ratingProvider: RatingProvider, public toastController: ToastController) {
+  }
 
   updateRating (rating: number) {
+    const success = rating => {
+      this.rating = rating;
+      const toast = this.toastController.create({
+        message: "Your rating is saved.",
+        duration: 3000,
+        position: "top",
+        cssClass: "success-toast"
+      });
+      toast.present();
+    };
 
+    if (this.rating && this.rating.uuid) {
+      return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success)
+    } else {
+      this.createRating(this.rating.beer, rating);
+    }
   }
 
   createRating (beer: string, rating: number) {
@@ -28,5 +46,4 @@ export class RatingComponent {
       this.rating = rating;
     })
   }
-
 }

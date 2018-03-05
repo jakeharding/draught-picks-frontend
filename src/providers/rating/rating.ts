@@ -22,7 +22,7 @@ export class RatingProvider {
     return this.http.post(this.url, beerRating).toPromise().then((rating:BeerRating) => rating);
   }
 
-  update(beerRating: BeerRating): Promise<BeerRating> {
-    return this.http.put(`${this.url}/${beerRating.uuid}`, beerRating).toPromise().then((rating:BeerRating) => rating);
+  partialUpdate(beerRating: BeerRating): Promise<BeerRating> {
+    return this.http.patch(`${this.url}/${beerRating.uuid}`, beerRating).toPromise().then((rating:BeerRating) => rating);
   }
 }

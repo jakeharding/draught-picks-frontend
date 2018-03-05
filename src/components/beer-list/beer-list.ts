@@ -1,4 +1,4 @@
-import {Component, Input, ViewChild} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import Beer from "../../models/Beer";
 
 /**
@@ -16,7 +16,6 @@ export class BeerListComponent {
   @Input() beers: Array<Beer>;
 
   constructor() {
-
   }
 
 }
