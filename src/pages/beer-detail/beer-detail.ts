@@ -53,7 +53,7 @@ export class BeerDetailPage {
   createRecent () {
     const success = (recent) => {
       const toast = this.toastController.create({
-        message: "Your description has been saved!",
+        message: "We saved a record of this you! Tell us what you think!",
         duration: 3000,
         position: "top",
         cssClass: "success-toast"
@@ -70,10 +70,6 @@ export class BeerDetailPage {
       toast.present();
     };
     this.beerProvider.createRecent(this.beer).then(success, error);
-  }
-
-  saveRating () {
-
   }
 
   saveRatingDescription() {

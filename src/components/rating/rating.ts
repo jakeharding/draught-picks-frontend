@@ -19,32 +19,36 @@ export class RatingComponent {
   @Input() size: string = 'small';
   @Output() setRating = new EventEmitter<BeerRating>();
 
+  private static LARGE = 'large';
+
   constructor(public ratingProvider: RatingProvider, public toastController: ToastController) {}
 
   updateRating (rating: number) {
-    const success = rating => {
-      this.rating = rating;
-      const toast = this.toastController.create({
-        message: "Your rating is saved.",
-        duration: 3000,
-        position: "top",
-        cssClass: "success-toast"
-      });
-      toast.present();
-      this.setRating.emit(rating); // Update parent component
-    };
+    if (this.size === RatingComponent.LARGE) {
+      const success = rating => {
+        this.rating = rating;
+        const toast = this.toastController.create({
+          message: "Your rating is saved.",
+          duration: 3000,
+          position: "top",
+          cssClass: "success-toast"
+        });
+        toast.present();
+        this.setRating.emit(rating); // Update parent component
+      };
 
-    if (this.rating && this.rating.uuid) {
-      return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success)
-    } else {
-      this.createRating(this.rating.beer, rating).then(success);
+      if (this.rating && this.rating.uuid) {
+        return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success)
+      } else {
+        this.createRating(this.rating.beer, rating).then(success);
+      }
     }
   }
 
   createRating (beer: string, rating: number) {
-    const newRating = { beer, rating } as BeerRating;
+    const newRating = {beer, rating} as BeerRating;
     return this.ratingProvider.create(newRating).then((rating) => {
       this.rating = rating;
-    })
+    });
   }
 }
