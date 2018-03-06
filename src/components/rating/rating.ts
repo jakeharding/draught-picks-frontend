@@ -47,8 +47,6 @@ export class RatingComponent {
 
   createRating (beer: string, rating: number) {
     const newRating = {beer, rating} as BeerRating;
-    return this.ratingProvider.create(newRating).then((rating) => {
-      this.rating = rating;
-    });
+    return this.ratingProvider.create(newRating);
   }
 }
