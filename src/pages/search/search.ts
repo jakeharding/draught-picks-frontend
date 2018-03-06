@@ -49,4 +49,8 @@ export class SearchPage {
     this.beerResults = null;
 
   }
+
+  ionViewWillEnter() {
+    this.search(null);
+  }
 }

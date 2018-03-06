@@ -21,8 +21,9 @@ export class HomePage {
   recents: Array<Beer>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public beerProvider: BeerProvider) {
+              public beerProvider: BeerProvider) {}
 
+  ionViewWillEnter () {
     this.beerProvider.recents().then(results => {
       this.recents = results;
     });
