@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import BeerRating from "../../models/BeerRating";
 import {RatingProvider} from "../../providers/rating/rating";
 import {ToastController} from "ionic-angular";
@@ -17,33 +17,36 @@ export class RatingComponent {
 
   @Input() rating: BeerRating;
   @Input() size: string = 'small';
+  @Output() setRating = new EventEmitter<BeerRating>();
 
-  constructor(public ratingProvider: RatingProvider, public toastController: ToastController) {
-  }
+  private static LARGE = 'large';
+
+  constructor(public ratingProvider: RatingProvider, public toastController: ToastController) {}
 
   updateRating (rating: number) {
-    const success = rating => {
-      this.rating = rating;
-      const toast = this.toastController.create({
-        message: "Your rating is saved.",
-        duration: 3000,
-        position: "top",
-        cssClass: "success-toast"
-      });
-      toast.present();
-    };
+    if (this.size === RatingComponent.LARGE) {
+      const success = rating => {
+        this.rating = rating;
+        const toast = this.toastController.create({
+          message: "Your rating is saved.",
+          duration: 3000,
+          position: "top",
+          cssClass: "success-toast"
+        });
+        toast.present();
+        this.setRating.emit(rating); // Update parent component
+      };
 
-    if (this.rating && this.rating.uuid) {
-      return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success)
-    } else {
-      this.createRating(this.rating.beer, rating);
+      if (this.rating && this.rating.uuid) {
+        return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success)
+      } else {
+        this.createRating(this.rating.beer, rating).then(success);
+      }
     }
   }
 
   createRating (beer: string, rating: number) {
-    const newRating = { beer, rating } as BeerRating;
-    this.ratingProvider.create(newRating).then((rating) => {
-      this.rating = rating;
-    })
+    const newRating = {beer, rating} as BeerRating;
+    return this.ratingProvider.create(newRating);
   }
 }
