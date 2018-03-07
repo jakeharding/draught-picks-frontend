@@ -64,8 +64,8 @@
           <ion-checkbox formControlName="verify_age" tid="ageVerification" color="primary"></ion-checkbox>
         </ion-item>
        <ion-item>
+          <ion-checkbox [navPush]="goToDisclaimerPage" formControlName="disclaimer_check" color="primary">I have read the disclaimer</ion-checkbox>
           <ion-label>I have read the disclaimer</ion-label>
-          <ion-checkbox formControlName="disclaimer_check" tid="disclaimerVerification" color="primary"></ion-checkbox>
         </ion-item>
 
         <button ion-button
