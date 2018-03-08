@@ -24,7 +24,7 @@ export class RegistrationPage {
   goToSignInPage: any;
   goToDisclaimerPage: any;
   maxDate: any;
-  verifyAge: boolean = false;ion
+  verifyAge: boolean = false;
   MS_IN_21_YEARS = 662709600000;
 
   constructor(public formBuilder: FormBuilder,

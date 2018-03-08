@@ -4,21 +4,23 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar color="primary">
-    <ion-title text-center>Draught Picks</ion-title>
-  </ion-navbar>
-
+<ion-header text-center>
+    <ion-navbar  color="primary">
+      <ion-title position="absolute">Draught Picks</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
-<ion-content text-center>
-  <h1>Disclaimer</h1>
-  <p margin>Please drink responsibly. Draught Picks is not responsible for any over consumption of alchohol. By reading this Disclaimer,
-  you acknowledge that you are responsible for the amount of alcohol consumed.
-  </p>
-  <p margin>You also acknowledge that you are over 21 by using this application. Draught Picks is not responsible for under age drinking.</p>
+<ion-content>
+  <ion-row>
+    <ion-col text-center col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+      <h1>Disclaimer</h1>
+      <p margin>Please drink responsibly. Draught Picks is not responsible for any over consumption of alchohol. By reading this Disclaimer,
+      you acknowledge that you are responsible for the amount of alcohol consumed.
+      </p>
+      <p margin>You also acknowledge that you are over 21 by using this application. Draught Picks is not responsible for under age drinking.</p>
 
-  <button ion-button navPop>I have read the disclaimer</button>
+      <a navPop>I have read the disclaimer</a>
+    </ion-col>
+  </ion-row>
 </ion-content>
