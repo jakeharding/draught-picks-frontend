@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {SignInPage} from "../sign-in/sign-in";
+import {DisclaimerPage} from "../disclaimer/disclaimer";
 import {UserProvider} from "../../providers/user/user";
 import CheckboxValidator from "../../validators/CheckboxValidator";
 import PasswordValidator from "../../validators/PasswordValidator";
@@ -21,6 +22,7 @@ import PasswordValidator from "../../validators/PasswordValidator";
 export class RegistrationPage {
   registerForm: FormGroup;
   goToSignInPage: any;
+  goToDisclaimerPage: any;
   maxDate: any;
   verifyAge: boolean = false;
   MS_IN_21_YEARS = 662709600000;
@@ -32,6 +34,7 @@ export class RegistrationPage {
               public userProvider: UserProvider ){
     this.maxDate = new Date(Date.now() - this.MS_IN_21_YEARS).toISOString();
     this.goToSignInPage = SignInPage;
+    this.goToDisclaimerPage = DisclaimerPage;
     this.registerForm = formBuilder.group({
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],

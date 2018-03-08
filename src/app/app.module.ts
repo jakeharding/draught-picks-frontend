@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegistrationPageModule } from "../pages/registration/registration.module";
 import { PreferencesPageModule } from "../pages/preferences/preferences.module";
+import { DisclaimerPageModule} from "../pages/disclaimer/disclaimer.module";
 import { SignInPageModule } from "../pages/sign-in/sign-in.module";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthProvider } from '../providers/auth/auth';
@@ -34,6 +35,7 @@ import { RatingProvider } from '../providers/rating/rating';
     PreferencesPageModule,
     SignInPageModule,
     SearchPageModule,
+    DisclaimerPageModule,
     HomePageModule,
     HttpClientModule,
     HttpModule,
