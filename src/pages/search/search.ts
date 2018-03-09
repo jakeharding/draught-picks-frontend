@@ -29,6 +29,7 @@ export class SearchPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
     this.message = SearchPage.NULL_RESULT_MESSAGE;
+    this.beerSearch = "";
   }
 
   search (event:Event) {

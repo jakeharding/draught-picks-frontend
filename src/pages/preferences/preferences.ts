@@ -34,6 +34,7 @@ export class PreferencesPage {
               public toastCtrl: ToastController, public beerProvider: BeerProvider,
               private userProvider: UserProvider, private preferencesProvider: PreferencesProvider,
               public formBuilder: FormBuilder) {
+    this.beerSearch = "";
     this.userProvider.retrieve().then( (user: User) => {
       this.user = user;
     });
@@ -75,7 +76,7 @@ export class PreferencesPage {
       toast.present();
     }, () => {
       let toast = this.toastCtrl.create({
-        message: "We couldn't save you profile at the moment. Please try again.",
+        message: "We couldn't save your profile at the moment. Please try again.",
         duration: 3000,
         position: "top",
         cssClass: "error-toast"
