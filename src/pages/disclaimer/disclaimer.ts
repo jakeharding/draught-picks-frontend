@@ -19,8 +19,4 @@ export class DisclaimerPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams ) {
     }
-
-  ionViewDidLoad(){
-    console.log('ionViewDidLoad DisclaimerPage');
-  }
 }
