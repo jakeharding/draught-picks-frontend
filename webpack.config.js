@@ -115,7 +115,7 @@ var prodConfig = {
   output: {
     path: '{{BUILD}}',
     publicPath: 'build/',
-    filename: '[name].js',
+    filename: '[name].[chunkhash].js',
     devtoolModuleFilenameTemplate: ionicWebpackFactory.getSourceMapperFunction(),
   },
   devtool: process.env.IONIC_SOURCE_MAP_TYPE,
