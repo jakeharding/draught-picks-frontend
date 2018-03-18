@@ -37,3 +37,7 @@
 .underline {
   text-decoration: underline;
 }
+
+.below-header {
+  top: $navbar-md-height;
+}
