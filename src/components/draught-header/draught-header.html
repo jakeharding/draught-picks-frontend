@@ -3,7 +3,7 @@
   <ion-navbar color="primary">
     <ion-row>
       <ion-col col-6 offset-3>
-        <ion-title text-center>Draught Picks</ion-title>
+        <ion-title class="pointer" text-center (click)="home()">Draught Picks</ion-title>
       </ion-col>
       <ion-col col-2>
         <span ion-text color="light" tid="logout" float-right (click)="logout()" class="pointer" *ngIf="isLoggedIn">
