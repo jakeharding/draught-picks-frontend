@@ -14,6 +14,7 @@ var ionicWebpackFactory = require(process.env.IONIC_WEBPACK_FACTORY);
 var ModuleConcatPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 var PurifyPlugin = require('@angular-devkit/build-optimizer').PurifyPlugin;
 const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const dotenvPlugin = new Dotenv({
   path: './.env'
@@ -134,7 +135,11 @@ var prodConfig = {
     ionicWebpackFactory.getCommonChunksPlugin(),
     new ModuleConcatPlugin(),
     new PurifyPlugin(),
-    dotenvPlugin
+    dotenvPlugin,
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      filename: '../index.html',
+    })
   ],
 
   // Some libraries import Node modules but don't use them in the browser.
