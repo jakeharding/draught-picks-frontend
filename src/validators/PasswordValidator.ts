@@ -15,12 +15,12 @@ export default class PasswordValidator {
     if (formGroup.controls) {
       const pw = formGroup.controls['password'];
       const c_pw = formGroup.controls['confirm_password'];
-      if (pw.value == c_pw.value) {
+      if (pw.value.length >= 4 && pw.value == c_pw.value) {
         c_pw.setErrors(null);
         pw.setErrors(null);
         return null;
       } else {
-        pw.setErrors(null); // Only show error on the confirm password field
+        pw.setErrors({mismatches: true}); // Only show error on the confirm password field
         c_pw.setErrors({mismatches: true});
         return {mismatches: true}
       }

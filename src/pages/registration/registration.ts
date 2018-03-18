@@ -40,7 +40,7 @@ export class RegistrationPage {
       last_name: ['', [Validators.required]],
       date_of_birth: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
       confirm_password: ['', [Validators.required]],
       username: ['', [Validators.required]],
       verify_age: [this.verifyAge, [CheckboxValidator.isChecked, Validators.required]],

@@ -31,7 +31,7 @@ export class SignInPage{
     }
     this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
-      username: [this.username, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9_]*')])],
+      username: [this.username, Validators.compose([Validators.required])],
       password: [this.password, Validators.compose([Validators.required, Validators.minLength(4)])]
     });
   }
