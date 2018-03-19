@@ -99,7 +99,11 @@ var devConfig = {
   plugins: [
     ionicWebpackFactory.getIonicEnvironmentPlugin(),
     ionicWebpackFactory.getCommonChunksPlugin(),
-    dotenvPlugin
+    dotenvPlugin,
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      filename: '../index.html',
+    })
   ],
 
   // Some libraries import Node modules but don't use them in the browser.
