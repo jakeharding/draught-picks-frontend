@@ -9,15 +9,38 @@
 <ion-content padding>
   <ion-row>
     <ion-col class="below-header" col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3>
-      <div text-center *ngIf="recents?.length === 0">
-        <p>You haven't had any beers yet! <a class="pointer" (click)="navCtrl.parent.select(0)">Search for what you are drinking.</a>
-        </p>
-      </div>
 
-      <div *ngIf="recents?.length > 0">
-        <strong class="title">Your recent beers:</strong>
-        <hr>
-        <beer-list [beers]="recents"></beer-list>
+      <ion-segment color="primary" [(ngModel)]="isRecentBeersSelected">
+        <ion-segment-button value="yes">
+          Recent
+        </ion-segment-button>
+        <ion-segment-button value="no">
+          Recommended
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="isRecentBeersSelected">
+        <div *ngSwitchCase="'yes'">
+          <div text-center *ngIf="recents?.length === 0">
+            <p>You haven't had any beers yet! <a class="pointer" (click)="navCtrl.parent.select(0)">Search for what you are drinking.</a></p>
+          </div>
+          <div *ngIf="recents?.length > 0">
+            <strong class="title">Your recent beers:</strong>
+            <hr>
+            <beer-list [beers]="recents"></beer-list>
+          </div>
+        </div>
+        <div *ngSwitchCase="'no'">
+            <div text-center *ngIf="recommended?.length === 0">
+              <p>Your recommended beers are coming soon! If you haven't created your beer profile yet,
+                <a class="pointer" (click)="navCtrl.parent.select(2)">click here to fill it out now!</a></p>
+            </div>
+            <div *ngIf="recommended?.length > 0">
+              <strong class="title">Your recommended beers:</strong>
+              <hr>
+              <beer-list [beers]="recommended"></beer-list>
+            </div>
+        </div>
+
       </div>
     </ion-col>
   </ion-row>
