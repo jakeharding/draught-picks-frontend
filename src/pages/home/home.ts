@@ -34,5 +34,4 @@ export class HomePage {
       this.recommended = results;
     });
   }
-
 }
