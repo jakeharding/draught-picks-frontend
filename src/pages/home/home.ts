@@ -19,13 +19,20 @@ import {BeerProvider} from "../../providers/beer/beer";
 })
 export class HomePage {
   recents: Array<Beer>;
+  recommended: Array<Beer>;
+  isRecentBeersSelected: string = 'yes';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public beerProvider: BeerProvider) {}
+              public beerProvider: BeerProvider) {
+  }
 
   ionViewWillEnter () {
     this.beerProvider.recents().then(results => {
       this.recents = results;
     });
+    this.beerProvider.recommended().then(results => {
+      this.recommended = results;
+    });
   }
+
 }
