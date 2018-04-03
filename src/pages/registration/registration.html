@@ -51,7 +51,7 @@
 
         <ion-item>
           <ion-label color="primary" text-left floating>Birthday</ion-label>
-          <ion-datetime (ionChange)="dateSelected()" formControlName="date_of_birth" displayFormat="YYYY/MM/DD" max="{{ maxDate }}"></ion-datetime>
+          <ion-datetime tid="birthDate" (ionChange)="dateSelected()" formControlName="date_of_birth" displayFormat="YYYY/MM/DD" max="{{ maxDate }}"></ion-datetime>
         </ion-item>
 
         <ion-label color="primary" text-left stacked>Legal Age Confirmation and Disclaimer</ion-label>
@@ -60,7 +60,7 @@
           <ion-checkbox formControlName="verify_age" tid="ageVerification" color="primary"></ion-checkbox>
         </ion-item>
         <ion-item>
-          <ion-checkbox [navPush]="goToDisclaimerPage" formControlName="disclaimer_check" color="primary"></ion-checkbox>
+          <ion-checkbox tid="disclaimerVerification" [navPush]="goToDisclaimerPage" formControlName="disclaimer_check" color="primary"></ion-checkbox>
           <ion-label>I have read the <a class="underline">disclaimer.</a></ion-label>
         </ion-item>
 
