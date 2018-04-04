@@ -1,15 +1,28 @@
-import { browser } from 'protractor';
+import {browser, by, element} from 'protractor';
 import PreferencesPageObject from './PreferencesPageObject';
+import SignInPageObject from '../sign-in/SignInPageObject';
 
+export const signInProc = () => {
+  browser.get('#/sign-in');
+  browser.waitForAngular();
+  const page = new SignInPageObject();
+  page.usernameInput.enterText("admin");
+  page.passwordInput.enterText("admin");
+  page.submitBtn.click();
+};
 
 describe('preferences page test', () => {
 
   let page: PreferencesPageObject;
 
   beforeEach(() => {
+    signInProc();
+    browser.sleep(5000);
+    element(by.css(".tab-button")).click();
     //to open the page in the browser
-    browser.get('#/preferences');
-    browser.waitForAngular();
+    // browser.get('#/preferences');
+    // browser.waitForAngular();
+    browser.sleep(5000);
     page = new PreferencesPageObject();
   });
   it('Test submit button', () => {
