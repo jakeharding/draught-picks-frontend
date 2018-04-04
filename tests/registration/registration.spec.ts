@@ -31,14 +31,15 @@ describe('Registration tests', () => {
     page.passwordInput.enterText("testpassword123");
     page.passwordInput2.enterText("testpassword123");
     page.birthDate.click();
-    browser.sleep(500);
+    browser.sleep(1000);
     page.closeDatePicker();
-    browser.sleep(500);
+    browser.sleep(1000);
     page.disclaimerVerification.click();
-    browser.sleep(500);
+    browser.sleep(1000);
     page.getElementByTid("disclaimerVerified").click();
-    browser.sleep(500);
+    browser.sleep(1000);
     page.registerButton.click();
+    browser.sleep(1000);
     page.expectErrorIsDisplayed();
     });
   it('should call goToSignInPage function', () => {
