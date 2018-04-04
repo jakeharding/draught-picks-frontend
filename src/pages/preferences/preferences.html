@@ -57,10 +57,14 @@
 
         </ion-row>
 
-        <h2>Describe Your Ideal Beer(s)</h2>
+        <ion-row>
+        <h2>Describe your favorite beer(s) below:
+            <button ion-button clear icon-start [navPush]="goToBeerFavoriteInfoPage">
+              <ion-icon color="primary" name="information-circle"></ion-icon>
+           </button>
+        </h2>
 
-
-        <ion-label color="primary" stacked>Describe your favorite beer(s) below:</ion-label>
+        </ion-row>
 
         <ion-row>
           <ion-textarea
