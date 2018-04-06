@@ -9,6 +9,8 @@ import User from "../../models/User";
 import {PreferencesProvider} from "../../providers/preferences/preferences";
 import UserPreferences from '../../models/UserPreferences';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbvInfoPage} from "../abv-info/abv-info";
+
 /**
  * Generated class for the PreferencesPage page.
  *
@@ -29,12 +31,14 @@ export class PreferencesPage {
   user: User;
   prefs: UserPreferences;
   prefsForm: FormGroup;
+  goToABVPage: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public toastCtrl: ToastController, public beerProvider: BeerProvider,
               private userProvider: UserProvider, private preferencesProvider: PreferencesProvider,
               public formBuilder: FormBuilder) {
     this.beerSearch = "";
+    this.goToABVPage = AbvInfoPage;
     this.userProvider.retrieve().then( (user: User) => {
       this.user = user;
     });
