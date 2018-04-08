@@ -20,11 +20,7 @@
         </ion-item>
       </div>
 
-      <h2>Ranges of ABV and IBU
-        <button ion-button clear icon-start>
-          <ion-icon color="primary" name="information-circle"></ion-icon>
-        </button>
-      </h2>
+      <h2>Ranges of ABV and IBU</h2>
 
       <ion-row text-center>
         <ion-col>
@@ -34,7 +30,14 @@
             </button>
           </h3>
         </ion-col>
-        <ion-col><h3>IBU</h3></ion-col>
+
+        <ion-col>
+          <h3>IBU
+            <button id="infoButton" ion-button clear icon-start [navPush]="goToIBUPage">
+              <ion-icon color="primary" name="information-circle"></ion-icon>
+            </button>
+          </h3>
+        </ion-col>
       </ion-row>
 
       <form [formGroup]="prefsForm" (ngSubmit)="savePrefs()">
@@ -80,14 +83,12 @@
               [(ngModel)]="prefs.like_description">
           </ion-textarea>
         </ion-row>
-
-        <button
-            ion-button
-            tid="submitBtn"
-            [disabled]="prefsForm.invalid"
-        >
-          Submit
-        </button>
+          <button
+              ion-button
+              tid="submitBtn"
+              [disabled]="prefsForm.invalid">
+            Submit
+          </button>
       </form>
     </ion-col>
   </ion-row>
