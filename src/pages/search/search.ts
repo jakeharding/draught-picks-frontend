@@ -3,8 +3,6 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import { LoginRequired } from "../../providers/auth/auth";
 import Beer from "../../models/Beer";
 import {BeerProvider} from "../../providers/beer/beer";
-import {FormBuilder} from "@angular/forms";
-import {UserProvider} from "../../providers/user/user";
 
 /**
  * Generated class for the SearchPage page.
@@ -32,6 +30,10 @@ export class SearchPage {
     this.beerSearch = "";
   }
 
+  /**
+   * Method called on input to the search bar.
+   * @param {Event} event
+   */
   search (event:Event) {
     if(this.beerSearch && this.beerSearch.length > 2) {
         this.beerProvider.search(this.beerSearch).then((results: Array<Beer>) => {
@@ -45,12 +47,21 @@ export class SearchPage {
         this.message = SearchPage.NULL_RESULT_MESSAGE;
     }
   }
-  clear(event:Event) {
+
+  /**
+   * Method called when the `X` is clicked in the search bar.
+   * @param {Event} event
+   */
+  clear(event:Event): void {
     this.message = SearchPage.NULL_RESULT_MESSAGE;
     this.beerResults = null;
 
   }
 
+  /**
+   * Method called when view is about to enter.
+   * Call the search method in case user has a value in the input.
+   */
   ionViewWillEnter() {
     this.search(null);
   }

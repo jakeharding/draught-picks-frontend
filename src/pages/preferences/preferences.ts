@@ -11,6 +11,7 @@ import UserPreferences from '../../models/UserPreferences';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BeerFavoriteInfoPage} from "../beer-favorite-info/beer-favorite-info";
 import {AbvInfoPage} from "../abv-info/abv-info";
+
 /**
  * Generated class for the PreferencesPage page.
  *
