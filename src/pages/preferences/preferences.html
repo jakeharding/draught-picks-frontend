@@ -27,7 +27,13 @@
       </h2>
 
       <ion-row text-center>
-        <ion-col><h3>ABV</h3></ion-col>
+        <ion-col>
+          <h3>ABV
+            <button ion-button clear icon-start [navPush]="goToABVPage">
+              <ion-icon color="primary" name="information-circle"></ion-icon>
+            </button>
+          </h3>
+        </ion-col>
         <ion-col><h3>IBU</h3></ion-col>
       </ion-row>
 

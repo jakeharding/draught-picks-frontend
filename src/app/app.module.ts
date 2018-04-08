@@ -20,6 +20,7 @@ import {HttpModule} from "@angular/http";
 import { PreferencesProvider } from '../providers/preferences/preferences';
 import {ComponentsModule} from "../components/components.module";
 import { RatingProvider } from '../providers/rating/rating';
+import {AbvInfoPageModule} from "../pages/abv-info/abv-info.module";
 
 
 
@@ -40,6 +41,7 @@ import { RatingProvider } from '../providers/rating/rating';
     HttpClientModule,
     HttpModule,
     ComponentsModule,
+    AbvInfoPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
