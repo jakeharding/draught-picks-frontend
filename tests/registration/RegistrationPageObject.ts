@@ -6,13 +6,14 @@
  */
 
 import BasePage from '../base/BasePage';
-import {ElementFinder} from "protractor";
+import {by, element, ElementFinder} from "protractor";
 import {Input} from "../base/Input";
 
 export default class RegistrationPageObject extends BasePage {
   firstNameInput: Input;
   lastNameInput: Input;
   emailInput: Input;
+  usernameInput: Input;
   passwordInput: Input;
   passwordInput2: Input;
   birthDate: ElementFinder;
@@ -25,6 +26,7 @@ export default class RegistrationPageObject extends BasePage {
     super();
     this.firstNameInput = new Input("firstNameInput");
     this.lastNameInput = new Input("lastNameInput");
+    this.usernameInput = new Input("usernameInput");
     this.emailInput = new Input("emailInput");
     this.passwordInput = new Input("passwordInput");
     this.passwordInput2 = new Input("passwordInput2");
@@ -33,5 +35,8 @@ export default class RegistrationPageObject extends BasePage {
     this.registerButton = this.getElementByTid('registerButton');
     this.signInLink = this.getElementByTid('signInLink');
     this.disclaimerVerification = this.getElementByTid('disclaimerVerification');
+  }
+  closeDatePicker() {
+    element(by.css(".picker-toolbar-button:not(.picker-toolbar-cancel) button")).click();
   }
 }

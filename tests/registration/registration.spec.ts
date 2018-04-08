@@ -8,9 +8,11 @@
  */
 
 import { browser } from 'protractor';
+import {$$, by, element, ElementFinder} from 'protractor';
 
 import RegistrationPageObject from './RegistrationPageObject';
 import {describe} from "selenium-webdriver/testing";
+import DisclaimerPageObject from "../disclaimer/DisclaimerPageObject";
 describe('Registration tests', () => {
 
   let page: RegistrationPageObject;
@@ -24,12 +26,20 @@ describe('Registration tests', () => {
   it('should check for firstNameInput', () => {
     page.firstNameInput.enterText("First Name");
     page.lastNameInput.enterText("Last Name");
+    page.usernameInput.enterText("User Name");
     page.emailInput.enterText("test@gmail.com");
     page.passwordInput.enterText("testpassword123");
     page.passwordInput2.enterText("testpassword123");
-    page.ageVerification.click();
+    page.birthDate.click();
+    browser.sleep(1000);
+    page.closeDatePicker();
+    browser.sleep(1000);
     page.disclaimerVerification.click();
+    browser.sleep(1000);
+    page.getElementByTid("disclaimerVerified").click();
+    browser.sleep(1000);
     page.registerButton.click();
+    browser.sleep(1000);
     page.expectErrorIsDisplayed();
     });
   it('should call goToSignInPage function', () => {
