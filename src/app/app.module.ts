@@ -20,9 +20,8 @@ import {HttpModule} from "@angular/http";
 import { PreferencesProvider } from '../providers/preferences/preferences';
 import {ComponentsModule} from "../components/components.module";
 import { RatingProvider } from '../providers/rating/rating';
-import {BeerFavoriteInfoPage} from "../pages/beer-favorite-info/beer-favorite-info";
 import {BeerFavoriteInfoPageModule} from "../pages/beer-favorite-info/beer-favorite-info.module";
-
+import {AbvInfoPageModule} from "../pages/abv-info/abv-info.module";
 
 
 @NgModule({

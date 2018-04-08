@@ -10,6 +10,7 @@ import {PreferencesProvider} from "../../providers/preferences/preferences";
 import UserPreferences from '../../models/UserPreferences';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BeerFavoriteInfoPage} from "../beer-favorite-info/beer-favorite-info";
+import {AbvInfoPage} from "../abv-info/abv-info";
 /**
  * Generated class for the PreferencesPage page.
  *
@@ -31,6 +32,7 @@ export class PreferencesPage {
   prefs: UserPreferences;
   prefsForm: FormGroup;
   goToBeerFavoriteInfoPage: any;
+  goToABVPage: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public toastCtrl: ToastController, public beerProvider: BeerProvider,
@@ -38,6 +40,7 @@ export class PreferencesPage {
               public formBuilder: FormBuilder) {
     this.beerSearch = "";
     this.goToBeerFavoriteInfoPage = BeerFavoriteInfoPage;
+    this.goToABVPage = AbvInfoPage;
     this.userProvider.retrieve().then( (user: User) => {
       this.user = user;
     });
