@@ -51,7 +51,7 @@
 
         <ion-item>
           <ion-label color="primary" text-left floating>Birthday</ion-label>
-          <ion-datetime (ionChange)="dateSelected()" formControlName="date_of_birth" displayFormat="MM/DD/YYYY" max="{{ maxDate }}"></ion-datetime>
+          <ion-datetime (ionChange)="dateSelected()" formControlName="date_of_birth" displayFormat="YYYY/MM/DD" max="{{ maxDate }}"></ion-datetime>
         </ion-item>
 
         <ion-label color="primary" text-left stacked>Legal Age Confirmation and Disclaimer</ion-label>
