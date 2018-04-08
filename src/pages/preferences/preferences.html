@@ -25,7 +25,7 @@
       <ion-row text-center>
         <ion-col>
           <h3>ABV
-            <button ion-button clear icon-start [navPush]="goToABVPage">
+            <button class="infoButton" ion-button clear icon-start [navPush]="goToABVPage">
               <ion-icon color="primary" name="information-circle"></ion-icon>
             </button>
           </h3>
@@ -33,7 +33,7 @@
 
         <ion-col>
           <h3>IBU
-            <button id="infoButton" ion-button clear icon-start [navPush]="goToIBUPage">
+            <button class="infoButton" ion-button clear icon-start [navPush]="goToIBUPage">
               <ion-icon color="primary" name="information-circle"></ion-icon>
             </button>
           </h3>
@@ -66,13 +66,12 @@
 
         </ion-row>
 
-        <ion-row>
-        <h2>Describe your favorite beer(s) below:
-            <button ion-button clear icon-start [navPush]="goToBeerFavoriteInfoPage">
-              <ion-icon color="primary" name="information-circle"></ion-icon>
-           </button>
-        </h2>
-
+        <ion-row margin>
+          <h2>Describe your favorite beer(s) below:
+              <button class="infoButton" ion-button clear icon-start [navPush]="goToBeerFavoriteInfoPage">
+                <ion-icon color="primary" name="information-circle"></ion-icon>
+             </button>
+          </h2>
         </ion-row>
 
         <ion-row>
