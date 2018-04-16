@@ -1,49 +1,67 @@
 import {browser, by, element} from 'protractor';
 import PreferencesPageObject from './PreferencesPageObject';
 import SignInPageObject from '../sign-in/SignInPageObject';
+import {Input} from "../base/Input";
 
 export const signInProc = () => {
   browser.get('#/sign-in');
   browser.waitForAngular();
   const page = new SignInPageObject();
-  page.usernameInput.enterText("admin");
-  page.passwordInput.enterText("admin");
+  page.usernameInput.enterText("qadams2");
+  page.passwordInput.enterText("abcd1234");
   page.submitBtn.click();
 };
 
 describe('preferences page test', () => {
 
   let page: PreferencesPageObject;
-
   beforeEach(() => {
     signInProc();
-    browser.sleep(5000);
-    element(by.css(".tab-button")).click();
+    browser.sleep(2000);
+    // element(by.id("tab-t1-2")).click();
     //to open the page in the browser
-    // browser.get('#/preferences');
-    // browser.waitForAngular();
-    browser.sleep(5000);
+    browser.get('#/preferences');
     page = new PreferencesPageObject();
+    browser.waitForAngular();
+    browser.sleep(3000);
   });
   it('Test submit button', () => {
-    page.enterBeerInput.enterText("Blue Moon");
-    page.enterAbvHigh.enterText("12");
-    page.enterAbvLow.enterText("Low");
-    page.enterIbuHigh.enterText("13");
-    page.enterIbuLow.enterText("14");
+    page.enterAbvHigh.enterText("80");
+    page.enterAbvLow.enterText("5");
+    page.enterIbuHigh.enterText("90");
+    page.enterIbuLow.enterText("3");
     page.enterTextArea.sendKeys("I LIKE THE CITRUS IN MY BEER! Blue Moon is my most favorite out of any other beer. Testing the submit button");
     page.submitBtn.click();
+    browser.sleep(5000);
     page.expectErrorIsDisplayed();
   });
 
   it('Test add another button', () => {
-    page.enterBeerInput.enterText("Budlight");
-    page.enterAbvHigh.enterText("25");
-    page.enterAbvLow.enterText("30");
-    page.enterIbuHigh.enterText("35");
-    page.enterIbuLow.enterText("40");
-    page.enterTextArea.sendKeys("I fancy a budlight. Testing the addAnother button");
-    page.addAnotherBtn.click();
-    page.expectErrorIsDisplayed();
+      page.enterBeerInput.enterText("Budlight");
+      browser.sleep(5000);
+      element(by.tagName("li")).click();
+      browser.sleep(10000);
+  });
+
+  it('Test AbvInfoButton', () => {
+      browser.sleep(5000);
+      page.abvInfoButton.click();
+      browser.sleep(5000);
+      element(by.className("backToPreferences")).click();
+      browser.sleep(5000);
+  });
+  it('Test IbuInfoButton', () => {
+      browser.sleep(5000);
+      page.ibuInfoButton.click();
+      browser.sleep(5000);
+      element(by.className("backToPreferences")).click();
+      browser.sleep(5000);
+  });
+  it('Test descInfoButton', () => {
+      browser.sleep(5000);
+      page.descInfoButton.click();
+      browser.sleep(5000);
+      element(by.className("backToPreferences")).click();
+      browser.sleep(5000);
   });
 });
