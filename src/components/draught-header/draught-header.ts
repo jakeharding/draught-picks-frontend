@@ -29,7 +29,11 @@ export class DraughtHeaderComponent {
   home () {
     if (this.authProvider.isLoggedIn()) {
       location.hash = '/';
-      this.navCtrl.parent.select(1);
+      if (this.navCtrl.parent) {
+        this.navCtrl.parent.select(1);
+      } else {
+        location.replace('/');
+      }
     }
   }
 
