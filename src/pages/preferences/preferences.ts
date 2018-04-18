@@ -115,7 +115,7 @@ export class PreferencesPage {
 
   search (event:Event) {
     if(this.beerSearch && this.beerSearch.length > 0) {
-      this.beerProvider.search(this.beerSearch).then((results: Array<Beer>) => {
+      this.beerProvider.search(this.beerSearch).toPromise().then((results: Array<Beer>) => {
         this.beerResults = results;
       });
     }

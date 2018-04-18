@@ -26,11 +26,14 @@ export class BeerProvider implements AutoCompleteService {
     this.recommendedUrl = `${Env.REST_API_ROOT}recommended-beers`;
   }
 
-  search (beerName:string) {
-
-    return this.http.get(this.url, {params: {search: beerName }}).toPromise().then( ({ results }: PageResponse<Beer>) => {
-      return results;
-    });
+  search (params: any): Observable<Beer[]> {
+    if (!params.limit) {
+      params.limit = LIMIT;
+    }
+    if (!params.offset) {
+      params.offset = 0;
+    }
+    return this.http.get(this.url, {params}).map(({results}: PageResponse<Beer>) => results);
   }
 
   getResults (beerName:string) {

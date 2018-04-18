@@ -26,14 +26,12 @@ export class HomePage {
   offset: number;
   loadMore: boolean;
   scrollCallback;
-  searchText: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
     this.offset = 0;
     this.loadMore = true;
-    this.scrollCallback = this.getBeers.bind(this);
-
+    this.recommended = [];
   }
 
   ionViewWillEnter () {
@@ -43,7 +41,7 @@ export class HomePage {
      this.beerProvider.recommended({limit: LIMIT, offset: 0}).toPromise().then(results => {
        this.recommended = results;
      });
-
+    this.scrollCallback = this.getBeers.bind(this);
   }
   getBeers(){
     if(this.loadMore){
