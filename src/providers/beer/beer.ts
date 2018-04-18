@@ -4,7 +4,9 @@ import Env from "../../env";
 import {AutoCompleteService} from "ionic2-auto-complete";
 import Beer from "../../models/Beer";
 import PageResponse from "../../models/PageResponse";
-
+import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller"
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map';
 /*
   Generated class for the BeerProvider provider.
 
@@ -25,6 +27,7 @@ export class BeerProvider implements AutoCompleteService {
   }
 
   search (beerName:string) {
+
     return this.http.get(this.url, {params: {search: beerName }}).toPromise().then( ({ results }: PageResponse<Beer>) => {
       return results;
     });
@@ -39,10 +42,15 @@ export class BeerProvider implements AutoCompleteService {
       return results;
     });
   }
-  recommended (): Promise<Beer[]>{
-    return this.http.get(this.recommendedUrl).toPromise().then(( { results }: PageResponse<Beer>) => {
-      return results;
-    });
+  recommended (params: any): Observable<Beer[]>{
+    if (!params.limit) {
+      params.limit = LIMIT;
+    }
+    if (!params.offset) {
+      params.offset = 0;
+    }
+    return this.http.get(this.recommendedUrl, {params})
+      .map(({results} : PageResponse<Beer>) => results);
   }
 
   createRecent (recent: Beer) {

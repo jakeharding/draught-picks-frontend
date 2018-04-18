@@ -8,4 +8,9 @@ page-home {
   a{
     text-decoration: none;
   }
+  .list-container {
+    overflow-y: auto;
+    position: relative;
+    height: 350px;
+  }
 }

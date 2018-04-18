@@ -37,10 +37,11 @@
             <div *ngIf="recommended?.length > 0">
               <strong class="title">Your recommended beers:</strong>
               <hr>
-              <beer-list [beers]="recommended"></beer-list>
+              <div class="list-container" id="infinite-scroller" infinite-scroller [immediateCallback]="true" [scrollCallback]="scrollCallback" [loadMore]="loadMore">
+                <beer-list [beers]="recommended"></beer-list>
+              </div>
             </div>
         </div>
-
       </div>
     </ion-col>
   </ion-row>
