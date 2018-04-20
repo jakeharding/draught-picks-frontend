@@ -17,7 +17,10 @@
         <ion-segment-button value="no">
           Recommended
         </ion-segment-button>
+
+
       </ion-segment>
+      <label style="color: red; text-align: center" *ngIf="BACcalc">Please Drink Responsibly</label>
       <div [ngSwitch]="isRecentBeersSelected">
         <div *ngSwitchCase="'yes'">
           <div text-center *ngIf="recents?.length === 0">
@@ -40,8 +43,7 @@
               <beer-list [beers]="recommended"></beer-list>
             </div>
         </div>
-
-      </div>
+        </div>
     </ion-col>
   </ion-row>
 </ion-content>
