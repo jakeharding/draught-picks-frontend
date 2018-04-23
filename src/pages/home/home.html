@@ -26,7 +26,9 @@
           <div *ngIf="recents?.length > 0">
             <strong class="title">Your recent beers:</strong>
             <hr>
-            <beer-list [beers]="recents"></beer-list>
+            <div class="list-container" id="infinite-scroller1" infinite-scroller [immediateCallback]="true" [scrollCallback]="scrollCallback" [loadMore]="loadMoreRecent">
+              <beer-list [beers]="recents"></beer-list>
+            </div>
           </div>
         </div>
         <div *ngSwitchCase="'no'">
@@ -37,10 +39,11 @@
             <div *ngIf="recommended?.length > 0">
               <strong class="title">Your recommended beers:</strong>
               <hr>
-              <beer-list [beers]="recommended"></beer-list>
+              <div class="list-container" id="infinite-scroller2" infinite-scroller [immediateCallback]="true" [scrollCallback]="scrollCallback" [loadMore]="loadMoreRecommended">
+                <beer-list [beers]="recommended"></beer-list>
+              </div>
             </div>
         </div>
-
       </div>
     </ion-col>
   </ion-row>

@@ -4,7 +4,9 @@ import Env from "../../env";
 import {AutoCompleteService} from "ionic2-auto-complete";
 import Beer from "../../models/Beer";
 import PageResponse from "../../models/PageResponse";
-
+import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller"
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map';
 /*
   Generated class for the BeerProvider provider.
 
@@ -24,25 +26,39 @@ export class BeerProvider implements AutoCompleteService {
     this.recommendedUrl = `${Env.REST_API_ROOT}recommended-beers`;
   }
 
-  search (beerName:string) {
-    return this.http.get(this.url, {params: {search: beerName }}).toPromise().then( ({ results }: PageResponse<Beer>) => {
-      return results;
-    });
+  search (params: any): Observable<Beer[]> {
+    if (!params.limit) {
+      params.limit = LIMIT;
+    }
+    if (!params.offset) {
+      params.offset = 0;
+    }
+    return this.http.get(this.url, {params}).map(({results}: PageResponse<Beer>) => results);
   }
 
   getResults (beerName:string) {
     return this.search(beerName);
   }
 
-  recents (): Promise<Beer[]> {
-    return this.http.get(this.recentsUrl).toPromise().then( ( { results }: PageResponse<Beer>) => {
-      return results;
-    });
+  recents (params: any): Observable<Beer[]> {
+    if (!params.limit) {
+      params.limit = LIMIT;
+    }
+    if (!params.offset) {
+      params.offset = 0;
+    }
+
+    return this.http.get(this.recentsUrl, {params}).map(({results}: PageResponse<Beer>) => results);
   }
-  recommended (): Promise<Beer[]>{
-    return this.http.get(this.recommendedUrl).toPromise().then(( { results }: PageResponse<Beer>) => {
-      return results;
-    });
+  recommended (params: any): Observable<Beer[]>{
+    if (!params.limit) {
+      params.limit = LIMIT;
+    }
+    if (!params.offset) {
+      params.offset = 0;
+    }
+    return this.http.get(this.recommendedUrl, {params})
+      .map(({results} : PageResponse<Beer>) => results);
   }
 
   createRecent (recent: Beer) {

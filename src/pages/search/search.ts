@@ -3,6 +3,8 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import { LoginRequired } from "../../providers/auth/auth";
 import Beer from "../../models/Beer";
 import {BeerProvider} from "../../providers/beer/beer";
+import {Observable} from "rxjs/Observable";
+import {LIMIT} from "../../directives/infinite-scroller/infinite-scroller";
 
 /**
  * Generated class for the SearchPage page.
@@ -22,12 +24,19 @@ export class SearchPage {
   beerResults: Array<Beer>;
   beerSearch: string;
   message: string;
+  offset: number;
+  loadMore: boolean;
+  scrollCallback;
+
   private static NULL_RESULT_MESSAGE = "Search for a beer and let us know what you like about it.";
   private static ZERO_RESULT_MESSAGE = "We cannot find results on the beers you have entered.";
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
     this.message = SearchPage.NULL_RESULT_MESSAGE;
     this.beerSearch = "";
+    this.offset = 0;
+    this.loadMore = true;
+    this.scrollCallback = this.getBeers.bind(this);
   }
 
   /**
@@ -36,7 +45,7 @@ export class SearchPage {
    */
   search (event:Event) {
     if(this.beerSearch && this.beerSearch.length > 2) {
-        this.beerProvider.search(this.beerSearch).then((results: Array<Beer>) => {
+        this.beerProvider.search({search: this.beerSearch}).toPromise().then((results: Array<Beer>) => {
             this.beerResults = results;
             if(this.beerResults.length === 0) {
                 this.message = SearchPage.ZERO_RESULT_MESSAGE;
@@ -47,6 +56,25 @@ export class SearchPage {
         this.message = SearchPage.NULL_RESULT_MESSAGE;
     }
   }
+  getBeers(){
+    if(this.loadMore){
+      let queryParams = {
+        limit: LIMIT,
+        offset: this.offset,
+        search: this.beerSearch
+      };
+      return this.beerProvider.search(queryParams).do(this.processData);
+    }
+    return Observable.empty();
+  }
+  private processData = (beers) => {
+    if(beers.length == 0){
+      this.loadMore = false;
+      return;
+    }
+    this.offset += LIMIT;
+    this.beerResults = this.beerResults.concat(beers);
+  };
 
   /**
    * Method called when the `X` is clicked in the search bar.
