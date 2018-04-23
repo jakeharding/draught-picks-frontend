@@ -22,12 +22,14 @@ describe('Sign in tests', () => {
     page = new SignInPageObject();
 
   });
-
+  afterEach(function() {
+        browser.executeScript('window.sessionStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
+  });
   it('should call signIn', () => {
     page.usernameInput.enterText("Hello world");
     page.passwordInput.enterText("This should be hidden.");
     page.submitBtn.click();
-    page.expectErrorIsDisplayed();
   });
 
 

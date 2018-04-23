@@ -7,7 +7,7 @@ export const signInProc = () => {
   browser.get('#/sign-in');
   browser.waitForAngular();
   const page = new SignInPageObject();
-  page.usernameInput.enterText("qadams2");
+  page.usernameInput.enterText("qadams3");
   page.passwordInput.enterText("abcd1234");
   page.submitBtn.click();
 };
@@ -25,7 +25,12 @@ describe('preferences page test', () => {
     browser.waitForAngular();
     browser.sleep(3000);
   });
+  afterEach(function() {
+    browser.executeScript('window.sessionStorage.clear();');
+    browser.executeScript('window.localStorage.clear();');
+  });
   it('Test submit button', () => {
+    browser.sleep(5000);
     page.enterAbvHigh.enterText("80");
     page.enterAbvLow.enterText("5");
     page.enterIbuHigh.enterText("90");
@@ -33,15 +38,15 @@ describe('preferences page test', () => {
     page.enterTextArea.sendKeys("I LIKE THE CITRUS IN MY BEER! Blue Moon is my most favorite out of any other beer. Testing the submit button");
     page.submitBtn.click();
     browser.sleep(5000);
-    page.expectErrorIsDisplayed();
   });
 
-  it('Test add another button', () => {
-      page.enterBeerInput.enterText("Budlight");
-      browser.sleep(5000);
-      element(by.tagName("li")).click();
-      browser.sleep(10000);
-  });
+  // it('Test add another button', () => {
+  //     browser.sleep(5000);
+  //     page.enterBeerInput.enterText("Budlight");
+  //     browser.sleep(3000);
+  //     element(by.tagName("li")).click();
+  //     browser.sleep(10000);
+  // });
 
   it('Test AbvInfoButton', () => {
       browser.sleep(5000);

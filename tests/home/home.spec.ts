@@ -15,6 +15,7 @@ export const signInProc = () => {
     browser.sleep(2000);
     page.submitBtn.click();
     browser.sleep(3000);
+
 };
 
 describe('home page test', () => {
@@ -26,19 +27,29 @@ describe('home page test', () => {
     browser.waitForAngular();
     browser.sleep(3000);
   });
+
+  afterEach(function() {
+    browser.executeScript('window.sessionStorage.clear();');
+    browser.executeScript('window.localStorage.clear();');
+  });
   it('Test click recommended segment button', () => {
-    browser.sleep(5000);
+    browser.sleep(3000);
     page.recommendedSegment.click();
-    browser.sleep(5000);
+    browser.sleep(3000);
   });
   it('Test click recent segment button', () => {
-    browser.sleep(5000);
+    browser.sleep(3000);
     page.recentSegment.click();
-    browser.sleep(5000);
+    browser.sleep(3000);
   });
   it('Test click toSearch', () => {
-    browser.sleep(5000);
+    browser.sleep(3000);
     page.toSearchPage.click();
-    browser.sleep(5000);
+    browser.sleep(3000);
   });
+  // it('Click a beer-item', () => {
+  //   browser.sleep(3000);
+  //   page.beerItem.click();
+  //   browser.sleep(3000);
+  // });
 });
