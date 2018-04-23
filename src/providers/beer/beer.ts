@@ -40,10 +40,15 @@ export class BeerProvider implements AutoCompleteService {
     return this.search(beerName);
   }
 
-  recents (): Promise<Beer[]> {
-    return this.http.get(this.recentsUrl).toPromise().then( ( { results }: PageResponse<Beer>) => {
-      return results;
-    });
+  recents (params: any): Observable<Beer[]> {
+    if (!params.limit) {
+      params.limit = LIMIT;
+    }
+    if (!params.offset) {
+      params.offset = 0;
+    }
+
+    return this.http.get(this.recentsUrl, {params}).map(({results}: PageResponse<Beer>) => results);
   }
   recommended (params: any): Observable<Beer[]>{
     if (!params.limit) {

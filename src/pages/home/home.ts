@@ -24,18 +24,20 @@ export class HomePage {
   recommended: Array<Beer>;
   isRecentBeersSelected: string = 'yes';
   offset: number;
-  loadMore: boolean;
+  loadMoreRecommended: boolean;
+  loadMoreRecent: boolean;
   scrollCallback;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
     this.offset = 0;
-    this.loadMore = true;
+    this.loadMoreRecommended = true;
+    this.loadMoreRecent = true;
     this.recommended = [];
   }
 
   ionViewWillEnter () {
-    this.beerProvider.recents().then(results => {
+    this.beerProvider.recents({limit: LIMIT, offset: 0}).toPromise().then(results => {
       this.recents = results;
     });
      this.beerProvider.recommended({limit: LIMIT, offset: 0}).toPromise().then(results => {
@@ -44,23 +46,37 @@ export class HomePage {
     this.scrollCallback = this.getBeers.bind(this);
   }
   getBeers(){
-    if(this.loadMore){
+    if(this.loadMoreRecommended){
       let queryParams = {
         limit: LIMIT,
         offset: this.offset
       };
-      return this.beerProvider.recommended(queryParams).do(this.processData);
+      return this.beerProvider.recommended(queryParams).do(this.processRecommendedBeers);
+    } else if(this.loadMoreRecent){
+        let queryParams = {
+          limit: LIMIT,
+          offset: this.offset
+        };
+        return this.beerProvider.recents(queryParams).do(this.processRecentBeers);
     }
     return Observable.empty();
   }
 
-  private processData = (beers) => {
+  private processRecommendedBeers = (beers) => {
     if(beers.length == 0){
-      this.loadMore = false;
+      this.loadMoreRecommended = false;
       return;
     }
     this.offset += LIMIT;
     this.recommended = this.recommended.concat(beers);
+  };
+  private processRecentBeers = (beers) => {
+    if(beers.length == 0){
+      this.loadMoreRecent = false;
+      return;
+    }
+    this.offset += LIMIT;
+    this.recents = this.recents.concat(beers);
   };
 
 }
