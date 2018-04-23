@@ -9,10 +9,10 @@ export const signInProc = () => {
     browser.waitForAngular();
     const page = new SignInPageObject();
     browser.sleep(3000);
-    page.usernameInput.enterText("qadams2");
-    browser.sleep(1000);
+    page.usernameInput.enterText("qadams3");
+    browser.sleep(2000);
     page.passwordInput.enterText("abcd1234");
-    browser.sleep(1000);
+    browser.sleep(2000);
     page.submitBtn.click();
     browser.sleep(3000);
 };
@@ -30,10 +30,15 @@ describe('home page test', () => {
     browser.sleep(5000);
     page.recommendedSegment.click();
     browser.sleep(5000);
-    });
+  });
   it('Test click recent segment button', () => {
     browser.sleep(5000);
     page.recentSegment.click();
+    browser.sleep(5000);
+  });
+  it('Test click toSearch', () => {
+    browser.sleep(5000);
+    page.toSearchPage.click();
     browser.sleep(5000);
   });
 });

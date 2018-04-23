@@ -21,7 +21,7 @@
       <div [ngSwitch]="isRecentBeersSelected">
         <div *ngSwitchCase="'yes'">
           <div text-center *ngIf="recents?.length === 0">
-            <p>You haven't had any beers yet! <a class="pointer" (click)="navCtrl.parent.select(0)">Search for what you are drinking.</a></p>
+            <p>You haven't had any beers yet! <a tid="toSearchPage" class="pointer" (click)="navCtrl.parent.select(0)">Search for what you are drinking.</a></p>
           </div>
           <div *ngIf="recents?.length > 0">
             <strong class="title">Your recent beers:</strong>
