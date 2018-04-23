@@ -22,7 +22,8 @@
             ABV
           </span>
           <span class="sub-heading">
-            {{ beer.abv }}%
+            <span *ngIf="beer.abv">{{ beer.abv }}%</span>
+            <span *ngIf="!beer.abv">N/A</span>
           </span>
         </ion-col>
 
@@ -31,7 +32,8 @@
             IBU
           </span>
           <span class="sub-heading">
-            {{ beer.ibu }}
+            <span *ngIf="beer.ibu"> {{ beer.ibu }}</span>
+            <span *ngIf="!beer.ibu"> N/A</span>
           </span>
         </ion-col>
 
@@ -40,7 +42,8 @@
             Match
           </span>
           <span class="sub-heading">
-            98%
+            <span *ngIf="beer.recommended.percent_match">{{beer.recommended.percent_match}}%</span>
+            <span *ngIf="!beer.recommended.percent_match">N/A</span>
           </span>
         </ion-col>
       </ion-row>

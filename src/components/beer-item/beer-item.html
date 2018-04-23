@@ -5,8 +5,10 @@
       <h1>{{beer.name}}</h1>
     </ion-col>
     <ion-col text-right col-3>
-      <span class="percent">98%</span>
-      <span text-center>match</span>
+      <div *ngIf="beer.recommended.percent_match">
+        <span class="percent">{{ beer.recommended.percent_match}}%</span>
+        <span text-center>match</span>
+      </div>
     </ion-col>
   </ion-row>
 
