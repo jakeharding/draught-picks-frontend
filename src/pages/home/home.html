@@ -17,7 +17,10 @@
         <ion-segment-button value="no">
           Recommended
         </ion-segment-button>
+
+
       </ion-segment>
+      <label class="beerError" *ngIf="BACcalc">You have had {{totalCount}} beers in the past 3 hours. You might want to find a ride home.</label>
       <div [ngSwitch]="isRecentBeersSelected">
         <div *ngSwitchCase="'yes'">
           <div text-center *ngIf="recents?.length === 0">
@@ -44,7 +47,8 @@
               </div>
             </div>
         </div>
-      </div>
+        </div>
+
     </ion-col>
   </ion-row>
 </ion-content>

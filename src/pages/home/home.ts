@@ -22,6 +22,9 @@ import {Observable} from "rxjs/Observable";
 export class HomePage {
   recents: Array<Beer>;
   recommended: Array<Beer>;
+  beerForABV: Array<Beer>;
+  BACcalc: Boolean;
+  totalCount: number;
   isRecentBeersSelected: string = 'yes';
   offset: number;
   loadMoreRecommended: boolean;
@@ -37,12 +40,33 @@ export class HomePage {
   }
 
   ionViewWillEnter () {
+    let time = new Date();
+    time.setHours(time.getHours()-3);
+    const pastTime =  new Date(time);
+
     this.beerProvider.recents({limit: LIMIT, offset: 0}).toPromise().then(results => {
+
       this.recents = results;
+      this.beerForABV = this.recents.filter(beer =>{
+        beer.recents = beer.recents.filter( currentBeer =>{
+
+          return (new Date(currentBeer.created_at)) > pastTime;
+        });
+        return beer.recents.length > 0;
+      });
+
+      this.totalCount = 0;
+      if( this.beerForABV.length>0) {
+        this.totalCount = this.beerForABV.map((current) => current.recents.length).reduce((acc, c) => {
+          return acc + c;
+        });
+      }
+      this.BACcalc = this.totalCount >= 4
     });
-     this.beerProvider.recommended({limit: LIMIT, offset: 0}).toPromise().then(results => {
-       this.recommended = results;
+    this.beerProvider.recommended({limit: LIMIT, offset: 0}).toPromise().then(results => {
+      this.recommended = results;
      });
+
     this.scrollCallback = this.getBeers.bind(this);
   }
   getBeers(){
@@ -53,13 +77,14 @@ export class HomePage {
       };
       return this.beerProvider.recommended(queryParams).do(this.processRecommendedBeers);
     } else if(this.loadMoreRecent){
-        let queryParams = {
-          limit: LIMIT,
-          offset: this.offset
-        };
-        return this.beerProvider.recents(queryParams).do(this.processRecentBeers);
+      let queryParams = {
+        limit: LIMIT,
+        offset: this.offset
+      };
+      return this.beerProvider.recents(queryParams).do(this.processRecentBeers);
     }
     return Observable.empty();
+
   }
 
   private processRecommendedBeers = (beers) => {
