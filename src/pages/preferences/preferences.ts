@@ -66,19 +66,26 @@ export class PreferencesPage {
     });
 
     this.prefsForm = this.formBuilder.group({
-      abv_low: [this.prefs.abv_low, [Validators.pattern('\\d+'), Validators.required]],
-      abv_hi: [this.prefs.abv_hi, [Validators.pattern('\\d+'), Validators.required]],
-      ibu_low: [this.prefs.ibu_low, [Validators.pattern('\\d+'), Validators.required]],
-      ibu_hi: [this.prefs.ibu_hi, [Validators.pattern('\\d+'), Validators.required]],
+      abv_low: [this.prefs.abv_low, [Validators.pattern('\\d+')]],
+      abv_hi: [this.prefs.abv_hi, [Validators.pattern('\\d+')]],
+      ibu_low: [this.prefs.ibu_low, [Validators.pattern('\\d+')]],
+      ibu_hi: [this.prefs.ibu_hi, [Validators.pattern('\\d+')]],
       like_description: [this.prefs.like_description, []]
     });
   }
 
   public savePrefs() {
+    this.toastCtrl.create({
+      message: "Your recommendations will here soon!",
+      duration: 3000,
+      position: "top",
+      cssClass: "success-toast"
+    }).present();
+
     this.preferencesProvider.save(Object.assign({}, this.prefs, this.prefsForm.value, {user: this.user.uuid})).then((prefs: UserPreferences) => {
       this.prefs = prefs;
       let toast = this.toastCtrl.create({
-        message: "Preferences are saved! Your recommendations will here soon!",
+        message: "Your recommendations have arrived! Go to the home tab to see them!",
         duration: 3000,
         position: "top",
         cssClass: "success-toast"
