@@ -44,7 +44,7 @@ export class HomePage {
     time.setHours(time.getHours()-3);
     const pastTime =  new Date(time);
 
-    this.beerProvider.recents().then(results => {
+    this.beerProvider.recents({limit: LIMIT, offset: 0}).toPromise().then(results => {
 
       this.recents = results;
       this.beerForABV = this.recents.filter(beer =>{
@@ -56,20 +56,16 @@ export class HomePage {
       });
 
       this.totalCount = 0;
-        if( this.beerForABV.length>0) {
-          console.log(this.beerForABV);
-          this.totalCount = this.beerForABV.map((current) => current.recents.length).reduce((acc, c) => {
-            return acc + c;
-          });
-          console.log(this.totalCount);
+      if( this.beerForABV.length>0) {
+        this.totalCount = this.beerForABV.map((current) => current.recents.length).reduce((acc, c) => {
+          return acc + c;
+        });
       }
-
       this.BACcalc = this.totalCount >= 4
-      // if(this.beerForABV.length > 4){this.BACcalc = true; }
     });
-    this.beerProvider.recommended().then(results => {
+    this.beerProvider.recommended({limit: LIMIT, offset: 0}).toPromise().then(results => {
       this.recommended = results;
-    });
+     });
 
     this.scrollCallback = this.getBeers.bind(this);
   }
@@ -81,11 +77,11 @@ export class HomePage {
       };
       return this.beerProvider.recommended(queryParams).do(this.processRecommendedBeers);
     } else if(this.loadMoreRecent){
-        let queryParams = {
-          limit: LIMIT,
-          offset: this.offset
-        };
-        return this.beerProvider.recents(queryParams).do(this.processRecentBeers);
+      let queryParams = {
+        limit: LIMIT,
+        offset: this.offset
+      };
+      return this.beerProvider.recents(queryParams).do(this.processRecentBeers);
     }
     return Observable.empty();
 

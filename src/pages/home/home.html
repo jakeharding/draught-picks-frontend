@@ -20,7 +20,7 @@
 
 
       </ion-segment>
-      <label style="color: red; text-align: center" *ngIf="BACcalc">You have had {{totalCount}} beers in the past 3 hours. You might want to find a ride home.</label>
+      <label class="beerError" *ngIf="BACcalc">You have had {{totalCount}} beers in the past 3 hours. You might want to find a ride home.</label>
       <div [ngSwitch]="isRecentBeersSelected">
         <div *ngSwitchCase="'yes'">
           <div text-center *ngIf="recents?.length === 0">
