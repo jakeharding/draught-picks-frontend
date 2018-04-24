@@ -10,7 +10,7 @@
 
       <ion-row>
         <h3>Select some of your favorites:</h3>
-        <ion-auto-complete [(ngModel)]="beerSearch" (itemSelected)="favoriteSelected($event)" [dataProvider]="beerProvider"></ion-auto-complete>
+        <ion-auto-complete tid="enterBeerInput" [(ngModel)]="beerSearch" (itemSelected)="favoriteSelected($event)" [dataProvider]="beerProvider"></ion-auto-complete>
       </ion-row>
 
       <div *ngFor="let b of user?.favorite_beers">
@@ -20,21 +20,24 @@
         </ion-item>
       </div>
 
-      <h2>Ranges of ABV and IBU
-        <button ion-button clear icon-start>
-          <ion-icon color="primary" name="information-circle"></ion-icon>
-        </button>
-      </h2>
+      <h2>Ranges of ABV and IBU</h2>
 
       <ion-row text-center>
         <ion-col>
           <h3>ABV
-            <button ion-button clear icon-start [navPush]="goToABVPage">
+            <button class="infoButton" ion-button clear icon-start [navPush]="goToABVPage">
               <ion-icon color="primary" name="information-circle"></ion-icon>
             </button>
           </h3>
         </ion-col>
-        <ion-col><h3>IBU</h3></ion-col>
+
+        <ion-col>
+          <h3>IBU
+            <button class="infoButton" ion-button clear icon-start [navPush]="goToIBUPage">
+              <ion-icon color="primary" name="information-circle"></ion-icon>
+            </button>
+          </h3>
+        </ion-col>
       </ion-row>
 
       <form [formGroup]="prefsForm" (ngSubmit)="savePrefs()">
@@ -63,10 +66,13 @@
 
         </ion-row>
 
-        <h2>Describe Your Ideal Beer(s)</h2>
-
-
-        <ion-label color="primary" stacked>Describe your favorite beer(s) below:</ion-label>
+        <ion-row margin>
+          <h2>Describe your favorite beer(s) below:
+              <button class="infoButton" ion-button clear icon-start [navPush]="goToBeerFavoriteInfoPage">
+                <ion-icon color="primary" name="information-circle"></ion-icon>
+             </button>
+          </h2>
+        </ion-row>
 
         <ion-row>
           <ion-textarea
@@ -76,14 +82,12 @@
               [(ngModel)]="prefs.like_description">
           </ion-textarea>
         </ion-row>
-
-        <button
-            ion-button
-            tid="submitBtn"
-            [disabled]="prefsForm.invalid"
-        >
-          Submit
-        </button>
+          <button
+              ion-button
+              tid="submitBtn"
+              [disabled]="prefsForm.invalid">
+            Submit
+          </button>
       </form>
     </ion-col>
   </ion-row>

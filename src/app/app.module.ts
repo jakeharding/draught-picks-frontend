@@ -20,9 +20,9 @@ import {HttpModule} from "@angular/http";
 import { PreferencesProvider } from '../providers/preferences/preferences';
 import {ComponentsModule} from "../components/components.module";
 import { RatingProvider } from '../providers/rating/rating';
+import {BeerFavoriteInfoPageModule} from "../pages/beer-favorite-info/beer-favorite-info.module";
 import {AbvInfoPageModule} from "../pages/abv-info/abv-info.module";
-
-
+import {IbupagePageModule} from "../pages/ibupage/ibupage.module";
 
 @NgModule({
   declarations: [
@@ -40,8 +40,10 @@ import {AbvInfoPageModule} from "../pages/abv-info/abv-info.module";
     HomePageModule,
     HttpClientModule,
     HttpModule,
+    BeerFavoriteInfoPageModule,
     ComponentsModule,
     AbvInfoPageModule,
+    IbupagePageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
