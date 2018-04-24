@@ -3,16 +3,15 @@ page-preferences {
     border: 1px solid lightgray;
     margin-bottom: 15px;
   }
-
   ion-auto-complete {
     ul {
       width: 97%;
       left: 8px;
     }
   }
-  .button-md{
-    padding: 0 0;
-    bottom: 7px;
-  }
 
+  .infoButton {
+    padding: 0px;
+    vertical-align: middle;
+  }
 }
