@@ -22,6 +22,7 @@ export class HomePage {
   recommended: Array<Beer>;
   beerForABV: Array<Beer>;
   BACcalc: Boolean;
+  totalCount: number;
   isRecentBeersSelected: string = 'yes';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -31,24 +32,29 @@ export class HomePage {
   ionViewWillEnter () {
     let time = new Date();
     time.setHours(time.getHours()-3);
-    var pastTime =  new Date(time).toISOString();
+    const pastTime =  new Date(time);
+
     this.beerProvider.recents().then(results => {
       this.recents = results;
       this.beerForABV = this.recents.filter(beer =>{
         beer.recents = beer.recents.filter( currentBeer =>{
 
-          return currentBeer.created_at.toString() > pastTime;//.toUTCString();
+          return (new Date(currentBeer.created_at)) > pastTime;
         });
         return beer.recents.length > 0;
       });
 
-      var count = 0, totalCount = 0;
-      if( this.beerForABV.length>0)
-      this.beerForABV.map((current) => count+=current.recents.length ).reduce((acc, c) => {
+      this.totalCount = 0;
+        if( this.beerForABV.length>0) {
+          console.log(this.beerForABV);
+          this.totalCount = this.beerForABV.map((current) => current.recents.length).reduce((acc, c) => {
+            return acc + c;
+          });
+          console.log(this.totalCount);
+      }
 
-        return totalCount = acc + c;
-      });
-      if(this.beerForABV.length > 4){this.BACcalc = true; }
+      this.BACcalc = this.totalCount >= 4
+      // if(this.beerForABV.length > 4){this.BACcalc = true; }
     });
 
     this.beerProvider.recommended().then(results => {
