@@ -8,13 +8,13 @@ export const signInProc = () => {
     browser.get('#/sign-in');
     browser.waitForAngular();
     const page = new SignInPageObject();
-    browser.sleep(3000);
-    page.usernameInput.enterText("qadams3");
-    browser.sleep(2000);
-    page.passwordInput.enterText("abcd1234");
-    browser.sleep(2000);
+    browser.sleep(1000);
+    page.usernameInput.enterText("admin");
+    browser.sleep(1000);
+    page.passwordInput.enterText("admin");
+    browser.sleep(1000);
     page.submitBtn.click();
-    browser.sleep(3000);
+    browser.sleep(1000);
 
 };
 
@@ -22,10 +22,10 @@ describe('home page test', () => {
   let page: HomePageObject;
   beforeEach(() => {
     signInProc();
-    browser.sleep(2000);
+    browser.sleep(1000);
     page = new HomePageObject();
     browser.waitForAngular();
-    browser.sleep(3000);
+    browser.sleep(1000);
   });
 
   afterEach(function() {
@@ -33,19 +33,19 @@ describe('home page test', () => {
     browser.executeScript('window.localStorage.clear();');
   });
   it('Test click recommended segment button', () => {
-    browser.sleep(3000);
+    browser.sleep(1000);
     page.recommendedSegment.click();
-    browser.sleep(3000);
+    browser.sleep(1000);
   });
   it('Test click recent segment button', () => {
-    browser.sleep(3000);
+    browser.sleep(1000);
     page.recentSegment.click();
-    browser.sleep(3000);
+    browser.sleep(1000);
   });
   it('Test click toSearch', () => {
-    browser.sleep(3000);
+    browser.sleep(1000);
     page.toSearchPage.click();
-    browser.sleep(3000);
+    browser.sleep(1000);
   });
   // it('Click a beer-item', () => {
   //   browser.sleep(3000);
