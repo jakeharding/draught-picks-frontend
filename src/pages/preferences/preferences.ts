@@ -124,12 +124,4 @@ export class PreferencesPage {
     });
     this.userProvider.update(this.user);
   }
-
-  search (event:Event) {
-    if(this.beerSearch && this.beerSearch.length > 0) {
-      this.beerProvider.search(this.beerSearch).toPromise().then((results: Array<Beer>) => {
-        this.beerResults = results;
-      });
-    }
-  }
 }

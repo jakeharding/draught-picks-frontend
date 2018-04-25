@@ -35,8 +35,13 @@ export class BeerProvider implements AutoCompleteService {
     return this.http.get(this.url, {params}).map(({results}: PageResponse<Beer>) => results);
   }
 
+  /**
+   * Method called in auto complete search bar.
+   * @param {string} beerName
+   * @returns {Observable<Beer[]>}
+   */
   getResults (beerName:string) {
-    return this.search(beerName);
+    return this.search({search: beerName});
   }
 
   recents (params: any): Observable<Beer[]> {
