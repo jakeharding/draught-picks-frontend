@@ -11,10 +11,10 @@
     <ion-col class="below-header" col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3>
 
       <ion-segment color="primary" [(ngModel)]="isRecentBeersSelected">
-        <ion-segment-button value="yes">
+        <ion-segment-button tid="recentSegment" value="yes">
           Recent
         </ion-segment-button>
-        <ion-segment-button value="no">
+        <ion-segment-button tid="recommendedSegment" value="no">
           Recommended
         </ion-segment-button>
 
@@ -24,7 +24,7 @@
       <div [ngSwitch]="isRecentBeersSelected">
         <div *ngSwitchCase="'yes'">
           <div text-center *ngIf="recents?.length === 0">
-            <p>You haven't had any beers yet! <a class="pointer" (click)="navCtrl.parent.select(0)">Search for what you are drinking.</a></p>
+            <p>You haven't had any beers yet! <a tid="toSearchPage" class="pointer" (click)="navCtrl.parent.select(0)">Search for what you are drinking.</a></p>
           </div>
           <div *ngIf="recents?.length > 0">
             <strong class="title">Your recent beers:</strong>

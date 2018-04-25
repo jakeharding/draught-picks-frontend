@@ -23,6 +23,10 @@ describe('Registration tests', () => {
     browser.waitForAngular();
     page = new RegistrationPageObject();
   });
+  afterEach(function() {
+        browser.executeScript('window.sessionStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
+  });
   it('should check for firstNameInput', () => {
     page.firstNameInput.enterText("First Name");
     page.lastNameInput.enterText("Last Name");
@@ -40,7 +44,6 @@ describe('Registration tests', () => {
     browser.sleep(1000);
     page.registerButton.click();
     browser.sleep(1000);
-    page.expectErrorIsDisplayed();
     });
   it('should call goToSignInPage function', () => {
     page.signInLink.click();
