@@ -56,6 +56,7 @@ export class SearchPage {
         this.message = SearchPage.NULL_RESULT_MESSAGE;
     }
   }
+
   getBeers(){
     if(this.loadMore){
       let queryParams = {
@@ -67,6 +68,7 @@ export class SearchPage {
     }
     return Observable.empty();
   }
+
   private processData = (beers) => {
     if(beers.length == 0){
       this.loadMore = false;

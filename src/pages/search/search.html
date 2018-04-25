@@ -12,7 +12,7 @@
       <h1 text-left>What are you drinking?</h1>
       <ion-searchbar [(ngModel)]="beerSearch" (ionClear)="clear($event)" (ionInput)="search($event)" placeholder="Search Beer By Name"></ion-searchbar>
       <div *ngIf="beerResults && beerResults.length > 0">
-        <div class="list-container" id="infinite-scroller" infinite-scroller [immediateCallback]="true" [scrollCallback]="scrollCallback" [loadMore]="loadMore">
+        <div class="list-container" id="infinite-scroller" infinite-scroller [immediateCallback]="false" [scrollCallback]="scrollCallback" [loadMore]="loadMore">
           <beer-list [beers]="beerResults" ></beer-list>
         </div>
       </div>

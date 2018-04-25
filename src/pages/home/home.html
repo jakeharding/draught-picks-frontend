@@ -29,7 +29,7 @@
           <div *ngIf="recents?.length > 0">
             <strong class="title">Your recent beers:</strong>
             <hr>
-            <div class="list-container" id="infinite-scroller1" infinite-scroller [immediateCallback]="true" [scrollCallback]="scrollCallback" [loadMore]="loadMoreRecent">
+            <div class="list-container" id="infinite-scroller1" infinite-scroller [immediateCallback]="false" [scrollCallback]="recentScrollCallback" [loadMore]="loadMoreRecent">
               <beer-list [beers]="recents"></beer-list>
             </div>
           </div>
@@ -42,7 +42,7 @@
             <div *ngIf="recommended?.length > 0">
               <strong class="title">Your recommended beers:</strong>
               <hr>
-              <div class="list-container" id="infinite-scroller2" infinite-scroller [immediateCallback]="true" [scrollCallback]="scrollCallback" [loadMore]="loadMoreRecommended">
+              <div class="list-container" id="infinite-scroller2" infinite-scroller [immediateCallback]="false" [scrollCallback]="recScrollCallback" [loadMore]="loadMoreRecommended">
                 <beer-list [beers]="recommended"></beer-list>
               </div>
             </div>

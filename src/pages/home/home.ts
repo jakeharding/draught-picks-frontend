@@ -26,17 +26,23 @@ export class HomePage {
   BACcalc: Boolean;
   totalCount: number;
   isRecentBeersSelected: string = 'yes';
-  offset: number;
+  recommendedOffset: number;
+  recentOffset: number;
   loadMoreRecommended: boolean;
   loadMoreRecent: boolean;
-  scrollCallback;
+  recScrollCallback: Function;
+  recentScrollCallback: Function;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
-    this.offset = 0;
+    this.recommendedOffset = 0;
+    this.recentOffset = 0;
     this.loadMoreRecommended = true;
     this.loadMoreRecent = true;
     this.recommended = [];
+    this.recents = [];
+    this.recScrollCallback = this.getRecommendedBeers.bind(this);
+    this.recentScrollCallback = this.getRecentBeers.bind(this);
   }
 
   ionViewWillEnter () {
@@ -63,25 +69,31 @@ export class HomePage {
       }
       this.BACcalc = this.totalCount >= 4
     });
+
     this.beerProvider.recommended({limit: LIMIT, offset: 0}).toPromise().then(results => {
       this.recommended = results;
-     });
+    });
 
-    this.scrollCallback = this.getBeers.bind(this);
   }
-  getBeers(){
+
+  getRecentBeers () {
+    if(this.loadMoreRecent){
+      let queryParams = {
+        limit: LIMIT,
+        offset: this.recentOffset
+      };
+      return this.beerProvider.recents(queryParams).do(this.processRecentBeers);
+    }
+    return Observable.empty();
+  }
+
+  getRecommendedBeers(){
     if(this.loadMoreRecommended){
       let queryParams = {
         limit: LIMIT,
-        offset: this.offset
+        offset: this.recommendedOffset
       };
       return this.beerProvider.recommended(queryParams).do(this.processRecommendedBeers);
-    } else if(this.loadMoreRecent){
-      let queryParams = {
-        limit: LIMIT,
-        offset: this.offset
-      };
-      return this.beerProvider.recents(queryParams).do(this.processRecentBeers);
     }
     return Observable.empty();
 
@@ -92,15 +104,16 @@ export class HomePage {
       this.loadMoreRecommended = false;
       return;
     }
-    this.offset += LIMIT;
+    this.recommendedOffset += LIMIT;
     this.recommended = this.recommended.concat(beers);
   };
+
   private processRecentBeers = (beers) => {
     if(beers.length == 0){
       this.loadMoreRecent = false;
       return;
     }
-    this.offset += LIMIT;
+    this.recentOffset += LIMIT;
     this.recents = this.recents.concat(beers);
   };
 
