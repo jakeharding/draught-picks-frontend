@@ -82,6 +82,11 @@ export class PreferencesPage {
       cssClass: "success-toast"
     }).present();
 
+    this.prefsForm.value.abv_low = this.prefsForm.value.abv_low === "" ? null : this.prefsForm.value.abv_low;
+    this.prefsForm.value.abv_hi = this.prefsForm.value.abv_hi === "" ? null : this.prefsForm.value.abv_hi;
+    this.prefsForm.value.ibu_hi = this.prefsForm.value.ibu_hi === "" ? null : this.prefsForm.value.ibu_hi;
+    this.prefsForm.value.ibu_low = this.prefsForm.value.ibu_low === "" ? null : this.prefsForm.value.ibu_low;
+
     this.preferencesProvider.save(Object.assign({}, this.prefs, this.prefsForm.value, {user: this.user.uuid})).then((prefs: UserPreferences) => {
       this.prefs = prefs;
       let toast = this.toastCtrl.create({
