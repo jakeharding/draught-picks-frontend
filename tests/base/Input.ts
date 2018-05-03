@@ -16,6 +16,11 @@ export class Input extends BasePage {
     this.element = this.getElementByTid(tid).all(by.tagName("input"));
   }
 
+  /**
+   * enterText function
+   * Parameters: text
+   * enters text in an element
+   * */
   enterText (text:string):void {
     this.element.clear();
     this.element.sendKeys(text);

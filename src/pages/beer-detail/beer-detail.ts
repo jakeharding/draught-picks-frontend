@@ -28,6 +28,10 @@ export class BeerDetailPage {
   beerRating: BeerRating;
   hasRating: boolean = false;
 
+  /**
+   * Constructor for BeerDetailPage class
+   * Gets the Beer data and beerRating information
+   * */
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider, public ratingProvider: RatingProvider,
               public toastController: ToastController) {
@@ -50,6 +54,11 @@ export class BeerDetailPage {
     }
   }
 
+  /**
+   * createRecent Function
+   * no parameters
+   * adds a recent beer to the database
+   * */
   createRecent () {
     const success = (recent) => {
       const toast = this.toastController.create({
@@ -72,6 +81,11 @@ export class BeerDetailPage {
     this.beerProvider.createRecent(this.beer).then(success, error);
   }
 
+  /**
+   * saveRatingDescription Function
+   * no parameters
+   * adds the rating description to the database
+   * */
   saveRatingDescription() {
     const success = (rating) => {
       this.beerRating = rating;
@@ -100,6 +114,11 @@ export class BeerDetailPage {
     }
   }
 
+  /**
+   * setRating Function
+   * Parameters: rating
+   * sets your beer rating
+   * */
   setRating(rating: BeerRating): void {
     this.beerRating = rating;
   }

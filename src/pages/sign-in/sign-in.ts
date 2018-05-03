@@ -35,6 +35,13 @@ export class SignInPage{
       password: [this.password, Validators.compose([Validators.required, Validators.minLength(4)])]
     });
   }
+
+  /**
+   * signIn function
+   * No Parameters
+   * Gets the username and password values and validates the information then sends
+   * user to the home page
+   * */
   public signIn(){
     this.authProvider.signIn(this.signInForm.value).then(
       (response) => {

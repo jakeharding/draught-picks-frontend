@@ -33,6 +33,12 @@ export class HomePage {
   recScrollCallback: Function;
   recentScrollCallback: Function;
 
+
+  /**
+   * HomePage constructor
+   * Required constructor for the HomePage class, sets the offset, loadMoreRecommended, loadMoreRecent,
+   * and recommended values
+   * */
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
     this.recommendedOffset = 0;
@@ -45,6 +51,12 @@ export class HomePage {
     this.recentScrollCallback = this.getRecentBeers.bind(this);
   }
 
+  /**
+   * ionViewWillEnter function
+   * No Parameters
+   * Gets the recent and recommended beers and sets the LIMIT and offset values for the scrolling functionality.
+   * Also calls the scrolling functionality
+   * */
   ionViewWillEnter () {
     let time = new Date();
     time.setHours(time.getHours()-3);
@@ -76,6 +88,10 @@ export class HomePage {
 
   }
 
+  /**
+   * Get more recent beers if available.
+   * @returns {Observable<any>}
+   */
   getRecentBeers () {
     if(this.loadMoreRecent){
       let queryParams = {
@@ -87,6 +103,10 @@ export class HomePage {
     return Observable.empty();
   }
 
+  /**
+   * Get more recommended beers if available.
+   * @returns {Observable<any>}
+   */
   getRecommendedBeers(){
     if(this.loadMoreRecommended){
       let queryParams = {
@@ -99,6 +119,11 @@ export class HomePage {
 
   }
 
+  /**
+   * processRecommendedBeers function
+   * Parameters: Beer list
+   * increases the offset and loads more beers while scrolling through the beer list
+   * */
   private processRecommendedBeers = (beers) => {
     if(beers.length == 0){
       this.loadMoreRecommended = false;
@@ -108,6 +133,12 @@ export class HomePage {
     this.recommended = this.recommended.concat(beers);
   };
 
+
+  /**
+   * processRecentBeers function
+   * Parameters: Beer list
+   * increases the offset and loads more beers while scrolling through the beer list
+   * */
   private processRecentBeers = (beers) => {
     if(beers.length == 0){
       this.loadMoreRecent = false;
