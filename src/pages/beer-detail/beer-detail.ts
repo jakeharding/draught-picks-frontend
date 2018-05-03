@@ -116,7 +116,7 @@ export class BeerDetailPage {
 
   /**
    * setRating Function
-   * no parameters
+   * Parameters: rating
    * sets your beer rating
    * */
   setRating(rating: BeerRating): void {

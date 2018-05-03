@@ -47,6 +47,7 @@ export class HomePage {
 
   /**
    * ionViewWillEnter function
+   * No Parameters
    * Gets the recent and recommended beers and sets the LIMIT and offset values for the scrolling functionality.
    * Also calls the scrolling functionality
    * */
