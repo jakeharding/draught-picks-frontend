@@ -27,6 +27,11 @@ export class RegistrationPage {
   verifyAge: boolean = false;
   MS_IN_21_YEARS = 662709600000;
 
+  /**
+   * RegistrationPage constructor
+   * Required constructor for the RegistrationPage class, sets the values maxDate,
+   * goToSignInPage, goToDisclaimerPage, and registerForm values accordingly
+   * */
   constructor(public formBuilder: FormBuilder,
               public navCtrl: NavController,
               public navParams: NavParams,
@@ -49,10 +54,21 @@ export class RegistrationPage {
 
   }
 
+  /**
+   * dateSelected function
+   * No Parameters
+   * Verifies the age when selecting their birth date
+   * */
   dateSelected() {
     this.registerForm.controls['verify_age'].setValue(true);
   }
 
+  /**
+   * createUser function
+   * No Parameters
+   * Creates a new user after the registration form was submitted and stores
+   * all of the registration form values in the database
+   * */
   public createUser(){
     this.userProvider.create(this.registerForm.value).then(
       () => {

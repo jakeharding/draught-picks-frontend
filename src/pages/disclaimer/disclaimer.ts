@@ -16,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class DisclaimerPage {
 
 
-
+  /**
+   * DisclaimerPage constructor
+   * empty but required constructor for the DisclaimerPage Class, does nothing
+   * */
   constructor(public navCtrl: NavController, public navParams: NavParams ) {
     }
 }

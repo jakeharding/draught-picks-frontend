@@ -6,12 +6,14 @@ import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
 import AuthResponse from "../../models/AuthResponse";
 
-/*
-  Generated class for the AuthProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+/**
+ * Generated class for the AuthProvider provider.
+ *
+ * See https://angular.io/guide/dependency-injection for more info on providers
+ * and Angular DI.
+ *
+ * Used to authenticate the user
+ **/
 
 export const TOKEN_STO_KEY = "draughtPicksToken";
 

@@ -23,6 +23,11 @@ export class RatingComponent {
 
   constructor(public ratingProvider: RatingProvider, public toastController: ToastController) {}
 
+  /**
+   * updateRating function
+   * Parameters: rating
+   * updates the rating of a beer
+   * */
   updateRating (rating: number) {
     if (this.size === RatingComponent.LARGE) {
       const success = rating => {
@@ -44,7 +49,11 @@ export class RatingComponent {
       }
     }
   }
-
+  /**
+   * createRating function
+   * Parameters: rating
+   * creates a new rating for a beer if none exist
+   * */
   createRating (beer: string, rating: number) {
     const newRating = {beer, rating} as BeerRating;
     return this.ratingProvider.create(newRating);

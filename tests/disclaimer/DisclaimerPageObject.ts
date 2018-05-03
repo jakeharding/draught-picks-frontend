@@ -1,3 +1,9 @@
+/**
+ * DisclaimerPageObject.ts
+ *
+ * gets dislaimerVerified element by tid
+ * */
+
 import BasePage from "../base/BasePage";
 import {ElementFinder} from "protractor";
 

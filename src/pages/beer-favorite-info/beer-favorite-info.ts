@@ -14,6 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BeerFavoriteInfoPage {
 
+  /**
+   * BeerFavoriteInfoPage constructor
+   * empty but required constructor for the BeerFavoriteInfoPage Class, does nothing
+   * */
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
