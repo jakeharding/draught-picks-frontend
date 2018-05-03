@@ -1,3 +1,10 @@
+/**
+ *  home.spec.ts
+ *
+ * Test Cases for Home Page
+ *
+ * */
+
 import {browser, by, element} from 'protractor';
 import SignInPageObject from '../sign-in/SignInPageObject';
 import {Input} from "../base/Input";

@@ -21,11 +21,21 @@ export class DraughtHeaderComponent {
     this.isLoggedIn = this.authProvider.isLoggedIn();
   }
 
+  /**
+   * logout function
+   * No parameters
+   * Sends current logged in user to sign in page
+   * */
   logout () {
     this.authProvider.clearToken();
     location.hash = '/sign-in';
   }
 
+  /**
+   * home function
+   * No parameters
+   * Sends current logged in user to the home page
+   * */
   home () {
     if (this.authProvider.isLoggedIn()) {
       location.hash = '/';

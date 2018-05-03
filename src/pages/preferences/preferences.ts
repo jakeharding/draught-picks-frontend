@@ -37,6 +37,11 @@ export class PreferencesPage {
   goToABVPage: any;
   goToIBUPage: any;
 
+  /**
+   * PreferencesPage constructor
+   * Required constructor for the PreferencesPage class
+   * Sets the beerSearch, goToBeerFavoriteInfoPage, goToABVPage, goToIBUPage, and userProvider values accordingly
+   * */
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public toastCtrl: ToastController, public beerProvider: BeerProvider,
               private userProvider: UserProvider, private preferencesProvider: PreferencesProvider,
@@ -74,6 +79,11 @@ export class PreferencesPage {
     });
   }
 
+  /**
+   * savePrefs function
+   * No Parameters
+   * Gets the user preferences and saves them in the database
+   * */
   public savePrefs() {
     this.toastCtrl.create({
       message: "Your recommendations will here soon!",
@@ -103,6 +113,11 @@ export class PreferencesPage {
 
   }
 
+  /**
+   * favoriteSelected function
+   * Parameters: Beer ArrayList
+   * Saves users favorite beers from the Beer List in the database
+   * */
   favoriteSelected (beer: Beer) {
     if (this.user.favorite_beers.indexOf(beer) < 0) {
       this.user.favorite_beers.push(beer);
@@ -113,6 +128,11 @@ export class PreferencesPage {
     this.beerSearch = "";
   }
 
+  /**
+   * removeFavorite function
+   * Parameters: Beer ArrayList
+   * Removes users favorite beers from the Beer List in the database
+   * */
   removeFavorite (beer: Beer) {
     this.user.favorite_beers = this.user.favorite_beers.filter((b: Beer) => {
       return b.uuid != beer.uuid;
@@ -120,6 +140,11 @@ export class PreferencesPage {
     this.userProvider.update(this.user);
   }
 
+  /**
+   * search function
+   * Parameters: event of type event
+   * searches through the Beer ArrayList and displays results
+   * */
   search (event:Event) {
     if(this.beerSearch && this.beerSearch.length > 0) {
       this.beerProvider.search(this.beerSearch).toPromise().then((results: Array<Beer>) => {

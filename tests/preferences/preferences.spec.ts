@@ -1,3 +1,10 @@
+/**
+ *  preferences.spec.ts
+ *
+ * Test Cases for Preference Page
+ *
+ * */
+
 import {browser, by, element} from 'protractor';
 import PreferencesPageObject from './PreferencesPageObject';
 import SignInPageObject from '../sign-in/SignInPageObject';
