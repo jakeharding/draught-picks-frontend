@@ -56,6 +56,13 @@ export class SearchPage {
         this.message = SearchPage.NULL_RESULT_MESSAGE;
     }
   }
+
+  /**
+   * getBeers function
+   * No Parameters
+   * gets the recent and recommended beers from the database and processes them
+   * using the scrolling technique
+   * */
   getBeers(){
     if(this.loadMore){
       let queryParams = {
@@ -67,6 +74,12 @@ export class SearchPage {
     }
     return Observable.empty();
   }
+
+  /**
+   * processData function
+   * Parameters: Beer list
+   * increases the offset and loads more beers while scrolling through the beer list
+   * */
   private processData = (beers) => {
     if(beers.length == 0){
       this.loadMore = false;

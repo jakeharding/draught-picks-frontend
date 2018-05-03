@@ -15,6 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AbvInfoPage {
 
+  /**
+   * Empty but required constructor for AbvInfoPage class
+   * */
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

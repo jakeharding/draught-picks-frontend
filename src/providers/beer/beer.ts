@@ -7,12 +7,12 @@ import PageResponse from "../../models/PageResponse";
 import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller"
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
-/*
-  Generated class for the BeerProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+/**
+ * Generated class for the BeerProvider provider.
+ *
+ * See https://angular.io/guide/dependency-injection for more info on providers
+ * and Angular DI.
+ **/
 @Injectable()
 export class BeerProvider implements AutoCompleteService {
   url:string;
@@ -25,6 +25,11 @@ export class BeerProvider implements AutoCompleteService {
     this.recommendedUrl = `${Env.REST_API_ROOT}recommended-beers`;
   }
 
+  /**
+   * search function
+   * Parameters: Observable of type Beer list
+   * Sets the limit and offset for the infinite scrolling
+   * */
   search (params: any): Observable<Beer[]> {
     if (!params.limit) {
       params.limit = LIMIT;
@@ -35,10 +40,20 @@ export class BeerProvider implements AutoCompleteService {
     return this.http.get(this.url, {params}).map(({results}: PageResponse<Beer>) => results);
   }
 
+  /**
+   * getResults function
+   * Parameters: beerName: string
+   * gets the beer name from the results of the beer list
+   * */
   getResults (beerName:string) {
     return this.search(beerName);
   }
 
+  /**
+   * recents function
+   * Parameters: Observable of type Beer list
+   * Sets the limit and offset for the infinite scrolling
+   * */
   recents (params: any): Observable<Beer[]> {
     if (!params.limit) {
       params.limit = LIMIT;
@@ -49,6 +64,12 @@ export class BeerProvider implements AutoCompleteService {
 
     return this.http.get(this.recentsUrl, {params}).map(({results}: PageResponse<Beer>) => results);
   }
+
+  /**
+   * recommended function
+   * Parameters: Observable of type Beer list
+   * Sets the limit and offset for the infinite scrolling
+   * */
   recommended (params: any): Observable<Beer[]>{
     if (!params.limit) {
       params.limit = LIMIT;
@@ -60,6 +81,11 @@ export class BeerProvider implements AutoCompleteService {
       .map(({results} : PageResponse<Beer>) => results);
   }
 
+  /**
+   * createRecent function
+   * Parameters: recent Beer List
+   * retruns the recent beer list
+   * */
   createRecent (recent: Beer) {
     return this.http.post(this.recentsUrl, {beer: recent.uuid}).toPromise();
   }
