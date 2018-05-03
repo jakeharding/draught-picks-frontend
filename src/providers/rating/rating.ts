@@ -18,10 +18,20 @@ export class RatingProvider {
     this.url = `${Env.REST_API_ROOT}beer-ratings`;
   }
 
+  /**
+   * create function
+   * Parameters: beerRating
+   * Creates a beer rating for a user
+   * */
   create(beerRating: BeerRating): Promise<BeerRating> {
     return this.http.post(this.url, beerRating).toPromise().then((rating:BeerRating) => rating);
   }
 
+  /**
+   * partialUpdate function
+   * Parameters: beerRating
+   * Updates beer rating
+   * */
   partialUpdate(beerRating: BeerRating): Promise<BeerRating> {
     return this.http.patch(`${this.url}/${beerRating.uuid}`, beerRating).toPromise().then((rating:BeerRating) => rating);
   }

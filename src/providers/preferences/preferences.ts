@@ -18,12 +18,22 @@ export class PreferencesProvider {
     this.url = `${Env.REST_API_ROOT}preferences`;
   }
 
+  /**
+   * retrieve function
+   * No Parameters
+   * Gets the userPreferences and returns the result
+   * */
   retrieve (): Promise<UserPreferences> {
     return this.http.get(this.url).toPromise().then(({ results }:PageResponse<UserPreferences>) => {
       return results[0];
     });
   }
 
+  /**
+   * save function
+   * Prefs ArrayList of type UserPReferences
+   * Returns User Preferences
+   * */
   save(prefs: UserPreferences) {
     if (prefs.uuid.length > 1) {
       // If prefs has uuid it already exists in DB

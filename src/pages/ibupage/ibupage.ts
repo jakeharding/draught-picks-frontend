@@ -15,6 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class IbupagePage {
 
+  /**
+   * IbupagePage constructor
+   * Empty but required constructor for the IbupagePage class
+   * */
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

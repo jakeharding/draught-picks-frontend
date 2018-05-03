@@ -1,6 +1,5 @@
-// Code taken from https://github.com/ashwin-sureshkumar/angular-infinite-scroller
-import { Directive, AfterViewInit, ElementRef, Input } from '@angular/core';
 
+import { Directive, AfterViewInit, ElementRef, Input } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/pairwise';
@@ -27,6 +26,9 @@ const DEFAULT_SCROLL_POSITION: ScrollPosition = {
  *
  * See https://angular.io/docs/ts/latest/api/core/index/DirectiveMetadata-class.html
  * for more info on Angular Directives.
+ *
+ * This code was taken from https://github.com/ashwin-sureshkumar/angular-infinite-scroller and is used
+ * to create the infinitescroller used in the User Interface
  */
 
 @Directive({
