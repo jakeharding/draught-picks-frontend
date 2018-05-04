@@ -86,7 +86,7 @@ export class PreferencesPage {
    * */
   public savePrefs() {
     this.toastCtrl.create({
-      message: "Your recommendations will here soon!",
+      message: "Your recommendations will be here soon!",
       duration: 3000,
       position: "top",
       cssClass: "success-toast"

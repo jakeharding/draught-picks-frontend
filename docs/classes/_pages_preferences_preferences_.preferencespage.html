@@ -103,6 +103,9 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_preferences_preferences_.preferencespage.html#beerresults" class="tsd-kind-icon">beer<wbr>Results</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_preferences_preferences_.preferencespage.html#beersearch" class="tsd-kind-icon">beer<wbr>Search</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_preferences_preferences_.preferencespage.html#formbuilder" class="tsd-kind-icon">form<wbr>Builder</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_preferences_preferences_.preferencespage.html#gotoabvpage" class="tsd-kind-icon">go<wbr>ToABVPage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_preferences_preferences_.preferencespage.html#gotobeerfavoriteinfopage" class="tsd-kind-icon">go<wbr>ToBeer<wbr>Favorite<wbr>Info<wbr>Page</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_preferences_preferences_.preferencespage.html#gotoibupage" class="tsd-kind-icon">go<wbr>ToIBUPage</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_preferences_preferences_.preferencespage.html#navctrl" class="tsd-kind-icon">nav<wbr>Ctrl</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_preferences_preferences_.preferencespage.html#navparams" class="tsd-kind-icon">nav<wbr>Params</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_pages_preferences_preferences_.preferencespage.html#preferencesprovider" class="tsd-kind-icon">preferences<wbr>Provider</a></li>
@@ -137,9 +140,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L31">pages/preferences/preferences.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L38">pages/preferences/preferences.ts:38</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>PreferencesPage constructor
+										Required constructor for the PreferencesPage class
+									Sets the beerSearch, goToBeerFavoriteInfoPage, goToABVPage, goToIBUPage, and userProvider values accordingly</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -177,7 +187,7 @@
 					<div class="tsd-signature tsd-kind-icon">beer<wbr>Provider<span class="tsd-signature-symbol">:</span> <a href="_providers_beer_beer_.beerprovider.html" class="tsd-signature-type">BeerProvider</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L34">pages/preferences/preferences.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L46">pages/preferences/preferences.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">beer<wbr>Results<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_models_beer_.beer.html" class="tsd-signature-type">Beer</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L27">pages/preferences/preferences.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L31">pages/preferences/preferences.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">beer<wbr>Search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L28">pages/preferences/preferences.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L32">pages/preferences/preferences.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +217,37 @@
 					<div class="tsd-signature tsd-kind-icon">form<wbr>Builder<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormBuilder</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L36">pages/preferences/preferences.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L48">pages/preferences/preferences.ts:48</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="gotoabvpage" class="tsd-anchor"></a>
+					<h3>go<wbr>ToABVPage</h3>
+					<div class="tsd-signature tsd-kind-icon">go<wbr>ToABVPage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L37">pages/preferences/preferences.ts:37</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="gotobeerfavoriteinfopage" class="tsd-anchor"></a>
+					<h3>go<wbr>ToBeer<wbr>Favorite<wbr>Info<wbr>Page</h3>
+					<div class="tsd-signature tsd-kind-icon">go<wbr>ToBeer<wbr>Favorite<wbr>Info<wbr>Page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L36">pages/preferences/preferences.ts:36</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="gotoibupage" class="tsd-anchor"></a>
+					<h3>go<wbr>ToIBUPage</h3>
+					<div class="tsd-signature tsd-kind-icon">go<wbr>ToIBUPage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L38">pages/preferences/preferences.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +257,7 @@
 					<div class="tsd-signature tsd-kind-icon">nav<wbr>Ctrl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">NavController</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L33">pages/preferences/preferences.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L45">pages/preferences/preferences.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -227,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">nav<wbr>Params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">NavParams</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L33">pages/preferences/preferences.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L45">pages/preferences/preferences.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -237,7 +277,7 @@
 					<div class="tsd-signature tsd-kind-icon">preferences<wbr>Provider<span class="tsd-signature-symbol">:</span> <a href="_providers_preferences_preferences_.preferencesprovider.html" class="tsd-signature-type">PreferencesProvider</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L35">pages/preferences/preferences.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L47">pages/preferences/preferences.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +287,7 @@
 					<div class="tsd-signature tsd-kind-icon">prefs<span class="tsd-signature-symbol">:</span> <a href="_models_userpreferences_.userpreferences.html" class="tsd-signature-type">UserPreferences</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L30">pages/preferences/preferences.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L34">pages/preferences/preferences.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -257,7 +297,7 @@
 					<div class="tsd-signature tsd-kind-icon">prefs<wbr>Form<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormGroup</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L31">pages/preferences/preferences.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L35">pages/preferences/preferences.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -267,7 +307,7 @@
 					<div class="tsd-signature tsd-kind-icon">toast<wbr>Ctrl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ToastController</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L34">pages/preferences/preferences.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L46">pages/preferences/preferences.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -277,7 +317,7 @@
 					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_models_user_.user.html" class="tsd-signature-type">User</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L29">pages/preferences/preferences.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L33">pages/preferences/preferences.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -287,7 +327,7 @@
 					<div class="tsd-signature tsd-kind-icon">user<wbr>Provider<span class="tsd-signature-symbol">:</span> <a href="_providers_user_user_.userprovider.html" class="tsd-signature-type">UserProvider</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L35">pages/preferences/preferences.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L47">pages/preferences/preferences.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -304,9 +344,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L89">pages/preferences/preferences.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L126">pages/preferences/preferences.ts:126</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>favoriteSelected function
+										Parameters: Beer ArrayList
+									Saves users favorite beers from the Beer List in the database</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -327,9 +374,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L99">pages/preferences/preferences.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L141">pages/preferences/preferences.ts:141</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>removeFavorite function
+										Parameters: Beer ArrayList
+									Removes users favorite beers from the Beer List in the database</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -350,9 +404,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L67">pages/preferences/preferences.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L87">pages/preferences/preferences.ts:87</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>savePrefs function
+										No Parameters
+									Gets the user preferences and saves them in the database</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -367,9 +428,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/preferences/preferences.ts#L106">pages/preferences/preferences.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/preferences/preferences.ts#L153">pages/preferences/preferences.ts:153</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>search function
+										Parameters: event of type event
+									searches through the Beer ArrayList and displays results</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -414,6 +482,15 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_pages_preferences_preferences_.preferencespage.html#formbuilder" class="tsd-kind-icon">form<wbr>Builder</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_pages_preferences_preferences_.preferencespage.html#gotoabvpage" class="tsd-kind-icon">go<wbr>ToABVPage</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_pages_preferences_preferences_.preferencespage.html#gotobeerfavoriteinfopage" class="tsd-kind-icon">go<wbr>ToBeer<wbr>Favorite<wbr>Info<wbr>Page</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_pages_preferences_preferences_.preferencespage.html#gotoibupage" class="tsd-kind-icon">go<wbr>ToIBUPage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_pages_preferences_preferences_.preferencespage.html#navctrl" class="tsd-kind-icon">nav<wbr>Ctrl</a>

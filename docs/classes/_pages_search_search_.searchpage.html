@@ -102,9 +102,12 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#beerprovider" class="tsd-kind-icon">beer<wbr>Provider</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#beerresults" class="tsd-kind-icon">beer<wbr>Results</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#beersearch" class="tsd-kind-icon">beer<wbr>Search</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#loadmore" class="tsd-kind-icon">load<wbr>More</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#message" class="tsd-kind-icon">message</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#navctrl" class="tsd-kind-icon">nav<wbr>Ctrl</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#navparams" class="tsd-kind-icon">nav<wbr>Params</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#offset" class="tsd-kind-icon">offset</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#scrollcallback" class="tsd-kind-icon">scroll<wbr>Callback</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_pages_search_search_.searchpage.html#null_result_message" class="tsd-kind-icon">NULL_<wbr>RESULT_<wbr>MESSAGE</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_pages_search_search_.searchpage.html#zero_result_message" class="tsd-kind-icon">ZERO_<wbr>RESULT_<wbr>MESSAGE</a></li>
 							</ul>
@@ -113,7 +116,9 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#getbeers" class="tsd-kind-icon">get<wbr>Beers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#ionviewwillenter" class="tsd-kind-icon">ion<wbr>View<wbr>Will<wbr>Enter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_pages_search_search_.searchpage.html#processdata" class="tsd-kind-icon">process<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_pages_search_search_.searchpage.html#search" class="tsd-kind-icon">search</a></li>
 							</ul>
 						</section>
@@ -132,7 +137,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L28">pages/search/search.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L32">pages/search/search.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -160,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">beer<wbr>Provider<span class="tsd-signature-symbol">:</span> <a href="_providers_beer_beer_.beerprovider.html" class="tsd-signature-type">BeerProvider</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L30">pages/search/search.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L34">pages/search/search.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">beer<wbr>Results<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_models_beer_.beer.html" class="tsd-signature-type">Beer</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L24">pages/search/search.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L24">pages/search/search.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +185,17 @@
 					<div class="tsd-signature tsd-kind-icon">beer<wbr>Search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L25">pages/search/search.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L25">pages/search/search.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="loadmore" class="tsd-anchor"></a>
+					<h3>load<wbr>More</h3>
+					<div class="tsd-signature tsd-kind-icon">load<wbr>More<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L28">pages/search/search.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L26">pages/search/search.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L26">pages/search/search.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">nav<wbr>Ctrl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">NavController</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L29">pages/search/search.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L33">pages/search/search.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +225,27 @@
 					<div class="tsd-signature tsd-kind-icon">nav<wbr>Params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">NavParams</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L29">pages/search/search.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L33">pages/search/search.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="offset" class="tsd-anchor"></a>
+					<h3>offset</h3>
+					<div class="tsd-signature tsd-kind-icon">offset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L27">pages/search/search.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="scrollcallback" class="tsd-anchor"></a>
+					<h3>scroll<wbr>Callback</h3>
+					<div class="tsd-signature tsd-kind-icon">scroll<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L29">pages/search/search.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +255,7 @@
 					<div class="tsd-signature tsd-kind-icon">NULL_<wbr>RESULT_<wbr>MESSAGE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Search for a beer and let us know what you like about it.&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L27">pages/search/search.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L31">pages/search/search.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">ZERO_<wbr>RESULT_<wbr>MESSAGE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;We cannot find results on the beers you have entered.&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L28">pages/search/search.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L32">pages/search/search.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +282,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L57">pages/search/search.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L96">pages/search/search.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -268,6 +303,31 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getbeers" class="tsd-anchor"></a>
+					<h3>get<wbr>Beers</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Beers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L66">pages/search/search.ts:66</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>getBeers function
+										No Parameters
+										gets the recent and recommended beers from the database and processes them
+									using the scrolling technique</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="ionviewwillenter" class="tsd-anchor"></a>
 					<h3>ion<wbr>View<wbr>Will<wbr>Enter</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -277,7 +337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L67">pages/search/search.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L106">pages/search/search.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -286,6 +346,36 @@
 									Call the search method in case user has a value in the input.</p>
 								</div>
 							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="processdata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> process<wbr>Data</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">process<wbr>Data<span class="tsd-signature-symbol">(</span>beers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L83">pages/search/search.ts:83</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>processData function
+										Parameters: Beer list
+									increases the offset and loads more beers while scrolling through the beer list</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>beers: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -300,7 +390,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/2c750e9/src/pages/search/search.ts#L39">pages/search/search.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/jakeharding/draught-picks-frontend/blob/6e9111e/src/pages/search/search.ts#L46">pages/search/search.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -353,6 +443,9 @@
 								<a href="_pages_search_search_.searchpage.html#beersearch" class="tsd-kind-icon">beer<wbr>Search</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_pages_search_search_.searchpage.html#loadmore" class="tsd-kind-icon">load<wbr>More</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_pages_search_search_.searchpage.html#message" class="tsd-kind-icon">message</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -360,6 +453,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_pages_search_search_.searchpage.html#navparams" class="tsd-kind-icon">nav<wbr>Params</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_pages_search_search_.searchpage.html#offset" class="tsd-kind-icon">offset</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_pages_search_search_.searchpage.html#scrollcallback" class="tsd-kind-icon">scroll<wbr>Callback</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
 								<a href="_pages_search_search_.searchpage.html#null_result_message" class="tsd-kind-icon">NULL_<wbr>RESULT_<wbr>MESSAGE</a>
@@ -371,7 +470,13 @@
 								<a href="_pages_search_search_.searchpage.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_pages_search_search_.searchpage.html#getbeers" class="tsd-kind-icon">get<wbr>Beers</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_pages_search_search_.searchpage.html#ionviewwillenter" class="tsd-kind-icon">ion<wbr>View<wbr>Will<wbr>Enter</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_pages_search_search_.searchpage.html#processdata" class="tsd-kind-icon">process<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_pages_search_search_.searchpage.html#search" class="tsd-kind-icon">search</a>
