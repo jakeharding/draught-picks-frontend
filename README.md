@@ -18,4 +18,4 @@ then rename .env.example to .env and run
 
 `ionic serve`
 
-
+The backend application must be up and running in order to serve data.
