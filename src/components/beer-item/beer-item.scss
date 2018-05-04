@@ -1,0 +1,21 @@
+beer-item {
+  .percent {
+    font-size: 1.5em;
+    font-weight: 500;
+    display: block;
+  }
+
+  hr {
+    height: 1px!important;
+  }
+
+  ion-col {
+    padding: 0px 0px !important;
+  }
+
+  ion-row {
+    p {
+      margin: 0px 0px 4px 4px;
+    }
+  }
+}
