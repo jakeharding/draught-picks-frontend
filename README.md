@@ -14,7 +14,7 @@ After cloning the repository, change directory into the project root, run:
 
 `npm install`
 
-then rename .env.eexample to .env and run
+then rename .env.example to .env and run
 
 `ionic serve`
 
