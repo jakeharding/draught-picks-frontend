@@ -5,6 +5,7 @@ import Beer from "../../models/Beer";
 import {BeerProvider } from "../../providers/beer/beer";
 import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller";
 import {Observable} from "rxjs/Observable";
+import {BasePage} from "../BasePage";
 
 /**
  * Generated class for the HomePage page.
@@ -19,7 +20,7 @@ import {Observable} from "rxjs/Observable";
   selector: 'page-home',
   templateUrl: 'home.html',
 })
-export class HomePage {
+export class HomePage extends BasePage {
   recents: Array<Beer>;
   recommended: Array<Beer>;
   beerForABV: Array<Beer>;
@@ -41,6 +42,7 @@ export class HomePage {
    * */
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
+    super('home');
     this.recommendedOffset = 0;
     this.recentOffset = 0;
     this.loadMoreRecommended = true;

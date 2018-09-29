@@ -5,6 +5,7 @@ import {BeerProvider} from "../../providers/beer/beer";
 import Beer from "../../models/Beer";
 import BeerRating from "../../models/BeerRating";
 import {RatingProvider} from "../../providers/rating/rating";
+import {BasePage} from "../BasePage";
 
 /**
  * Generated class for the BeerDetailPage page.
@@ -22,7 +23,7 @@ import {RatingProvider} from "../../providers/rating/rating";
   selector: 'page-beer-detail',
   templateUrl: 'beer-detail.html',
 })
-export class BeerDetailPage {
+export class BeerDetailPage extends BasePage {
 
   beer: Beer;
   beerRating: BeerRating;
@@ -35,6 +36,7 @@ export class BeerDetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider, public ratingProvider: RatingProvider,
               public toastController: ToastController) {
+    super(`/beers/${navParams.data.uuid}`);
     this.beer = this.navParams.data;
     this.beerRating = {
       description: '',

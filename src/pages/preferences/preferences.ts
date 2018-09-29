@@ -12,6 +12,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BeerFavoriteInfoPage} from "../beer-favorite-info/beer-favorite-info";
 import {AbvInfoPage} from "../abv-info/abv-info";
 import {IbupagePage} from "../ibupage/ibupage";
+import {BasePage} from "../BasePage";
 
 /**
  * Generated class for the PreferencesPage page.
@@ -26,7 +27,7 @@ import {IbupagePage} from "../ibupage/ibupage";
   selector: 'page-preferences',
   templateUrl: 'preferences.html',
 })
-export class PreferencesPage {
+export class PreferencesPage extends BasePage {
 
   beerResults: Array<Beer>;
   beerSearch: string;
@@ -46,6 +47,7 @@ export class PreferencesPage {
               public toastCtrl: ToastController, public beerProvider: BeerProvider,
               private userProvider: UserProvider, private preferencesProvider: PreferencesProvider,
               public formBuilder: FormBuilder) {
+    super('preferences');
     this.beerSearch = "";
     this.goToBeerFavoriteInfoPage = BeerFavoriteInfoPage;
     this.goToABVPage = AbvInfoPage;

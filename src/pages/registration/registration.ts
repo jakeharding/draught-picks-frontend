@@ -6,6 +6,8 @@ import {DisclaimerPage} from "../disclaimer/disclaimer";
 import {UserProvider} from "../../providers/user/user";
 import CheckboxValidator from "../../validators/CheckboxValidator";
 import PasswordValidator from "../../validators/PasswordValidator";
+import ga from 'universal-ga'
+import {BasePage} from "../BasePage";
 
 /**
  * Generated class for the RegistrationPage page.
@@ -19,7 +21,7 @@ import PasswordValidator from "../../validators/PasswordValidator";
     selector: 'page-registration',
     templateUrl: 'registration.html',
 })
-export class RegistrationPage {
+export class RegistrationPage extends BasePage {
   registerForm: FormGroup;
   goToSignInPage: any;
   goToDisclaimerPage: any;
@@ -37,6 +39,7 @@ export class RegistrationPage {
               public navParams: NavParams,
               public toastCtrl: ToastController,
               public userProvider: UserProvider ){
+    super('registration');
     this.maxDate = new Date(Date.now() - this.MS_IN_21_YEARS).toISOString();
     this.goToSignInPage = SignInPage;
     this.goToDisclaimerPage = DisclaimerPage;

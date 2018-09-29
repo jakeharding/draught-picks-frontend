@@ -5,6 +5,7 @@ import Beer from "../../models/Beer";
 import {BeerProvider} from "../../providers/beer/beer";
 import {Observable} from "rxjs/Observable";
 import {LIMIT} from "../../directives/infinite-scroller/infinite-scroller";
+import {BasePage} from "../BasePage";
 
 /**
  * Generated class for the SearchPage page.
@@ -19,7 +20,7 @@ import {LIMIT} from "../../directives/infinite-scroller/infinite-scroller";
   selector: 'page-search',
   templateUrl: 'search.html',
 })
-export class SearchPage {
+export class SearchPage extends BasePage {
 
   beerResults: Array<Beer>;
   beerSearch: string;
@@ -32,6 +33,7 @@ export class SearchPage {
   private static ZERO_RESULT_MESSAGE = "We cannot find results on the beers you have entered.";
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
+    super('search');
     this.message = SearchPage.NULL_RESULT_MESSAGE;
     this.beerSearch = "";
     this.offset = 0;

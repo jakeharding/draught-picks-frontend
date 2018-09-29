@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationPage } from "../registration/registration";
 import { AuthProvider } from "../../providers/auth/auth";
 import { TabsPage } from '../tabs/tabs';
+import {BasePage} from "../BasePage";
 
 /**
  * Generated class for the SignInPage page.
@@ -17,7 +18,7 @@ import { TabsPage } from '../tabs/tabs';
   selector: 'page-sign-in',
   templateUrl: 'sign-in.html',
 })
-export class SignInPage{
+export class SignInPage extends BasePage {
   signInForm: FormGroup;
   goToRegistration: any;
   private username: string;
@@ -25,6 +26,7 @@ export class SignInPage{
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController,
               public authProvider: AuthProvider) {
+    super('sign-in');
     if (this.authProvider.isLoggedIn()) {
       this.navCtrl.setRoot(TabsPage);
       location.hash = "";

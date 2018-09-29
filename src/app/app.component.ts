@@ -28,12 +28,13 @@ export class MyApp {
     if (env.GA_ENV === 'prod') {
       const gaScript = document.createElement('script');
       gaScript.setAttribute('async', 'true');
-      gaScript.setAttribute('src', "https://www.googletagmanager.com/gtag/js?id=UA-126223472-1");
+      gaScript.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${env.GA_TRACKING}`);
+      ga.initialize(env.GA_TRACKING);
 
-      const gaConfig = document.createTextNode("window.dataLayer = window.dataLayer || []; \
+      const gaConfig = document.createTextNode(`window.dataLayer = window.dataLayer || []; \
         function gtag(){window.dataLayer.push(arguments);} \
         gtag('js', new Date()); \
-        gtag('config', 'UA-126223472-1');");
+        gtag('config', '${env.GA_TRACKING}');`);
 
       const gaConfigScript = document.createElement('script');
       gaConfigScript.appendChild(gaConfig);
