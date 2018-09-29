@@ -10,6 +10,7 @@
 
 class Env {
   static REST_API_ROOT:string = process.env.REST_API_ROOT;
+  static GA_ENV: string = process.env.GA_ENV;
 }
 
 export default Env;
