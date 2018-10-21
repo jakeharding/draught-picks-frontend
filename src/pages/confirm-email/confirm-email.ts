@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the VerifyEmailPage page.
+ * Generated class for the ConfirmEmailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-verify-email',
-  templateUrl: 'verify-email.html',
+  selector: 'page-confirm-email',
+  templateUrl: 'confirm-email.html',
 })
-export class VerifyEmailPage {
+export class ConfirmEmailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad VerifyEmailPage');
+    console.log('ionViewDidLoad ConfirmEmailPage');
   }
 
 }
