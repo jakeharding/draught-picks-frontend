@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import { LoginRequired } from "../../providers/auth/auth";
 import Beer from "../../models/Beer";
 import {BeerProvider} from "../../providers/beer/beer";

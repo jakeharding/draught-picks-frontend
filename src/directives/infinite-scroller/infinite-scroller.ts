@@ -1,5 +1,5 @@
 // Code taken from https://github.com/ashwin-sureshkumar/angular-infinite-scroller
-import { Directive, AfterViewInit, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/fromEvent';
@@ -38,7 +38,6 @@ const DEFAULT_SCROLL_POSITION: ScrollPosition = {
 export class InfiniteScrollerDirective {
   private scrollEvent$;
   private userScrolledDown$;
-  private requestStream$;
   private requestOnScroll$;
 
   @Input()
