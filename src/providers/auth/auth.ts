@@ -1,4 +1,4 @@
-import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import {Injectable, Injector } from '@angular/core';
 import Env from "../../env";
 import { Observable } from "rxjs/Observable";
@@ -65,7 +65,7 @@ export function LoginRequired (target: Function) {
   const authProvider = Injector.create([{provide: AuthProvider, deps: [] }]).get(AuthProvider);
   target.prototype.ionViewCanEnter = () => {
     if(!authProvider.isLoggedIn()) {
-      location.href = "#/sign-in";
+      location.href = "sign-in";
     }
     return authProvider.isLoggedIn();
   };

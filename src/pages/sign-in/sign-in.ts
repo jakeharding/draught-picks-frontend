@@ -29,9 +29,8 @@ export class SignInPage extends BasePage {
     super('sign-in');
     if (this.authProvider.isLoggedIn()) {
       this.navCtrl.setRoot(TabsPage);
-      location.hash = "";
     }
-    this.goToRegistration = RegistrationPage;
+    this.goToRegistration = RegistrationPage
     this.signInForm = formBuilder.group({
       username: [this.username, Validators.compose([Validators.required])],
       password: [this.password, Validators.compose([Validators.required, Validators.minLength(4)])]
