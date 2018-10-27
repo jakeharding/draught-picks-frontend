@@ -1,5 +1,7 @@
 {
   "rules": {
+    "curly": true,
+    "whitespace": [true, "check-module"],
     "no-duplicate-variable": true,
     "no-unused-variable": [
       true

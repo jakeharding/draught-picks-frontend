@@ -1,5 +1,7 @@
 {
   "name": "draught-picks",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
