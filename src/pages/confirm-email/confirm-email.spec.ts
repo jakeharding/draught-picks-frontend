@@ -32,5 +32,6 @@ describe('ConfirmEmailPage', () => {
 
   it('should initialize the ConfirmEmailPage', () => {
     expect(instance).toBeTruthy();
-  })
+    expect(fixture).toMatchSnapshot();
+  });
 });
