@@ -1,7 +1,7 @@
 {
   "rules": {
     "curly": true,
-    "whitespace": [true, "check-module"],
+    "whitespace": [true, "check-module", "check-preblock", "check-decl", "check-type-operator", "check-branch"],
     "no-duplicate-variable": true,
     "no-unused-variable": [
       true

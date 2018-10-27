@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {FormGroup} from "@angular/forms";
+import { BasePage } from "../BasePage";
 
 /**
  * Generated class for the ResendEmailPage page.
@@ -13,13 +15,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-resend-email',
   templateUrl: 'resend-email.html',
 })
-export class ResendEmailPage {
+export class ResendEmailPage extends BasePage {
+
+  emailForm: FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ResendEmailPage');
+    super('resend-email');
   }
 
 }
