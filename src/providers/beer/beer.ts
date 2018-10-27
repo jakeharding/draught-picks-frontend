@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Env from "../../env";
-import {AutoCompleteService} from "ionic2-auto-complete";
+import { AutoCompleteService } from "ionic2-auto-complete";
 import Beer from "../../models/Beer";
 import PageResponse from "../../models/PageResponse";
 import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller"
-import {Observable} from "rxjs/Observable";
+import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 /*
   Generated class for the BeerProvider provider.

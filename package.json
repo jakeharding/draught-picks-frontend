@@ -7,7 +7,8 @@
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
-    "lint": "ionic-app-scripts lint",
+    "lint": "tslint -p . -c tslint.json",
+    "lint:fix": "tslint -p . -c tslint.json --fix",
     "test-protractor": "webdriver-manager update && protractor",
     "test": "jest",
     "test:update": "jest -u",
@@ -53,7 +54,6 @@
   "config": {
     "ionic_webpack": "./webpack.config.js"
   },
-
   "jest": {
     "preset": "jest-preset-angular",
     "roots": [

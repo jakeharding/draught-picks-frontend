@@ -1,0 +1,29 @@
+<!--
+  Generated template for the EmailSentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<draught-header></draught-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col class="below-header" text-center col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+      <h1>Email Sent</h1>
+      <div class="justify">
+        <p margin>
+          An email has been sent to the address you provided. Please use the link in the email to confirm your ownership of the email address.
+        </p>
+        <p margin>
+          The link in the email is good 24 hours.
+        </p>
+
+        <p margin>
+          If you have trouble confirming the email click <a [navPush]="resend">this link to resend it</a>.
+        </p>
+      </div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -1,8 +1,8 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import {Injectable, Injector } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import Env from "../../env";
 import { Observable } from "rxjs/Observable";
-import {Http} from "@angular/http";
+import { Http } from "@angular/http";
 import 'rxjs/add/operator/map';
 import AuthResponse from "../../models/AuthResponse";
 

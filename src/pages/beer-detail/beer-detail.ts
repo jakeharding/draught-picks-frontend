@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
-import {LoginRequired} from "../../providers/auth/auth";
-import {BeerProvider} from "../../providers/beer/beer";
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { LoginRequired } from "../../providers/auth/auth";
+import { BeerProvider } from "../../providers/beer/beer";
 import Beer from "../../models/Beer";
 import BeerRating from "../../models/BeerRating";
-import {RatingProvider} from "../../providers/rating/rating";
-import {BasePage} from "../BasePage";
+import { RatingProvider } from "../../providers/rating/rating";
+import { BasePage } from "../BasePage";
 
 /**
  * Generated class for the BeerDetailPage page.

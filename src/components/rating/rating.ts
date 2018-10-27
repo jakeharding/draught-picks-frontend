@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import BeerRating from "../../models/BeerRating";
-import {RatingProvider} from "../../providers/rating/rating";
-import {ToastController} from "ionic-angular";
+import { RatingProvider } from "../../providers/rating/rating";
+import { ToastController } from "ionic-angular";
 
 /**
  * Generated class for the RatingComponent component.

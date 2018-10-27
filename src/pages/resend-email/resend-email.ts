@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BasePage } from "../BasePage";
 
 /**
- * Generated class for the IbupagePage page.
+ * Generated class for the ResendEmailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,21 +10,16 @@ import { BasePage } from "../BasePage";
 
 @IonicPage()
 @Component({
-  selector: 'page-ibupage',
-  templateUrl: 'ibupage.html',
+  selector: 'page-resend-email',
+  templateUrl: 'resend-email.html',
 })
-export class IbupagePage extends BasePage {
+export class ResendEmailPage {
 
-  /**
-   * IbupagePage constructor
-   * Empty but required constructor for the IbupagePage class
-   * */
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    super("ibu-info");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad IbupagePage');
+    console.log('ionViewDidLoad ResendEmailPage');
   }
 
 }

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { RegistrationPage } from './registration';
+import { EmailSentPage } from './email-sent';
 import { ComponentsModule } from "../../components/components.module";
 
 @NgModule({
   declarations: [
-    RegistrationPage,
+    EmailSentPage,
   ],
   imports: [
-    IonicPageModule.forChild(RegistrationPage),
+    IonicPageModule.forChild(EmailSentPage),
     ComponentsModule,
   ],
 })
-export class RegistrationPageModule {}
+export class EmailSentPageModule {}

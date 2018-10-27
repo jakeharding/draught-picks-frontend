@@ -1,13 +1,12 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {SignInPage} from "../sign-in/sign-in";
-import {DisclaimerPage} from "../disclaimer/disclaimer";
-import {UserProvider} from "../../providers/user/user";
+import { SignInPage } from "../sign-in/sign-in";
+import { DisclaimerPage } from "../disclaimer/disclaimer";
+import { UserProvider } from "../../providers/user/user";
 import CheckboxValidator from "../../validators/CheckboxValidator";
 import PasswordValidator from "../../validators/PasswordValidator";
-import ga from 'universal-ga'
-import {BasePage} from "../BasePage";
+import { BasePage } from "../BasePage";
 
 /**
  * Generated class for the RegistrationPage page.

@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { LoginRequired } from '../../providers/auth/auth';
-import {BeerProvider} from "../../providers/beer/beer";
+import { BeerProvider } from "../../providers/beer/beer";
 import Beer from "../../models/Beer";
-import {UserProvider} from "../../providers/user/user";
+import { UserProvider } from "../../providers/user/user";
 import User from "../../models/User";
-import {PreferencesProvider} from "../../providers/preferences/preferences";
+import { PreferencesProvider } from "../../providers/preferences/preferences";
 import UserPreferences from '../../models/UserPreferences';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {BeerFavoriteInfoPage} from "../beer-favorite-info/beer-favorite-info";
-import {AbvInfoPage} from "../abv-info/abv-info";
-import {IbupagePage} from "../ibupage/ibupage";
-import {BasePage} from "../BasePage";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { BeerFavoriteInfoPage } from "../beer-favorite-info/beer-favorite-info";
+import { AbvInfoPage } from "../abv-info/abv-info";
+import { IbupagePage } from "../ibupage/ibupage";
+import { BasePage } from "../BasePage";
 
 /**
  * Generated class for the PreferencesPage page.

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {AuthProvider} from "../../providers/auth/auth";
-import {NavController} from "ionic-angular";
-import {SignInPage} from "../../pages/sign-in/sign-in";
-import {HomePage} from "../../pages/home/home";
+import { AuthProvider } from "../../providers/auth/auth";
+import { NavController } from "ionic-angular";
+import { SignInPage } from "../../pages/sign-in/sign-in";
+import { HomePage } from "../../pages/home/home";
 
 /**
  * Generated class for the DraughtHeaderComponent component.

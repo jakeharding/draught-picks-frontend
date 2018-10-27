@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationPage } from "../registration/registration";
 import { AuthProvider } from "../../providers/auth/auth";
 import { TabsPage } from '../tabs/tabs';
-import {BasePage} from "../BasePage";
+import { BasePage } from "../BasePage";
 
 /**
  * Generated class for the SignInPage page.
