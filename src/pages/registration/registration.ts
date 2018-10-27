@@ -75,7 +75,7 @@ export class RegistrationPage extends BasePage {
   public createUser(){
     this.userProvider.create(this.registerForm.value).then(
       () => {
-        location.replace("#/sign-in");
+        this.navCtrl.setRoot(SignInPage);
       }, () => {
         let toast = this.toastCtrl.create({
           message: 'Unable to register at the moment. Please try again.',
