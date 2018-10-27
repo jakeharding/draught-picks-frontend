@@ -43,7 +43,7 @@ export class SignInPage extends BasePage {
    * Gets the username and password values and validates the information then sends
    * user to the home page
    * */
-  public signIn(){
+  public signIn() {
     this.authProvider.signIn(this.signInForm.value).then(
       (response) => {
         this.authProvider.setToken(response.token);

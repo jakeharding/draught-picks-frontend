@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {FormGroup} from "@angular/forms";
+import { FormGroup } from "@angular/forms";
 import { BasePage } from "../BasePage";
 
 /**

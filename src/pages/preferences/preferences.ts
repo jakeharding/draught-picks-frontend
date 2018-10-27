@@ -67,7 +67,7 @@ export class PreferencesPage extends BasePage {
     } as UserPreferences;
 
     this.preferencesProvider.retrieve().then((prefs: UserPreferences) => {
-      if(prefs) {
+      if (prefs) {
         this.prefs = prefs;
       }
     });
@@ -153,7 +153,7 @@ export class PreferencesPage extends BasePage {
    * searches through the Beer ArrayList and displays results
    * */
   search (event:Event) {
-    if(this.beerSearch && this.beerSearch.length > 0) {
+    if (this.beerSearch && this.beerSearch.length > 0) {
       this.beerProvider.search(this.beerSearch).toPromise().then((results: Array<Beer>) => {
         this.beerResults = results;
       });

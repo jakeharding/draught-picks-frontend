@@ -46,11 +46,11 @@ export class BeerDetailPage extends BasePage {
 
     this.beerProvider.retrieve(this.beer.uuid).then((beer: Beer) => {
       this.beer = beer;
-      if(beer.rating.length > 0) {
+      if (beer.rating.length > 0) {
         this.beerRating = beer.rating[0];
       }
     });
-    if(this.beer.rating && this.beer.rating.length > 0) {
+    if (this.beer.rating && this.beer.rating.length > 0) {
       this.hasRating = true;
       this.beerRating = this.beer.rating[0];
     }

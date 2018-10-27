@@ -64,7 +64,7 @@ export class AuthProvider implements HttpInterceptor {
 export function LoginRequired (target: Function) {
   const authProvider = Injector.create([{provide: AuthProvider, deps: [] }]).get(AuthProvider);
   target.prototype.ionViewCanEnter = () => {
-    if(!authProvider.isLoggedIn()) {
+    if (!authProvider.isLoggedIn()) {
       location.href = "sign-in";
     }
     return authProvider.isLoggedIn();

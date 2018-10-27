@@ -67,8 +67,8 @@ export class HomePage extends BasePage {
     this.beerProvider.recents({limit: LIMIT, offset: 0}).toPromise().then(results => {
 
       this.recents = results;
-      this.beerForABV = this.recents.filter(beer =>{
-        beer.recents = beer.recents.filter( currentBeer =>{
+      this.beerForABV = this.recents.filter(beer => {
+        beer.recents = beer.recents.filter( currentBeer => {
 
           return (new Date(currentBeer.created_at)) > pastTime;
         });
@@ -76,7 +76,7 @@ export class HomePage extends BasePage {
       });
 
       this.totalCount = 0;
-      if( this.beerForABV.length>0) {
+      if ( this.beerForABV.length>0) {
         this.totalCount = this.beerForABV.map((current) => current.recents.length).reduce((acc, c) => {
           return acc + c;
         });
@@ -95,7 +95,7 @@ export class HomePage extends BasePage {
    * @returns {Observable<any>}
    */
   getRecentBeers () {
-    if(this.loadMoreRecent){
+    if (this.loadMoreRecent) {
       let queryParams = {
         limit: LIMIT,
         offset: this.recentOffset
@@ -109,8 +109,8 @@ export class HomePage extends BasePage {
    * Get more recommended beers if available.
    * @returns {Observable<any>}
    */
-  getRecommendedBeers(){
-    if(this.loadMoreRecommended){
+  getRecommendedBeers() {
+    if (this.loadMoreRecommended) {
       let queryParams = {
         limit: LIMIT,
         offset: this.recommendedOffset
@@ -127,7 +127,7 @@ export class HomePage extends BasePage {
    * increases the offset and loads more beers while scrolling through the beer list
    * */
   private processRecommendedBeers = (beers) => {
-    if(beers.length == 0){
+    if (beers.length == 0) {
       this.loadMoreRecommended = false;
       return;
     }
@@ -142,7 +142,7 @@ export class HomePage extends BasePage {
    * increases the offset and loads more beers while scrolling through the beer list
    * */
   private processRecentBeers = (beers) => {
-    if(beers.length == 0){
+    if (beers.length == 0) {
       this.loadMoreRecent = false;
       return;
     }

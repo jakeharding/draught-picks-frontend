@@ -46,10 +46,10 @@ export class SearchPage extends BasePage {
    * @param {Event} event
    */
   search (event:Event) {
-    if(this.beerSearch && this.beerSearch.length > 2) {
+    if (this.beerSearch && this.beerSearch.length > 2) {
         this.beerProvider.search({search: this.beerSearch}).toPromise().then((results: Array<Beer>) => {
             this.beerResults = results;
-            if(this.beerResults.length === 0) {
+            if (this.beerResults.length === 0) {
                 this.message = SearchPage.ZERO_RESULT_MESSAGE;
             }
         });
@@ -65,8 +65,8 @@ export class SearchPage extends BasePage {
    * gets the recent and recommended beers from the database and processes them
    * using the scrolling technique
    * */
-  getBeers(){
-    if(this.loadMore){
+  getBeers() {
+    if (this.loadMore) {
       let queryParams = {
         limit: LIMIT,
         offset: this.offset,
@@ -83,7 +83,7 @@ export class SearchPage extends BasePage {
    * increases the offset and loads more beers while scrolling through the beer list
    * */
   private processData = (beers) => {
-    if(beers.length == 0){
+    if (beers.length == 0) {
       this.loadMore = false;
       return;
     }

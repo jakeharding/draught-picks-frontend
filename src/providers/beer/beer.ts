@@ -70,7 +70,7 @@ export class BeerProvider implements AutoCompleteService {
    * Parameters: Observable of type Beer list
    * Sets the limit and offset for the infinite scrolling
    * */
-  recommended (params: any): Observable<Beer[]>{
+  recommended (params: any): Observable<Beer[]> {
     if (!params.limit) {
       params.limit = LIMIT;
     }

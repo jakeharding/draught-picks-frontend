@@ -38,7 +38,7 @@ export class RegistrationPage extends BasePage {
               public navCtrl: NavController,
               public navParams: NavParams,
               public toastCtrl: ToastController,
-              public userProvider: UserProvider ){
+              public userProvider: UserProvider ) {
     super('registration');
     this.maxDate = new Date(Date.now() - this.MS_IN_21_YEARS).toISOString();
     this.goToSignInPage = SignInPage;
@@ -72,7 +72,7 @@ export class RegistrationPage extends BasePage {
    * Creates a new user after the registration form was submitted and stores
    * all of the registration form values in the database
    * */
-  public createUser(){
+  public createUser() {
     this.userProvider.create(this.registerForm.value).then(
       () => {
         this.navCtrl.setRoot(EmailSentPage);
