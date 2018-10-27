@@ -24,6 +24,8 @@ import { RatingProvider } from '../providers/rating/rating';
 import { BeerFavoriteInfoPageModule } from "../pages/beer-favorite-info/beer-favorite-info.module";
 import { AbvInfoPageModule } from "../pages/abv-info/abv-info.module";
 import { IbupagePageModule } from "../pages/ibupage/ibupage.module";
+import { EmailSentPageModule } from "../pages/email-sent/email-sent.module";
+import { ResendEmailPageModule } from "../pages/resend-email/resend-email.module";
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { IbupagePageModule } from "../pages/ibupage/ibupage.module";
     SignInPageModule,
     SearchPageModule,
     DisclaimerPageModule,
+    EmailSentPageModule,
+    ResendEmailPageModule,
     HomePageModule,
     HttpClientModule,
     HttpModule,
