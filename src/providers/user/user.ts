@@ -35,6 +35,6 @@ export class UserProvider {
   }
 
   resendConfirmEmail({email}): Promise<Object> {
-    return this.http.post(this.resendConfirmEmailUrl, email).toPromise();
+    return this.http.post(this.resendConfirmEmailUrl, {email}).toPromise();
   }
 }
