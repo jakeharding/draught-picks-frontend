@@ -99,7 +99,8 @@ export class PreferencesPage extends BasePage {
     this.prefsForm.value.ibu_hi = this.prefsForm.value.ibu_hi === "" ? null : this.prefsForm.value.ibu_hi;
     this.prefsForm.value.ibu_low = this.prefsForm.value.ibu_low === "" ? null : this.prefsForm.value.ibu_low;
 
-    this.preferencesProvider.save(Object.assign({}, this.prefs, this.prefsForm.value, {user: this.user.uuid})).then((prefs: UserPreferences) => {
+    this.preferencesProvider.save(
+      Object.assign({}, this.prefs, this.prefsForm.value, {user: this.user.uuid})).then((prefs: UserPreferences) => {
       this.prefs = prefs;
       let toast = this.toastCtrl.create({
         message: "Your recommendations have arrived! Go to the home tab to see them!",

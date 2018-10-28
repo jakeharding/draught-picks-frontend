@@ -6,14 +6,14 @@ import { IonicModule } from "ionic-angular";
 import { RatingComponent } from './rating/rating';
 import { DraughtHeaderComponent } from './draught-header/draught-header';
 @NgModule({
-	declarations: [BeerListComponent,
+  declarations: [BeerListComponent,
     BeerItemComponent,
     RatingComponent,
     DraughtHeaderComponent],
-	imports: [
+  imports: [
     IonicModule, CommonModule,
-	],
-	exports: [BeerListComponent,
+  ],
+  exports: [BeerListComponent,
     BeerItemComponent,
     RatingComponent,
     DraughtHeaderComponent]

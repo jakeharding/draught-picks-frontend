@@ -33,6 +33,7 @@ export class RatingProvider {
    * Updates beer rating
    * */
   partialUpdate(beerRating: BeerRating): Promise<BeerRating> {
-    return this.http.patch(`${this.url}/${beerRating.uuid}`, beerRating).toPromise().then((rating:BeerRating) => rating);
+    return this.http.patch(
+      `${this.url}/${beerRating.uuid}`, beerRating).toPromise().then((rating:BeerRating) => rating);
   }
 }

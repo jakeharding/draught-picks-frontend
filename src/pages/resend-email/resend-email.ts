@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { BasePage } from "../BasePage";
-import { HttpClient } from "@angular/common/http";
-import Env from "../../env";
 import { UserProvider } from "../../providers/user/user";
 import { ToastProvider } from "../../providers/toast/toast";
 
