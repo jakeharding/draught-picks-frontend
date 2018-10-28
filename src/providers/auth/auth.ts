@@ -24,7 +24,7 @@ export class AuthProvider implements HttpInterceptor {
   signInUrl: string;
 
   constructor(public http: Http) {
-    this.signInUrl = `${Env.REST_API_ROOT}login`;
+    this.signInUrl = `${Env.REST_API_ROOT}/login`;
   }
 
   intercept (request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

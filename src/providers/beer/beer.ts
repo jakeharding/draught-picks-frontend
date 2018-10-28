@@ -20,9 +20,9 @@ export class BeerProvider implements AutoCompleteService {
   recommendedUrl: string;
   labelAttribute = "name"; // Attribute needed for the AutoCompleteService
   constructor(public http: HttpClient) {
-    this.url = `${Env.REST_API_ROOT}beers`;
-    this.recentsUrl = `${Env.REST_API_ROOT}recent-beers`;
-    this.recommendedUrl = `${Env.REST_API_ROOT}recommended-beers`;
+    this.url = `${Env.REST_API_ROOT}/beers`;
+    this.recentsUrl = `${Env.REST_API_ROOT}/recent-beers`;
+    this.recommendedUrl = `${Env.REST_API_ROOT}/recommended-beers`;
   }
 
   /**

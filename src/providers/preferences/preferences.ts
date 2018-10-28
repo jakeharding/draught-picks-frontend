@@ -15,7 +15,7 @@ export class PreferencesProvider {
   url: string;
 
   constructor(public http: HttpClient) {
-    this.url = `${Env.REST_API_ROOT}preferences`;
+    this.url = `${Env.REST_API_ROOT}/preferences`;
   }
 
   /**

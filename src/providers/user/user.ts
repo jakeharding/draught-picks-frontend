@@ -16,7 +16,7 @@ export class UserProvider {
   resendConfirmEmailUrl: string;
 
   constructor(public http: HttpClient) {
-    this.url = `${Env.REST_API_ROOT}users`;
+    this.url = `${Env.REST_API_ROOT}/users`;
     this.resendConfirmEmailUrl = `${this.url}/resend-confirm-email`;
   }
 

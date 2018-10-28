@@ -15,7 +15,7 @@ export class RatingProvider {
   url: string;
 
   constructor(public http: HttpClient) {
-    this.url = `${Env.REST_API_ROOT}beer-ratings`;
+    this.url = `${Env.REST_API_ROOT}/beer-ratings`;
   }
 
   /**
