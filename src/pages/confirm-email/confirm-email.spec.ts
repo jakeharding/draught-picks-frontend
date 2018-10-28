@@ -5,10 +5,10 @@
  * Created on 10/21/18
  */
 
-import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { ConfirmEmailPage } from "./confirm-email";
-import {NO_ERRORS_SCHEMA} from "@angular/core";
-import {NavController} from "ionic-angular";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { NavController } from "ionic-angular";
 
 describe('ConfirmEmailPage', () => {
 
