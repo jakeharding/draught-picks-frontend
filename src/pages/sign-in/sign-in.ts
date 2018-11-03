@@ -30,7 +30,7 @@ export class SignInPage extends BasePage {
     if (this.authProvider.isLoggedIn()) {
       this.navCtrl.setRoot(TabsPage);
     }
-    this.goToRegistration = RegistrationPage
+    this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
       username: [this.username, Validators.compose([Validators.required])],
       password: [this.password, Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -59,7 +59,7 @@ export class SignInPage extends BasePage {
         });
         toast.present();
       }
-    )
+    );
 
   }
 }

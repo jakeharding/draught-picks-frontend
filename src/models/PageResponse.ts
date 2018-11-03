@@ -12,5 +12,5 @@ export default interface PageResponse<T> {
   count: number;
   next: number;
   previous: number;
-  results: Array<T>
+  results: Array<T>;
 }

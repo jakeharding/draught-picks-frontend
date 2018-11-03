@@ -14,7 +14,7 @@ interface ScrollPosition {
   sH: number;
   sT: number;
   cH: number;
-};
+}
 
 const DEFAULT_SCROLL_POSITION: ScrollPosition = {
   sH: 0,
@@ -72,7 +72,7 @@ export class InfiniteScrollerDirective {
         cH: e.target.clientHeight
       }))
       .pairwise()
-      .filter(positions => this.isUserScrollingDown(positions) && this.isScrollExpectedPercent(positions[1]))
+      .filter(positions => this.isUserScrollingDown(positions) && this.isScrollExpectedPercent(positions[1]));
   }
 
   private requestCallbackOnScroll() {

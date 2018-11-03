@@ -5,6 +5,8 @@
  * Created on 10/21/18
  */
 
+// import ga from 'universal-ga';
+
 const mock = () => {
   let storage = {};
   return {
@@ -17,6 +19,25 @@ const mock = () => {
 
 Object.defineProperty(window, 'localStorage', {value: mock()});
 Object.defineProperty(window, 'sessionStorage', {value: mock()});
+Object.defineProperty(window, 'sessionStorage', {value: mock()});
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ['-webkit-appearance']
 });
+
+/**
+ * Mock the google analytics library
+ */
+jest.mock('universal-ga', () => ({
+    default: {
+      set: jest.fn(),
+      pageview: jest.fn()
+    }
+}));
+
+// ga.mockImplementation(() => {
+//   return {
+//     set: jest.fn(),
+//     pageview: jest.fn()
+//   };
+// });
+

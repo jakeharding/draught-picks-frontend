@@ -81,7 +81,7 @@ export class HomePage extends BasePage {
           return acc + c;
         });
       }
-      this.BACcalc = this.totalCount >= 4
+      this.BACcalc = this.totalCount >= 4;
     });
 
     this.beerProvider.recommended({limit: LIMIT, offset: 0}).toPromise().then(results => {
@@ -133,7 +133,7 @@ export class HomePage extends BasePage {
     }
     this.recommendedOffset += LIMIT;
     this.recommended = this.recommended.concat(beers);
-  };
+  }
 
 
   /**
@@ -148,6 +148,6 @@ export class HomePage extends BasePage {
     }
     this.recentOffset += LIMIT;
     this.recents = this.recents.concat(beers);
-  };
+  }
 
 }

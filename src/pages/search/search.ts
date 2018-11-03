@@ -89,7 +89,7 @@ export class SearchPage extends BasePage {
     }
     this.offset += LIMIT;
     this.beerResults = this.beerResults.concat(beers);
-  };
+  }
 
   /**
    * Method called when the `X` is clicked in the search bar.

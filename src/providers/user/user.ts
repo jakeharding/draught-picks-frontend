@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import Env from "../../env";
 import PageResponse from "../../models/PageResponse";
 import User from "../../models/User";
+import AuthResponse from "../../models/AuthResponse";
+import BeerRating from "../../models/BeerRating";
+import Beer from "../../models/Beer";
 
 /**
  * Generated class for the UserProvider provider.
@@ -12,15 +15,15 @@ import User from "../../models/User";
 **/
 @Injectable()
 export class UserProvider {
-  url: string;
-  resendConfirmEmailUrl: string;
+  private readonly url: string;
+  private resendConfirmEmailUrl: string;
 
   constructor(public http: HttpClient) {
     this.url = `${Env.REST_API_ROOT}/users`;
     this.resendConfirmEmailUrl = `${this.url}/resend-confirm-email`;
   }
 
-  create(userData: any) {
+  create(userData: AuthResponse | Beer | BeerRating | User) {
     return this.http.post(this.url, userData).toPromise();
   }
 

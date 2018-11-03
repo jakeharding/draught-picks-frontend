@@ -7,8 +7,16 @@
 
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { ConfirmEmailPage } from "./confirm-email";
-import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { NavController } from "ionic-angular";
+// import ga from 'universal-ga';
+
+// ga.mockImplementation(() => {
+//   return {
+//     set: jest.fn(),
+//     pageview: jest.fn()
+//   };
+// });
 
 describe('ConfirmEmailPage', () => {
 
@@ -17,7 +25,7 @@ describe('ConfirmEmailPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [ConfirmEmailPage],
       providers: [
         { provide: NavController, useValue: {}}

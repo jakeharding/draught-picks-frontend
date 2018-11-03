@@ -43,7 +43,7 @@ export class RatingComponent {
       };
 
       if (this.rating && this.rating.uuid) {
-        return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success)
+        return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success);
       } else {
         this.createRating(this.rating.beer, rating).then(success);
       }

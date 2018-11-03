@@ -53,7 +53,7 @@ export class RegistrationPage extends BasePage {
       username: ['', [Validators.required]],
       verify_age: [this.verifyAge, [CheckboxValidator.isChecked, Validators.required]],
       disclaimer_check: [undefined, [CheckboxValidator.isChecked, Validators.required]]
-    }, {validator: PasswordValidator.matches})
+    }, {validator: PasswordValidator.matches});
 
   }
 
@@ -85,6 +85,6 @@ export class RegistrationPage extends BasePage {
         });
         toast.present();
       }
-    )
+    );
   }
 }

@@ -41,7 +41,7 @@ export class AuthProvider implements HttpInterceptor {
   signIn (creds: any): Promise<AuthResponse> {
     return this.http.post(this.signInUrl, creds).map(resp => resp.json()).toPromise().then((resp) => {
       return resp;
-    })
+    });
   }
 
   getToken(): string {
@@ -69,4 +69,4 @@ export function LoginRequired (target: Function) {
     }
     return authProvider.isLoggedIn();
   };
-};
+}

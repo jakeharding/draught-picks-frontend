@@ -12,7 +12,7 @@ import RecentBeer from "./RecentBeers";
 
 export default interface Beer {
   name: string;
-  description: string,
+  description: string;
   abv: number;
   ibu: number;
   uuid: string;

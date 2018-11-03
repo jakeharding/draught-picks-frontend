@@ -37,7 +37,7 @@ export class PreferencesProvider {
   save(prefs: UserPreferences) {
     if (prefs.uuid.length > 1) {
       // If prefs has uuid it already exists in DB
-      return this.http.put(`${this.url}/${prefs.uuid}`, prefs).toPromise()
+      return this.http.put(`${this.url}/${prefs.uuid}`, prefs).toPromise();
     } else {
       // Create it
       return this.http.post(this.url, prefs).toPromise();

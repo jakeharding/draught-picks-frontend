@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { ResendEmailPage } from "../resend-email/resend-email";
 import { BasePage } from "../BasePage";
 
@@ -19,7 +19,7 @@ export class EmailSentPage extends BasePage {
 
   resend = ResendEmailPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
     super('email-sent');
   }
 

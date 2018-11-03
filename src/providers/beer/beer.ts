@@ -4,7 +4,7 @@ import Env from "../../env";
 import { AutoCompleteService } from "ionic2-auto-complete";
 import Beer from "../../models/Beer";
 import PageResponse from "../../models/PageResponse";
-import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller"
+import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 /*
@@ -96,7 +96,7 @@ export class BeerProvider implements AutoCompleteService {
    * @returns {Promise<Object>}
    */
   retrieve (uuid: string) {
-    return this.http.get(`${this.url}/${uuid}`).toPromise()
+    return this.http.get(`${this.url}/${uuid}`).toPromise();
   }
 
 

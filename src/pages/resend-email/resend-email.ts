@@ -35,9 +35,9 @@ export class ResendEmailPage extends BasePage {
   sendConfirmEmail() {
     this.userProvider.resendConfirmEmail(this.emailForm.value).then(() => {
       this.toastProvider.successToast(
-        "Email has been sent. Please check you spam folder and visit this page again if you don't receive it.")
+        "Email has been sent. Please check you spam folder and visit this page again if you don't receive it.");
     }, () => {
-      this.toastProvider.errorToast("Unable to send the email. Please check your connection and try again.")
+      this.toastProvider.errorToast("Unable to send the email. Please check your connection and try again.");
     });
   }
 

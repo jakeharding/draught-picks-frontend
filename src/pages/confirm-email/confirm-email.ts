@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { BasePage } from "../BasePage";
 
 /**
  * Generated class for the ConfirmEmailPage page.
@@ -13,9 +14,10 @@ import { IonicPage, NavController } from 'ionic-angular';
   selector: 'page-confirm-email',
   templateUrl: 'confirm-email.html',
 })
-export class ConfirmEmailPage {
+export class ConfirmEmailPage extends BasePage {
 
   constructor(public navCtrl: NavController) {
+    super('confirm-email');
   }
 
   ionViewDidLoad() {

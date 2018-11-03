@@ -22,7 +22,7 @@ export default class PasswordValidator {
       } else {
         pw.setErrors({mismatches: true}); // Only show error on the confirm password field
         c_pw.setErrors({mismatches: true});
-        return {mismatches: true}
+        return {mismatches: true};
       }
     }
     return {mismatches: true};
