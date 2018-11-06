@@ -33,11 +33,3 @@ jest.mock('universal-ga', () => ({
       pageview: jest.fn()
     }
 }));
-
-// ga.mockImplementation(() => {
-//   return {
-//     set: jest.fn(),
-//     pageview: jest.fn()
-//   };
-// });
-

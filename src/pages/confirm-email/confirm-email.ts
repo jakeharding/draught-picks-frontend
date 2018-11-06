@@ -15,13 +15,7 @@ import { BasePage } from "../BasePage";
   templateUrl: 'confirm-email.html',
 })
 export class ConfirmEmailPage extends BasePage {
-
   constructor(public navCtrl: NavController) {
     super('confirm-email');
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ConfirmEmailPage');
-  }
-
 }
