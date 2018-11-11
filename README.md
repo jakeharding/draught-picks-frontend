@@ -2,7 +2,7 @@
 
 ## Draught Picks - A beer profiling and recommendation application
 
-###Coverage:
+### Coverage:
 Dev:
 [![Coverage Status](https://coveralls.io/repos/github/jakeharding/draught-picks-frontend/badge.svg?branch=dev)](https://coveralls.io/github/jakeharding/draught-picks-frontend?branch=dev)
 
