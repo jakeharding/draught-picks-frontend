@@ -1,8 +1,9 @@
 import { UserProvider } from "./user";
 import User from "../../models/User";
+import { provide, httpClient } from "../../jestGlobalMocks";
 
 /**
- * user.spec.ts.ts
+ * user.spec.ts
  *
  * Created by jake
  * Created on 10/28/18
@@ -10,15 +11,7 @@ import User from "../../models/User";
  * Test the user provider.
  */
 
-const provide = (mock: any): any => mock;
 describe('UserProvider', () => {
-
-  const toPromise = { toPromise: () => Promise.resolve() };
-  const httpClient = {
-      get: jest.fn(),
-      put: jest.fn(() => toPromise),
-      post: jest.fn(() => toPromise),
-  };
 
   let userProvider: UserProvider;
   const mockUser = {
@@ -26,6 +19,7 @@ describe('UserProvider', () => {
   } as User;
 
   beforeEach(() => {
+    jest.clearAllMocks();
     userProvider = new UserProvider(provide(httpClient));
   });
 

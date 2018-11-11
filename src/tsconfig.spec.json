@@ -7,7 +7,8 @@
     "allowJs": true
   },
   "include": [
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "jestGlobalMocks.ts"
   ],
   "exclude": [
     "node_modules"

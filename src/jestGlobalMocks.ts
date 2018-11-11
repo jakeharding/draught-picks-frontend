@@ -33,3 +33,14 @@ jest.mock('universal-ga', () => ({
       pageview: jest.fn()
     }
 }));
+
+export const provide = (mock: any): any => mock;
+
+const toPromise = { toPromise: () => Promise.resolve() };
+export const httpClient = {
+  get: jest.fn(),
+  put: jest.fn(() => toPromise),
+  post: jest.fn(() => toPromise),
+  patch: jest.fn(() => toPromise)
+};
+
