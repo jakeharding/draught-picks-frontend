@@ -16,7 +16,7 @@ import Beer from "../../models/Beer";
 @Injectable()
 export class UserProvider {
   private readonly url: string;
-  private resendConfirmEmailUrl: string;
+  private readonly resendConfirmEmailUrl: string;
 
   constructor(public http: HttpClient) {
     this.url = `${Env.REST_API_ROOT}/users`;

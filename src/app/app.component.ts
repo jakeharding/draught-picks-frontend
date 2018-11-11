@@ -20,11 +20,11 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
-      this.loadGoogelAnalytics();
+      this.loadGoogleAnalytics();
     });
   }
 
-  loadGoogelAnalytics() {
+  loadGoogleAnalytics() {
     if (env.GA_ENV === 'prod') {
       const gaScript = document.createElement('script');
       gaScript.setAttribute('async', 'true');
