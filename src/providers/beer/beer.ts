@@ -67,8 +67,8 @@ export class BeerProvider implements AutoCompleteService {
 
   /**
    * recommended function
-   * Parameters: Observable of type Beer list
-   * Sets the limit and offset for the infinite scrolling
+   * Parameters: query params for pagination
+   * Retrieves a page of recommended beers for an authenticated user.
    * */
   recommended (params: any): Observable<Beer[]> {
     if (!params.limit) {
@@ -83,8 +83,8 @@ export class BeerProvider implements AutoCompleteService {
 
   /**
    * createRecent function
-   * Parameters: recent Beer List
-   * retruns the recent beer list
+   * Parameters: Beer
+   * returns the recent beer list
    * */
   createRecent (recent: Beer) {
     return this.http.post(this.recentsUrl, {beer: recent.uuid}).toPromise();
