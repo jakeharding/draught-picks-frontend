@@ -37,6 +37,7 @@ jest.mock('universal-ga', () => ({
 export const provide = (mock: any): any => mock;
 
 const toPromise = { toPromise: () => Promise.resolve() };
+
 export const httpClient = {
   get: jest.fn(),
   put: jest.fn(() => toPromise),

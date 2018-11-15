@@ -57,7 +57,7 @@ export class AuthProvider implements HttpInterceptor {
   }
 
   isLoggedIn() {
-    return  !!this.getToken();
+    return !!this.getToken();
   }
 }
 
