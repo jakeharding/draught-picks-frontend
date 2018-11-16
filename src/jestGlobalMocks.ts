@@ -23,6 +23,11 @@ Object.defineProperty(window, 'sessionStorage', {value: mock()});
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ['-webkit-appearance']
 });
+Object.defineProperty(window.location, 'href', {
+  writable: true,
+  value: 'localhost',
+  set: (value:string) => `localhost/${value}`
+});
 
 /**
  * Mock the google analytics library

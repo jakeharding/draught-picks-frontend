@@ -10,10 +10,10 @@
     "lint": "tslint -p . -c tslint.json",
     "lint:fix": "tslint -p . -c tslint.json --fix",
     "test-protractor": "webdriver-manager update && protractor",
-    "test": "jest --coverage --collectCoverageFrom=src/**/*.ts --collectCoverageFrom=!src/**/*.module.ts",
+    "test": "jest",
     "test:update": "jest -u",
     "test:watch": "jest --watch",
-    "test:ci": "jest --coverage --collectCoverageFrom=src/**/*.ts --collectCoverageFrom=!src/**/*.module.ts --coverageReporters=text-lcov | coveralls",
+    "test:ci": "jest --coverageReporters=text-lcov | coveralls",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
   },
@@ -61,6 +61,8 @@
     "roots": [
       "src"
     ],
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.ts", "!src/**/*.module.ts", "!src/app/*" ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
     "transformIgnorePatterns": [
       "node_modules/(?!@ngrx|@ionic-native|@ionic)"

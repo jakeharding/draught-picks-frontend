@@ -6,7 +6,7 @@
  *
  * Test the AuthProvider
  */
-import { AuthProvider, TOKEN_STO_KEY } from "./auth";
+import { AuthProvider, LoginRequired, TOKEN_STO_KEY } from "./auth";
 import { httpClient, provide } from "../../jestGlobalMocks";
 import { HttpHandler, HttpRequest } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -58,5 +58,16 @@ describe("AuthProvider", () => {
     expect(authProvider.isLoggedIn()).toBe(true);
     localStorage.clear();
     expect(authProvider.isLoggedIn()).toBe(false);
+  });
+});
+
+describe('LoginRequired', () => {
+  it('should set the ionViewCanEnter on the target', () => {
+    const target = new Function();
+    location.assign = jest.fn();
+    LoginRequired(target);
+    expect(target.prototype.ionViewCanEnter()).toBe(false);
+    expect(location.assign).toHaveBeenCalledTimes(1);
+    expect(location.assign).toHaveBeenCalledWith('sign-in');
   });
 });

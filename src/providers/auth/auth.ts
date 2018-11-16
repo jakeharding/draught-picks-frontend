@@ -65,7 +65,7 @@ export function LoginRequired (target: Function) {
   const authProvider = Injector.create([{provide: AuthProvider, deps: [] }]).get(AuthProvider);
   target.prototype.ionViewCanEnter = () => {
     if (!authProvider.isLoggedIn()) {
-      location.href = "sign-in";
+      location.assign('sign-in');
     }
     return authProvider.isLoggedIn();
   };
