@@ -10,9 +10,7 @@ import { BeerListComponent } from "./beer-list";
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { BeerItemComponent } from "../beer-item/beer-item";
-import { ConfirmEmailPage } from "../../pages/confirm-email/confirm-email";
-import { NavPush, ToastController } from "ionic-angular";
-import { RatingProvider } from "../../providers/rating/rating";
+import { NavPush } from "ionic-angular";
 import { RatingComponent } from "../rating/rating";
 
 describe('BeerListComponent', () => {

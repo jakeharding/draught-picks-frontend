@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DraughtHeaderComponent should initialize the DraughtHeaderComponent 1`] = `
+<draught-header
+  authProvider={[Function Object]}
+  isLoggedIn="undefined"
+  navCtrl={[Function Object]}
+>
+  
+  <ion-header>
+    
+    
+    <ion-navbar
+      color="primary"
+    >
+      
+      
+      <ion-row>
+        
+        
+        <ion-col
+          col-6=""
+          offset-3=""
+        >
+          
+          
+          <ion-title
+            class="pointer"
+            text-center=""
+          >
+            Draught Picks
+          </ion-title>
+          
+        
+        </ion-col>
+        
+        
+        <ion-col
+          col-2=""
+        >
+          
+          
+          
+          
+        
+        </ion-col>
+        
+      
+      </ion-row>
+      
+    
+    </ion-navbar>
+    
+  
+  </ion-header>
+  
+</draught-header>
+`;

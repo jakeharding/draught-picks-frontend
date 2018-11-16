@@ -32,7 +32,7 @@ describe('Test Rating Provider', () => {
     ratingProvider.partialUpdate(mockRating);
     expect(httpClient.patch).toHaveBeenCalledTimes(1);
     expect(httpClient.patch).toHaveBeenCalledWith(expect.stringMatching(/\/beer-ratings\/rating id/), mockRating);
-  })
+  });
 
 });
 

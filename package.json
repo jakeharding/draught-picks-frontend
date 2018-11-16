@@ -61,6 +61,7 @@
     "roots": [
       "src"
     ],
+    "clearMocks": true,
     "collectCoverage": true,
     "collectCoverageFrom": ["src/**/*.ts", "!src/**/*.module.ts", "!src/app/*" ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
