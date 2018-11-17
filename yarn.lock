@@ -3293,6 +3293,11 @@ jest-leak-detector@^23.6.0:
   dependencies:
     pretty-format "^23.6.0"
 
+jest-marbles@1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/jest-marbles/-/jest-marbles-1.2.0.tgz#947d09da8798a9ce90465edefaff7aea0b456ccd"
+  integrity sha512-xuSqBtg377B2EznKrVCI8AOtHJu8ShFF5b3s405jBYnAgmSaaPcX2RaIHgVmuPL6WfeKC1J/LUfCPbs9tz4T1g==
+
 jest-matcher-utils@^23.6.0:
   version "23.6.0"
   resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-23.6.0.tgz#726bcea0c5294261a7417afb6da3186b4b8cac80"

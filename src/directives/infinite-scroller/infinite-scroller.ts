@@ -8,6 +8,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/exhaustMap';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/startWith';
+import { map, filter, pairwise } from "rxjs/operators";
+import { pipe } from "rxjs";
+
 export const LIMIT = 100;
 
 interface ScrollPosition {

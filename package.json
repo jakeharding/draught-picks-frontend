@@ -48,6 +48,7 @@
     "coveralls": "^3.0.2",
     "html-webpack-plugin": "^3.0.6",
     "jest": "^23.6.0",
+    "jest-marbles": "1",
     "jest-preset-angular": "^6.0.1",
     "ts-node": "^4.1.0",
     "typescript": "2.4.2"
@@ -63,7 +64,11 @@
     ],
     "clearMocks": true,
     "collectCoverage": true,
-    "collectCoverageFrom": ["src/**/*.ts", "!src/**/*.module.ts", "!src/app/*" ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.module.ts",
+      "!src/app/*"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
     "transformIgnorePatterns": [
       "node_modules/(?!@ngrx|@ionic-native|@ionic)"
