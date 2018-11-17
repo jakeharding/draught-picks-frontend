@@ -19,7 +19,7 @@ export class RatingComponent {
   @Input() size: string = 'small';
   @Output() setRating = new EventEmitter<BeerRating>();
 
-  private static LARGE = 'large';
+  private static readonly LARGE = 'large';
 
   constructor(public ratingProvider: RatingProvider, public toastController: ToastController) {}
 
