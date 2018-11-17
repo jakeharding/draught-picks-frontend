@@ -30,8 +30,8 @@ export class RatingComponent {
    * */
   updateRating (rating: number) {
     if (this.size === RatingComponent.LARGE) {
-      const success = rating => {
-        this.rating = rating;
+      const success = beerRating => {
+        this.rating = beerRating; // Update the beerRating returned from REST API
         const toast = this.toastController.create({
           message: "Your rating is saved.",
           duration: 3000,
@@ -39,13 +39,13 @@ export class RatingComponent {
           cssClass: "success-toast"
         });
         toast.present();
-        this.setRating.emit(rating); // Update parent component
+        this.setRating.emit(beerRating); // Update parent component
       };
 
       if (this.rating && this.rating.uuid) {
         return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success);
       } else {
-        this.createRating(this.rating.beer, rating).then(success);
+        return this.createRating(this.rating.beer, rating).then(success);
       }
     }
   }
