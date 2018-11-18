@@ -154,6 +154,7 @@ export class PreferencesPage extends BasePage {
   search (event:Event) {
     if (this.beerSearch && this.beerSearch.length > 0) {
       this.beerProvider.search(this.beerSearch).toPromise().then((results: Array<Beer>) => {
+        // TODO: This would be better used as an observable.
         this.beerResults = results;
       });
     }
