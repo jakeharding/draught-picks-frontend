@@ -67,7 +67,8 @@
     "collectCoverageFrom": [
       "src/**/*.ts",
       "!src/**/*.module.ts",
-      "!src/app/*"
+      "!src/app/*",
+      "!src/models/*"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
     "transformIgnorePatterns": [

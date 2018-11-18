@@ -50,3 +50,11 @@ export const httpClient = {
   patch: jest.fn(() => toPromise)
 };
 
+export const mockToast = {
+  present: jest.fn()
+};
+export const mockToastController = {
+  create: jest.fn(()=> mockToast)
+};
+
+

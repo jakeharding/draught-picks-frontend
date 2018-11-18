@@ -87,6 +87,7 @@ export class PreferencesPage extends BasePage {
    * Gets the user preferences and saves them in the database
    * */
   public savePrefs() {
+    //TODO Use ToastProvider here.
     this.toastCtrl.create({
       message: "Your recommendations will be here soon!",
       duration: 3000,
@@ -122,10 +123,9 @@ export class PreferencesPage extends BasePage {
   }
 
   /**
-   * favoriteSelected function
-   * Parameters: Beer ArrayList
-   * Saves users favorite beers from the Beer List in the database
-   * */
+   * Called when a user selects a favorite.
+   * @param beer
+   */
   favoriteSelected (beer: Beer) {
     if (this.user.favorite_beers.indexOf(beer) < 0) {
       this.user.favorite_beers.push(beer);
@@ -137,10 +137,9 @@ export class PreferencesPage extends BasePage {
   }
 
   /**
-   * removeFavorite function
-   * Parameters: Beer ArrayList
-   * Removes users favorite beers from the Beer List in the database
-   * */
+   * Called when a user removes a beer from their favorites.
+   * @param beer
+   */
   removeFavorite (beer: Beer) {
     this.user.favorite_beers = this.user.favorite_beers.filter((b: Beer) => {
       return b.uuid != beer.uuid;
@@ -149,10 +148,9 @@ export class PreferencesPage extends BasePage {
   }
 
   /**
-   * search function
-   * Parameters: event of type event
-   * searches through the Beer ArrayList and displays results
-   * */
+   * Called in the autocomplete in response to entry
+   * @param event
+   */
   search (event:Event) {
     if (this.beerSearch && this.beerSearch.length > 0) {
       this.beerProvider.search(this.beerSearch).toPromise().then((results: Array<Beer>) => {
