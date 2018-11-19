@@ -57,11 +57,10 @@ export class BeerDetailPage extends BasePage {
   }
 
   /**
-   * createRecent Function
-   * no parameters
-   * adds a recent beer to the database
-   * */
+   * Creates a recent beer entry in the database.
+   */
   createRecent () {
+    //TODO Use toast provider
     const success = (recent) => {
       const toast = this.toastController.create({
         message: "We saved a record of this you! Tell us what you think!",
@@ -84,11 +83,10 @@ export class BeerDetailPage extends BasePage {
   }
 
   /**
-   * saveRatingDescription Function
-   * no parameters
-   * adds the rating description to the database
-   * */
+   * Saves the description of the beer for the user.
+   */
   saveRatingDescription() {
+    //TODO Use toast provider
     const success = (rating) => {
       this.beerRating = rating;
       const toast = this.toastController.create({
@@ -117,10 +115,9 @@ export class BeerDetailPage extends BasePage {
   }
 
   /**
-   * setRating Function
-   * Parameters: rating
-   * sets your beer rating
-   * */
+   * Setter for setting the rating on the component.
+   * @param rating
+   */
   setRating(rating: BeerRating): void {
     this.beerRating = rating;
   }

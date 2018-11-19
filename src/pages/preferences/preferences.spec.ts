@@ -36,7 +36,7 @@ describe('PreferencesPage', () => {
   };
 
   const mockBeerProvider = {
-    search :jest.fn()
+    search: jest.fn()
   };
 
   beforeEach(async(() => {

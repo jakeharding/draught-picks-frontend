@@ -20,9 +20,7 @@ describe('AbvInfoPage', () => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [AbvInfoPage],
-      providers: [
-        { provide: NavController, useValue: {}}
-      ]
+      providers: []
     }).compileComponents();
   }));
 
