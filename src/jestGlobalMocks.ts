@@ -26,7 +26,6 @@ Object.defineProperty(window, 'getComputedStyle', {
 Object.defineProperty(window.location, 'href', {
   writable: true,
   value: 'localhost',
-  set: (value:string) => `localhost/${value}`
 });
 
 /**

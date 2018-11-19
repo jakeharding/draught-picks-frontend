@@ -19,12 +19,7 @@ export class AbvInfoPage extends BasePage {
   /**
    * Empty but required constructor for AbvInfoPage class
    * */
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor() {
     super('abv-info');
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AbvInfoPage');
-  }
-
 }
