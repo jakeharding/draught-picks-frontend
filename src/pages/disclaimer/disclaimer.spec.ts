@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DisclaimerPage } from './disclaimer';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NavController } from 'ionic-angular';
 
 /**
  * disclaimer.spec.ts
