@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { BasePage } from '../BasePage';
 
 /**
@@ -21,7 +21,7 @@ export class DisclaimerPage extends BasePage {
    * DisclaimerPage constructor
    * empty but required constructor for the DisclaimerPage Class, does nothing
    * */
-  constructor(public navCtrl: NavController, public navParams: NavParams ) {
+  constructor() {
     super('disclaimer');
   }
 }
