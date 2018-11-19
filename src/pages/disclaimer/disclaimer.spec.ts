@@ -20,9 +20,7 @@ describe('DisclaimerPage', () => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [DisclaimerPage],
-      providers: [
-        { provide: NavController, useValue: {}}
-      ]
+      providers: []
     }).compileComponents();
   }));
 
