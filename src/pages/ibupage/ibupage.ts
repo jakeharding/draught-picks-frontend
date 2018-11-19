@@ -20,12 +20,7 @@ export class IbupagePage extends BasePage {
    * IbupagePage constructor
    * Empty but required constructor for the IbupagePage class
    * */
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor() {
     super('ibu-info');
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad IbupagePage');
-  }
-
 }
