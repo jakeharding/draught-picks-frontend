@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { ResendEmailPage } from "../resend-email/resend-email";
-import { BasePage } from "../BasePage";
+import { ResendEmailPage } from '../resend-email/resend-email';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the EmailSentPage page.

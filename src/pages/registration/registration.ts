@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SignInPage } from "../sign-in/sign-in";
-import { DisclaimerPage } from "../disclaimer/disclaimer";
-import { UserProvider } from "../../providers/user/user";
-import CheckboxValidator from "../../validators/CheckboxValidator";
-import PasswordValidator from "../../validators/PasswordValidator";
-import { BasePage } from "../BasePage";
-import { EmailSentPage } from "../email-sent/email-sent";
+import { SignInPage } from '../sign-in/sign-in';
+import { DisclaimerPage } from '../disclaimer/disclaimer';
+import { UserProvider } from '../../providers/user/user';
+import CheckboxValidator from '../../validators/CheckboxValidator';
+import PasswordValidator from '../../validators/PasswordValidator';
+import { BasePage } from '../BasePage';
+import { EmailSentPage } from '../email-sent/email-sent';
 
 /**
  * Generated class for the RegistrationPage page.
@@ -80,8 +80,8 @@ export class RegistrationPage extends BasePage {
         let toast = this.toastCtrl.create({
           message: 'Unable to register at the moment. Please try again.',
           duration: 3000,
-          position: "top",
-          cssClass: "error-toast"
+          position: 'top',
+          cssClass: 'error-toast'
         });
         toast.present();
       }

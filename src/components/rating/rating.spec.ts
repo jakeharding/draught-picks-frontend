@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { RatingComponent } from "./rating";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { ToastController } from "ionic-angular";
-import { RatingProvider } from "../../providers/rating/rating";
-import BeerRating from "../../models/BeerRating";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RatingComponent } from './rating';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ToastController } from 'ionic-angular';
+import { RatingProvider } from '../../providers/rating/rating';
+import BeerRating from '../../models/BeerRating';
 
 /**
  * rating.spec.ts

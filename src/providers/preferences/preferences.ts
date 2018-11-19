@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Env from "../../env";
-import PageResponse from "../../models/PageResponse";
-import UserPreferences from "../../models/UserPreferences";
+import Env from '../../env';
+import PageResponse from '../../models/PageResponse';
+import UserPreferences from '../../models/UserPreferences';
 
 /**
  * Generated class for the PreferencesProvider provider.

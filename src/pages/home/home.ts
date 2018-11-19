@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginRequired } from "../../providers/auth/auth";
-import Beer from "../../models/Beer";
-import { BeerProvider } from "../../providers/beer/beer";
-import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller";
-import { Observable } from "rxjs/Observable";
-import { BasePage } from "../BasePage";
+import { LoginRequired } from '../../providers/auth/auth';
+import Beer from '../../models/Beer';
+import { BeerProvider } from '../../providers/beer/beer';
+import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
+import { Observable } from 'rxjs/Observable';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the HomePage page.

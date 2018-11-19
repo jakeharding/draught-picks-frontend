@@ -6,12 +6,12 @@
  *
  * Test the AuthProvider
  */
-import { AuthProvider, LoginRequired, TOKEN_STO_KEY } from "./auth";
-import { httpClient, provide } from "../../jestGlobalMocks";
-import { HttpHandler, HttpRequest } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { AuthProvider, LoginRequired, TOKEN_STO_KEY } from './auth';
+import { httpClient, provide } from '../../jestGlobalMocks';
+import { HttpHandler, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-describe("AuthProvider", () => {
+describe('AuthProvider', () => {
 
   let authProvider: AuthProvider;
 

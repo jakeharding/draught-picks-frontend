@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { BasePage } from "../BasePage";
-import { UserProvider } from "../../providers/user/user";
-import { ToastProvider } from "../../providers/toast/toast";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BasePage } from '../BasePage';
+import { UserProvider } from '../../providers/user/user';
+import { ToastProvider } from '../../providers/toast/toast';
 
 /**
  * Generated class for the ResendEmailPage page.
@@ -37,7 +37,7 @@ export class ResendEmailPage extends BasePage {
       this.toastProvider.successToast(
         "Email has been sent. Please check you spam folder and visit this page again if you don't receive it.");
     }, () => {
-      this.toastProvider.errorToast("Unable to send the email. Please check your connection and try again.");
+      this.toastProvider.errorToast('Unable to send the email. Please check your connection and try again.');
     });
   }
 

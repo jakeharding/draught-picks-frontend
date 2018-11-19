@@ -6,9 +6,9 @@
  *
  * Test PreferencesProvider.
  */
-import { PreferencesProvider } from "./preferences";
-import UserPreferences from "../../models/UserPreferences";
-import { httpClient, provide } from "../../jestGlobalMocks";
+import { PreferencesProvider } from './preferences';
+import UserPreferences from '../../models/UserPreferences';
+import { httpClient, provide } from '../../jestGlobalMocks';
 
 describe('Test preferences provider', () => {
   let prefsProvider: PreferencesProvider;

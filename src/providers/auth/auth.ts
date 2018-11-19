@@ -1,10 +1,10 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import Env from "../../env";
-import { Observable } from "rxjs/Observable";
-import { Http } from "@angular/http";
+import Env from '../../env';
+import { Observable } from 'rxjs/Observable';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import AuthResponse from "../../models/AuthResponse";
+import AuthResponse from '../../models/AuthResponse';
 
 /**
  * Generated class for the AuthProvider provider.
@@ -15,7 +15,7 @@ import AuthResponse from "../../models/AuthResponse";
  * Used to authenticate the user
  **/
 
-export const TOKEN_STO_KEY = "draughtPicksToken";
+export const TOKEN_STO_KEY = 'draughtPicksToken';
 
 
 @Injectable()

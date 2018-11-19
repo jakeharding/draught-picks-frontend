@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { LoginRequired } from "../../providers/auth/auth";
-import { BeerProvider } from "../../providers/beer/beer";
-import Beer from "../../models/Beer";
-import BeerRating from "../../models/BeerRating";
-import { RatingProvider } from "../../providers/rating/rating";
-import { BasePage } from "../BasePage";
+import { LoginRequired } from '../../providers/auth/auth';
+import { BeerProvider } from '../../providers/beer/beer';
+import Beer from '../../models/Beer';
+import BeerRating from '../../models/BeerRating';
+import { RatingProvider } from '../../providers/rating/rating';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the BeerDetailPage page.
@@ -63,19 +63,19 @@ export class BeerDetailPage extends BasePage {
     //TODO Use toast provider
     const success = (recent) => {
       const toast = this.toastController.create({
-        message: "We saved a record of this you! Tell us what you think!",
+        message: 'We saved a record of this you! Tell us what you think!',
         duration: 3000,
-        position: "top",
-        cssClass: "success-toast"
+        position: 'top',
+        cssClass: 'success-toast'
       });
       toast.present();
     };
     const error = (error) => {
       const toast = this.toastController.create({
-        message: "Oops! Something is not right!.",
+        message: 'Oops! Something is not right!.',
         duration: 3000,
-        position: "top",
-        cssClass: "error-toast"
+        position: 'top',
+        cssClass: 'error-toast'
       });
       toast.present();
     };
@@ -90,19 +90,19 @@ export class BeerDetailPage extends BasePage {
     const success = (rating) => {
       this.beerRating = rating;
       const toast = this.toastController.create({
-        message: "Your description has been saved!",
+        message: 'Your description has been saved!',
         duration: 3000,
-        position: "top",
-        cssClass: "success-toast"
+        position: 'top',
+        cssClass: 'success-toast'
       });
       toast.present();
     };
     const error = (error) => {
       const toast = this.toastController.create({
-        message: "Having trouble saving your description.",
+        message: 'Having trouble saving your description.',
         duration: 3000,
-        position: "top",
-        cssClass: "error-toast"
+        position: 'top',
+        cssClass: 'error-toast'
       });
       toast.present();
     };

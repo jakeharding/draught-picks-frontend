@@ -1,10 +1,10 @@
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegistrationPage } from "../registration/registration";
-import { AuthProvider } from "../../providers/auth/auth";
+import { RegistrationPage } from '../registration/registration';
+import { AuthProvider } from '../../providers/auth/auth';
 import { TabsPage } from '../tabs/tabs';
-import { BasePage } from "../BasePage";
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the SignInPage page.
@@ -48,14 +48,14 @@ export class SignInPage extends BasePage {
       (response) => {
         this.authProvider.setToken(response.token);
         this.navCtrl.setRoot(TabsPage);
-        location.hash = "";
+        location.hash = '';
       },
       () => {
         let toast = this.toastCtrl.create({
           message: 'An error occurred please check your connection and try again.',
           duration: 3000,
-          position: "top",
-          cssClass: "error-toast"
+          position: 'top',
+          cssClass: 'error-toast'
         });
         toast.present();
       }

@@ -1,13 +1,13 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { BeerDetailPage } from "./beer-detail";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { NavController, NavParams, ToastController } from "ionic-angular";
-import { RatingComponent } from "../../components/rating/rating";
-import { BeerProvider } from "../../providers/beer/beer";
-import { RatingProvider } from "../../providers/rating/rating";
-import { mockToastController, mockToast } from "../../jestGlobalMocks";
-import Beer from "../../models/Beer";
-import BeerRating from "../../models/BeerRating";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BeerDetailPage } from './beer-detail';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { RatingComponent } from '../../components/rating/rating';
+import { BeerProvider } from '../../providers/beer/beer';
+import { RatingProvider } from '../../providers/rating/rating';
+import { mockToastController, mockToast } from '../../jestGlobalMocks';
+import Beer from '../../models/Beer';
+import BeerRating from '../../models/BeerRating';
 
 /**
  * beer-detail.spec.ts
@@ -71,10 +71,10 @@ describe('BeerDetailPage', () => {
     await component.createRecent();
     expect(mockToastController.create).toHaveBeenCalledTimes(1);
     expect(mockToastController.create).toHaveBeenCalledWith({
-      message: "Oops! Something is not right!.",
+      message: 'Oops! Something is not right!.',
       duration: 3000,
-      position: "top",
-      cssClass: "error-toast"
+      position: 'top',
+      cssClass: 'error-toast'
     });
     expect(mockToast.present).toHaveBeenCalledTimes(1);
     expect(mockBeerProvider.createRecent).toHaveBeenCalledWith(component.beer);
@@ -85,10 +85,10 @@ describe('BeerDetailPage', () => {
     await component.createRecent();
     expect(mockToastController.create).toHaveBeenCalledTimes(1);
     expect(mockToastController.create).toHaveBeenCalledWith({
-      message: "We saved a record of this you! Tell us what you think!",
+      message: 'We saved a record of this you! Tell us what you think!',
       duration: 3000,
-      position: "top",
-      cssClass: "success-toast"
+      position: 'top',
+      cssClass: 'success-toast'
     });
     expect(mockToast.present).toHaveBeenCalledTimes(1);
     expect(mockBeerProvider.createRecent).toHaveBeenCalledWith(component.beer);
@@ -98,10 +98,10 @@ describe('BeerDetailPage', () => {
     await component.saveRatingDescription();
     expect(mockToastController.create).toHaveBeenCalledTimes(1);
     expect(mockToastController.create).toHaveBeenCalledWith({
-      message: "Your description has been saved!",
+      message: 'Your description has been saved!',
       duration: 3000,
-      position: "top",
-      cssClass: "success-toast"
+      position: 'top',
+      cssClass: 'success-toast'
     });
     expect(mockToast.present).toHaveBeenCalledTimes(1);
     expect(mockRatingProvider.partialUpdate).toHaveBeenCalledWith(mockRating);
@@ -112,10 +112,10 @@ describe('BeerDetailPage', () => {
     await component.saveRatingDescription();
     expect(mockToastController.create).toHaveBeenCalledTimes(1);
     expect(mockToastController.create).toHaveBeenCalledWith({
-      message: "Having trouble saving your description.",
+      message: 'Having trouble saving your description.',
       duration: 3000,
-      position: "top",
-      cssClass: "error-toast"
+      position: 'top',
+      cssClass: 'error-toast'
     });
     expect(mockToast.present).toHaveBeenCalledTimes(1);
     expect(mockRatingProvider.create).toHaveBeenCalledWith(mockRating);

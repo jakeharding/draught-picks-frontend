@@ -6,12 +6,12 @@
  *
  * Test the beer list component.
  */
-import { BeerListComponent } from "./beer-list";
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { BeerItemComponent } from "../beer-item/beer-item";
-import { NavPush } from "ionic-angular";
-import { RatingComponent } from "../rating/rating";
+import { BeerListComponent } from './beer-list';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BeerItemComponent } from '../beer-item/beer-item';
+import { NavPush } from 'ionic-angular';
+import { RatingComponent } from '../rating/rating';
 
 describe('BeerListComponent', () => {
   let component: BeerListComponent;

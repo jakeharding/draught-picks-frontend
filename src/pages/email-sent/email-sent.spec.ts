@@ -6,11 +6,11 @@
  *
  * The page seen after a confirmation email has been sent.
  */
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { EmailSentPage } from "./email-sent";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { NavController, NavPush } from "ionic-angular";
-import { ResendEmailPage } from "../resend-email/resend-email";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { EmailSentPage } from './email-sent';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NavController, NavPush } from 'ionic-angular';
+import { ResendEmailPage } from '../resend-email/resend-email';
 
 describe('EmailSentPage', () => {
   let fixture: ComponentFixture<EmailSentPage>;

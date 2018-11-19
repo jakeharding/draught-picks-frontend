@@ -6,7 +6,7 @@
  *
  * Validation for confirm password
  */
-import { FormGroup } from "@angular/forms";
+import { FormGroup } from '@angular/forms';
 
 
 export default class PasswordValidator {

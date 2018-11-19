@@ -6,7 +6,7 @@
  *
  * Model user attributes
  */
-import Beer from "./Beer";
+import Beer from './Beer';
 
 
 export default interface User {

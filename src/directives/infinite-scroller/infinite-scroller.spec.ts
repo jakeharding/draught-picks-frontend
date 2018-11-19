@@ -7,9 +7,9 @@
  * Test the infinite scoller directive.
  * This test uses subscript operators on the class under test to get access to private members.
  */
-import { InfiniteScrollerDirective } from "./infinite-scroller";
-import { ElementRef } from "@angular/core";
-import { Observable } from "rxjs";
+import { InfiniteScrollerDirective } from './infinite-scroller';
+import { ElementRef } from '@angular/core';
+import { Observable } from 'rxjs';
 
 describe('InfiniteScrollerDirective', () => {
   let directive : InfiniteScrollerDirective;

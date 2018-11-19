@@ -6,13 +6,13 @@
  *
  * Test the DraughtHeaderComponent
  */
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { DraughtHeaderComponent } from "./draught-header";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { NavController } from "ionic-angular";
-import { AuthProvider } from "../../providers/auth/auth";
-import { SignInPage } from "../../pages/sign-in/sign-in";
-import { HomePage } from "../../pages/home/home";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DraughtHeaderComponent } from './draught-header';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
+import { SignInPage } from '../../pages/sign-in/sign-in';
+import { HomePage } from '../../pages/home/home';
 
 describe('DraughtHeaderComponent', () => {
   let component: DraughtHeaderComponent;

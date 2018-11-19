@@ -6,9 +6,9 @@
  *
  * Test the RatingProvider.
  */
-import { RatingProvider } from "./rating";
-import { httpClient, provide } from "../../jestGlobalMocks";
-import BeerRating from "../../models/BeerRating";
+import { RatingProvider } from './rating';
+import { httpClient, provide } from '../../jestGlobalMocks';
+import BeerRating from '../../models/BeerRating';
 
 describe('Test Rating Provider', () => {
 

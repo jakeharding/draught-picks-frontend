@@ -6,10 +6,10 @@
  *
  * Test BeerProvider
  */
-import { BeerProvider } from "./beer";
-import Beer from "../../models/Beer";
-import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller";
-import { httpClient, provide } from "../../jestGlobalMocks";
+import { BeerProvider } from './beer';
+import Beer from '../../models/Beer';
+import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
+import { httpClient, provide } from '../../jestGlobalMocks';
 
 describe('Test beer provider', () => {
   let beerProvider: BeerProvider;

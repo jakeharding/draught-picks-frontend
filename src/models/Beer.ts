@@ -6,8 +6,8 @@
  *
  * Model the beers
  */
-import BeerRating from "./BeerRating";
-import RecentBeer from "./RecentBeers";
+import BeerRating from './BeerRating';
+import RecentBeer from './RecentBeers';
 
 
 export default interface Beer {

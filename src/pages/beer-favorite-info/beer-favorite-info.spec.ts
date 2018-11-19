@@ -1,24 +1,25 @@
-/**
- * confirm-email.spec.ts
- *
- * Created by jake
- * Created on 10/21/18
- */
-
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ConfirmEmailPage } from './confirm-email';
+import { BeerFavoriteInfoPage } from './beer-favorite-info';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-describe('ConfirmEmailPage', () => {
+/**
+ * beer-favorite-info.spec.ts
+ *
+ * Created by jake
+ * Created on 11/18/18
+ * 
+ * Test the BeerFavoriteInfoPage.
+ */
 
-  let fixture: ComponentFixture<ConfirmEmailPage>;
-  let instance: ConfirmEmailPage;
+describe('BeerFavoriteInfoPage', () => {
+  let fixture: ComponentFixture<BeerFavoriteInfoPage>;
+  let instance: BeerFavoriteInfoPage;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      declarations: [ConfirmEmailPage],
+      declarations: [BeerFavoriteInfoPage],
       providers: [
         { provide: NavController, useValue: {}}
       ]
@@ -26,11 +27,11 @@ describe('ConfirmEmailPage', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmEmailPage);
+    fixture = TestBed.createComponent(BeerFavoriteInfoPage);
     instance = fixture.debugElement.componentInstance;
   });
 
-  it('should initialize the ConfirmEmailPage', () => {
+  it('should initialize the BeerFavoriteInfoPage', () => {
     expect(instance).toBeTruthy();
     expect(fixture).toMatchSnapshot();
   });

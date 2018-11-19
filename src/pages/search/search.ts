@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginRequired } from "../../providers/auth/auth";
-import Beer from "../../models/Beer";
-import { BeerProvider } from "../../providers/beer/beer";
-import { Observable } from "rxjs/Observable";
-import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller";
-import { BasePage } from "../BasePage";
+import { LoginRequired } from '../../providers/auth/auth';
+import Beer from '../../models/Beer';
+import { BeerProvider } from '../../providers/beer/beer';
+import { Observable } from 'rxjs/Observable';
+import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the SearchPage page.
@@ -29,13 +29,13 @@ export class SearchPage extends BasePage {
   loadMore: boolean;
   scrollCallback;
 
-  private static NULL_RESULT_MESSAGE = "Search for a beer and let us know what you like about it.";
-  private static ZERO_RESULT_MESSAGE = "We cannot find results on the beers you have entered.";
+  private static NULL_RESULT_MESSAGE = 'Search for a beer and let us know what you like about it.';
+  private static ZERO_RESULT_MESSAGE = 'We cannot find results on the beers you have entered.';
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
     super('search');
     this.message = SearchPage.NULL_RESULT_MESSAGE;
-    this.beerSearch = "";
+    this.beerSearch = '';
     this.offset = 0;
     this.loadMore = true;
     this.scrollCallback = this.getBeers.bind(this);

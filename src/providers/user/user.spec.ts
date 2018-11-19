@@ -1,6 +1,6 @@
-import { UserProvider } from "./user";
-import User from "../../models/User";
-import { provide, httpClient } from "../../jestGlobalMocks";
+import { UserProvider } from './user';
+import User from '../../models/User';
+import { provide, httpClient } from '../../jestGlobalMocks';
 
 /**
  * user.spec.ts

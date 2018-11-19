@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Env from "../../env";
-import BeerRating from "../../models/BeerRating";
+import Env from '../../env';
+import BeerRating from '../../models/BeerRating';
 
 /**
  * Generated class for the RatingProvider provider.

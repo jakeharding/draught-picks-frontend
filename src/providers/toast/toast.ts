@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToastController } from "ionic-angular";
+import { ToastController } from 'ionic-angular';
 
 /*
   Generated class for the ToastProvider provider.
@@ -9,8 +9,8 @@ import { ToastController } from "ionic-angular";
 */
 @Injectable()
 export class ToastProvider {
-  private errorToastClass = "error-toast";
-  private successToastClass = "success-toast";
+  private errorToastClass = 'error-toast';
+  private successToastClass = 'success-toast';
 
   constructor(private toastCtrl: ToastController) {}
 
@@ -25,7 +25,7 @@ export class ToastProvider {
   createToast(message: string,
               cssClass:string,
               duration: number = 3000,
-              position: string = "top"
+              position: string = 'top'
               ) {
     this.toastCtrl.create({ message, cssClass, duration, position }).present();
   }

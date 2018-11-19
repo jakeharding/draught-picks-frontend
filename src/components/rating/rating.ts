@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import BeerRating from "../../models/BeerRating";
-import { RatingProvider } from "../../providers/rating/rating";
-import { ToastController } from "ionic-angular";
+import BeerRating from '../../models/BeerRating';
+import { RatingProvider } from '../../providers/rating/rating';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the RatingComponent component.
@@ -33,10 +33,10 @@ export class RatingComponent {
       const success = beerRating => {
         this.rating = beerRating; // Update the beerRating returned from REST API
         const toast = this.toastController.create({
-          message: "Your rating is saved.",
+          message: 'Your rating is saved.',
           duration: 3000,
-          position: "top",
-          cssClass: "success-toast"
+          position: 'top',
+          cssClass: 'success-toast'
         });
         toast.present();
         this.setRating.emit(beerRating); // Update parent component

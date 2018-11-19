@@ -6,19 +6,19 @@
  *
  * Test the PreferencesPage.
  */
-import { PreferencesPage } from "./preferences";
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { NavController, NavParams, NavPush, ToastController } from "ionic-angular";
-import { BeerProvider } from "../../providers/beer/beer";
-import { UserProvider } from "../../providers/user/user";
-import { PreferencesProvider } from "../../providers/preferences/preferences";
-import { FormBuilder, FormGroupDirective } from "@angular/forms";
+import { PreferencesPage } from './preferences';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NavController, NavParams, NavPush, ToastController } from 'ionic-angular';
+import { BeerProvider } from '../../providers/beer/beer';
+import { UserProvider } from '../../providers/user/user';
+import { PreferencesProvider } from '../../providers/preferences/preferences';
+import { FormBuilder, FormGroupDirective } from '@angular/forms';
 import { mockToast, mockToastController } from '../../jestGlobalMocks';
-import User from "../../models/User";
-import UserPreferences from "../../models/UserPreferences";
-import Beer from "../../models/Beer";
-import { Observable } from "rxjs";
+import User from '../../models/User';
+import UserPreferences from '../../models/UserPreferences';
+import Beer from '../../models/Beer';
+import { Observable } from 'rxjs';
 
 describe('PreferencesPage', () => {
   let component: PreferencesPage;

@@ -6,7 +6,7 @@
  *
  * Validate a checkbox is checked.
  */
-import { FormControl } from "@angular/forms";
+import { FormControl } from '@angular/forms';
 
 
 export default class CheckboxValidator {

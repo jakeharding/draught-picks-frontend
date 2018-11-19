@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Env from "../../env";
-import PageResponse from "../../models/PageResponse";
-import User from "../../models/User";
-import AuthResponse from "../../models/AuthResponse";
-import BeerRating from "../../models/BeerRating";
-import Beer from "../../models/Beer";
+import Env from '../../env';
+import PageResponse from '../../models/PageResponse';
+import User from '../../models/User';
+import AuthResponse from '../../models/AuthResponse';
+import BeerRating from '../../models/BeerRating';
+import Beer from '../../models/Beer';
 
 /**
  * Generated class for the UserProvider provider.
