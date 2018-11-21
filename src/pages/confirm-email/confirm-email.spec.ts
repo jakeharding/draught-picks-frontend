@@ -13,7 +13,7 @@ import { NavController } from 'ionic-angular';
 describe('ConfirmEmailPage', () => {
 
   let fixture: ComponentFixture<ConfirmEmailPage>;
-  let instance: ConfirmEmailPage;
+  let component: ConfirmEmailPage;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,11 +27,11 @@ describe('ConfirmEmailPage', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ConfirmEmailPage);
-    instance = fixture.debugElement.componentInstance;
+    component = fixture.debugElement.componentInstance;
   });
 
   it('should initialize the ConfirmEmailPage', () => {
-    expect(instance).toBeTruthy();
+    expect(component).toBeTruthy();
     expect(fixture).toMatchSnapshot();
   });
 });
