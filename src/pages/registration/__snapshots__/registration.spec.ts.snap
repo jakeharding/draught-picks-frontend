@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
+<page-registration
+  MS_IN_21_YEARS={[Function Number]}
+  formBuilder={[Function FormBuilder]}
+  goToDisclaimerPage={[Function Function]}
+  goToSignInPage={[Function Function]}
+  maxDate={[Function String]}
+  navCtrl={[Function Object]}
+  navParams={[Function Object]}
+  registerForm={[Function FormGroup]}
+  toastCtrl={[Function Object]}
+  userProvider={[Function Object]}
+  verifyAge="false"
+>
+  
+  <draught-header />
+  
+  
+  <ion-content
+    padding=""
+  >
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-6=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-3=""
+        offset-sm-1=""
+        offset-xl-4=""
+        text-center=""
+      >
+        
+        
+        <form>
+          
+          
+          <h1>
+            Please Register Below
+          </h1>
+          
+  
+          
+          <ion-row
+            text-center=""
+          >
+            
+            
+            <ion-col
+              text-center=""
+            >
+              
+              
+              <ion-item>
+                
+                
+                <ion-label
+                  color="primary"
+                  floating=""
+                  text-left=""
+                >
+                  First Name
+                </ion-label>
+                
+                
+                <ion-input
+                  formcontrolname="first_name"
+                  tid="firstNameInput"
+                  type="text"
+                />
+                
+              
+              </ion-item>
+              
+            
+            </ion-col>
+            
+  
+            
+            <ion-col
+              text-center=""
+            >
+              
+              
+              <ion-item>
+                
+                
+                <ion-label
+                  color="primary"
+                  floating=""
+                  text-left=""
+                >
+                  Last Name
+                </ion-label>
+                
+                
+                <ion-input
+                  formcontrolname="last_name"
+                  tid="lastNameInput"
+                  type="text"
+                />
+                
+              
+              </ion-item>
+              
+            
+            </ion-col>
+            
+          
+          </ion-row>
+          
+  
+          
+          <ion-item>
+            
+            
+            <ion-label
+              color="primary"
+              floating=""
+              text-left=""
+            >
+              Username
+            </ion-label>
+            
+            
+            <ion-input
+              formcontrolname="username"
+              tid="usernameInput"
+              type="text"
+            />
+            
+          
+          </ion-item>
+          
+  
+          
+          <ion-item>
+            
+            
+            <ion-label
+              color="primary"
+              floating=""
+              text-left=""
+            >
+              Email
+            </ion-label>
+            
+            
+            <ion-input
+              formcontrolname="email"
+              tid="emailInput"
+              type="text"
+            />
+            
+          
+          </ion-item>
+          
+  
+          
+          <ion-item>
+            
+            
+            <ion-label
+              color="primary"
+              floating=""
+              text-left=""
+            >
+              Create Password
+            </ion-label>
+            
+            
+            <ion-input
+              formcontrolname="password"
+              tid="passwordInput"
+              type="password"
+            />
+            
+          
+          </ion-item>
+          
+  
+          
+          <ion-item>
+            
+            
+            <ion-label
+              color="primary"
+              floating=""
+              text-left=""
+            >
+              Confirm Password
+            </ion-label>
+            
+            
+            <ion-input
+              formcontrolname="confirm_password"
+              tid="passwordInput2"
+              type="password"
+            />
+            
+          
+          </ion-item>
+          
+  
+          
+          <ion-item>
+            
+            
+            <ion-label
+              color="primary"
+              floating=""
+              text-left=""
+            >
+              Birthday
+            </ion-label>
+            
+            
+            <ion-datetime
+              displayformat="YYYY/MM/DD"
+              formcontrolname="date_of_birth"
+              tid="birthDate"
+            />
+            
+          
+          </ion-item>
+          
+  
+          
+          <br />
+          
+  
+          
+          <ion-item>
+            
+            
+            <ion-label
+              color="primary"
+              text-lg-left=""
+            >
+              Legal Age Confirmation and Disclaimer
+            </ion-label>
+            
+          
+          </ion-item>
+          
+  
+          
+          <ion-item>
+            
+            
+            <ion-label>
+              I am at least 21 years old
+            </ion-label>
+            
+            
+            <ion-checkbox
+              color="primary"
+              formcontrolname="verify_age"
+              tid="ageVerification"
+            />
+            
+          
+          </ion-item>
+          
+  
+          
+          <ion-item>
+            
+            
+            <ion-checkbox
+              color="primary"
+              formcontrolname="disclaimer_check"
+              tid="disclaimerVerification"
+            />
+            
+            
+            <ion-label>
+              I have read the 
+              <a
+                class="underline"
+              >
+                disclaimer.
+              </a>
+            </ion-label>
+            
+          
+          </ion-item>
+          
+  
+          
+          <button
+            ion-button=""
+            margin-top="20px"
+            tid="registerButton"
+          >
+            
+           Register
+          
+          </button>
+          
+  
+          
+          <p>
+            Already have an account?
+          </p>
+          
+          
+          <a
+            href="#/sign-in"
+            tid="signInLink"
+          >
+            Sign in.
+          </a>
+          
+        
+        </form>
+        
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  
+  </ion-content>
+  
+</page-registration>
+`;

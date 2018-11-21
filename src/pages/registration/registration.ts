@@ -77,6 +77,7 @@ export class RegistrationPage extends BasePage {
       () => {
         this.navCtrl.setRoot(EmailSentPage);
       }, () => {
+        // TODO user toast provider
         let toast = this.toastCtrl.create({
           message: 'Unable to register at the moment. Please try again.',
           duration: 3000,
