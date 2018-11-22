@@ -68,7 +68,9 @@
       "src/**/*.ts",
       "!src/**/*.module.ts",
       "!src/app/*",
-      "!src/models/*"
+      "!src/models/*",
+      "!src/setupJest.ts",
+      "!src/jestGlobalMocks.ts"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
     "transformIgnorePatterns": [
