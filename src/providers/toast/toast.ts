@@ -9,8 +9,8 @@ import { ToastController } from 'ionic-angular';
 */
 @Injectable()
 export class ToastProvider {
-  private errorToastClass = 'error-toast';
-  private successToastClass = 'success-toast';
+  private readonly errorToastClass = 'error-toast';
+  private readonly successToastClass = 'success-toast';
 
   constructor(private toastCtrl: ToastController) {}
 
