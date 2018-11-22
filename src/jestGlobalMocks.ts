@@ -55,5 +55,8 @@ export const mockToast = {
 export const mockToastController = {
   create: jest.fn(()=> mockToast)
 };
+export const mockNavController = {
+  setRoot: jest.fn()
+};
 
 

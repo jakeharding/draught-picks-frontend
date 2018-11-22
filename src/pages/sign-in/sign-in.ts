@@ -48,7 +48,7 @@ export class SignInPage extends BasePage {
       (response) => {
         this.authProvider.setToken(response.token);
         this.navCtrl.setRoot(TabsPage);
-        location.hash = '';
+        // location.hash = '';
       },
       () => {
         let toast = this.toastCtrl.create({
