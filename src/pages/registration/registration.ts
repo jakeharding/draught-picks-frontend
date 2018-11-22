@@ -1,11 +1,13 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {SignInPage} from "../sign-in/sign-in";
-import {DisclaimerPage} from "../disclaimer/disclaimer";
-import {UserProvider} from "../../providers/user/user";
-import CheckboxValidator from "../../validators/CheckboxValidator";
-import PasswordValidator from "../../validators/PasswordValidator";
+import { SignInPage } from '../sign-in/sign-in';
+import { DisclaimerPage } from '../disclaimer/disclaimer';
+import { UserProvider } from '../../providers/user/user';
+import CheckboxValidator from '../../validators/CheckboxValidator';
+import PasswordValidator from '../../validators/PasswordValidator';
+import { BasePage } from '../BasePage';
+import { EmailSentPage } from '../email-sent/email-sent';
 
 /**
  * Generated class for the RegistrationPage page.
@@ -19,7 +21,7 @@ import PasswordValidator from "../../validators/PasswordValidator";
     selector: 'page-registration',
     templateUrl: 'registration.html',
 })
-export class RegistrationPage {
+export class RegistrationPage extends BasePage {
   registerForm: FormGroup;
   goToSignInPage: any;
   goToDisclaimerPage: any;
@@ -36,7 +38,8 @@ export class RegistrationPage {
               public navCtrl: NavController,
               public navParams: NavParams,
               public toastCtrl: ToastController,
-              public userProvider: UserProvider ){
+              public userProvider: UserProvider ) {
+    super('registration');
     this.maxDate = new Date(Date.now() - this.MS_IN_21_YEARS).toISOString();
     this.goToSignInPage = SignInPage;
     this.goToDisclaimerPage = DisclaimerPage;
@@ -50,7 +53,7 @@ export class RegistrationPage {
       username: ['', [Validators.required]],
       verify_age: [this.verifyAge, [CheckboxValidator.isChecked, Validators.required]],
       disclaimer_check: [undefined, [CheckboxValidator.isChecked, Validators.required]]
-    }, {validator: PasswordValidator.matches})
+    }, {validator: PasswordValidator.matches});
 
   }
 
@@ -69,19 +72,20 @@ export class RegistrationPage {
    * Creates a new user after the registration form was submitted and stores
    * all of the registration form values in the database
    * */
-  public createUser(){
+  public createUser() {
     this.userProvider.create(this.registerForm.value).then(
       () => {
-        location.replace("#/sign-in");
+        this.navCtrl.setRoot(EmailSentPage);
       }, () => {
+        // TODO user toast provider
         let toast = this.toastCtrl.create({
           message: 'Unable to register at the moment. Please try again.',
           duration: 3000,
-          position: "top",
-          cssClass: "error-toast"
+          position: 'top',
+          cssClass: 'error-toast'
         });
         toast.present();
       }
-    )
+    );
   }
 }

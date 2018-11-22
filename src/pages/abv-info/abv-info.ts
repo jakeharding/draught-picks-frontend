@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the AbvInfoPage page.
@@ -13,16 +14,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-abv-info',
   templateUrl: 'abv-info.html',
 })
-export class AbvInfoPage {
+export class AbvInfoPage extends BasePage {
 
   /**
    * Empty but required constructor for AbvInfoPage class
    * */
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor() {
+    super('abv-info');
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AbvInfoPage');
-  }
-
 }

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
+<page-confirm-email
+  navCtrl={[Function Object]}
+>
+  
+  <ion-header>
+    
+  
+    
+    <ion-navbar>
+      
+      
+      <ion-title>
+        confirm-email
+      </ion-title>
+      
+    
+    </ion-navbar>
+    
+  
+  
+  </ion-header>
+  
+  
+  <ion-content
+    padding=""
+  >
+    
+  
+  
+  </ion-content>
+  
+</page-confirm-email>
+`;

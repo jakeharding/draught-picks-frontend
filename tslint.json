@@ -1,11 +1,41 @@
 {
   "rules": {
+    "quotemark": [true, "single", "avoid-escape"],
+    "eofline": true,
+    "indent": [true, "spaces", 2],
+    "max-line-length": [true, 120],
+    "curly": true,
+    "whitespace": [true, "check-module", "check-preblock", "check-decl", "check-type-operator", "check-branch"],
     "no-duplicate-variable": true,
     "no-unused-variable": [
       true
-    ]
+    ],
+    "object-literal-shorthand": [true, "always"],
+    "semicolon": [true, "always"]
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"
+  ],
+  "trailing-comma": [
+    true,
+    {
+      "singleline": {
+        "objects": "always",
+        "arrays": "always",
+        "functions": "never",
+        "typeLiterals": "never",
+        "imports": "never",
+        "exports": "never"
+      },
+      "multiline": {
+        "objects": "always",
+        "arrays": "always",
+        "functions": "never",
+        "typeLiterals": "never",
+        "imports": "never",
+        "exports": "never"
+      },
+      "esSpecCompliant": true
+    }
   ]
 }

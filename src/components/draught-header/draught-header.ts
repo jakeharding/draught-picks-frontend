@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {AuthProvider} from "../../providers/auth/auth";
-import {TabsPage} from "../../pages/tabs/tabs";
-import {NavController} from "ionic-angular";
+import { AuthProvider } from '../../providers/auth/auth';
+import { NavController } from 'ionic-angular';
+import { SignInPage } from '../../pages/sign-in/sign-in';
+import { HomePage } from '../../pages/home/home';
 
 /**
  * Generated class for the DraughtHeaderComponent component.
@@ -28,7 +29,7 @@ export class DraughtHeaderComponent {
    * */
   logout () {
     this.authProvider.clearToken();
-    location.hash = '/sign-in';
+    this.navCtrl.setRoot(SignInPage);
   }
 
   /**
@@ -38,13 +39,11 @@ export class DraughtHeaderComponent {
    * */
   home () {
     if (this.authProvider.isLoggedIn()) {
-      location.hash = '/';
-      if (this.navCtrl.parent) {
-        this.navCtrl.parent.select(1);
-      } else {
-        location.replace('/');
-      }
+      this.navCtrl.setRoot(HomePage);
+    } else {
+      this.navCtrl.setRoot(SignInPage);
     }
   }
+
 
 }

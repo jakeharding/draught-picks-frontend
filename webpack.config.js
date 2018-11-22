@@ -57,6 +57,9 @@ var optimizedProdLoaders = [
       {
         loader: process.env.IONIC_WEBPACK_LOADER
       }
+    ],
+    exclude: [
+      './src/jestGlobalMocks.ts', './src/setupJest.ts'
     ]
   }
 ];
@@ -77,12 +80,10 @@ var devConfig = {
     devtoolModuleFilenameTemplate: ionicWebpackFactory.getSourceMapperFunction(),
   },
   devtool: process.env.IONIC_SOURCE_MAP_TYPE,
-
   resolve: {
     extensions: ['.ts', '.js', '.json'],
-    modules: [path.resolve('node_modules')]
+    modules: [path.resolve('node_modules')],
   },
-
   module: {
     loaders: [
       {
@@ -91,7 +92,10 @@ var devConfig = {
       },
       {
         test: /\.ts$/,
-        loader: process.env.IONIC_WEBPACK_LOADER
+        loader: process.env.IONIC_WEBPACK_LOADER,
+        exclude: [
+          './src/jestGlobalMocks.ts', './src/setupJest.ts'
+        ]
       }
     ]
   },

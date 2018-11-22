@@ -1,0 +1,366 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeerDetailPage should initialize the BeerDetailPage 1`] = `
+<page-beer-detail
+  beer={[Function Object]}
+  beerProvider={[Function Object]}
+  beerRating={[Function Object]}
+  hasRating={[Function Boolean]}
+  navCtrl={[Function Object]}
+  navParams={[Function Object]}
+  ratingProvider={[Function Object]}
+  toastController={[Function Object]}
+>
+  
+  <draught-header />
+  
+  
+  <ion-content
+    padding=""
+  >
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-8=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-2=""
+        offset-sm-1=""
+        offset-xl-4=""
+      >
+        
+        
+        <ion-row>
+          
+          
+          <ion-col
+            text-center=""
+          >
+            
+            
+            <h1>
+              
+            </h1>
+            
+          
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+        
+        <ion-row>
+          
+          
+          <ion-col
+            col-4=""
+            text-center=""
+          >
+            
+            
+            <span
+              class="sub-heading"
+            >
+              
+              ABV
+            
+            </span>
+            
+            
+            <span
+              class="sub-heading"
+            >
+              
+              
+              
+              
+              
+              
+              
+            
+            </span>
+            
+          
+          </ion-col>
+          
+  
+          
+          <ion-col
+            col-4=""
+            text-center=""
+          >
+            
+            
+            <span
+              class="sub-heading"
+            >
+              
+              IBU
+            
+            </span>
+            
+            
+            <span
+              class="sub-heading"
+            >
+              
+              
+              
+              
+              
+              
+              
+            
+            </span>
+            
+          
+          </ion-col>
+          
+  
+          
+          <ion-col
+            col-4=""
+            text-center=""
+          >
+            
+            
+            <span
+              class="sub-heading"
+            >
+              
+              Match
+            
+            </span>
+            
+            
+            <span
+              class="sub-heading"
+            >
+              
+              
+              
+              
+              
+              
+              
+            
+            </span>
+            
+          
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+        
+        <ion-row>
+          
+          
+          <ion-col
+            col-md-9=""
+            col-sm-12=""
+            offset-md-2=""
+            offset-sm-0=""
+            text-center=""
+          >
+            
+            
+            <button
+              ion-button=""
+            >
+              I'm drinking this now!
+            </button>
+            
+          
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+        
+        <ion-row>
+          
+          
+          <ion-col
+            col-md-9=""
+            col-sm-12=""
+            offset-md-2=""
+            offset-sm-0=""
+          >
+            
+            
+            
+            
+            
+            
+            
+          
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+        
+        <ion-row>
+          
+          
+          <ion-col
+            col-md-9=""
+            col-sm-9=""
+            offset-md-2=""
+            offset-sm-1=""
+          >
+            
+            
+            <rating>
+              
+  
+              <ion-row>
+                
+    
+                <div />
+                
+    
+                <div />
+                
+    
+                <div />
+                
+    
+                <div />
+                
+    
+                <div />
+                
+  
+              </ion-row>
+              
+  
+            </rating>
+            
+          
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+        
+        <ion-row>
+          
+          
+          <ion-col
+            col-md-9=""
+            col-sm-12=""
+            offset-md-2=""
+            offset-sm-0=""
+          >
+            
+            
+            <p>
+              Description:
+            </p>
+            
+            
+            <br />
+            
+            
+            <p>
+              
+            </p>
+            
+          
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+        
+        <ion-row>
+          
+          
+          <ion-col
+            col-md-9=""
+            col-sm-12=""
+            offset-md-2=""
+            offset-sm-0=""
+          >
+            
+            
+            <ion-item>
+              
+              
+              <ion-label
+                floating=""
+              >
+                
+                Tell us what you like:
+              
+              </ion-label>
+              
+              
+              <ion-textarea
+                rows="5"
+              />
+              
+            
+            </ion-item>
+            
+          
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+        
+        <ion-row
+          text-center=""
+        >
+          
+          
+          <ion-col
+            col-md-9=""
+            col-sm-12=""
+            offset-md-2=""
+            offset-sm-0=""
+          >
+            
+            
+            <button
+              ion-button=""
+            >
+              Submit
+            </button>
+            
+          
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  
+  </ion-content>
+  
+</page-beer-detail>
+`;

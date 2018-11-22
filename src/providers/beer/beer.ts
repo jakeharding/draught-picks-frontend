@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Env from "../../env";
-import {AutoCompleteService} from "ionic2-auto-complete";
-import Beer from "../../models/Beer";
-import PageResponse from "../../models/PageResponse";
-import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller"
-import {Observable} from "rxjs/Observable";
+import Env from '../../env';
+import { AutoCompleteService } from 'ionic2-auto-complete';
+import Beer from '../../models/Beer';
+import PageResponse from '../../models/PageResponse';
+import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 /*
   Generated class for the BeerProvider provider.
@@ -18,11 +18,11 @@ export class BeerProvider implements AutoCompleteService {
   url:string;
   recentsUrl: string;
   recommendedUrl: string;
-  labelAttribute = "name"; // Attribute needed for the AutoCompleteService
+  labelAttribute = 'name'; // Attribute needed for the AutoCompleteService
   constructor(public http: HttpClient) {
-    this.url = `${Env.REST_API_ROOT}beers`;
-    this.recentsUrl = `${Env.REST_API_ROOT}recent-beers`;
-    this.recommendedUrl = `${Env.REST_API_ROOT}recommended-beers`;
+    this.url = `${Env.REST_API_ROOT}/beers`;
+    this.recentsUrl = `${Env.REST_API_ROOT}/recent-beers`;
+    this.recommendedUrl = `${Env.REST_API_ROOT}/recommended-beers`;
   }
 
   /**
@@ -67,10 +67,10 @@ export class BeerProvider implements AutoCompleteService {
 
   /**
    * recommended function
-   * Parameters: Observable of type Beer list
-   * Sets the limit and offset for the infinite scrolling
+   * Parameters: query params for pagination
+   * Retrieves a page of recommended beers for an authenticated user.
    * */
-  recommended (params: any): Observable<Beer[]>{
+  recommended (params: any): Observable<Beer[]> {
     if (!params.limit) {
       params.limit = LIMIT;
     }
@@ -83,8 +83,8 @@ export class BeerProvider implements AutoCompleteService {
 
   /**
    * createRecent function
-   * Parameters: recent Beer List
-   * retruns the recent beer list
+   * Parameters: Beer
+   * returns the recent beer list
    * */
   createRecent (recent: Beer) {
     return this.http.post(this.recentsUrl, {beer: recent.uuid}).toPromise();
@@ -96,7 +96,7 @@ export class BeerProvider implements AutoCompleteService {
    * @returns {Promise<Object>}
    */
   retrieve (uuid: string) {
-    return this.http.get(`${this.url}/${uuid}`).toPromise()
+    return this.http.get(`${this.url}/${uuid}`).toPromise();
   }
 
 

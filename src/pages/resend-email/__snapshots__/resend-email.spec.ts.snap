@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResendEmailPage should initialize the ResendEmailPage 1`] = `
+<page-resend-email
+  emailForm={[Function FormGroup]}
+  formBuilder={[Function FormBuilder]}
+  navCtrl={[Function Object]}
+  navParams={[Function Object]}
+  toastProvider={[Function Object]}
+  userProvider={[Function Object]}
+>
+  
+  <draught-header />
+  
+  <ion-content>
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-6=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-3=""
+        offset-sm-1=""
+        offset-xl-4=""
+        text-center=""
+      >
+        
+        
+        <form>
+          
+          
+          <h1>
+            Resend Email
+          </h1>
+          
+          
+          <br />
+          
+          
+          <p>
+            Please enter the email address below:
+          </p>
+          
+          
+          <ion-item>
+            
+            
+            <ion-label
+              floating=""
+              text-left=""
+            >
+              Email
+            </ion-label>
+            
+            
+            <ion-input
+              formcontrolname="email"
+              type="text"
+            />
+            
+          
+          </ion-item>
+          
+        
+        </form>
+        
+        
+        <button
+          ion-button=""
+          margin-top="20px"
+        >
+          
+          Submit
+        
+        </button>
+        
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  
+  </ion-content>
+  
+</page-resend-email>
+`;

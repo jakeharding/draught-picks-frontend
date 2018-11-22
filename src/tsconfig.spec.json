@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "module": "commonjs",
+    "target": "es5",
+    "allowJs": true
+  },
+  "include": [
+    "**/*.spec.ts",
+    "jestGlobalMocks.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

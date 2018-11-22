@@ -4,4 +4,6 @@ www
 .DS_Store
 .idea/
 resources/
+coverage/
 .env
+*.zip

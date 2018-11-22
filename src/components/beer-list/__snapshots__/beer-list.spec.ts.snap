@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeerListComponent should initialize the BeerListComponent 1`] = `
+<beer-list>
+  
+  
+  
+  
+  
+</beer-list>
+`;

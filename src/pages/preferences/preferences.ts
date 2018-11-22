@@ -1,17 +1,18 @@
-import {Component, ViewChild} from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { LoginRequired } from '../../providers/auth/auth';
-import {BeerProvider} from "../../providers/beer/beer";
-import Beer from "../../models/Beer";
-import {UserProvider} from "../../providers/user/user";
-import User from "../../models/User";
-import {PreferencesProvider} from "../../providers/preferences/preferences";
+import { BeerProvider } from '../../providers/beer/beer';
+import Beer from '../../models/Beer';
+import { UserProvider } from '../../providers/user/user';
+import User from '../../models/User';
+import { PreferencesProvider } from '../../providers/preferences/preferences';
 import UserPreferences from '../../models/UserPreferences';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {BeerFavoriteInfoPage} from "../beer-favorite-info/beer-favorite-info";
-import {AbvInfoPage} from "../abv-info/abv-info";
-import {IbupagePage} from "../ibupage/ibupage";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BeerFavoriteInfoPage } from '../beer-favorite-info/beer-favorite-info';
+import { AbvInfoPage } from '../abv-info/abv-info';
+import { IbupagePage } from '../ibupage/ibupage';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the PreferencesPage page.
@@ -26,7 +27,7 @@ import {IbupagePage} from "../ibupage/ibupage";
   selector: 'page-preferences',
   templateUrl: 'preferences.html',
 })
-export class PreferencesPage {
+export class PreferencesPage extends BasePage {
 
   beerResults: Array<Beer>;
   beerSearch: string;
@@ -46,7 +47,8 @@ export class PreferencesPage {
               public toastCtrl: ToastController, public beerProvider: BeerProvider,
               private userProvider: UserProvider, private preferencesProvider: PreferencesProvider,
               public formBuilder: FormBuilder) {
-    this.beerSearch = "";
+    super('preferences');
+    this.beerSearch = '';
     this.goToBeerFavoriteInfoPage = BeerFavoriteInfoPage;
     this.goToABVPage = AbvInfoPage;
     this.goToIBUPage = IbupagePage;
@@ -65,7 +67,7 @@ export class PreferencesPage {
     } as UserPreferences;
 
     this.preferencesProvider.retrieve().then((prefs: UserPreferences) => {
-      if(prefs) {
+      if (prefs) {
         this.prefs = prefs;
       }
     });
@@ -85,33 +87,35 @@ export class PreferencesPage {
    * Gets the user preferences and saves them in the database
    * */
   public savePrefs() {
+    //TODO Use ToastProvider here.
     this.toastCtrl.create({
-      message: "Your recommendations will be here soon!",
+      message: 'Your recommendations will be here soon!',
       duration: 3000,
-      position: "top",
-      cssClass: "success-toast"
+      position: 'top',
+      cssClass: 'success-toast'
     }).present();
 
-    this.prefsForm.value.abv_low = this.prefsForm.value.abv_low === "" ? null : this.prefsForm.value.abv_low;
-    this.prefsForm.value.abv_hi = this.prefsForm.value.abv_hi === "" ? null : this.prefsForm.value.abv_hi;
-    this.prefsForm.value.ibu_hi = this.prefsForm.value.ibu_hi === "" ? null : this.prefsForm.value.ibu_hi;
-    this.prefsForm.value.ibu_low = this.prefsForm.value.ibu_low === "" ? null : this.prefsForm.value.ibu_low;
+    this.prefsForm.value.abv_low = this.prefsForm.value.abv_low === '' ? null : this.prefsForm.value.abv_low;
+    this.prefsForm.value.abv_hi = this.prefsForm.value.abv_hi === '' ? null : this.prefsForm.value.abv_hi;
+    this.prefsForm.value.ibu_hi = this.prefsForm.value.ibu_hi === '' ? null : this.prefsForm.value.ibu_hi;
+    this.prefsForm.value.ibu_low = this.prefsForm.value.ibu_low === '' ? null : this.prefsForm.value.ibu_low;
 
-    this.preferencesProvider.save(Object.assign({}, this.prefs, this.prefsForm.value, {user: this.user.uuid})).then((prefs: UserPreferences) => {
+    this.preferencesProvider.save(
+      Object.assign({}, this.prefs, this.prefsForm.value, {user: this.user.uuid})).then((prefs: UserPreferences) => {
       this.prefs = prefs;
       let toast = this.toastCtrl.create({
-        message: "Your recommendations have arrived! Go to the home tab to see them!",
+        message: 'Your recommendations have arrived! Go to the home tab to see them!',
         duration: 3000,
-        position: "top",
-        cssClass: "success-toast"
+        position: 'top',
+        cssClass: 'success-toast'
       });
       toast.present();
     }, () => {
       let toast = this.toastCtrl.create({
         message: "We couldn't save your profile at the moment. Please try again.",
         duration: 3000,
-        position: "top",
-        cssClass: "error-toast"
+        position: 'top',
+        cssClass: 'error-toast'
       });
       toast.present();
     });
@@ -119,10 +123,9 @@ export class PreferencesPage {
   }
 
   /**
-   * favoriteSelected function
-   * Parameters: Beer ArrayList
-   * Saves users favorite beers from the Beer List in the database
-   * */
+   * Called when a user selects a favorite.
+   * @param beer
+   */
   favoriteSelected (beer: Beer) {
     if (this.user.favorite_beers.indexOf(beer) < 0) {
       this.user.favorite_beers.push(beer);
@@ -130,14 +133,13 @@ export class PreferencesPage {
         this.user.favorite_beers = user.favorite_beers;
       });
     }
-    this.beerSearch = "";
+    this.beerSearch = '';
   }
 
   /**
-   * removeFavorite function
-   * Parameters: Beer ArrayList
-   * Removes users favorite beers from the Beer List in the database
-   * */
+   * Called when a user removes a beer from their favorites.
+   * @param beer
+   */
   removeFavorite (beer: Beer) {
     this.user.favorite_beers = this.user.favorite_beers.filter((b: Beer) => {
       return b.uuid != beer.uuid;
@@ -146,13 +148,13 @@ export class PreferencesPage {
   }
 
   /**
-   * search function
-   * Parameters: event of type event
-   * searches through the Beer ArrayList and displays results
-   * */
+   * Called in the autocomplete in response to entry
+   * @param event
+   */
   search (event:Event) {
-    if(this.beerSearch && this.beerSearch.length > 0) {
+    if (this.beerSearch && this.beerSearch.length > 0) {
       this.beerProvider.search(this.beerSearch).toPromise().then((results: Array<Beer>) => {
+        // TODO: This would be better used as an observable.
         this.beerResults = results;
       });
     }

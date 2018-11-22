@@ -1,5 +1,5 @@
 // Code taken from https://github.com/ashwin-sureshkumar/angular-infinite-scroller
-import { Directive, AfterViewInit, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/fromEvent';
@@ -8,13 +8,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/exhaustMap';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/startWith';
+
 export const LIMIT = 100;
 
 interface ScrollPosition {
   sH: number;
   sT: number;
   cH: number;
-};
+}
 
 const DEFAULT_SCROLL_POSITION: ScrollPosition = {
   sH: 0,
@@ -38,7 +39,6 @@ const DEFAULT_SCROLL_POSITION: ScrollPosition = {
 export class InfiniteScrollerDirective {
   private scrollEvent$;
   private userScrolledDown$;
-  private requestStream$;
   private requestOnScroll$;
 
   @Input()
@@ -73,7 +73,7 @@ export class InfiniteScrollerDirective {
         cH: e.target.clientHeight
       }))
       .pairwise()
-      .filter(positions => this.isUserScrollingDown(positions) && this.isScrollExpectedPercent(positions[1]))
+      .filter(positions => this.isUserScrollingDown(positions) && this.isScrollExpectedPercent(positions[1]));
   }
 
   private requestCallbackOnScroll() {

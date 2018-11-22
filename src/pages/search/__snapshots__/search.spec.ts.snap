@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchPage should initialize the SearchPage 1`] = `
+<page-search
+  beerProvider={[Function Object]}
+  beerSearch=""
+  loadMore={[Function Boolean]}
+  message={[Function String]}
+  navCtrl={[Function Object]}
+  navParams={[Function Object]}
+  offset="0"
+  processData={[Function Function]}
+  scrollCallback={[Function Function]}
+>
+  
+  <draught-header />
+  
+  <ion-content
+    padding=""
+  >
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-6=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-3=""
+        offset-sm-1=""
+        offset-xl-4=""
+        text-center=""
+      >
+        
+        
+        <h1
+          text-left=""
+        >
+          What are you drinking?
+        </h1>
+        
+        
+        <ion-searchbar
+          placeholder="Search Beer By Name"
+        />
+        
+        
+        
+        
+        
+        
+        
+  
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  </ion-content>
+  
+  
+</page-search>
+`;

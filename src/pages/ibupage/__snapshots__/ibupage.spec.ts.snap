@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IbupagePage should initialize the IbupagePage 1`] = `
+<page-ibupage>
+  
+  
+  <draught-header />
+  
+  <ion-content>
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-8=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-2=""
+        offset-sm-1=""
+        offset-xl-4=""
+        text-center=""
+      >
+        
+        
+        <h1>
+          International Bitterness Units (IBU)
+        </h1>
+        
+        
+        <p
+          margin=""
+        >
+          International Bitterness Units (IBU), is defined as the standard measurement of how bitter your beer is based on the hops contained
+          in the drink. According to berghoffbeer.com, IBU "gauges the isomerized alpha acids from hops in a beer in parts per million."
+          It is measured on a scale between 0-100 and found on most alcoholic beverage labels. The higher the count
+          the more bitter tasting the drink will be.
+        </p>
+        
+  
+        
+        <p>
+           
+          <b>
+            <u>
+              Example IBU for beers:
+            </u>
+          </b>
+        </p>
+        
+        
+        <ion-row>
+          
+        
+          <ion-col
+            offset-2=""
+          >
+            
+          
+            <ion-row>
+              
+            
+              <ion-col
+                text-center=""
+              >
+                Budweiser:
+              </ion-col>
+              
+            
+              <ion-col
+                text-left=""
+              >
+                7 IBU
+              </ion-col>
+              
+          
+            </ion-row>
+            
+  
+          
+            <ion-row>
+              
+            
+              <ion-col
+                text-center=""
+              >
+                American Brown Ale:
+              </ion-col>
+              
+            
+              <ion-col
+                text-left=""
+              >
+                20 IBU
+              </ion-col>
+              
+          
+            </ion-row>
+            
+  
+          
+            <ion-row>
+              
+            
+              <ion-col
+                text-center=""
+              >
+                Avery's IPA:
+              </ion-col>
+              
+            
+              <ion-col
+                text-left=""
+              >
+                70 IBU
+              </ion-col>
+              
+          
+            </ion-row>
+            
+  
+          
+            <ion-row>
+              
+            
+              <ion-col
+                text-center=""
+              >
+                Maharaja:
+              </ion-col>
+              
+            
+              <ion-col
+                text-left=""
+              >
+                100 IBU
+              </ion-col>
+              
+          
+            </ion-row>
+            
+        
+          </ion-col>
+          
+        
+        </ion-row>
+        
+  
+        
+        <p>
+          This information was summarized by the following links:
+        </p>
+        
+        
+        <li>
+          <a
+            href="http://berghoffbeer.com/blog/what-do-abv-and-ibu-mean/"
+            target="_blank"
+          >
+            http://berghoffbeer.com/blog/what-do-abv-and-ibu-mean/
+          </a>
+        </li>
+        
+        
+        <br />
+        
+        
+        <li
+          margin-bottom=""
+        >
+          <a
+            href="http://www.5280.com/2013/10/beer-lesson-ibu/"
+            target="_blank"
+          >
+            http://www.5280.com/2013/10/beer-lesson-ibu/
+          </a>
+        </li>
+        
+  
+        
+        <br />
+        
+        
+        <a
+          class="backToPreferences"
+          navpop=""
+        >
+          Back to your Preferences
+        </a>
+        
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  </ion-content>
+</page-ibupage>
+`;

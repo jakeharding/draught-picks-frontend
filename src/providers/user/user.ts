@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Env from "../../env";
-import PageResponse from "../../models/PageResponse";
-import User from "../../models/User";
+import Env from '../../env';
+import PageResponse from '../../models/PageResponse';
+import User from '../../models/User';
+import AuthResponse from '../../models/AuthResponse';
+import BeerRating from '../../models/BeerRating';
+import Beer from '../../models/Beer';
 
 /**
  * Generated class for the UserProvider provider.
@@ -12,38 +15,29 @@ import User from "../../models/User";
 **/
 @Injectable()
 export class UserProvider {
-  url: string;
+  private readonly url: string;
+  private readonly resendConfirmEmailUrl: string;
 
   constructor(public http: HttpClient) {
-    this.url = `${Env.REST_API_ROOT}users`;
+    this.url = `${Env.REST_API_ROOT}/users`;
+    this.resendConfirmEmailUrl = `${this.url}/resend-confirm-email`;
   }
 
-  /**
-   * create function
-   * Parameters: userData
-   * creates a new user with the userData
-   * */
-  create(userData: any) {
+  create(userData: AuthResponse | Beer | BeerRating | User) {
     return this.http.post(this.url, userData).toPromise();
   }
 
-  /**
-   * retrieve function
-   * No Parameters
-   * Retrieves user data
-   * */
   retrieve() {
     return this.http.get(this.url).toPromise().then(({ results }: PageResponse<User>) => {
       return results[0];
     });
   }
 
-  /**
-   * update function
-   * Parameters: user
-   * updates database with user data
-   * */
   update(user: User): Promise<any> {
     return this.http.put(`${this.url}/${user.uuid}`, user).toPromise();
+  }
+
+  resendConfirmEmail({email}): Promise<Object> {
+    return this.http.post(this.resendConfirmEmailUrl, {email}).toPromise();
   }
 }

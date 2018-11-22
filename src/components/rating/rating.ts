@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import BeerRating from "../../models/BeerRating";
-import {RatingProvider} from "../../providers/rating/rating";
-import {ToastController} from "ionic-angular";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import BeerRating from '../../models/BeerRating';
+import { RatingProvider } from '../../providers/rating/rating';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the RatingComponent component.
@@ -19,7 +19,7 @@ export class RatingComponent {
   @Input() size: string = 'small';
   @Output() setRating = new EventEmitter<BeerRating>();
 
-  private static LARGE = 'large';
+  private static readonly LARGE = 'large';
 
   constructor(public ratingProvider: RatingProvider, public toastController: ToastController) {}
 
@@ -30,22 +30,22 @@ export class RatingComponent {
    * */
   updateRating (rating: number) {
     if (this.size === RatingComponent.LARGE) {
-      const success = rating => {
-        this.rating = rating;
+      const success = beerRating => {
+        this.rating = beerRating; // Update the beerRating returned from REST API
         const toast = this.toastController.create({
-          message: "Your rating is saved.",
+          message: 'Your rating is saved.',
           duration: 3000,
-          position: "top",
-          cssClass: "success-toast"
+          position: 'top',
+          cssClass: 'success-toast'
         });
         toast.present();
-        this.setRating.emit(rating); // Update parent component
+        this.setRating.emit(beerRating); // Update parent component
       };
 
       if (this.rating && this.rating.uuid) {
-        return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success)
+        return this.ratingProvider.partialUpdate({rating, uuid: this.rating.uuid} as BeerRating).then(success);
       } else {
-        this.createRating(this.rating.beer, rating).then(success);
+        return this.createRating(this.rating.beer, rating).then(success);
       }
     }
   }

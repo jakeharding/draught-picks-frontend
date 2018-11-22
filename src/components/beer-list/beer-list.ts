@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import Beer from "../../models/Beer";
+import { Component, Input } from '@angular/core';
+import Beer from '../../models/Beer';
 
 /**
  * Generated class for the BeerListComponent component.

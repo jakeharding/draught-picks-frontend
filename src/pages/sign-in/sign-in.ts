@@ -1,9 +1,10 @@
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegistrationPage } from "../registration/registration";
-import { AuthProvider } from "../../providers/auth/auth";
+import { RegistrationPage } from '../registration/registration';
+import { AuthProvider } from '../../providers/auth/auth';
 import { TabsPage } from '../tabs/tabs';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the SignInPage page.
@@ -17,7 +18,7 @@ import { TabsPage } from '../tabs/tabs';
   selector: 'page-sign-in',
   templateUrl: 'sign-in.html',
 })
-export class SignInPage{
+export class SignInPage extends BasePage {
   signInForm: FormGroup;
   goToRegistration: any;
   private username: string;
@@ -25,9 +26,9 @@ export class SignInPage{
 
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController,
               public authProvider: AuthProvider) {
+    super('sign-in');
     if (this.authProvider.isLoggedIn()) {
       this.navCtrl.setRoot(TabsPage);
-      location.hash = "";
     }
     this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
@@ -42,23 +43,23 @@ export class SignInPage{
    * Gets the username and password values and validates the information then sends
    * user to the home page
    * */
-  public signIn(){
+  public signIn() {
     this.authProvider.signIn(this.signInForm.value).then(
       (response) => {
         this.authProvider.setToken(response.token);
         this.navCtrl.setRoot(TabsPage);
-        location.hash = "";
+        // location.hash = '';
       },
       () => {
         let toast = this.toastCtrl.create({
           message: 'An error occurred please check your connection and try again.',
           duration: 3000,
-          position: "top",
-          cssClass: "error-toast"
+          position: 'top',
+          cssClass: 'error-toast'
         });
         toast.present();
       }
-    )
+    );
 
   }
 }

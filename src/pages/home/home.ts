@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {LoginRequired} from "../../providers/auth/auth";
-import Beer from "../../models/Beer";
-import {BeerProvider } from "../../providers/beer/beer";
-import { LIMIT } from "../../directives/infinite-scroller/infinite-scroller";
-import {Observable} from "rxjs/Observable";
+import { LoginRequired } from '../../providers/auth/auth';
+import Beer from '../../models/Beer';
+import { BeerProvider } from '../../providers/beer/beer';
+import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
+import { Observable } from 'rxjs/Observable';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the HomePage page.
@@ -19,7 +20,7 @@ import {Observable} from "rxjs/Observable";
   selector: 'page-home',
   templateUrl: 'home.html',
 })
-export class HomePage {
+export class HomePage extends BasePage {
   recents: Array<Beer>;
   recommended: Array<Beer>;
   beerForABV: Array<Beer>;
@@ -41,6 +42,7 @@ export class HomePage {
    * */
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
+    super('home');
     this.recommendedOffset = 0;
     this.recentOffset = 0;
     this.loadMoreRecommended = true;
@@ -65,8 +67,8 @@ export class HomePage {
     this.beerProvider.recents({limit: LIMIT, offset: 0}).toPromise().then(results => {
 
       this.recents = results;
-      this.beerForABV = this.recents.filter(beer =>{
-        beer.recents = beer.recents.filter( currentBeer =>{
+      this.beerForABV = this.recents.filter(beer => {
+        beer.recents = beer.recents.filter( currentBeer => {
 
           return (new Date(currentBeer.created_at)) > pastTime;
         });
@@ -74,12 +76,12 @@ export class HomePage {
       });
 
       this.totalCount = 0;
-      if( this.beerForABV.length>0) {
+      if ( this.beerForABV.length>0) {
         this.totalCount = this.beerForABV.map((current) => current.recents.length).reduce((acc, c) => {
           return acc + c;
         });
       }
-      this.BACcalc = this.totalCount >= 4
+      this.BACcalc = this.totalCount >= 4;
     });
 
     this.beerProvider.recommended({limit: LIMIT, offset: 0}).toPromise().then(results => {
@@ -93,7 +95,7 @@ export class HomePage {
    * @returns {Observable<any>}
    */
   getRecentBeers () {
-    if(this.loadMoreRecent){
+    if (this.loadMoreRecent) {
       let queryParams = {
         limit: LIMIT,
         offset: this.recentOffset
@@ -107,8 +109,8 @@ export class HomePage {
    * Get more recommended beers if available.
    * @returns {Observable<any>}
    */
-  getRecommendedBeers(){
-    if(this.loadMoreRecommended){
+  getRecommendedBeers() {
+    if (this.loadMoreRecommended) {
       let queryParams = {
         limit: LIMIT,
         offset: this.recommendedOffset
@@ -125,13 +127,13 @@ export class HomePage {
    * increases the offset and loads more beers while scrolling through the beer list
    * */
   private processRecommendedBeers = (beers) => {
-    if(beers.length == 0){
+    if (beers.length == 0) {
       this.loadMoreRecommended = false;
       return;
     }
     this.recommendedOffset += LIMIT;
     this.recommended = this.recommended.concat(beers);
-  };
+  }
 
 
   /**
@@ -140,12 +142,12 @@ export class HomePage {
    * increases the offset and loads more beers while scrolling through the beer list
    * */
   private processRecentBeers = (beers) => {
-    if(beers.length == 0){
+    if (beers.length == 0) {
       this.loadMoreRecent = false;
       return;
     }
     this.recentOffset += LIMIT;
     this.recents = this.recents.concat(beers);
-  };
+  }
 
 }

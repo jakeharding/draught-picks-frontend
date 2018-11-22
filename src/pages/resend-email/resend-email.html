@@ -1,0 +1,31 @@
+<!--
+  Generated template for the ResendEmailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<draught-header></draught-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col class="below-header" text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+      <form [formGroup]="emailForm">
+        <h1>Resend Email</h1>
+        <br>
+        <p>Please enter the email address below:</p>
+        <ion-item>
+          <ion-label text-left floating>Email</ion-label>
+          <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+      </form>
+      <button
+          ion-button
+          (click)="sendConfirmEmail()"
+          margin-top="20px"
+          [disabled]="emailForm.invalid">
+        Submit
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

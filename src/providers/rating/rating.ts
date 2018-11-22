@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Env from "../../env";
-import BeerRating from "../../models/BeerRating";
+import Env from '../../env';
+import BeerRating from '../../models/BeerRating';
 
 /**
  * Generated class for the RatingProvider provider.
@@ -15,7 +15,7 @@ export class RatingProvider {
   url: string;
 
   constructor(public http: HttpClient) {
-    this.url = `${Env.REST_API_ROOT}beer-ratings`;
+    this.url = `${Env.REST_API_ROOT}/beer-ratings`;
   }
 
   /**
@@ -33,6 +33,7 @@ export class RatingProvider {
    * Updates beer rating
    * */
   partialUpdate(beerRating: BeerRating): Promise<BeerRating> {
-    return this.http.patch(`${this.url}/${beerRating.uuid}`, beerRating).toPromise().then((rating:BeerRating) => rating);
+    return this.http.patch(
+      `${this.url}/${beerRating.uuid}`, beerRating).toPromise().then((rating:BeerRating) => rating);
   }
 }

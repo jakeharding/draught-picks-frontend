@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
-import { LoginRequired } from "../../providers/auth/auth";
-import Beer from "../../models/Beer";
-import {BeerProvider} from "../../providers/beer/beer";
-import {Observable} from "rxjs/Observable";
-import {LIMIT} from "../../directives/infinite-scroller/infinite-scroller";
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginRequired } from '../../providers/auth/auth';
+import Beer from '../../models/Beer';
+import { BeerProvider } from '../../providers/beer/beer';
+import { Observable } from 'rxjs/Observable';
+import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the SearchPage page.
@@ -19,7 +20,7 @@ import {LIMIT} from "../../directives/infinite-scroller/infinite-scroller";
   selector: 'page-search',
   templateUrl: 'search.html',
 })
-export class SearchPage {
+export class SearchPage extends BasePage {
 
   beerResults: Array<Beer>;
   beerSearch: string;
@@ -28,12 +29,13 @@ export class SearchPage {
   loadMore: boolean;
   scrollCallback;
 
-  private static NULL_RESULT_MESSAGE = "Search for a beer and let us know what you like about it.";
-  private static ZERO_RESULT_MESSAGE = "We cannot find results on the beers you have entered.";
+  private static NULL_RESULT_MESSAGE = 'Search for a beer and let us know what you like about it.';
+  private static ZERO_RESULT_MESSAGE = 'We cannot find results on the beers you have entered.';
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider) {
+    super('search');
     this.message = SearchPage.NULL_RESULT_MESSAGE;
-    this.beerSearch = "";
+    this.beerSearch = '';
     this.offset = 0;
     this.loadMore = true;
     this.scrollCallback = this.getBeers.bind(this);
@@ -44,10 +46,10 @@ export class SearchPage {
    * @param {Event} event
    */
   search (event:Event) {
-    if(this.beerSearch && this.beerSearch.length > 2) {
+    if (this.beerSearch && this.beerSearch.length > 2) {
         this.beerProvider.search({search: this.beerSearch}).toPromise().then((results: Array<Beer>) => {
             this.beerResults = results;
-            if(this.beerResults.length === 0) {
+            if (this.beerResults.length === 0) {
                 this.message = SearchPage.ZERO_RESULT_MESSAGE;
             }
         });
@@ -63,8 +65,8 @@ export class SearchPage {
    * gets the recent and recommended beers from the database and processes them
    * using the scrolling technique
    * */
-  getBeers(){
-    if(this.loadMore){
+  getBeers() {
+    if (this.loadMore) {
       let queryParams = {
         limit: LIMIT,
         offset: this.offset,
@@ -81,13 +83,13 @@ export class SearchPage {
    * increases the offset and loads more beers while scrolling through the beer list
    * */
   private processData = (beers) => {
-    if(beers.length == 0){
+    if (beers.length == 0) {
       this.loadMore = false;
       return;
     }
     this.offset += LIMIT;
     this.beerResults = this.beerResults.concat(beers);
-  };
+  }
 
   /**
    * Method called when the `X` is clicked in the search bar.

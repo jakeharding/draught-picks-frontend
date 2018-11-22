@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
-import {LoginRequired} from "../../providers/auth/auth";
-import {BeerProvider} from "../../providers/beer/beer";
-import Beer from "../../models/Beer";
-import BeerRating from "../../models/BeerRating";
-import {RatingProvider} from "../../providers/rating/rating";
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { LoginRequired } from '../../providers/auth/auth';
+import { BeerProvider } from '../../providers/beer/beer';
+import Beer from '../../models/Beer';
+import BeerRating from '../../models/BeerRating';
+import { RatingProvider } from '../../providers/rating/rating';
+import { BasePage } from '../BasePage';
 
 /**
  * Generated class for the BeerDetailPage page.
@@ -22,7 +23,7 @@ import {RatingProvider} from "../../providers/rating/rating";
   selector: 'page-beer-detail',
   templateUrl: 'beer-detail.html',
 })
-export class BeerDetailPage {
+export class BeerDetailPage extends BasePage {
 
   beer: Beer;
   beerRating: BeerRating;
@@ -35,6 +36,7 @@ export class BeerDetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public beerProvider: BeerProvider, public ratingProvider: RatingProvider,
               public toastController: ToastController) {
+    super(`/beers/${navParams.data.uuid}`);
     this.beer = this.navParams.data;
     this.beerRating = {
       description: '',
@@ -44,37 +46,36 @@ export class BeerDetailPage {
 
     this.beerProvider.retrieve(this.beer.uuid).then((beer: Beer) => {
       this.beer = beer;
-      if(beer.rating.length > 0) {
+      if (beer.rating.length > 0) {
         this.beerRating = beer.rating[0];
       }
     });
-    if(this.beer.rating && this.beer.rating.length > 0) {
+    if (this.beer.rating && this.beer.rating.length > 0) {
       this.hasRating = true;
       this.beerRating = this.beer.rating[0];
     }
   }
 
   /**
-   * createRecent Function
-   * no parameters
-   * adds a recent beer to the database
-   * */
+   * Creates a recent beer entry in the database.
+   */
   createRecent () {
+    //TODO Use toast provider
     const success = (recent) => {
       const toast = this.toastController.create({
-        message: "We saved a record of this you! Tell us what you think!",
+        message: 'We saved a record of this you! Tell us what you think!',
         duration: 3000,
-        position: "top",
-        cssClass: "success-toast"
+        position: 'top',
+        cssClass: 'success-toast'
       });
       toast.present();
     };
     const error = (error) => {
       const toast = this.toastController.create({
-        message: "Oops! Something is not right!.",
+        message: 'Oops! Something is not right!.',
         duration: 3000,
-        position: "top",
-        cssClass: "error-toast"
+        position: 'top',
+        cssClass: 'error-toast'
       });
       toast.present();
     };
@@ -82,27 +83,26 @@ export class BeerDetailPage {
   }
 
   /**
-   * saveRatingDescription Function
-   * no parameters
-   * adds the rating description to the database
-   * */
+   * Saves the description of the beer for the user.
+   */
   saveRatingDescription() {
+    //TODO Use toast provider
     const success = (rating) => {
       this.beerRating = rating;
       const toast = this.toastController.create({
-        message: "Your description has been saved!",
+        message: 'Your description has been saved!',
         duration: 3000,
-        position: "top",
-        cssClass: "success-toast"
+        position: 'top',
+        cssClass: 'success-toast'
       });
       toast.present();
     };
     const error = (error) => {
       const toast = this.toastController.create({
-        message: "Having trouble saving your description.",
+        message: 'Having trouble saving your description.',
         duration: 3000,
-        position: "top",
-        cssClass: "error-toast"
+        position: 'top',
+        cssClass: 'error-toast'
       });
       toast.present();
     };
@@ -115,10 +115,9 @@ export class BeerDetailPage {
   }
 
   /**
-   * setRating Function
-   * Parameters: rating
-   * sets your beer rating
-   * */
+   * Setter for setting the rating on the component.
+   * @param rating
+   */
   setRating(rating: BeerRating): void {
     this.beerRating = rating;
   }

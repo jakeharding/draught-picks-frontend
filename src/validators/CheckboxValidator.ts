@@ -5,8 +5,10 @@
  * Created on 2/26/18
  *
  * Validate a checkbox is checked.
+ *
+ * This class is implicitly tested.
  */
-import { FormControl } from "@angular/forms";
+import { FormControl } from '@angular/forms';
 
 
 export default class CheckboxValidator {
