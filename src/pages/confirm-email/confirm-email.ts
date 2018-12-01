@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BasePage } from '../BasePage';
+import { SignInPage } from '../sign-in/sign-in';
 
 /**
  * Generated class for the ConfirmEmailPage page.
@@ -9,13 +10,25 @@ import { BasePage } from '../BasePage';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name: 'confirm-email',
+  segment: 'confirm-email/:key'
+})
 @Component({
   selector: 'page-confirm-email',
   templateUrl: 'confirm-email.html',
 })
 export class ConfirmEmailPage extends BasePage {
-  constructor(public navCtrl: NavController) {
-    super('confirm-email');
+  constructor(public navCtrl: NavController, private navParams: NavParams) {
+    super(`confirm-email/${navParams.get('key')}`);
+    console.log(this.navParams);
+  }
+
+  ionViewDidEnter() {
+    console.log(this.navParams);
+  }
+
+  goToSignIn() {
+    this.navCtrl.setRoot(SignInPage);
   }
 }
