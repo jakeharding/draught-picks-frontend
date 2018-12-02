@@ -15,7 +15,7 @@ import { ToastController } from 'ionic-angular';
 })
 export class RatingComponent {
 
-  @Input() rating: BeerRating;
+  @Input() rating: BeerRating = { beer: 'beerId'} as BeerRating;
   @Input() size: string = 'small';
   @Output() setRating = new EventEmitter<BeerRating>();
 
