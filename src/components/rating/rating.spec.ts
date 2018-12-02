@@ -67,4 +67,13 @@ describe('RatingComponent', () => {
     expect(mockToastController.create).toHaveBeenCalledTimes(1);
     expect(mockToast.present).toHaveBeenCalledTimes(1);
   });
+
+  test('updateRating should not call ratingProvider.create when size is small', async () => {
+    // Implicitly tests the createRating method.
+    component.rating = { beer: 'beerId'} as BeerRating;
+    await component.updateRating(2);
+    expect(mockRatingProvider.create).toHaveBeenCalledTimes(1);
+    expect(mockToastController.create).toHaveBeenCalledTimes(1);
+    expect(mockToast.present).toHaveBeenCalledTimes(1);
+  });
 });

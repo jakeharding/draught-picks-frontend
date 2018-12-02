@@ -1,36 +1,302 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
+exports[`ConfirmEmailPage ionViewWillEnter on failed promise 1`] = `
 <page-confirm-email
+  clickMessage={[Function String]}
+  linkText={[Function String]}
   navCtrl={[Function Object]}
+  navParams={[Function NavParams]}
+  showResendLink="false"
+  thankYouMessage={[Function String]}
+  toastProvider={[Function Object]}
+  userProvider={[Function Object]}
 >
   
-  <ion-header>
-    
-  
-    
-    <ion-navbar>
-      
-      
-      <ion-title>
-        confirm-email
-      </ion-title>
-      
-    
-    </ion-navbar>
-    
-  
-  
-  </ion-header>
+  <draught-header />
   
   
   <ion-content
     padding=""
   >
     
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-6=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-3=""
+        offset-sm-1=""
+        offset-xl-4=""
+        size="20px"
+        text-justify=""
+      >
+        
+        
+        <p>
+          We are having trouble connecting at the moment. Please check your network connection and try again.
+        </p>
+        
+        
+        <p>
+          Please click the link below to sign in.
+        </p>
+        
+        
+        <div
+          text-center=""
+        >
+          
+          
+          <a
+            class="underline"
+            text-center=""
+          >
+            Sign in.
+          </a>
+          
+        
+        </div>
+        
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
   
   
   </ion-content>
+</page-confirm-email>
+`;
+
+exports[`ConfirmEmailPage ionViewWillEnter on failed promise with client error 1`] = `
+<page-confirm-email
+  clickMessage={[Function String]}
+  linkText={[Function String]}
+  navCtrl={[Function Object]}
+  navParams={[Function NavParams]}
+  thankYouMessage={[Function String]}
+  toastProvider={[Function Object]}
+  userProvider={[Function Object]}
+>
   
+  <draught-header />
+  
+  
+  <ion-content
+    padding=""
+  >
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-6=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-3=""
+        offset-sm-1=""
+        offset-xl-4=""
+        size="20px"
+        text-justify=""
+      >
+        
+        
+        <p>
+          Thank you for confirming your email!
+        </p>
+        
+        
+        <p>
+          Please click the link below to sign in.
+        </p>
+        
+        
+        <div
+          text-center=""
+        >
+          
+          
+          <a
+            class="underline"
+            text-center=""
+          >
+            Sign in.
+          </a>
+          
+        
+        </div>
+        
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  
+  </ion-content>
+</page-confirm-email>
+`;
+
+exports[`ConfirmEmailPage ionViewWillEnter on failed promise with non client error 1`] = `
+<page-confirm-email
+  clickMessage={[Function String]}
+  linkText={[Function String]}
+  navCtrl={[Function Object]}
+  navParams={[Function NavParams]}
+  thankYouMessage={[Function String]}
+  toastProvider={[Function Object]}
+  userProvider={[Function Object]}
+>
+  
+  <draught-header />
+  
+  
+  <ion-content
+    padding=""
+  >
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-6=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-3=""
+        offset-sm-1=""
+        offset-xl-4=""
+        size="20px"
+        text-justify=""
+      >
+        
+        
+        <p>
+          Thank you for confirming your email!
+        </p>
+        
+        
+        <p>
+          Please click the link below to sign in.
+        </p>
+        
+        
+        <div
+          text-center=""
+        >
+          
+          
+          <a
+            class="underline"
+            text-center=""
+          >
+            Sign in.
+          </a>
+          
+        
+        </div>
+        
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  
+  </ion-content>
+</page-confirm-email>
+`;
+
+exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
+<page-confirm-email
+  clickMessage={[Function String]}
+  linkText={[Function String]}
+  navCtrl={[Function Object]}
+  navParams={[Function NavParams]}
+  thankYouMessage={[Function String]}
+  toastProvider={[Function Object]}
+  userProvider={[Function Object]}
+>
+  
+  <draught-header />
+  
+  
+  <ion-content
+    padding=""
+  >
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-6=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-3=""
+        offset-sm-1=""
+        offset-xl-4=""
+        size="20px"
+        text-justify=""
+      >
+        
+        
+        <p>
+          Thank you for confirming your email!
+        </p>
+        
+        
+        <p>
+          Please click the link below to sign in.
+        </p>
+        
+        
+        <div
+          text-center=""
+        >
+          
+          
+          <a
+            class="underline"
+            text-center=""
+          >
+            Sign in.
+          </a>
+          
+        
+        </div>
+        
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  
+  </ion-content>
 </page-confirm-email>
 `;

@@ -9,10 +9,12 @@
 
 <ion-content padding>
   <ion-row>
-    <ion-col class="below-header" text-center size="20px" col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
-      <p>Thank you for confirming your email!</p>
-      <p>Please click the link below to sign in.</p>
-      <a class="underline" (click)="goToSignIn()">Sign in.</a>
+    <ion-col class="below-header" text-justify size="20px" col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+      <p>{{ thankYouMessage }}</p>
+      <p>{{ clickMessage }}</p>
+      <div text-center>
+        <a text-center class="underline" (click)="goToLink()">{{ linkText }}</a>
+      </div>
     </ion-col>
   </ion-row>
 

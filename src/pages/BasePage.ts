@@ -6,9 +6,13 @@
  */
 import ga from 'universal-ga';
 
-export class BasePage {
-  constructor (page:string) {
+export abstract class BasePage {
+  protected constructor (page:string) {
     ga.set(location.pathname, location.pathname);
     ga.pageview(page);
+  }
+
+  isClientError(statusCode:number) {
+    return statusCode >= 400 && statusCode < 500;
   }
 }

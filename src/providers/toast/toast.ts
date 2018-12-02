@@ -11,10 +11,12 @@ import { ToastController } from 'ionic-angular';
 export class ToastProvider {
   private readonly errorToastClass = 'error-toast';
   private readonly successToastClass = 'success-toast';
+  static readonly defaultErrorMsg = 'We are having trouble connecting at the moment. ' +
+    'Please check your network connection and try again.';
 
   constructor(private toastCtrl: ToastController) {}
 
-  errorToast(message: string): void {
+  errorToast(message: string = ToastProvider.defaultErrorMsg): void {
     this.createToast(message, this.errorToastClass);
   }
 
