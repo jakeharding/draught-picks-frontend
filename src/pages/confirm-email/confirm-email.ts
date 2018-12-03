@@ -23,7 +23,7 @@ import { ToastProvider } from '../../providers/toast/toast';
   templateUrl: 'confirm-email.html',
 })
 export class ConfirmEmailPage extends BasePage {
-  showResendLink: boolean;
+  showResendLink: boolean = false;
   linkText: string = 'Sign in.';
   thankYouMessage: string = 'Thank you for confirming your email!';
   clickMessage: string = 'Please click the link below to sign in.';
@@ -35,17 +35,18 @@ export class ConfirmEmailPage extends BasePage {
   }
 
   ionViewDidEnter() {
-    this.userProvider.confirmEmail(this.navParams.data).catch(err => {
-      this.showResendLink = this.isClientError(err.status);
-      if (this.showResendLink) {
-        this.thankYouMessage = err.error.confirm_key;
-        this.clickMessage = 'Click the link below to resend the confirmation email.';
-        this.linkText = 'Resend confirmation email';
-      } else {
-        this.toastProvider.errorToast();
-        this.thankYouMessage = ToastProvider.defaultErrorMsg;
-      }
-    });
+      this.userProvider.confirmEmail(this.navParams.data).catch(err => {
+        this.showResendLink = this.isClientError(err.status);
+        if (this.showResendLink) {
+          this.thankYouMessage = err.error.confirm_key;
+          this.clickMessage = 'Click the link below to resend the confirmation email.';
+          this.linkText = 'Resend confirmation email';
+        } else {
+          this.toastProvider.errorToast();
+          this.thankYouMessage = ToastProvider.defaultErrorMsg;
+        }
+        return err;
+      });
   }
 
   goToLink() {
