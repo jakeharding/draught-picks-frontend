@@ -3,7 +3,7 @@ pipeline {
   environment {
     PROJECT_NAME="draught-picks-frontend"
   }
-  tools { nodejs 'node; }'
+  tools { nodejs 'node' }
   stages {
     stage('env') {
       steps {
