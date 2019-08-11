@@ -6,6 +6,7 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with client error 1
   linkText={[Function String]}
   navCtrl={[Function Object]}
   navParams={[Function NavParams]}
+  showResendLink="false"
   thankYouMessage={[Function String]}
   toastProvider={[Function Object]}
   userProvider={[Function Object]}
@@ -81,6 +82,7 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with non client err
   linkText={[Function String]}
   navCtrl={[Function Object]}
   navParams={[Function NavParams]}
+  showResendLink="false"
   thankYouMessage={[Function String]}
   toastProvider={[Function Object]}
   userProvider={[Function Object]}
@@ -156,6 +158,7 @@ exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
   linkText={[Function String]}
   navCtrl={[Function Object]}
   navParams={[Function NavParams]}
+  showResendLink="false"
   thankYouMessage={[Function String]}
   toastProvider={[Function Object]}
   userProvider={[Function Object]}
