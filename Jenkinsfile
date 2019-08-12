@@ -1,9 +1,9 @@
 pipeline {
   agent any
   environment {
+    PATH="/usr/local/bin:$PATH"
     PROJECT_NAME="draught-picks-frontend"
   }
-  tools { nodejs 'node' }
   stages {
     stage('env') {
       steps {
@@ -14,7 +14,10 @@ pipeline {
         }
         sh '''
         #!/bin/bash
-        pwd
+        echo "REST_API_ROOT=http://localhost:8000/api/dev" > .env
+        echo >> .env
+        echo "GA_ENV=dev"
+        echo >> .env
         '''
       }
     }
@@ -22,7 +25,7 @@ pipeline {
       steps {
         sh '''
         #!/bin/bash
-        which yarn
+        yarn install
         '''
       }
     }
@@ -31,9 +34,15 @@ pipeline {
       steps {
         sh '''
         #!/bin/bash
-        echo "Run tests"
-        '''
+        yarn test:ci
       }
+    }
+
+    stage('build') {
+    steps {
+        sh '''
+        #!/bin/bash
+        yarn build
     }
   }
 }
