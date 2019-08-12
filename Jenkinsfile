@@ -16,7 +16,7 @@ pipeline {
         #!/bin/bash
         echo "REST_API_ROOT=http://localhost:8000/api/dev" > .env
         echo >> .env
-        echo "GA_ENV=dev"
+        echo >> "GA_ENV=dev"
         echo >> .env
         '''
       }
@@ -40,11 +40,11 @@ pipeline {
     }
 
     stage('build') {
-    steps {
+      steps {
         sh '''
         #!/bin/bash
         yarn build
         '''
+      }
     }
-  }
 }
