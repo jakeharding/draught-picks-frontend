@@ -35,6 +35,7 @@ pipeline {
         sh '''
         #!/bin/bash
         yarn test:ci
+        '''
       }
     }
 
@@ -43,6 +44,7 @@ pipeline {
         sh '''
         #!/bin/bash
         yarn build
+        '''
     }
   }
 }
