@@ -1,9 +1,13 @@
+node {
+  load "local.properties"
+}
 pipeline {
   agent any
   environment {
     PATH="/usr/local/bin:$PATH"
     PROJECT_NAME="draught-picks-frontend"
   }
+  tools { nodejs "NodeTen" }
   stages {
     stage('env') {
       steps {
