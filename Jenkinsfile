@@ -1,5 +1,5 @@
 node {
-  load "local.properties"
+  load "${JENKINS_HOME}/project_props/draught-picks-frontend.properties"
 }
 pipeline {
   agent any
