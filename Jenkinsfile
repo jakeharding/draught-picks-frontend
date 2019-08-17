@@ -51,5 +51,24 @@ pipeline {
         '''
       }
     }
+    stage('zip') {
+      when {
+        expression { env.BRANCH_NAME == 'develop' }
+      }
+      steps {
+        zip zipFile: 'bundle.zip', archive: true, dir: './www/'
+      }
+    }
+    stage('ship') {
+      when {
+        expression { env.BRANCH_NAME == 'develop' }
+      }
+      steps {
+        sh '''
+        #!/bin/bash
+        echo "SHIP IT WITH THE PUBLISH OVER SSH PLUGIN?
+        '''
+      }
+    }
   }
 }
