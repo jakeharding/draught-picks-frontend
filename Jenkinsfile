@@ -1,5 +1,15 @@
 node {
   load "${JENKINS_HOME}/project_props/draught-picks-frontend.properties"
+
+  def json = readJSON file:'package.json'
+  def (major, minor, patch) = json.version =~ /\d+/
+  println "MAJOR: ${major}"
+  println "MINOR: ${minor}"
+  println "PATCH: ${patch}"
+  println "VERSION: ${json.version}"
+  patch =  patch.toInteger() + 1
+  println "NEW VERSION: ${major}.${minor}.${patch}"
+
 }
 pipeline {
   agent any
@@ -15,9 +25,14 @@ pipeline {
           if (env.BRANCH_NAME.startsWith('PR')) {
             env.JOB_BASE_NAME = "${env.CHANGE_BRANCH}"
           }
+          sh 'git pull -t'
+          def tag = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
+          println "TAG: ${tag}"
         }
+
         sh '''
         #!/bin/bash
+        git remote set-url origin git@github.com:jakeharding/draught-picks-frontend.git
         echo "REST_API_ROOT=http://localhost:8000/api/dev" > .env
         echo >> .env
         echo "GA_ENV=dev" >> .env
