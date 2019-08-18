@@ -64,4 +64,28 @@ describe('InfiniteScrollerDirective', () => {
     directive['requestCallbackOnScroll']();
     expect(directive.scrollCallback).toHaveBeenCalledTimes(1);
   });
+
+  test('requestCallbackOnScroll should not subscribe to the observable and not call the callback', () => {
+    directive.scrollCallback = jest.fn();
+    directive.loadMore = false;
+    directive.immediateCallback = false;
+    directive['userScrolledDown$'] = Observable.of(
+      { target: {scrollHeight: 100, scrollTop: 200, clientHeight: 300} },
+      { target: {scrollHeight: 100, scrollTop: 300, clientHeight: 300} }
+    );
+    directive['requestCallbackOnScroll']();
+    expect(directive.scrollCallback).not.toHaveBeenCalled();
+  });
+
+  it('cover the else branch ofrequestCallbackOnScroll when loadMore is true and immediateCallback is false', () => {
+    directive.scrollCallback = jest.fn();
+    directive.loadMore = true;
+    directive.immediateCallback = false;
+    directive['userScrolledDown$'] = Observable.of(
+      { target: {scrollHeight: 100, scrollTop: 200, clientHeight: 300} },
+      { target: {scrollHeight: 100, scrollTop: 300, clientHeight: 300} }
+    );
+    directive['requestCallbackOnScroll']();
+    expect(directive.scrollCallback).toHaveBeenCalledTimes(1);
+  });
 });

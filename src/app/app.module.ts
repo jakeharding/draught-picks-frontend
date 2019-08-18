@@ -26,6 +26,7 @@ import { AbvInfoPageModule } from '../pages/abv-info/abv-info.module';
 import { IbupagePageModule } from '../pages/ibupage/ibupage.module';
 import { EmailSentPageModule } from '../pages/email-sent/email-sent.module';
 import { ResendEmailPageModule } from '../pages/resend-email/resend-email.module';
+import { ConfirmEmailPageModule } from '../pages/confirm-email/confirm-email.module';
 import { ToastProvider } from '../providers/toast/toast';
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ToastProvider } from '../providers/toast/toast';
     DisclaimerPageModule,
     EmailSentPageModule,
     ResendEmailPageModule,
+    ConfirmEmailPageModule,
     HomePageModule,
     HttpClientModule,
     HttpModule,

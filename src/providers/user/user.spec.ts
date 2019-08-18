@@ -40,10 +40,16 @@ describe('UserProvider', () => {
     expect(httpClient.put).toHaveBeenCalledWith(expect.stringMatching(/\/users\/A unique id$/), mockUser);
   });
 
-  it('should call http.post with the confirm url', () => {
+  it('should call http.post with th resend url', () => {
     const email = 'fake email';
     userProvider.resendConfirmEmail({email});
     expect(httpClient.post).toHaveBeenCalledWith(expect.stringMatching(/users\/resend-confirm-email$/), {email});
+  });
+
+  test('confirmEmail should call http.put with the confirm email url', () => {
+    userProvider.confirmEmail({key : 'aKey'});
+    expect(httpClient.put).toHaveBeenCalledTimes(1);
+    expect(httpClient.put).toHaveBeenCalledWith(expect.stringMatching(/confirm-email/), {confirm_key: 'aKey'});
   });
 
 });

@@ -2,6 +2,7 @@
 
 exports[`RatingComponent should initialize the RatingComponent 1`] = `
 <rating
+  rating={[Function Object]}
   ratingProvider={[Function Object]}
   setRating={[Function EventEmitter]}
   size={[Function String]}

@@ -4,15 +4,18 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>confirm-email</ion-title>
-  </ion-navbar>
-
-</ion-header>
+<draught-header></draught-header>
 
 
 <ion-content padding>
+  <ion-row>
+    <ion-col class="below-header" text-justify size="20px" col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+      <p>{{ thankYouMessage }}</p>
+      <p>{{ clickMessage }}</p>
+      <div text-center>
+        <a text-center class="underline" (click)="goToLink()">{{ linkText }}</a>
+      </div>
+    </ion-col>
+  </ion-row>
 
 </ion-content>
