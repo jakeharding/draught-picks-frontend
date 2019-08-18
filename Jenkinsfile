@@ -68,7 +68,7 @@ pipeline {
           packageJson.version = newVersion
           writeJSON file: 'package.json', json: packageJson
           println "Tagging ${newVersion} to Git"
-          sh "git tag ${newVersion} && git push -t"
+          sh "git tag ${newVersion}rc && git push -t"
         }
       }
     }
