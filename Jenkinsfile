@@ -63,8 +63,8 @@ pipeline {
           def tag = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
           def (major, minor, patch) = tag =~ /\d+/
           patch =  patch.toInteger() + 1
-          def newVersion = "${major}.${minor}.${patch}""
-          println "Writing ${newversion} to package.json"
+          def newVersion = "${major}.${minor}.${patch}"
+          println "Writing ${newVersion} to package.json"
           packageJson.version = newVersion
           writeJSON file: 'package.json', json: packageJson
           println "Tagging ${newVersion} to Git"
