@@ -36,6 +36,7 @@ pipeline {
 
     stage('test') {
       steps {
+        println env.COVERALLS_TOKEN
         sh '''
         #!/bin/bash
         yarn test:ci
@@ -44,6 +45,9 @@ pipeline {
     }
 
     stage('build') {
+      when  {
+        expression { !env.BRANCH_NAME.startsWith('PR') }
+      }
       steps {
         sh '''
         #!/bin/bash
