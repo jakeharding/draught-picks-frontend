@@ -22,6 +22,7 @@ pipeline {
         echo >> .env
         echo "GA_ENV=dev" >> .env
         echo >> .env
+        echo "repo_token: $COVERALLS_TOKEN" > .coveralls.yml
         '''
       }
     }
@@ -36,7 +37,6 @@ pipeline {
 
     stage('test') {
       steps {
-        println env.COVERALLS_TOKEN
         sh '''
         #!/bin/bash
         yarn test:ci
