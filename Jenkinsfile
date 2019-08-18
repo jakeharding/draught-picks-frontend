@@ -1,15 +1,5 @@
 node {
   load "${JENKINS_HOME}/project_props/draught-picks-frontend.properties"
-
-  def json = readJSON file:'package.json'
-  def (major, minor, patch) = json.version =~ /\d+/
-  println "MAJOR: ${major}"
-  println "MINOR: ${minor}"
-  println "PATCH: ${patch}"
-  println "VERSION: ${json.version}"
-  patch =  patch.toInteger() + 1
-  println "NEW VERSION: ${major}.${minor}.${patch}"
-
 }
 pipeline {
   agent any
@@ -25,9 +15,6 @@ pipeline {
           if (env.BRANCH_NAME.startsWith('PR')) {
             env.JOB_BASE_NAME = "${env.CHANGE_BRANCH}"
           }
-          sh 'git pull -t'
-          def tag = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
-          println "TAG: ${tag}"
         }
 
         sh '''
@@ -64,10 +51,25 @@ pipeline {
         expression { !env.BRANCH_NAME.startsWith('PR') }
       }
       steps {
+        //TODO Write URLs to .env
         sh '''
         #!/bin/bash
         yarn build
         '''
+        script {
+          def packageJson = readJSON file:'package.json'
+
+          sh 'git pull -t'
+          def tag = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
+          def (major, minor, patch) = tag =~ /\d+/
+          patch =  patch.toInteger() + 1
+          def newVersion = "${major}.${minor}.${patch}""
+          println "Writing ${newversion} to package.json"
+          packageJson.version = newVersion
+          writeJSON file: 'package.json', json: packageJson
+          println "Tagging ${newVersion} to Git"
+          sh "git tag ${newVersion} && git push -t"
+        }
       }
     }
     stage('zip') {
