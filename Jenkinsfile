@@ -61,35 +61,42 @@ pipeline {
 
           sh 'git pull -t'
           def tag = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
-          def (major, minor, patch) = tag =~ /\d+/
+          def (major, minor, patch) = extractVersion(tag)
           patch =  patch.toInteger() + 1
-          def newVersion = "${major}.${minor}.${patch}"
+          String newVersion = "${major}.${minor}.${patch}rc"
           println "Writing ${newVersion} to package.json"
           packageJson.version = newVersion
-          writeJSON file: 'package.json', json: packageJson
+          writeJSON file: 'package.json', json: packageJson, pretty: 4
           println "Tagging ${newVersion} to Git"
-          sh "git tag ${newVersion}rc && git push -t"
+          sh "git tag ${newVersion} && git push --tags"
         }
       }
     }
     stage('zip') {
       when {
-        expression { env.BRANCH_NAME == 'develop' }
+        expression { env.BRANCH_NAME == 'dev' }
       }
       steps {
+        sh 'rm bundle.zip'
         zip zipFile: 'bundle.zip', archive: true, dir: './www/'
       }
     }
     stage('ship') {
       when {
-        expression { env.BRANCH_NAME == 'develop' }
+        expression { env.BRANCH_NAME == 'dev' }
       }
       steps {
         sh '''
         #!/bin/bash
-        echo "SHIP IT WITH THE PUBLISH OVER SSH PLUGIN?
+        echo "SHIP IT WITH THE PUBLISH OVER SSH PLUGIN?"
         '''
       }
     }
   }
+}
+
+@NonCPS
+def extractVersion(tag) {
+    def m = tag =~ /\d+/
+    return [m[0].getAt(0), m[1].getAt(0), m[2].getAt(0)]
 }
