@@ -48,7 +48,7 @@ pipeline {
 
     stage('build') {
       when  {
-        expression { !env.BRANCH_NAME.startsWith('PR') }
+        expression { env.BRANCH_NAME == 'dev' }
       }
       steps {
         //TODO Write URLs to .env
@@ -74,7 +74,7 @@ pipeline {
     }
     stage('zip') {
       when {
-        expression { env.BRANCH_NAME == 'develop' }
+        expression { env.BRANCH_NAME == 'dev' }
       }
       steps {
         zip zipFile: 'bundle.zip', archive: true, dir: './www/'
@@ -82,7 +82,7 @@ pipeline {
     }
     stage('ship') {
       when {
-        expression { env.BRANCH_NAME == 'develop' }
+        expression { env.BRANCH_NAME == 'dev' }
       }
       steps {
         sh '''
