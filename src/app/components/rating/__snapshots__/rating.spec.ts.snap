@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RatingComponent should initialize the RatingComponent 1`] = `
+<rating
+  rating={[Function Object]}
+  ratingProvider={[Function Object]}
+  setRating={[Function EventEmitter]}
+  size={[Function String]}
+  toastController={[Function Object]}
+>
+  
+  <ion-row>
+    
+    
+    <div />
+    
+    
+    <div />
+    
+    
+    <div />
+    
+    
+    <div />
+    
+    
+    <div />
+    
+  
+  </ion-row>
+  
+</rating>
+`;

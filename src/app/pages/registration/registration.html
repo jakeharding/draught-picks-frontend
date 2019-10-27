@@ -1,0 +1,87 @@
+<!--
+  Generated template for the RegistrationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<draught-header></draught-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col class="below-header" text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+      <form [formGroup]="registerForm">
+        <h1>Please Register Below</h1>
+
+        <ion-row text-center>
+          <ion-col text-center>
+            <ion-item>
+              <ion-label color="primary" text-left floating>First Name</ion-label>
+              <ion-input type="text" formControlName="first_name" tid="firstNameInput"></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col text-center>
+            <ion-item>
+              <ion-label color="primary" text-left floating>Last Name</ion-label>
+              <ion-input type="text" formControlName="last_name" tid="lastNameInput"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-item>
+          <ion-label color="primary" text-left floating>Username</ion-label>
+          <ion-input type="text" formControlName="username" tid="usernameInput"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" text-left floating>Email</ion-label>
+          <ion-input type="text" formControlName="email" tid="emailInput"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" text-left floating>Create Password</ion-label>
+          <ion-input type="password" formControlName="password" tid="passwordInput"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" text-left floating>Confirm Password</ion-label>
+          <ion-input type="password" formControlName="confirm_password" tid="passwordInput2"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" text-left floating>Birthday</ion-label>
+          <ion-datetime tid="birthDate" (ionChange)="dateSelected()" formControlName="date_of_birth" displayFormat="YYYY/MM/DD" max="{{ maxDate }}"></ion-datetime>
+        </ion-item>
+
+        <br>
+
+        <ion-item>
+          <ion-label color="primary" text-lg-left>Legal Age Confirmation and Disclaimer</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>I am at least 21 years old</ion-label>
+          <ion-checkbox formControlName="verify_age" tid="ageVerification" color="primary"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox tid="disclaimerVerification" [navPush]="goToDisclaimerPage" formControlName="disclaimer_check" color="primary"></ion-checkbox>
+          <ion-label>I have read the <a class="underline">disclaimer.</a></ion-label>
+        </ion-item>
+
+        <button ion-button
+                (click)="createUser(data);"
+                tid="registerButton"
+                margin-top="20px"
+                [disabled]="registerForm.invalid">
+         Register
+        </button>
+
+        <p>Already have an account?</p>
+        <a tid="signInLink" href="#/sign-in">Sign in.</a>
+      </form>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

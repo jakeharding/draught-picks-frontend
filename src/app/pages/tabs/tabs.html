@@ -1,0 +1,24 @@
+<!--<ion-tabs selectedIndex="1">-->
+<!--  <ion-tab [root]="tab1Root" tabTitle="Search" tabIcon="search"></ion-tab>-->
+<!--  <ion-tab [root]="tab2Root" tabTitle="Home" tabIcon="home"></ion-tab>-->
+<!--  <ion-tab tid="beerProfile" [root]="tab3Root" tabTitle="Beer Profile" tabIcon="md-beer"></ion-tab>-->
+<!--</ion-tabs>-->
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>Search</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="preferences">
+      <ion-icon name="md-beer"></ion-icon>
+      <ion-label>Beer Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

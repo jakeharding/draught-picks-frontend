@@ -1,0 +1,39 @@
+<!-- Generated template for the BeerItemComponent component -->
+<div class="pointer" routerLink="/beer/:uuid">
+  <ion-row>
+    <ion-col col-9 text-left>
+      <h1>{{beer.name}}</h1>
+    </ion-col>
+    <ion-col text-right col-3>
+      <div *ngIf="beer.recommended.percent_match">
+        <span class="percent">{{ beer.recommended.percent_match}}%</span>
+        <span text-center>match</span>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-9 text-left>
+      <p>Your rating:</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-8>
+      <rating [rating]="beer.rating[0]" [size]="'small'"></rating>
+    </ion-col>
+
+    <ion-col col-2 text-right>
+      <strong *ngIf="beer.abv">{{ beer.abv }}</strong>
+      <strong *ngIf="!beer.abv">N/A</strong>
+      <p><strong>ABV</strong></p>
+    </ion-col>
+
+    <ion-col col-2 text-right>
+      <strong *ngIf="beer.ibu">{{ beer.ibu }}</strong>
+      <strong *ngIf="!beer.ibu">N/A</strong>
+      <p><strong>IBU</strong></p>
+    </ion-col>
+  </ion-row>
+  <hr>
+</div>

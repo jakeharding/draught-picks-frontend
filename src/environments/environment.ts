@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  REST_API_ROOT: 'http://localhost:8000/api/dev',
+  GA_ENV: 'dev',
+  GA_TRACKING: ''
 };
 
 /*

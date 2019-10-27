@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInPage should initialize the SignInPage and set root to TabsPage if logged in 1`] = `
+<page-sign-in
+  authProvider={[Function Object]}
+  formBuilder={[Function FormBuilder]}
+  goToRegistration={[Function Function]}
+  navCtrl={[Function Object]}
+  signInForm={[Function FormGroup]}
+  toastCtrl={[Function Object]}
+>
+  
+  <draught-header />
+  
+  <ion-content
+    padding=""
+  >
+    
+    
+    <ion-row>
+      
+      
+      <ion-col
+        class="below-header"
+        col-12=""
+        col-lg-6=""
+        col-md-8=""
+        col-sm-10=""
+        col-xl-4=""
+        offset-lg-3=""
+        offset-md-2=""
+        offset-sm-1=""
+        offset-xl-4=""
+      >
+        
+        
+        <h1>
+          Please Sign In
+        </h1>
+        
+        
+        <form>
+          
+          
+          <ion-item>
+            
+            
+            <ion-label
+              floating=""
+            >
+              Username or Email
+            </ion-label>
+            
+            
+            <ion-input
+              formcontrolname="username"
+              tid="usernameField"
+              type="text"
+            />
+            
+          
+          </ion-item>
+          
+          
+          <br />
+          
+          
+          <ion-item>
+            
+            
+            <ion-label
+              floating=""
+            >
+              Password
+            </ion-label>
+            
+            
+            <ion-input
+              formcontrolname="password"
+              tid="passwordField"
+              type="password"
+            />
+            
+          
+          </ion-item>
+          
+          
+          <button
+            ion-button=""
+            margin-top=""
+            tid="signInButton"
+          >
+            Sign In
+          </button>
+          
+          
+          <p>
+            Do you not have an account?
+          </p>
+          
+          
+          <a
+            tid="registrationLink"
+          >
+            Click here to register
+          </a>
+          
+        
+        </form>
+        
+      
+      </ion-col>
+      
+    
+    </ion-row>
+    
+  
+  </ion-content>
+  
+</page-sign-in>
+`;

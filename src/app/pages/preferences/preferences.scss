@@ -1,0 +1,17 @@
+page-preferences {
+  ion-textarea {
+    border: 1px solid lightgray;
+    margin-bottom: 15px;
+  }
+  ion-auto-complete {
+    ul {
+      width: 97%;
+      left: 8px;
+    }
+  }
+
+  .infoButton {
+    padding: 0px;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,55 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<draught-header></draught-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col class="below-header" col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3>
+
+      <ion-segment color="primary">
+<!--      <ion-segment color="primary" [(ngModel)]="isRecentBeersSelected">-->
+        <ion-segment-button tid="recentSegment" value="yes">
+          Recent
+        </ion-segment-button>
+        <ion-segment-button tid="recommendedSegment" value="no">
+          Recommended
+        </ion-segment-button>
+
+
+      </ion-segment>
+      <label class="beerError" *ngIf="BACcalc">You have had {{totalCount}} beers in the past 3 hours. You might want to find a ride home.</label>
+      <div [ngSwitch]="isRecentBeersSelected">
+        <div *ngSwitchCase="'yes'">
+          <div text-center *ngIf="recents?.length === 0">
+            <p>You haven't had any beers yet! <a tid="toSearchPage" class="pointer" routerLink="/search">Search for what you are drinking.</a></p>
+          </div>
+          <div *ngIf="recents?.length > 0">
+            <strong class="title">Your recent beers:</strong>
+            <hr>
+            <div class="list-container" id="infinite-scroller1" appInfiniteScroller [immediateCallback]="false" [scrollCallback]="recentScrollCallback" [loadMore]="loadMoreRecent">
+              <beer-list [beers]="recents"></beer-list>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="'no'">
+            <div text-center *ngIf="recommended?.length === 0">
+              <p>Your recommended beers are coming soon! If you haven't created your beer profile yet,
+                <a class="pointer" routerLink="/preferences">click here to fill it out now!</a></p>
+            </div>
+            <div *ngIf="recommended?.length > 0">
+              <strong class="title">Your recommended beers:</strong>
+              <hr>
+              <div class="list-container" id="infinite-scroller2" appInfiniteScroller [immediateCallback]="false" [scrollCallback]="recScrollCallback" [loadMore]="loadMoreRecommended">
+                <beer-list [beers]="recommended"></beer-list>
+              </div>
+            </div>
+        </div>
+        </div>
+
+    </ion-col>
+  </ion-row>
+</ion-content>
