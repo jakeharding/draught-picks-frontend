@@ -4,6 +4,8 @@ import { environment as Env } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import AuthResponse from '../../models/AuthResponse';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 /**
  * Generated class for the AuthProvider provider.
@@ -20,12 +22,20 @@ export const TOKEN_STO_KEY = 'draughtPicksToken';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthProvider implements HttpInterceptor {
+export class AuthProvider implements HttpInterceptor, CanActivate {
 
   signInUrl: string;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private navCtrl: NavController) {
     this.signInUrl = `${Env.REST_API_ROOT}/login`;
+  }
+
+  canActivate(route: ActivatedRouteSnapshot,
+              state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (!this.isLoggedIn()) {
+      this.navCtrl.navigateRoot('sign-in');
+    }
+    return this.isLoggedIn();
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -60,14 +70,4 @@ export class AuthProvider implements HttpInterceptor {
   isLoggedIn() {
     return !!this.getToken();
   }
-}
-
-export function LoginRequired(target: any) {
-  const authProvider = Injector.create([{provide: AuthProvider, deps: [] }]).get(AuthProvider);
-  target.prototype.ionViewCanEnter = () => {
-    if (!authProvider.isLoggedIn()) {
-      location.assign('sign-in');
-    }
-    return authProvider.isLoggedIn();
-  };
 }

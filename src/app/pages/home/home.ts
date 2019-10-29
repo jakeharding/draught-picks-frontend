@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
-import { LoginRequired } from '../../services/auth/auth';
 import Beer from '../../models/Beer';
 import { BeerProvider } from '../../services/beer/beer';
 import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
@@ -16,7 +15,6 @@ import { tap } from 'rxjs/operators';
  * Ionic pages and navigation.
  */
 
-@LoginRequired
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',

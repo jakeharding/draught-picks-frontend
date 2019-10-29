@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SignInPage } from './pages/sign-in/sign-in';
+import { SignInPageModule } from './pages/sign-in/sign-in.module';
+import { AuthProvider } from './services/auth/auth';
 
 const routes: Routes = [
-  { path: '', loadChildren: './pages/tabs/tabs.module#TabsModule'},
-  // { path: '', redirectTo: '/tabs', pathMatch: 'full' },
+  { path: '', canActivate: [AuthProvider], loadChildren: './pages/tabs/tabs.module#TabsModule'},
+  { path: 'sign-in', component: SignInPage }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule, SignInPageModule]
 })
 export class AppRoutingModule { }

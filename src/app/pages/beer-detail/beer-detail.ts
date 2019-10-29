@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from '@ionic/angular';
-import { LoginRequired } from '../../services/auth/auth';
 import { BeerProvider } from '../../services/beer/beer';
 import Beer from '../../models/Beer';
 import BeerRating from '../../models/BeerRating';
@@ -14,11 +13,6 @@ import { BasePage } from '../BasePage';
  * Ionic pages and navigation.
  */
 
-@LoginRequired
-// @IonicPage({
-//   name: 'beer-detail',
-//   segment: 'beer/:uuid'
-// })
 @Component({
   selector: 'page-beer-detail',
   templateUrl: 'beer-detail.html',

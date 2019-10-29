@@ -28,7 +28,7 @@
             [disabled]="signInForm.invalid"
         >Sign In</button>
         <p>Do you not have an account?</p>
-        <a [navPush]="goToRegistration" tid="registrationLink">Click here to register</a>
+        <a routerLink="register" routerDirection="root">Click here to register</a>
       </form>
     </ion-col>
   </ion-row>

@@ -1,8 +1,8 @@
-<!--<draught-header></draught-header>-->
+<draught-header></draught-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-row>
-    <ion-col class="below-header" text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+    <ion-col class="below-header ion-text-center"  col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
 
       <h1>Tell us about the beer you like!</h1>
 
@@ -25,7 +25,7 @@
       <ion-row text-center>
         <ion-col>
           <h3>ABV
-            <button class="infoButton" ion-button clear icon-start tid="abvInfoButton" routerLink="/abv-info">
+            <button class="infoButton" ion-button clear icon-start tid="abvInfoButton" routerLink="./abv-info">
               <ion-icon color="primary" name="information-circle"></ion-icon>
             </button>
           </h3>
@@ -33,7 +33,9 @@
 
         <ion-col>
           <h3>IBU
-            <button class="infoButton" ion-button clear icon-start tid="ibuInfoButton" routerLink="./ibu-info">
+            <button
+                class="infoButton" ion-button clear icon-start tid="ibuInfoButton"
+                routerLink="./ibu-info" routerDirection="forward">
               <ion-icon color="primary" name="information-circle"></ion-icon>
             </button>
           </h3>
@@ -92,4 +94,3 @@
     </ion-col>
   </ion-row>
 </ion-content>
-<!--<router-outlet></router-outlet>-->

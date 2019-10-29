@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignInPage } from './sign-in';
 import { ComponentsModule } from '../../components/components.module';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,8 +12,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     IonicModule,
-    RouterModule.forChild([{ path: 'signiin', component: SignInPage}]),
+    RouterModule.forChild([{path: 'signiin', component: SignInPage}]),
     ComponentsModule,
+    ReactiveFormsModule,
   ],
 })
 export class SignInPageModule {}

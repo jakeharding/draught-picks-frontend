@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationPage } from '../registration/registration';
 import { AuthProvider } from '../../services/auth/auth';
-import { TabsPage } from '../tabs/tabs';
 import { BasePage } from '../BasePage';
 
 /**
@@ -13,7 +12,6 @@ import { BasePage } from '../BasePage';
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
 @Component({
   selector: 'page-sign-in',
   templateUrl: 'sign-in.html',
@@ -31,7 +29,7 @@ export class SignInPage extends BasePage {
     if (this.authProvider.isLoggedIn()) {
       this.navCtrl.navigateRoot('tabs');
     }
-    this.goToRegistration = RegistrationPage;
+    // this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
       username: [this.username, Validators.compose([Validators.required])],
       password: [this.password, Validators.compose([Validators.required, Validators.minLength(4)])]

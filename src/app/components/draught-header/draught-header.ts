@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthProvider } from '../../services/auth/auth';
 import { NavController } from '@ionic/angular';
-import { SignInPage } from '../../pages/sign-in/sign-in';
-import { HomePage } from '../../pages/home/home';
+import { ActivatedRoute } from '@angular/router';
 
 /**
  * Generated class for the DraughtHeaderComponent component.
@@ -18,7 +17,7 @@ export class DraughtHeaderComponent {
 
   isLoggedIn: boolean;
 
-  constructor(public authProvider: AuthProvider, public navCtrl: NavController) {
+  constructor(public authProvider: AuthProvider, public navCtrl: NavController, public router: ActivatedRoute) {
     this.isLoggedIn = this.authProvider.isLoggedIn();
   }
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
-import { LoginRequired } from '../../services/auth/auth';
 import { BeerProvider } from '../../services/beer/beer';
 import Beer from '../../models/Beer';
 import { UserProvider } from '../../services/user/user';
@@ -21,7 +20,6 @@ import { BasePage } from '../BasePage';
  * Ionic pages and navigation.
  */
 
-@LoginRequired
 @Component({
   selector: 'page-preferences',
   templateUrl: 'preferences.html',

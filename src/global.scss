@@ -24,3 +24,54 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// http://ionicframework.com/docs/theming/
+
+
+//@import "../../node_modules/ionic2-auto-complete/auto-complete";
+
+.error-toast{
+  .toast-container{
+    background-color: var(danger);
+    text-align: center;
+  }
+}
+
+.success-toast {
+  .toast-container {
+    background-color: #009900;
+    text-align: center;
+  }
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.below-header {
+  top: var(navbar-md-height);
+}
+
+.click-block-enabled {
+  visibility: hidden;
+}
+
+.backToPreferences {
+  font-size: medium;
+}
+
+.back-button {
+  position: fixed;
+}
+
+.beerError {
+  color: red;
+}
+
+.justify {
+  text-align: justify;
+}

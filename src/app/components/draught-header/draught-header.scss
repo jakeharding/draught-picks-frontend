@@ -1,9 +1,3 @@
-draught-header {
-  ion-title {
-    padding:0px !important;
-  }
-
-  .toolbar-title {
-    padding: 0px !important;
-  }
+draught-header.can-go-back ion-back-button.show-back-button {
+  display: block;
 }
