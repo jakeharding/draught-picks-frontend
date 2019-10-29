@@ -5,6 +5,7 @@ import { ComponentsModule } from '../../components/components.module';
 import { DirectivesModule } from '../../directives/directives.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
     RouterModule.forChild([{path: 'home', component: HomePage}]),
     ComponentsModule,
     DirectivesModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
 })
 export class HomePageModule {}

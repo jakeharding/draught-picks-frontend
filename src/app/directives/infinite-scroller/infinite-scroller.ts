@@ -2,6 +2,7 @@
 import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 import { fromEvent } from 'rxjs';
+import { exhaustMap, filter, map, pairwise } from 'rxjs/operators';
 
 export const LIMIT = 100;
 
@@ -61,13 +62,15 @@ export class InfiniteScrollerDirective implements AfterViewInit {
 
   private streamScrollEvents() {
     this.userScrolledDown$ = this.scrollEvent$
-      .map((e: any): ScrollPosition => ({
-        sH: e.target.scrollHeight,
-        sT: e.target.scrollTop,
-        cH: e.target.clientHeight
-      }))
-      .pairwise()
-      .filter(positions => this.isUserScrollingDown(positions) && this.isScrollExpectedPercent(positions[1]));
+      .pipe(
+        map((e: any): ScrollPosition => ({
+          sH: e.target.scrollHeight,
+          sT: e.target.scrollTop,
+          cH: e.target.clientHeight
+        })),
+        pairwise(),
+        filter(positions => this.isUserScrollingDown(positions) && this.isScrollExpectedPercent(positions[1]))
+      );
   }
 
   private requestCallbackOnScroll() {
@@ -79,10 +82,10 @@ export class InfiniteScrollerDirective implements AfterViewInit {
           .startWith([DEFAULT_SCROLL_POSITION, DEFAULT_SCROLL_POSITION]);
       }
 
-      this.requestOnScroll$
-        .exhaustMap(() => {
+      this.requestOnScroll$.pipe(
+        exhaustMap(() => {
           return this.scrollCallback();
-        })
+        }))
         .subscribe((data) => { }, (err) => console.log(err));
     }
   }

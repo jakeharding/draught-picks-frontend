@@ -37,6 +37,60 @@
               },
               {
                 "input": "src/global.scss"
+              },
+              {
+                "input": "src/app/components/rating/rating.scss"
+              },
+              {
+                "input": "src/app/components/beer-item/beer-item.scss"
+              },
+              {
+                "input": "src/app/components/beer-list/beer-list.scss"
+              },
+              {
+                "input": "src/app/components/draught-header/draught-header.scss"
+              },
+              {
+                "input": "src/app/pages/abv-info/abv-info.scss"
+              },
+              {
+                "input": "src/app/pages/beer-detail/beer-detail.scss"
+              },
+              {
+                "input": "src/app/pages/beer-favorite-info/beer-favorite-info.scss"
+              },
+              {
+                "input": "src/app/pages/confirm-email/confirm-email.scss"
+              },
+              {
+                "input": "src/app/pages/disclaimer/disclaimer.scss"
+              },
+              {
+                "input": "src/app/pages/email-sent/email-sent.scss"
+              },
+              {
+                "input": "src/app/pages/home/home.scss"
+              },
+              {
+                "input": "src/app/pages/ibupage/ibupage.scss"
+              },
+              {
+                "input": "src/app/pages/preferences/preferences.scss"
+              },
+              {
+                "input": "src/app/pages/registration/registration.scss"
+              },
+              {
+                "input": "src/app/pages/resend-email/resend-email.scss"
+              },
+              {
+                "input": "src/app/pages/reset-password/reset-password.scss"
+              },
+              {
+                "input": "src/app/pages/search/search.scss"
+              },
+              {
+                "input": "src/app/pages/sign-in/sign-in.scss"
               }
             ],
             "scripts": []

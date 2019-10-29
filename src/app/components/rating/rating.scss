@@ -28,7 +28,7 @@ rating {
     margin-right: 10px;
   }
 
-  @media (max-width: map-get($grid-breakpoints, sm)) {
+  @media (max-width: 576px) {
     .large {
       height: 50px;
       width: 50px;

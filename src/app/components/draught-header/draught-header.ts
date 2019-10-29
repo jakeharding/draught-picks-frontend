@@ -38,7 +38,7 @@ export class DraughtHeaderComponent {
    */
   async home() {
     if (this.authProvider.isLoggedIn()) {
-      await this.navCtrl.navigateRoot('home');
+      await this.navCtrl.navigateRoot('/tabs/home');
     } else {
       await this.navCtrl.navigateRoot('sign-in');
     }

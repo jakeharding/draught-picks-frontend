@@ -25,7 +25,7 @@ export class HomePage extends BasePage {
   beerForABV: Array<Beer>;
   BACcalc: boolean;
   totalCount: number;
-  isRecentBeersSelected: 'yes';
+  isRecentBeersSelected = 'no';
   recommendedOffset: number;
   recentOffset: number;
   loadMoreRecommended: boolean;
