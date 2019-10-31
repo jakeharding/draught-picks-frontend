@@ -43,7 +43,12 @@ const routes: Routes = [
                 path: '',
                 loadChildren: '../preferences/preferences.module#PreferencesPageModule'
               },
-              {path: 'preferences/ibu-info', loadChildren: '../ibupage/ibupage.module#IbupagePageModule'}
+              { path: 'preferences/ibu-info', loadChildren: '../ibupage/ibupage.module#IbupagePageModule' },
+              { path: 'preferences/abv-info', loadChildren: '../abv-info/abv-info.module#AbvInfoPageModule' },
+              {
+                path: 'preferences/beer-favorite-info',
+                loadChildren: '../beer-favorite-info/beer-favorite-info.module#BeerFavoriteInfoPageModule'
+              },
             ]
         },
         {

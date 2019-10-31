@@ -5,33 +5,37 @@
   Ionic pages and navigation.
 -->
 
-<draught-header></draught-header>
+<ion-header>
+  <draught-header></draught-header>
+</ion-header>
 
 <ion-content>
   <ion-row>
-    <ion-col class="below-header" text-center col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+    <ion-col class="below-header ion-text-center"
+             size="12" sizeSm="10" offsetSm="1" sizeMd="8" offsetMd="2" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
+
       <h1>Alcohol By Volume (ABV)</h1>
-      <p margin>Alcohol by Volume (ABV or "proof"), is defined as the standard measure of how much alcohol is put in an alcoholic drink.
+      <p class="ion-margin">Alcohol by Volume (ABV or "proof"), is defined as the standard measure of how much alcohol is put in an alcoholic drink.
       It is measured as a percentage between 0-100% and is found on most alcoholic beverage labels. The higher percentage on the label,
       the more alcohol is in the drink.</p>
 
       <p><b><u>Example ABV for beers:</u></b></p>
 
       <ion-row>
-        <ion-col offset-2>
+        <ion-col offset="1">
           <ion-row>
-            <ion-col text-center>Bud Light:</ion-col>
-            <ion-col text-left>4.10% - 4.20%</ion-col>
+            <ion-col class="ion-text-left">Bud Light:</ion-col>
+            <ion-col class="ion-text-left">4.10% - 4.20%</ion-col>
           </ion-row>
 
           <ion-row>
-            <ion-col text-center>Harp Lager:</ion-col>
-            <ion-col text-left>5.10% - 5.20%</ion-col>
+            <ion-col class="ion-text-left">Harp Lager:</ion-col>
+            <ion-col class="ion-text-left">5.10% - 5.20%</ion-col>
           </ion-row>
 
           <ion-row>
-            <ion-col text-center>Blue Moon Belgian White:</ion-col>
-            <ion-col text-left>5.36% - 5.4%</ion-col>
+            <ion-col class="ion-text-left">Blue Moon Belgian White:</ion-col>
+            <ion-col class="ion-text-left">5.36% - 5.4%</ion-col>
           </ion-row>
         </ion-col>
       </ion-row>
@@ -41,11 +45,12 @@
       <br>
       <li><a href="https://craftbeeracademy.com/how-to-determine-abv/" target="_blank">https://craftbeeracademy.com/how-to-determine-abv/</a></li>
       <br>
-      <li margin-bottom><a href="https://en.wikipedia.org/wiki/Alcohol_by_volume" target="_blank">https://en.wikipedia.org/wiki/Alcohol_by_volume</a></li>
+      <li class="ion-margin-bottom"><a href="https://en.wikipedia.org/wiki/Alcohol_by_volume" target="_blank">https://en.wikipedia.org/wiki/Alcohol_by_volume</a></li>
 
 
       <br>
-      <a class="backToPreferences" navPop>Back to your Preferences</a>
+      <a class="backToPreferences" routerLink="/tabs/preferences" routerDirection="back">Back to your Preferences</a>
+
     </ion-col>
   </ion-row>
 </ion-content>

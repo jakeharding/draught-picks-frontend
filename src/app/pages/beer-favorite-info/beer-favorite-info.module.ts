@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { BeerFavoriteInfoPage } from './beer-favorite-info';
-// import { ComponentsModule } from '../../components/components.module';
+import { ComponentsModule } from '../../components/components.module';
 import { RouterModule } from '@angular/router';
 
 
@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     IonicModule,
     RouterModule.forChild([{path: '', component: BeerFavoriteInfoPage}]),
-    // ComponentsModule,
+    ComponentsModule,
   ],
 })
 export class BeerFavoriteInfoPageModule {}

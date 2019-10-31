@@ -10,7 +10,7 @@
 
 <ion-content class="ion-padding">
   <ion-row>
-    <ion-col class="below-header" col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3>
+    <ion-col class="below-header" size="12" sizeSm="10" offsetSm="1" sizeMd="8" offsetMd="2" sizeLg="6" offsetLg="3" sizeXl="6" offsetXl="3">
 
       <ion-segment color="primary" [(ngModel)]="isRecentBeersSelected">
         <ion-segment-button tid="recentSegment" value="yes">
@@ -24,7 +24,7 @@
       <div [ngSwitch]="isRecentBeersSelected">
 
         <div *ngSwitchCase="'yes'">
-          <div text-center *ngIf="recents?.length === 0">
+          <div class="ion-text-center" *ngIf="recents?.length === 0">
             <p>You haven't had any beers yet! <a tid="toSearchPage" class="pointer" routerLink="/search">Search for what you are drinking.</a></p>
           </div>
           <div *ngIf="recents?.length > 0">
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div *ngSwitchCase="'no'">
-            <div text-center *ngIf="recommended?.length === 0">
+            <div class="ion-text-center" *ngIf="recommended?.length === 0">
               <p>Your recommended beers are coming soon! If you haven't created your beer profile yet,
                 <a class="pointer" routerLink="/preferences">click here to fill it out now!</a></p>
             </div>
@@ -50,7 +50,7 @@
               </div>
             </div>
         </div>
-        </div>
+      </div>
 
     </ion-col>
   </ion-row>
