@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment as Env } from '../../../environments/environment';
-// import { AutoCompleteService } from 'ionic2-auto-complete';
 import Beer from '../../models/Beer';
 import PageResponse from '../../models/PageResponse';
 import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AutoCompleteService } from 'ionic4-auto-complete';
 /*
   Generated class for the BeerProvider provider.
 
@@ -16,8 +16,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class BeerProvider {
-// export class BeerProvider implements AutoCompleteService {
+export class BeerProvider implements AutoCompleteService {
   url: string;
   recentsUrl: string;
   recommendedUrl: string;
@@ -49,7 +48,10 @@ export class BeerProvider {
    * @returns - List of beers
    */
   getResults(beerName: string) {
-    return this.search({search: beerName});
+    if (beerName) {
+      return this.search({search: beerName});
+    }
+    return EMPTY;
   }
 
   /**

@@ -10,15 +10,16 @@
 
 <ion-content class="ion-padding">
   <ion-row>
-    <ion-col class="below-header" text-center col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
-      <h1 text-left>What are you drinking?</h1>
+    <ion-col class="below-header ion-text-center"
+             size="12" sizeSm="10" offsetSm="1" sizeMd="6" offsetMd="3" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
+      <h1 class="ion-text-left">What are you drinking?</h1>
       <ion-searchbar [(ngModel)]="beerSearch" (ionClear)="clear($event)" (ionInput)="search($event)" placeholder="Search Beer By Name"></ion-searchbar>
       <div *ngIf="beerResults && beerResults.length > 0">
         <div class="list-container" id="infinite-scroller" appInfiniteScroller [immediateCallback]="false" [scrollCallback]="scrollCallback" [loadMore]="loadMore">
           <beer-list [beers]="beerResults" ></beer-list>
         </div>
       </div>
-      <div class="notYetSearch" text-left *ngIf="!beerResults || beerResults.length == 0" >
+      <div class="notYetSearch ion-text-left" *ngIf="!beerResults || beerResults.length == 0" >
         <p><i>{{ message }} </i></p>
       </div>
 
