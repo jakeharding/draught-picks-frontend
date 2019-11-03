@@ -17,18 +17,9 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'page-search',
   templateUrl: 'search.html',
+  styleUrls: ['./search.scss']
 })
 export class SearchPage extends BasePage {
-  constructor(public navCtrl: NavController,
-              public beerProvider: BeerProvider) {
-    super('search');
-    this.message = SearchPage.NULL_RESULT_MESSAGE;
-    this.beerSearch = '';
-    this.offset = 0;
-    this.loadMore = true;
-    this.scrollCallback = this.getBeers.bind(this);
-  }
-
   private static NULL_RESULT_MESSAGE = 'Search for a beer and let us know what you like about it.';
   private static ZERO_RESULT_MESSAGE = 'We cannot find results on the beers you have entered.';
 
@@ -37,7 +28,17 @@ export class SearchPage extends BasePage {
   message: string;
   offset: number;
   loadMore: boolean;
-  scrollCallback;
+  // scrollCallback;
+
+  constructor(public navCtrl: NavController,
+              public beerProvider: BeerProvider) {
+    super('search');
+    this.message = SearchPage.NULL_RESULT_MESSAGE;
+    this.beerSearch = '';
+    this.offset = 0;
+    this.loadMore = true;
+    // this.scrollCallback = this.getBeers.bind(this);
+  }
 
   /**
    * Method called on input to the search bar.
@@ -63,7 +64,7 @@ export class SearchPage extends BasePage {
    * gets the recent and recommended beers from the database and processes them
    * using the scrolling technique
    */
-  getBeers() {
+  getBeers(event) {
     if (this.loadMore) {
       const queryParams = {
         limit: LIMIT,
@@ -72,6 +73,7 @@ export class SearchPage extends BasePage {
       };
       return this.beerProvider.search(queryParams).pipe(tap(this.processData));
     }
+    event.target.complete();
     return EMPTY;
   }
 

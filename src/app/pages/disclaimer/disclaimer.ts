@@ -13,6 +13,7 @@ import { BasePage } from '../BasePage';
 @Component({
   selector: 'page-disclaimer',
   templateUrl: 'disclaimer.html',
+  styleUrls: ['./disclaimer.scss']
 })
 export class DisclaimerPage extends BasePage {
 

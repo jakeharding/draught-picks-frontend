@@ -10,10 +10,10 @@ import { BasePage } from '../BasePage';
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
 @Component({
   selector: 'page-email-sent',
   templateUrl: 'email-sent.html',
+  styleUrls: ['./email-sent.scss']
 })
 export class EmailSentPage extends BasePage {
 

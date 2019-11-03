@@ -13,6 +13,7 @@ import { BasePage } from '../BasePage';
 @Component({
   selector: 'page-abv-info',
   templateUrl: 'abv-info.html',
+  styleUrls: ['./abv-info.scss']
 })
 export class AbvInfoPage extends BasePage {
 

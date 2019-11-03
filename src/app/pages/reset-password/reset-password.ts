@@ -13,6 +13,7 @@ import { BasePage } from '../BasePage';
 @Component({
   selector: 'page-reset-password',
   templateUrl: 'reset-password.html',
+  styleUrls: ['./reset-password.scss']
 })
 export class ResetPasswordPage extends BasePage {
 

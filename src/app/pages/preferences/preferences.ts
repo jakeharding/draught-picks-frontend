@@ -23,6 +23,7 @@ import { BasePage } from '../BasePage';
 @Component({
   selector: 'page-preferences',
   templateUrl: 'preferences.html',
+  styleUrls: ['./preferences.scss']
 })
 export class PreferencesPage extends BasePage {
 

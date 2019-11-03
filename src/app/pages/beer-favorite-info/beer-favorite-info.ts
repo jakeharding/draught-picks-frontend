@@ -12,6 +12,7 @@ import { BasePage } from '../BasePage';
 @Component({
   selector: 'page-go-to-beer-favorite-info',
   templateUrl: 'beer-favorite-info.html',
+  styleUrls: ['./beer-favorite-info.scss']
 })
 export class BeerFavoriteInfoPage extends BasePage {
 

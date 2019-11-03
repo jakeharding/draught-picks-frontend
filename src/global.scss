@@ -25,11 +25,12 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-// http://ionicframework.com/docs/theming/
-
-
 @import "../node_modules/ionic4-auto-complete/auto-complete";
 
+
+:root {
+  --navbar-md-height: 10vh;
+}
 .error-toast{
   .toast-container{
     background-color: var(--ion-color-danger);
@@ -53,7 +54,7 @@
 }
 
 .below-header {
-  top: var(--navbar-md-height);
+  //top: var(--navbar-md-height);
 }
 
 .click-block-enabled {

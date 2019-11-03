@@ -4,7 +4,6 @@ import { BasePage } from '../BasePage';
 import { SignInPage } from '../sign-in/sign-in';
 import { UserProvider } from '../../services/user/user';
 import { ResendEmailPage } from '../resend-email/resend-email';
-// import { Page } from '@ionic/angular/umd/navigation/nav-util';
 import { ToastProvider } from '../../services/toast/toast';
 
 /**
@@ -14,13 +13,10 @@ import { ToastProvider } from '../../services/toast/toast';
  * Ionic pages and navigation.
  */
 
-// @IonicPage({
-//   name: 'confirm-email',
-//   segment: 'confirm-email/:key'
-// })
 @Component({
   selector: 'page-confirm-email',
   templateUrl: 'confirm-email.html',
+  styleUrls: ['confirm-email.ts']
 })
 export class ConfirmEmailPage extends BasePage {
   showResendLink = false;

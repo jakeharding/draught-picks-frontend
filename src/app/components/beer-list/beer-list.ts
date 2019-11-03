@@ -9,7 +9,8 @@ import Beer from '../../models/Beer';
  */
 @Component({
   selector: 'beer-list',
-  templateUrl: 'beer-list.html'
+  templateUrl: 'beer-list.html',
+  styleUrls: ['./beer-list.scss']
 })
 export class BeerListComponent {
 

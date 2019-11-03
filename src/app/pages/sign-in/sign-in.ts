@@ -15,6 +15,7 @@ import { BasePage } from '../BasePage';
 @Component({
   selector: 'page-sign-in',
   templateUrl: 'sign-in.html',
+  styleUrls: ['./sign-in.scss']
 })
 export class SignInPage extends BasePage {
   signInForm: FormGroup;

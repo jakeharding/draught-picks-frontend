@@ -16,6 +16,7 @@ import { BasePage } from '../BasePage';
 @Component({
   selector: 'page-beer-detail',
   templateUrl: 'beer-detail.html',
+  styleUrls: ['./deer-detail.scss']
 })
 export class BeerDetailPage extends BasePage {
 

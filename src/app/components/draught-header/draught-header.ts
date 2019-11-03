@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
  */
 @Component({
   selector: 'draught-header',
-  templateUrl: 'draught-header.html'
+  templateUrl: 'draught-header.html',
+  styleUrls: ['./draught-header.scss']
 })
 export class DraughtHeaderComponent {
 

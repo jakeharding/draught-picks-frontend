@@ -16,6 +16,7 @@ import { ToastProvider } from '../../services/toast/toast';
 @Component({
   selector: 'page-resend-email',
   templateUrl: 'resend-email.html',
+  styleUrls: ['./resend-email.scss']
 })
 export class ResendEmailPage extends BasePage {
 

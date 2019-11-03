@@ -11,7 +11,8 @@ import { ToastController } from '@ionic/angular';
  */
 @Component({
   selector: 'rating',
-  templateUrl: 'rating.html'
+  templateUrl: 'rating.html',
+  styleUrls: ['./rating.scss']
 })
 export class RatingComponent {
 

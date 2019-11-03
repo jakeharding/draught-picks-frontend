@@ -8,7 +8,8 @@ import { Component, Input } from '@angular/core';
  */
 @Component({
   selector: 'beer-item',
-  templateUrl: 'beer-item.html'
+  templateUrl: 'beer-item.html',
+  styleUrls: ['./beer-item.scss']
 })
 export class BeerItemComponent {
 

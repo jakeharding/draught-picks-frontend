@@ -18,6 +18,7 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
+  styleUrls: ['./home.scss']
 })
 export class HomePage extends BasePage {
   recents: Array<Beer>;

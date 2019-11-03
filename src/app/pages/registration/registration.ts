@@ -16,10 +16,10 @@ import { EmailSentPage } from '../email-sent/email-sent';
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
 @Component({
-    selector: 'page-registration',
-    templateUrl: 'registration.html',
+  selector: 'page-registration',
+  templateUrl: 'registration.html',
+  styleUrls: ['./registration.scss']
 })
 export class RegistrationPage extends BasePage {
   registerForm: FormGroup;
