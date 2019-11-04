@@ -27,10 +27,6 @@
 
 @import "../node_modules/ionic4-auto-complete/auto-complete";
 
-
-:root {
-  --navbar-md-height: 10vh;
-}
 .error-toast{
   .toast-container{
     background-color: var(--ion-color-danger);
@@ -51,10 +47,6 @@
 
 .underline {
   text-decoration: underline;
-}
-
-.below-header {
-  //top: var(--navbar-md-height);
 }
 
 .click-block-enabled {
