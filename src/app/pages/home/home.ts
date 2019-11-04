@@ -94,13 +94,13 @@ export class HomePage extends BasePage {
    * Get more recent beers if available.
    * @returns - recents
    */
-  getRecentBeers() {
+  getRecentBeers(event) {
     if (this.loadMoreRecent) {
       const queryParams = {
         limit: LIMIT,
         offset: this.recentOffset
       };
-      return this.beerProvider.recents(queryParams).pipe(tap(this.processRecentBeers));
+      return this.beerProvider.recents(queryParams).toPromise().then(beers => this.processRecentBeers(beers, event));
     }
     return EMPTY;
   }
@@ -109,13 +109,13 @@ export class HomePage extends BasePage {
    * Get more recommended beers if available.
    * @returns - recommended
    */
-  getRecommendedBeers() {
+  getRecommendedBeers(event) {
     if (this.loadMoreRecommended) {
       const queryParams = {
         limit: LIMIT,
         offset: this.recommendedOffset
       };
-      return this.beerProvider.recommended(queryParams).pipe(tap(this.processRecommendedBeers));
+      return this.beerProvider.recommended(queryParams).toPromise().then(beers => this.processRecommendedBeers(beers, event));
     }
     return EMPTY;
 
@@ -126,7 +126,8 @@ export class HomePage extends BasePage {
    * Parameters: Beer list
    * increases the offset and loads more beers while scrolling through the beer list
    */
-  private processRecommendedBeers = (beers) => {
+  private processRecommendedBeers = (beers, event) => {
+    event.target.complete();
     if (beers.length === 0) {
       this.loadMoreRecommended = false;
       return;
@@ -141,7 +142,8 @@ export class HomePage extends BasePage {
    * Parameters: Beer list
    * increases the offset and loads more beers while scrolling through the beer list
    */
-  private processRecentBeers = (beers) => {
+  private processRecentBeers = (beers, event) => {
+    event.target.complete();
     if (beers.length === 0) {
       this.loadMoreRecent = false;
       return;

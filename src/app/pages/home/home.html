@@ -31,23 +31,24 @@
 
             <strong class="title">Your recent beers:</strong>
             <hr>
-<!--            TODO use ionic 4 infinte scroll -->
-            <div class="list-container" id="infinite-scroller1" appInfiniteScroller [immediateCallback]="false" [scrollCallback]="recentScrollCallback" [loadMore]="loadMoreRecent">
-              <beer-list [beers]="recents"></beer-list>
-            </div>
+            <beer-list [beers]="recents"></beer-list>
+            <ion-infinite-scroll threshold="70%" (ionInfinite)="getRecentBeers($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
           </div>
         </div>
         <div *ngSwitchCase="'no'">
             <div class="ion-text-center" *ngIf="recommended?.length === 0">
               <p>Your recommended beers are coming soon! If you haven't created your beer profile yet,
-                <a class="pointer" routerLink="/preferences">click here to fill it out now!</a></p>
+                <a class="pointer" routerLink="/tabs/preferences" routerDirection="root">click here to fill it out now!</a></p>
             </div>
             <div *ngIf="recommended?.length > 0">
               <strong class="title">Your recommended beers:</strong>
               <hr>
-              <div class="list-container" id="infinite-scroller2" appInfiniteScroller [immediateCallback]="false" [scrollCallback]="recScrollCallback" [loadMore]="loadMoreRecommended">
-                <beer-list [beers]="recommended"></beer-list>
-              </div>
+              <beer-list [beers]="recommended"></beer-list>
+              <ion-infinite-scroll threshold="70%" (ionInfinite)="getRecommendedBeers($event)">
+                <ion-infinite-scroll-content></ion-infinite-scroll-content>
+              </ion-infinite-scroll>
             </div>
         </div>
       </div>
