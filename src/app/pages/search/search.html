@@ -10,19 +10,23 @@
 
 <ion-content class="ion-padding">
   <ion-row>
-    <ion-col class="below-header ion-text-center"
+    <ion-col class="ion-text-center"
              size="12" sizeSm="10" offsetSm="1" sizeMd="6" offsetMd="3" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
       <h1 class="ion-text-left">What are you drinking?</h1>
-      <ion-searchbar class="ion-text-left" [(ngModel)]="beerSearch" (ionClear)="clear($event)" (ionInput)="search($event)" placeholder="Search Beer By Name"></ion-searchbar>
+      <ion-searchbar class="ion-text-left"
+                     [(ngModel)]="beerSearch"
+                     (ionClear)="clear($event)"
+                     (ionChange)="search($event)"
+                     placeholder="Search Beer By Name"></ion-searchbar>
+
       <div *ngIf="beerResults && beerResults.length > 0">
-<!--        <div class="list-container" id="infinite-scroller" appInfiniteScroller [immediateCallback]="false" [scrollCallback]="scrollCallback" [loadMore]="loadMore">-->
-        <ion-infinite-scroll (ionInfinite)="getBeers($event)">
+        <beer-list [beers]="beerResults"></beer-list>
+        <ion-infinite-scroll threshold="70%" (ionInfinite)="getBeers($event)">
           <ion-infinite-scroll-content>
-<!--          <beer-list [beers]="beerResults" ></beer-list>-->
           </ion-infinite-scroll-content>
         </ion-infinite-scroll>
-<!--        </div>-->
       </div>
+
       <div class="notYetSearch ion-text-left" *ngIf="!beerResults || beerResults.length == 0" >
         <p><i>{{ message }} </i></p>
       </div>

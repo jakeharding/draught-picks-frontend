@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from '@ionic/angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonInfiniteScroll, NavController, NavParams } from '@ionic/angular';
 import Beer from '../../models/Beer';
 import { BeerProvider } from '../../services/beer/beer';
 import { EMPTY } from 'rxjs';
@@ -71,9 +71,8 @@ export class SearchPage extends BasePage {
         offset: this.offset,
         search: this.beerSearch
       };
-      return this.beerProvider.search(queryParams).pipe(tap(this.processData));
+      return this.beerProvider.search(queryParams).toPromise().then(beers => this.processData(beers, event));
     }
-    event.target.complete();
     return EMPTY;
   }
 
@@ -82,13 +81,14 @@ export class SearchPage extends BasePage {
    * Parameters: Beer list
    * increases the offset and loads more beers while scrolling through the beer list
    */
-  private processData = (beers) => {
+  private processData = (beers, event) => {
     if (beers.length === 0) {
       this.loadMore = false;
       return;
     }
     this.offset += LIMIT;
     this.beerResults = this.beerResults.concat(beers);
+    event.target.complete();
   }
 
   /**
