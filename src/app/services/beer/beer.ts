@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { environment as Env } from '../../../environments/environment';
 import Beer from '../../models/Beer';
 import PageResponse from '../../models/PageResponse';
-import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
 import { EMPTY, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AutoCompleteService } from 'ionic4-auto-complete';
+import { LIMIT } from '../../app.component';
 /*
   Generated class for the BeerProvider provider.
 

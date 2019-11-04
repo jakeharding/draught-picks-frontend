@@ -20,15 +20,24 @@
           Recommended
         </ion-segment-button>
       </ion-segment>
-      <label class="beerError" *ngIf="BACcalc">You have had {{totalCount}} beers in the past 3 hours. You might want to find a ride home.</label>
-      <div [ngSwitch]="isRecentBeersSelected">
+      <label class="beerError" *ngIf="BACcalc">
+        You have had {{totalCount}} beers in the past 3 hours. You might want to find a ride home.
+      </label>
 
+      <div [ngSwitch]="isRecentBeersSelected">
         <div *ngSwitchCase="'yes'">
           <div class="ion-text-center" *ngIf="recents?.length === 0">
-            <p>You haven't had any beers yet! <a tid="toSearchPage" class="pointer" routerLink="/search">Search for what you are drinking.</a></p>
+            <p>You haven't had any beers yet!
+              <a
+                  tid="toSearchPage"
+                  class="pointer"
+                  routerLink="/tabs/search"
+                  routerDirection="root">
+                Search for what you are drinking.</a>
+            </p>
           </div>
-          <div *ngIf="recents?.length > 0">
 
+          <div *ngIf="recents?.length > 0">
             <strong class="title">Your recent beers:</strong>
             <hr>
             <beer-list [beers]="recents"></beer-list>

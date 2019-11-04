@@ -1,11 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonInfiniteScroll, NavController, NavParams } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import Beer from '../../models/Beer';
 import { BeerProvider } from '../../services/beer/beer';
 import { EMPTY } from 'rxjs';
-import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
 import { BasePage } from '../BasePage';
-import { tap } from 'rxjs/operators';
+import { LIMIT } from '../../app.component';
 
 /**
  * Generated class for the SearchPage page.
@@ -28,7 +27,6 @@ export class SearchPage extends BasePage {
   message: string;
   offset: number;
   loadMore: boolean;
-  // scrollCallback;
 
   constructor(public navCtrl: NavController,
               public beerProvider: BeerProvider) {
@@ -37,7 +35,6 @@ export class SearchPage extends BasePage {
     this.beerSearch = '';
     this.offset = 0;
     this.loadMore = true;
-    // this.scrollCallback = this.getBeers.bind(this);
   }
 
   /**

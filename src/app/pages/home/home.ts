@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
 import Beer from '../../models/Beer';
 import { BeerProvider } from '../../services/beer/beer';
-import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
 import { EMPTY } from 'rxjs';
 import { BasePage } from '../BasePage';
-import { tap } from 'rxjs/operators';
+import { LIMIT } from '../../app.component';
 
 
 /**
@@ -49,8 +48,6 @@ export class HomePage extends BasePage {
     this.loadMoreRecent = true;
     this.recommended = [];
     this.recents = [];
-    this.recScrollCallback = this.getRecommendedBeers.bind(this);
-    this.recentScrollCallback = this.getRecentBeers.bind(this);
   }
 
   /**
