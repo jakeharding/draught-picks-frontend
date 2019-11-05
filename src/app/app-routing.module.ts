@@ -6,7 +6,8 @@ import { AuthProvider } from './services/auth/auth';
 
 const routes: Routes = [
   { path: '', canActivate: [AuthProvider], loadChildren: './pages/tabs/tabs.module#TabsModule'},
-  { path: 'sign-in', component: SignInPage }
+  { path: 'sign-in', component: SignInPage },
+  { path: 'beer/:uuid', canActivate: [AuthProvider], loadChildren: './pages/beer-detail/beer-detail.module#BeerDetailPageModule' }
 ];
 
 @NgModule({

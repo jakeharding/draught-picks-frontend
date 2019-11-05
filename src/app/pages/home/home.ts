@@ -62,11 +62,9 @@ export class HomePage extends BasePage {
     const pastTime =  new Date(time);
 
     this.beerProvider.recents({limit: LIMIT, offset: 0}).toPromise().then(results => {
-
       this.recents = results;
       this.beerForABV = this.recents.filter(beer => {
         beer.recents = beer.recents.filter( currentBeer => {
-
           return (new Date(currentBeer.created_at)) > pastTime;
         });
         return beer.recents.length > 0;

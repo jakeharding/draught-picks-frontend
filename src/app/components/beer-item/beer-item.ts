@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import Beer from '../../models/Beer';
 
 /**
  * Generated class for the BeerItemComponent component.
@@ -13,7 +15,11 @@ import { Component, Input } from '@angular/core';
 })
 export class BeerItemComponent {
 
-  @Input() beer;
+  @Input() beer: Beer;
 
-  constructor() {}
+  constructor(public navCtrl: NavController) {}
+
+  beerTap() {
+    this.navCtrl.navigateForward(`/beer/${this.beer.uuid}`, { state: {beer: this.beer}});
+  }
 }

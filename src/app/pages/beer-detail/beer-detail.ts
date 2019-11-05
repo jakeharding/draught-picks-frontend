@@ -5,6 +5,7 @@ import Beer from '../../models/Beer';
 import BeerRating from '../../models/BeerRating';
 import { RatingProvider } from '../../services/rating/rating';
 import { BasePage } from '../BasePage';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /**
  * Generated class for the BeerDetailPage page.
@@ -16,7 +17,7 @@ import { BasePage } from '../BasePage';
 @Component({
   selector: 'page-beer-detail',
   templateUrl: 'beer-detail.html',
-  styleUrls: ['./deer-detail.scss']
+  styleUrls: ['./beer-detail.scss']
 })
 export class BeerDetailPage extends BasePage {
 
@@ -28,11 +29,17 @@ export class BeerDetailPage extends BasePage {
    * Constructor for BeerDetailPage class
    * Gets the Beer data and beerRating information
    */
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController,
               public beerProvider: BeerProvider, public ratingProvider: RatingProvider,
-              public toastController: ToastController) {
-    super(`/beers/${navParams.data.uuid}`);
-    this.beer = this.navParams.data as Beer;
+              public toastController: ToastController, private route: ActivatedRoute,
+              private router: Router) {
+    super(`/beers/${route.snapshot.paramMap.get('uuid')}`);
+    if (this.router.getCurrentNavigation().extras.state) {
+      this.beer = this.router.getCurrentNavigation().extras.state.beer as Beer;
+    } else {
+      this.beer = { uuid: route.snapshot.paramMap.get('uuid') } as Beer;
+    }
+
     this.beerRating = {
       description: '',
       rating: 0,

@@ -4,12 +4,14 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<draught-header></draught-header>
+<ion-header>
+  <draught-header></draught-header>
+</ion-header>
 
 
 <ion-content padding>
   <ion-row>
-    <ion-col class="below-header" col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+    <ion-col size="12" sizeSm="10" offsetSm="1" sizeMd="8" offsetMd="2" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
       <ion-row>
         <ion-col text-center>
           <h1>{{ beer.name }}</h1>
@@ -17,7 +19,7 @@
       </ion-row>
 
       <ion-row>
-        <ion-col col-4 text-center>
+        <ion-col size="4" class="ion-text-center">
           <span class="sub-heading">
             ABV
           </span>
@@ -27,7 +29,7 @@
           </span>
         </ion-col>
 
-        <ion-col col-4 text-center>
+        <ion-col size="4" class="ion-text-center">
           <span class="sub-heading">
             IBU
           </span>
@@ -37,38 +39,38 @@
           </span>
         </ion-col>
 
-        <ion-col col-4 text-center>
+        <ion-col size="4" class="ion-text-center">
           <span class="sub-heading">
             Match
           </span>
           <span class="sub-heading">
-            <span *ngIf="beer.recommended.percent_match">{{beer.recommended.percent_match}}%</span>
-            <span *ngIf="!beer.recommended.percent_match">N/A</span>
+            <span *ngIf="beer.recommended?.percent_match">{{beer.recommended?.percent_match}}%</span>
+            <span *ngIf="!beer.recommended?.percent_match">N/A</span>
           </span>
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2 text-center>
-          <button ion-button (click)="createRecent()">I'm drinking this now!</button>
+        <ion-col sizeSm="12" offsetSm="0" sizeMd="9" offsetMd="2" class="ion-text-center">
+          <ion-button (click)="createRecent()">I'm drinking this now!</ion-button>
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2>
+        <ion-col sizeSm="12" offsetSm="0" sizeMd="9" offsetMd="2">
           <p *ngIf="hasRating">Your rating:</p>
           <p *ngIf="!hasRating">You haven't rated this beer yet. Tap to rate!</p>
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col col-sm-9 offset-sm-1 col-md-9 offset-md-2>
+        <ion-col sizeSm="12" offsetSm="2" sizeMd="9" offsetMd="2">
           <rating [rating]="beerRating" [size]="'large'" (setRating)="setRating($event)"></rating>
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2>
+        <ion-col sizeSm="12" offsetSm="0" sizeMd="9" offsetMd="2">
           <p>Description:</p>
           <br>
           <p>{{ beer?.description }}</p>
@@ -76,9 +78,9 @@
       </ion-row>
 
       <ion-row>
-        <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2>
+        <ion-col sizeSm="12" offsetSm="0" sizeMd="9" offsetMd="2">
           <ion-item>
-            <ion-label floating>
+            <ion-label position="floating">
               Tell us what you like:
             </ion-label>
             <ion-textarea rows="5" [(ngModel)]="beerRating && beerRating.description"></ion-textarea>
@@ -86,9 +88,9 @@
         </ion-col>
       </ion-row>
 
-      <ion-row text-center>
-        <ion-col col-sm-12 offset-sm-0 col-md-9 offset-md-2>
-          <button (click)="saveRatingDescription()" ion-button>Submit</button>
+      <ion-row class="ion-text-center">
+        <ion-col sizeSm="12" offsetSm="0" sizeMd="9" offsetMd="2">
+          <ion-button (click)="saveRatingDescription()">Submit</ion-button>
         </ion-col>
       </ion-row>
 
