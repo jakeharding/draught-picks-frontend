@@ -8,6 +8,7 @@ import { RatingProvider } from '../../services/rating/rating';
 import { mockToastController, mockToast } from '../../jestGlobalMocks';
 import Beer from '../../models/Beer';
 import BeerRating from '../../models/BeerRating';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /**
  * beer-detail.spec.ts
@@ -43,7 +44,8 @@ describe('BeerDetailPage', () => {
         { provide: ToastController, useValue: mockToastController},
         { provide: BeerProvider, useValue: mockBeerProvider},
         { provide: RatingProvider, useValue: mockRatingProvider},
-        { provide: NavParams, useValue: { data: mockBeer }},
+        { provide: ActivatedRoute, useValue: {}},
+        { provide: Router, useValue: {}},
       ]
     }).compileComponents();
   }));
