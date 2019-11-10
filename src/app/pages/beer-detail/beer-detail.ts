@@ -6,6 +6,7 @@ import BeerRating from '../../models/BeerRating';
 import { RatingProvider } from '../../services/rating/rating';
 import { BasePage } from '../BasePage';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastProvider } from '../../services/toast/toast';
 
 /**
  * Generated class for the BeerDetailPage page.
@@ -29,10 +30,8 @@ export class BeerDetailPage extends BasePage {
    * Constructor for BeerDetailPage class
    * Gets the Beer data and beerRating information
    */
-  constructor(public navCtrl: NavController,
-              public beerProvider: BeerProvider, public ratingProvider: RatingProvider,
-              public toastController: ToastController, private route: ActivatedRoute,
-              private router: Router) {
+  constructor(public navCtrl: NavController, public beerProvider: BeerProvider, public ratingProvider: RatingProvider,
+              private route: ActivatedRoute, private router: Router, private toastProvider: ToastProvider) {
     super(`/beers/${route.snapshot.paramMap.get('uuid')}`);
     if (this.router.getCurrentNavigation().extras.state) {
       this.beer = this.router.getCurrentNavigation().extras.state.beer as Beer;
@@ -62,24 +61,11 @@ export class BeerDetailPage extends BasePage {
    * Creates a recent beer entry in the database.
    */
   createRecent() {
-    // TODO Use toast provider
     const success = async (recent) => {
-      const toast = await this.toastController.create({
-        message: 'We saved a record of this you! Tell us what you think!',
-        duration: 3000,
-        position: 'top',
-        cssClass: 'success-toast'
-      });
-      await toast.present();
+      this.toastProvider.successToast('We saved a record of this you! Tell us what you think!');
     };
     const error = async (e) => {
-      const toast = await this.toastController.create({
-        message: 'Oops! Something is not right!.',
-        duration: 3000,
-        position: 'top',
-        cssClass: 'error-toast'
-      });
-      await toast.present();
+      this.toastProvider.errorToast();
     };
     this.beerProvider.createRecent(this.beer).then(success, error);
   }
@@ -88,25 +74,12 @@ export class BeerDetailPage extends BasePage {
    * Saves the description of the beer for the user.
    */
   saveRatingDescription() {
-    // TODO Use toast provider
     const success = async (rating) => {
       this.beerRating = rating;
-      const toast = await this.toastController.create({
-        message: 'Your description has been saved!',
-        duration: 3000,
-        position: 'top',
-        cssClass: 'success-toast'
-      });
-      await toast.present();
+      this.toastProvider.successToast('Your description has been saved!');
     };
     const error = async (e) => {
-      const toast = await this.toastController.create({
-        message: 'Having trouble saving your description.',
-        duration: 3000,
-        position: 'top',
-        cssClass: 'error-toast'
-      });
-      await toast.present();
+      this.toastProvider.errorToast('Having trouble saving your description.');
     };
 
     if (this.hasRating) {

@@ -50,7 +50,7 @@
         </ion-col>
       </ion-row>
 
-      <form [formGroup]="prefsForm" (ngSubmit)="savePrefs()">
+      <form [formGroup]="prefsForm">
         <ion-row class="ion-text-center">
           <ion-col class="ion-text-center">
             <ion-item>
@@ -93,7 +93,9 @@
         </ion-row>
           <ion-button
               tid="submitBtn"
-              [disabled]="prefsForm.invalid">
+              [disabled]="prefsForm.invalid"
+              (click)="savePrefs()"
+          >
             Submit
           </ion-button>
       </form>

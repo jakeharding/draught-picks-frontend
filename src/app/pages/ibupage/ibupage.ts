@@ -12,6 +12,7 @@ import { BasePage } from '../BasePage';
   selector: 'page-ibupage',
   templateUrl: 'ibupage.html',
 })
+// TODO rename this to IbuInfoPage
 export class IbupagePage extends BasePage {
 
   /**

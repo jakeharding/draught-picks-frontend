@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import BeerRating from '../../models/BeerRating';
 import { RatingProvider } from '../../services/rating/rating';
-import { ToastController } from '@ionic/angular';
+import { ToastProvider } from '../../services/toast/toast';
 
 /**
  * Generated class for the RatingComponent component.
@@ -16,7 +16,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class RatingComponent {
 
-  constructor(public ratingProvider: RatingProvider, public toastController: ToastController) {}
+  constructor(public ratingProvider: RatingProvider, public toastProvider: ToastProvider) {}
 
   private static readonly LARGE = 'large';
 
@@ -33,13 +33,8 @@ export class RatingComponent {
     if (this.size === RatingComponent.LARGE) {
       const success = async beerRating => {
         this.rating = beerRating; // Update the beerRating returned from REST API
-        const toast = await this.toastController.create({
-          message: 'Your rating is saved.',
-          duration: 3000,
-          position: 'top',
-          cssClass: 'success-toast'
-        });
-        await toast.present();
+        // TODO use ToastProvider
+        this.toastProvider.successToast('Your rating is saved.');
         this.setRating.emit(beerRating); // Update parent component
       };
 

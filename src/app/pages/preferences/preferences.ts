@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { ToastController } from '@ionic/angular';
 import { BeerProvider } from '../../services/beer/beer';
 import Beer from '../../models/Beer';
 import { UserProvider } from '../../services/user/user';
@@ -12,6 +11,7 @@ import { BeerFavoriteInfoPage } from '../beer-favorite-info/beer-favorite-info';
 import { AbvInfoPage } from '../abv-info/abv-info';
 import { IbupagePage } from '../ibupage/ibupage';
 import { BasePage } from '../BasePage';
+import { ToastProvider } from '../../services/toast/toast';
 
 /**
  * Generated class for the PreferencesPage page.
@@ -25,6 +25,8 @@ import { BasePage } from '../BasePage';
   templateUrl: 'preferences.html',
   styleUrls: ['./preferences.scss']
 })
+// TODO rename this to profile or beer profile
+// TODO create feature for more than one beer profile per user
 export class PreferencesPage extends BasePage {
 
   beerResults: Array<Beer>;
@@ -42,7 +44,7 @@ export class PreferencesPage extends BasePage {
    * Sets the beerSearch, goToBeerFavoriteInfoPage, goToABVPage, goToIBUPage, and userProvider values accordingly
    */
   constructor(public navCtrl: NavController,
-              public toastCtrl: ToastController, public beerProvider: BeerProvider,
+              public toastProvider: ToastProvider, public beerProvider: BeerProvider,
               private userProvider: UserProvider, private preferencesProvider: PreferencesProvider,
               public formBuilder: FormBuilder) {
     super('preferences');
@@ -85,14 +87,7 @@ export class PreferencesPage extends BasePage {
    * Gets the user preferences and saves them in the database
    */
   public async savePrefs() {
-    // TODO Use ToastProvider here.
-    const toast = await this.toastCtrl.create({
-      message: 'Your recommendations will be here soon!',
-      duration: 3000,
-      position: 'top',
-      cssClass: 'success-toast'
-    });
-    await toast.present();
+    this.toastProvider.successToast('Your recommendations will be here soon!');
 
     this.prefsForm.value.abv_low = this.prefsForm.value.abv_low === '' ? null : this.prefsForm.value.abv_low;
     this.prefsForm.value.abv_hi = this.prefsForm.value.abv_hi === '' ? null : this.prefsForm.value.abv_hi;
@@ -100,23 +95,11 @@ export class PreferencesPage extends BasePage {
     this.prefsForm.value.ibu_low = this.prefsForm.value.ibu_low === '' ? null : this.prefsForm.value.ibu_low;
 
     this.preferencesProvider.save(
-      Object.assign({}, this.prefs, this.prefsForm.value, {user: this.user.uuid})).then(async (prefs: UserPreferences) => {
+      Object.assign({}, this.prefs, this.prefsForm.value, {user: this.user.uuid})).then((prefs: UserPreferences) => {
       this.prefs = prefs;
-      const t = await this.toastCtrl.create({
-        message: 'Your recommendations have arrived! Go to the home tab to see them!',
-        duration: 3000,
-        position: 'top',
-        cssClass: 'success-toast'
-      });
-      await t.present();
-    }, async () => {
-      const t = await this.toastCtrl.create({
-        message: 'We couldn\'t save your profile at the moment. Please try again.',
-        duration: 3000,
-        position: 'top',
-        cssClass: 'error-toast'
-      });
-      await t.present();
+      this.toastProvider.successToast('Your recommendations have arrived! Go to the home tab to see them!');
+    }, () => {
+      this.toastProvider.errorToast('We couldn\'t save your profile at the moment. Please try again.');
     });
 
   }
