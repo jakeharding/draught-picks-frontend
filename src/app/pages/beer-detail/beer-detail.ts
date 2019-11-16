@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { BeerProvider } from '../../services/beer/beer';
 import Beer from '../../models/Beer';
 import BeerRating from '../../models/BeerRating';
@@ -51,6 +51,7 @@ export class BeerDetailPage extends BasePage {
         this.beerRating = beer.rating[0];
       }
     });
+
     if (this.beer.rating && this.beer.rating.length > 0) {
       this.hasRating = true;
       this.beerRating = this.beer.rating[0];
@@ -74,18 +75,18 @@ export class BeerDetailPage extends BasePage {
    * Saves the description of the beer for the user.
    */
   saveRatingDescription() {
-    const success = async (rating) => {
+    const success = (rating) => {
       this.beerRating = rating;
       this.toastProvider.successToast('Your description has been saved!');
     };
-    const error = async (e) => {
+    const error = (e) => {
       this.toastProvider.errorToast('Having trouble saving your description.');
     };
 
     if (this.hasRating) {
-      this.ratingProvider.partialUpdate(this.beerRating).then(success, error);
+      return this.ratingProvider.partialUpdate(this.beerRating).then(success, error);
     } else {
-      this.ratingProvider.create(this.beerRating).then(success, error);
+      return this.ratingProvider.create(this.beerRating).then(success, error);
     }
   }
 

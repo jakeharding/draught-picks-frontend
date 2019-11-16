@@ -1,14 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BeerDetailPage } from './beer-detail';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NavController, NavParams, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { RatingComponent } from '../../components/rating/rating';
 import { BeerProvider } from '../../services/beer/beer';
 import { RatingProvider } from '../../services/rating/rating';
-import { mockToastController, mockToast } from '../../jestGlobalMocks';
 import Beer from '../../models/Beer';
 import BeerRating from '../../models/BeerRating';
 import { ActivatedRoute, Router } from '@angular/router';
+import { mockActivatedRoute, mockRouter, mockToast, mockToastProvider } from '../../../../setup-jest';
+import { ToastProvider } from '../../services/toast/toast';
 
 /**
  * beer-detail.spec.ts
@@ -35,97 +36,88 @@ describe('BeerDetailPage', () => {
     create: jest.fn(() => Promise.reject('BOOM'))
   };
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [BeerDetailPage, RatingComponent],
       providers: [
         { provide: NavController, useValue: {}},
-        { provide: ToastController, useValue: mockToastController},
         { provide: BeerProvider, useValue: mockBeerProvider},
         { provide: RatingProvider, useValue: mockRatingProvider},
-        { provide: ActivatedRoute, useValue: {}},
-        { provide: Router, useValue: {}},
+        { provide: ActivatedRoute, useValue: mockActivatedRoute},
+        { provide: Router, useValue: mockRouter},
+        { provide: ToastProvider, useValue: mockToastProvider}
       ]
     }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BeerDetailPage);
-    component = fixture.debugElement.componentInstance;
   });
 
-  it('should initialize the BeerDetailPage', () => {
-    expect(component).toBeTruthy();
-    expect(fixture).toMatchSnapshot();
-  });
-
-  test('properties are set correctly on initialization with a beer that has ratings', () => {
-    expect(component.beer).toEqual(mockBeer);
-    expect(component.beerRating).toBeDefined();
-    expect(mockBeerProvider.retrieve).toHaveBeenCalledTimes(1);
-    expect(component.hasRating).toBe(true);
-    expect(component.beerRating).toEqual(mockRating);
-  });
-
-  test('createRecent to create error toast', async () => {
-    mockBeerProvider.createRecent.mockReturnValue(Promise.reject('error'));
-    await component.createRecent();
-    expect(mockToastController.create).toHaveBeenCalledTimes(1);
-    expect(mockToastController.create).toHaveBeenCalledWith({
-      message: 'Oops! Something is not right!.',
-      duration: 3000,
-      position: 'top',
-      cssClass: 'error-toast'
+  describe('page init', () => {
+    it('should initialize the BeerDetailPage using the extras state', () => {
+      mockRouter.getCurrentNavigation.mockReturnValue({extras: {state: {beer: mockBeer}}});
+      fixture = TestBed.createComponent(BeerDetailPage);
+      component = fixture.debugElement.componentInstance;
+      expect(component).toBeTruthy();
+      expect(fixture).toMatchSnapshot();
+      expect(component.beer).toBe(mockBeer);
+      // Assert properties are set correctly for a beer with ratings
+      expect(component.beerRating).toBeDefined();
+      expect(mockBeerProvider.retrieve).toHaveBeenCalledTimes(1);
+      expect(component.hasRating).toBe(true);
+      expect(component.beerRating).toEqual(mockRating);
     });
-    expect(mockToast.present).toHaveBeenCalledTimes(1);
-    expect(mockBeerProvider.createRecent).toHaveBeenCalledWith(component.beer);
-  });
 
-  test('createRecent to create success toast', async () => {
-    mockBeerProvider.createRecent.mockReturnValue(Promise.resolve('success'));
-    await component.createRecent();
-    expect(mockToastController.create).toHaveBeenCalledTimes(1);
-    expect(mockToastController.create).toHaveBeenCalledWith({
-      message: 'We saved a record of this you! Tell us what you think!',
-      duration: 3000,
-      position: 'top',
-      cssClass: 'success-toast'
+    it('should initialize the BeerDetailPage with the uuid only', () => {
+      mockRouter.getCurrentNavigation.mockReturnValue({extras: {}});
+      const uuidOnly = {uuid: 'test uuid'};
+      mockActivatedRoute.snapshot.paramMap.get.mockReturnValue(uuidOnly.uuid);
+      fixture = TestBed.createComponent(BeerDetailPage);
+      component = fixture.debugElement.componentInstance;
+      expect(component).toBeTruthy();
+      expect(fixture).toMatchSnapshot();
+      expect(component.beer).toEqual(uuidOnly);
     });
-    expect(mockToast.present).toHaveBeenCalledTimes(1);
-    expect(mockBeerProvider.createRecent).toHaveBeenCalledWith(component.beer);
   });
 
-  test('saveRatingDescription should call ratingProvider.partialUpdate and display a success toast', async () => {
-    await component.saveRatingDescription();
-    expect(mockToastController.create).toHaveBeenCalledTimes(1);
-    expect(mockToastController.create).toHaveBeenCalledWith({
-      message: 'Your description has been saved!',
-      duration: 3000,
-      position: 'top',
-      cssClass: 'success-toast'
+  describe('test methods', () => {
+    beforeEach(() => {
+      fixture = TestBed.createComponent(BeerDetailPage);
+      component = fixture.debugElement.componentInstance;
     });
-    expect(mockToast.present).toHaveBeenCalledTimes(1);
-    expect(mockRatingProvider.partialUpdate).toHaveBeenCalledWith(mockRating);
-  });
-
-  test('saveRatingDescription should call ratingProvider.create and display a error toast', async () => {
-    component.hasRating = false;
-    await component.saveRatingDescription();
-    expect(mockToastController.create).toHaveBeenCalledTimes(1);
-    expect(mockToastController.create).toHaveBeenCalledWith({
-      message: 'Having trouble saving your description.',
-      duration: 3000,
-      position: 'top',
-      cssClass: 'error-toast'
+    test('createRecent to create error toast', async () => {
+      mockBeerProvider.createRecent.mockReturnValue(Promise.reject('error'));
+      await component.createRecent();
+      expect(mockToastProvider.errorToast).toHaveBeenCalledWith();
+      expect(mockBeerProvider.createRecent).toHaveBeenCalledWith(component.beer);
     });
-    expect(mockToast.present).toHaveBeenCalledTimes(1);
-    expect(mockRatingProvider.create).toHaveBeenCalledWith(mockRating);
-  });
 
-  it('should set the rating', () => {
-    const rating = {} as BeerRating;
-    component.setRating(rating);
-    expect(component.beerRating).toEqual(rating);
+    test('createRecent to create success toast', async () => {
+      mockBeerProvider.createRecent.mockReturnValue(Promise.resolve('success'));
+      await component.createRecent();
+      expect(mockToastProvider.successToast).toHaveBeenCalledTimes(1);
+      expect(mockToastProvider.successToast).toHaveBeenCalledWith('We saved a record of this you! Tell us what you think!');
+      expect(mockBeerProvider.createRecent).toHaveBeenCalledWith(component.beer);
+    });
+
+    test('saveRatingDescription should call ratingProvider.partialUpdate and display a success toast', async () => {
+      component.hasRating = true;
+      mockRatingProvider.partialUpdate.mockResolvedValue();
+      await component.saveRatingDescription();
+      expect(mockToastProvider.successToast).toHaveBeenCalledTimes(1);
+      expect(mockRatingProvider.partialUpdate).toHaveBeenCalledWith(mockRating);
+    });
+
+    test('saveRatingDescription should display a error toast', async () => {
+      component.hasRating = false;
+      await component.saveRatingDescription();
+      expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);
+      expect(mockToastProvider.errorToast).toHaveBeenCalledWith('Having trouble saving your description.');
+      expect(mockRatingProvider.create).toHaveBeenCalledWith(mockRating);
+    });
+
+    it('should set the rating', () => {
+      const rating = {} as BeerRating;
+      component.setRating(rating);
+      expect(component.beerRating).toEqual(rating);
+    });
   });
 });

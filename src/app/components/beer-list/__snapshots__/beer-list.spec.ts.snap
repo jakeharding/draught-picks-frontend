@@ -3,9 +3,5 @@
 exports[`BeerListComponent should initialize the BeerListComponent 1`] = `
 <beer-list>
   
-  
-  
-  
-  
 </beer-list>
 `;

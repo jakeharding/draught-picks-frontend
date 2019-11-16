@@ -1,116 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BeerItemComponent should initialize the BeerItemComponent and match snapshot 1`] = `
-<beer-item>
-  
+<beer-item
+  navCtrl={[Function Object]}
+>
   <div
     class="pointer"
   >
-    
-    
     <ion-row>
-      
-      
       <ion-col
-        col-9=""
-        text-left=""
+        class="ion-text-left"
+        size="9"
       >
-        
-        
         <h1>
           
         </h1>
-        
-      
       </ion-col>
-      
-      
       <ion-col
-        col-3=""
-        text-right=""
+        class="ion-text-right"
+        size="3"
       >
         
-        
-        
-        
-      
       </ion-col>
-      
-    
     </ion-row>
-    
-  
-    
     <ion-row>
-      
-      
       <ion-col
-        col-9=""
-        text-left=""
+        class="ion-text-left"
+        size="9"
       >
-        
-        
         <p>
           Your rating:
         </p>
-        
-      
       </ion-col>
-      
-    
     </ion-row>
-    
-  
-    
     <ion-row>
-      
-      
       <ion-col
-        col-8=""
+        size="8"
       >
-        
-        
         <rating>
-          
-  
           <ion-row>
-            
-    
             <div />
-            
-    
             <div />
-            
-    
             <div />
-            
-    
             <div />
-            
-    
             <div />
-            
-  
           </ion-row>
-          
-  
         </rating>
-        
-      
       </ion-col>
-      
-  
-      
       <ion-col
-        col-2=""
-        text-right=""
+        class="ion-text-right"
+        size="2"
       >
-        
-        
-        
-        
-        
-        
         
         
         <p>
@@ -118,22 +58,11 @@ exports[`BeerItemComponent should initialize the BeerItemComponent and match sna
             ABV
           </strong>
         </p>
-        
-      
       </ion-col>
-      
-  
-      
       <ion-col
-        col-2=""
-        text-right=""
+        class="ion-text-right"
+        size="2"
       >
-        
-        
-        
-        
-        
-        
         
         
         <p>
@@ -141,18 +70,9 @@ exports[`BeerItemComponent should initialize the BeerItemComponent and match sna
             IBU
           </strong>
         </p>
-        
-      
       </ion-col>
-      
-    
     </ion-row>
-    
-    
     <hr />
-    
-  
   </div>
-  
 </beer-item>
 `;

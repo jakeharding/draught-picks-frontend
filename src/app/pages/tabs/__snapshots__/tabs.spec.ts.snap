@@ -1,36 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TabsPage should initialize the TabsPage 1`] = `
-<ng-component
-  tab1Root={[Function Function]}
-  tab2Root={[Function Function]}
-  tab3Root={[Function Function]}
->
-  <ion-tabs
-    selectedindex="1"
-  >
-    
-    
-    <ion-tab
-      tabicon="search"
-      tabtitle="Search"
-    />
-    
-    
-    <ion-tab
-      tabicon="home"
-      tabtitle="Home"
-    />
-    
-    
-    <ion-tab
-      tabicon="md-beer"
-      tabtitle="Beer Profile"
-      tid="beerProfile"
-    />
-    
-  
+<ng-component>
+  <ion-tabs>
+    <ion-tab-bar
+      slot="bottom"
+    >
+      <ion-tab-button
+        tab="search"
+      >
+        <ion-icon
+          name="search"
+        />
+        <ion-label>
+          Search
+        </ion-label>
+      </ion-tab-button>
+      <ion-tab-button
+        tab="home"
+      >
+        <ion-icon
+          name="home"
+        />
+        <ion-label>
+          Home
+        </ion-label>
+      </ion-tab-button>
+      <ion-tab-button
+        tab="preferences"
+      >
+        <ion-icon
+          name="md-beer"
+        />
+        <ion-label>
+          Beer Profile
+        </ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
   </ion-tabs>
-  
 </ng-component>
 `;

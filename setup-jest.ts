@@ -54,9 +54,20 @@ export const httpClient = {
 export const mockToast = {
   present: jest.fn()
 };
-export const mockToastController = {
-  create: jest.fn(() => mockToast)
+export const mockToastProvider = {
+  successToast: jest.fn(() => mockToast),
+  errorToast: jest.fn()
 };
 export const mockNavController = {
   setRoot: jest.fn()
+};
+export const mockRouter = {
+  getCurrentNavigation: jest.fn()
+};
+export const mockActivatedRoute = {
+  snapshot: {
+    paramMap: {
+      get: jest.fn()
+    }
+  }
 };

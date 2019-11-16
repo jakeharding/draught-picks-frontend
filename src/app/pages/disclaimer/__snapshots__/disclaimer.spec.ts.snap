@@ -2,16 +2,8 @@
 
 exports[`DisclaimerPage should initialize the DisclaimerPage 1`] = `
 <page-disclaimer>
-  
-  
-  <draught-header />
-  
-  <ion-content>
-    
-    
+  <draught-header /><ion-content>
     <ion-row>
-      
-      
       <ion-col
         class="below-header"
         col-12=""
@@ -25,60 +17,34 @@ exports[`DisclaimerPage should initialize the DisclaimerPage 1`] = `
         offset-xl-4=""
         text-center=""
       >
-        
-        
         <h1>
           Disclaimer
         </h1>
-        
-        
         <h4>
           Please drink responsibly.
         </h4>
-        
-        
         <div
           class="justify"
         >
-          
-          
           <p
             margin=""
           >
-            Draught Picks is not responsible for any over consumption of alchohol.
-            By using this application you acknowledge your responsibility for your actions and exclude Draught Picks
-            and the creators of Draught Picks from any liability without regard to your mental state.
-            By using this application, you agree you will not pursue any litigation against Draught Picks and its creators
-            at any time for any reason.
-          
+            Draught Picks is not responsible for any over consumption of alchohol. By using this application you acknowledge your responsibility for your actions and exclude Draught Picks and the creators of Draught Picks from any liability without regard to your mental state. By using this application, you agree you will not pursue any litigation against Draught Picks and its creators at any time for any reason. 
           </p>
-          
-          
           <p
             margin=""
           >
             You also acknowledge that you are over 21 by using this application. Draught Picks is not responsible for under age drinking.
           </p>
-          
-        
         </div>
-        
-        
         <a
           navpop=""
           tid="disclaimerVerified"
         >
           I have read the disclaimer
         </a>
-        
-      
       </ion-col>
-      
-    
     </ion-row>
-    
-  
   </ion-content>
-  
 </page-disclaimer>
 `;
