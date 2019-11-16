@@ -11,8 +11,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
 import { UserProvider } from '../../services/user/user';
 import { ToastProvider } from '../../services/toast/toast';
-import { 'sign-in' } from '../sign-in/sign-in';
-import { ResendEmailPage } from '../resend-email/resend-email';
 import { mockNavController } from '../../../../setup-jest';
 
 describe('ConfirmEmailPage', () => {
@@ -28,7 +26,7 @@ describe('ConfirmEmailPage', () => {
     errorToast: jest.fn()
   };
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [ConfirmEmailPage],
@@ -39,7 +37,7 @@ describe('ConfirmEmailPage', () => {
         { provide: ToastProvider, useValue: mockToastProvider}
       ]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ConfirmEmailPage);

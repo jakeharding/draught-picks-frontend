@@ -30,8 +30,8 @@ export class HomePage extends BasePage {
   recentOffset: number;
   loadMoreRecommended: boolean;
   loadMoreRecent: boolean;
-  recScrollCallback: () => void;
-  recentScrollCallback: () => void;
+  // recScrollCallback: () => void;
+  // recentScrollCallback: () => void;
 
 
   /**
@@ -121,7 +121,7 @@ export class HomePage extends BasePage {
    * Parameters: Beer list
    * increases the offset and loads more beers while scrolling through the beer list
    */
-  private processRecommendedBeers = (beers, event) => {
+  processRecommendedBeers = (beers, event) => {
     event.target.complete();
     if (beers.length === 0) {
       this.loadMoreRecommended = false;
@@ -137,7 +137,7 @@ export class HomePage extends BasePage {
    * Parameters: Beer list
    * increases the offset and loads more beers while scrolling through the beer list
    */
-  private processRecentBeers = (beers, event) => {
+  processRecentBeers = (beers, event) => {
     event.target.complete();
     if (beers.length === 0) {
       this.loadMoreRecent = false;

@@ -7,8 +7,8 @@
  * Test the RatingProvider.
  */
 import { RatingProvider } from './rating';
-import { httpClient, provide } from '../../jestGlobalMocks';
 import BeerRating from '../../models/BeerRating';
+import { httpClient, provide } from '../../../../setup-jest';
 
 describe('Test Rating Provider', () => {
 

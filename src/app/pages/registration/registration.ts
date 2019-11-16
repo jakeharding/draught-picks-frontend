@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignInPage } from '../sign-in/sign-in';
 import { DisclaimerPage } from '../disclaimer/disclaimer';
@@ -7,7 +7,7 @@ import { UserProvider } from '../../services/user/user';
 import CheckboxValidator from '../../validators/CheckboxValidator';
 import PasswordValidator from '../../validators/PasswordValidator';
 import { BasePage } from '../BasePage';
-import { EmailSentPage } from '../email-sent/email-sent';
+import { ToastProvider } from '../../services/toast/toast';
 
 /**
  * Generated class for the RegistrationPage page.
@@ -36,8 +36,7 @@ export class RegistrationPage extends BasePage {
    */
   constructor(public formBuilder: FormBuilder,
               public navCtrl: NavController,
-              public navParams: NavParams,
-              public toastCtrl: ToastController,
+              public toastProvider: ToastProvider,
               public userProvider: UserProvider ) {
     super('registration');
     this.maxDate = new Date(Date.now() - this.MS_IN_21_YEARS).toISOString();
@@ -76,15 +75,8 @@ export class RegistrationPage extends BasePage {
     this.userProvider.create(this.registerForm.value).then(
       () => {
         this.navCtrl.navigateRoot('email-sent');
-      }, async () => {
-        // TODO user toast provider
-        const toast = await this.toastCtrl.create({
-          message: 'Unable to register at the moment. Please try again.',
-          duration: 3000,
-          position: 'top',
-          cssClass: 'error-toast'
-        });
-        await toast.present();
+      }, () => {
+        this.toastProvider.errorToast();
       }
     );
   }

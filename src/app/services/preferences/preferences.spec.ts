@@ -8,7 +8,7 @@
  */
 import { PreferencesProvider } from './preferences';
 import UserPreferences from '../../models/UserPreferences';
-import { httpClient, provide } from '../../jestGlobalMocks';
+import { httpClient, provide } from '../../../../setup-jest';
 
 describe('Test preferences provider', () => {
   let prefsProvider: PreferencesProvider;

@@ -7,95 +7,55 @@ exports[`HomePage should initialize the HomePage 1`] = `
   loadMoreRecent={[Function Boolean]}
   loadMoreRecommended={[Function Boolean]}
   navCtrl={[Function Object]}
-  navParams={[Function Object]}
   processRecentBeers={[Function Function]}
   processRecommendedBeers={[Function Function]}
-  recScrollCallback={[Function Function]}
   recentOffset="0"
-  recentScrollCallback={[Function Function]}
   recents={[Function Array]}
   recommended={[Function Array]}
   recommendedOffset="0"
 >
-  
-  <draught-header />
-  
-  <ion-content
-    padding=""
+  <ion-header>
+    <draught-header />
+  </ion-header><ion-content
+    class="ion-padding"
   >
-    
-    
     <ion-row>
-      
-      
       <ion-col
         class="below-header"
-        col-12=""
-        col-lg-6=""
-        col-md-8=""
-        col-sm-10=""
-        col-xl-6=""
-        offset-lg-3=""
-        offset-md-2=""
-        offset-sm-1=""
-        offset-xl-3=""
+        offsetlg="3"
+        offsetmd="2"
+        offsetsm="1"
+        offsetxl="3"
+        size="12"
+        sizelg="6"
+        sizemd="8"
+        sizesm="10"
+        sizexl="6"
       >
-        
-  
-        
         <ion-segment
           color="primary"
         >
-          
-          
           <ion-segment-button
             tid="recentSegment"
             value="yes"
           >
-            
-            Recent
-          
+             Recent 
           </ion-segment-button>
-          
-          
           <ion-segment-button
+            checked=""
             tid="recommendedSegment"
             value="no"
           >
-            
-            Recommended
-          
+             Recommended 
           </ion-segment-button>
-          
-  
-  
-        
         </ion-segment>
-        
-        
-        
-        
         
         <div>
           
           
-          
-          
-          
-          
-          
-          
         </div>
-        
-  
-      
       </ion-col>
-      
-    
     </ion-row>
-    
-  
   </ion-content>
-  
 </page-home>
 `;

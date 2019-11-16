@@ -8,9 +8,8 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
   goToSignInPage={[Function Function]}
   maxDate={[Function String]}
   navCtrl={[Function Object]}
-  navParams={[Function Object]}
   registerForm={[Function FormGroup]}
-  toastCtrl="undefined"
+  toastProvider={[Function Object]}
   userProvider={[Function Object]}
   verifyAge="false"
 >

@@ -8,8 +8,8 @@
  */
 import { BeerProvider } from './beer';
 import Beer from '../../models/Beer';
-import { LIMIT } from '../../directives/infinite-scroller/infinite-scroller';
-import { httpClient, provide } from '../../jestGlobalMocks';
+import { httpClient, provide } from '../../../../setup-jest';
+import { LIMIT } from '../../app.component';
 
 describe('Test beer provider', () => {
   let beerProvider: BeerProvider;
@@ -24,7 +24,7 @@ describe('Test beer provider', () => {
 
   it('should call http.get with the default params and the beer name', () => {
     const mockResults = [];
-    httpClient.get.mockImplementation(() => ({map: () => ({results: mockResults})}));
+    httpClient.get.mockImplementation(() => ({pipe: () => ({results: mockResults})}));
     const params = {
       search: 'beerName',
       limit: LIMIT,
@@ -38,7 +38,7 @@ describe('Test beer provider', () => {
 
   it('should call http.get with the recent beers url', () => {
     const mockResults = [];
-    httpClient.get.mockImplementation(() => ({map: () => (mockResults)}));
+    httpClient.get.mockImplementation(() => ({pipe: () => (mockResults)}));
 
     const params = {
       limit: LIMIT,
@@ -52,7 +52,7 @@ describe('Test beer provider', () => {
 
   it('should call http.get with the recommended url', async () => {
     const mockResults = [];
-    httpClient.get.mockImplementation(() => ({map: () => mockResults}));
+    httpClient.get.mockImplementation(() => ({pipe: () => mockResults}));
 
     const params = {
       limit: LIMIT,

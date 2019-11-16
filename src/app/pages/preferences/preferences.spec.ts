@@ -9,7 +9,7 @@
 import { PreferencesPage } from './preferences';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NavController, NavParams, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { BeerProvider } from '../../services/beer/beer';
 import { UserProvider } from '../../services/user/user';
 import { PreferencesProvider } from '../../services/preferences/preferences';
@@ -17,8 +17,9 @@ import { FormBuilder, FormGroupDirective } from '@angular/forms';
 import User from '../../models/User';
 import UserPreferences from '../../models/UserPreferences';
 import Beer from '../../models/Beer';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 import { mockToastProvider } from '../../../../setup-jest';
+import { ToastProvider } from '../../services/toast/toast';
 
 describe('PreferencesPage', () => {
   let component: PreferencesPage;
@@ -48,8 +49,7 @@ describe('PreferencesPage', () => {
         {provide: UserProvider, useValue: mockUserProvider},
         {provide: PreferencesProvider, useValue: mockPrefsProvider},
         {provide: NavController, useValue: {}},
-        {provide: NavParams, useValue: {}},
-        {provide: ToastController, useValue: mockToastProvider},
+        {provide: ToastProvider, useValue: mockToastProvider},
         FormBuilder
       ]
     }).compileComponents();
@@ -76,8 +76,7 @@ describe('PreferencesPage', () => {
   test('savePrefs should call the toastController.create, prefsProvider.save, and set the prefsForm values to null',
     async () => {
     await component.savePrefs();
-    expect(mockToastController.create).toHaveBeenCalledTimes(2);
-    expect(mockToast.present).toHaveBeenCalledTimes(2);
+    expect(mockToastProvider.successToast).toHaveBeenCalledTimes(2);
     expect(mockPrefsProvider.save).toHaveBeenCalledTimes(1);
     expect(component.prefsForm.value.abv_low).toBeNull();
     expect(component.prefsForm.value.abv_hi).toBeNull();
@@ -85,15 +84,14 @@ describe('PreferencesPage', () => {
     expect(component.prefsForm.value.ibu_hi).toBeNull();
   });
 
-  test('savePrefs should call the toastController.create, prefsProvider.save, and not change the prefsForm values',
+  test('savePrefs should call the mockToastProvider.successToast, prefsProvider.save, and not change the prefsForm values',
     async () => {
     component.prefsForm.value.abv_low = '1';
     component.prefsForm.value.abv_hi = '10';
     component.prefsForm.value.ibu_low = '10';
     component.prefsForm.value.ibu_hi = '10';
     await component.savePrefs();
-    expect(mockToastController.create).toHaveBeenCalledTimes(2);
-    expect(mockToast.present).toHaveBeenCalledTimes(2);
+    expect(mockToastProvider.successToast).toHaveBeenCalledTimes(2);
     expect(mockPrefsProvider.save).toHaveBeenCalledTimes(1);
     expect(component.prefsForm.value.abv_low).toBe('1');
     expect(component.prefsForm.value.abv_hi).toBe('10');
@@ -104,8 +102,8 @@ describe('PreferencesPage', () => {
   test('savePrefs should display an error toast when prefsProvider.save is rejected', async () => {
     mockPrefsProvider.save.mockImplementation(() => Promise.reject('error'));
     await component.savePrefs();
-    expect(mockToastController.create).toHaveBeenCalledTimes(2);
-    expect(mockToast.present).toHaveBeenCalledTimes(2);
+    expect(mockToastProvider.successToast).toHaveBeenCalledTimes(1);
+    expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);
     expect(mockPrefsProvider.save).toHaveBeenCalledTimes(1);
   });
 
@@ -132,7 +130,7 @@ describe('PreferencesPage', () => {
   });
 
   test('search should call beerProvider.search when a value is entered', async () => {
-    const mockSearchResult = Observable.of([mockBeer]);
+    const mockSearchResult = of([mockBeer]);
     mockBeerProvider.search.mockReturnValue(mockSearchResult);
     component.beerSearch = 'aBeer';
     await component.search({} as Event);

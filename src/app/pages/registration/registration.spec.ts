@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistrationPage } from './registration';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NavController, NavParams, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { FormBuilder, FormGroupDirective } from '@angular/forms';
 import { UserProvider } from '../../services/user/user';
-import { mockToast, mockToastController } from '../../jestGlobalMocks';
-import { EmailSentPage } from '../email-sent/email-sent';
+import { ToastProvider } from '../../services/toast/toast';
+import { mockNavController, mockToastProvider } from '../../../../setup-jest';
 
 /**
  * registration.spec.ts
@@ -24,19 +24,14 @@ describe('RegistrationPage', () => {
     create: jest.fn(() => Promise.resolve())
   };
 
-  const mockNavController = {
-    setRoot: jest.fn()
-  };
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [RegistrationPage, FormGroupDirective],
       providers: [
         { provide: NavController, useValue: mockNavController},
-        { provide: NavParams, useValue: {}},
         FormBuilder,
-        { provide: ToastController, useValue: mockToastController},
+        { provide: ToastProvider, useValue: mockToastProvider},
         { provide: UserProvider, useValue: mockUserProvider},
       ]
     }).compileComponents();
@@ -61,15 +56,14 @@ describe('RegistrationPage', () => {
     await component.createUser();
     expect(mockUserProvider.create).toHaveBeenCalledTimes(1);
     expect(mockUserProvider.create).toHaveBeenCalledWith(component.registerForm.value);
-    expect(mockNavController.setRoot).toHaveBeenCalledTimes(1);
-    expect(mockNavController.setRoot).toHaveBeenCalledWith(EmailSentPage);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledTimes(1);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('email-sent');
   });
 
   test('createUser displays a toast when userProvider.create fails', async () => {
     mockUserProvider.create.mockReturnValue(Promise.reject('error'));
     await component.createUser();
-    expect(mockNavController.setRoot).not.toHaveBeenCalled();
-    expect(mockToastController.create).toHaveBeenCalledTimes(1);
-    expect(mockToast.present).toHaveBeenCalled();
+    expect(mockNavController.navigateRoot).not.toHaveBeenCalled();
+    expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);
   });
 });

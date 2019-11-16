@@ -6,10 +6,11 @@
  *
  * Test the AuthProvider
  */
-import { AuthProvider, LoginRequired, TOKEN_STO_KEY } from './auth';
-import { httpClient, provide } from '../../jestGlobalMocks';
+import { AuthProvider, TOKEN_STO_KEY } from './auth';
 import { HttpHandler, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
+import { httpClient, mockNavController, provide } from '../../../../setup-jest';
+import { NavController } from '@ionic/angular';
 
 describe('AuthProvider', () => {
 
@@ -17,13 +18,13 @@ describe('AuthProvider', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    authProvider = new AuthProvider(provide(httpClient));
+    authProvider = new AuthProvider(provide(httpClient), mockNavController as unknown as NavController);
     localStorage.setItem(TOKEN_STO_KEY, 'auth');
   });
 
   it('should set the auth token on the headers', () => {
     const mockHandler = {
-      handle: jest.fn(() => Observable.empty()),
+      handle: jest.fn(() => EMPTY),
     } as HttpHandler;
     const mockRequest = new HttpRequest('POST', 'url', {});
     mockRequest.clone = jest.fn();
@@ -44,7 +45,7 @@ describe('AuthProvider', () => {
   });
 
   it('should call http.post with the sign in url', async () => {
-    httpClient.post.mockImplementation(() => ({ map: () => ({toPromise: () => Promise.resolve()})}));
+    httpClient.post.mockImplementation(() => ({toPromise: () => Promise.resolve()}));
     await authProvider.signIn({});
     expect(httpClient.post).toHaveBeenCalledTimes(1);
   });
@@ -58,16 +59,5 @@ describe('AuthProvider', () => {
     expect(authProvider.isLoggedIn()).toBe(true);
     localStorage.clear();
     expect(authProvider.isLoggedIn()).toBe(false);
-  });
-});
-
-describe('LoginRequired', () => {
-  it('should set the ionViewCanEnter on the target', () => {
-    const target = new Function();
-    location.assign = jest.fn();
-    LoginRequired(target);
-    expect(target.prototype.ionViewCanEnter()).toBe(false);
-    expect(location.assign).toHaveBeenCalledTimes(1);
-    expect(location.assign).toHaveBeenCalledWith('sign-in');
   });
 });
