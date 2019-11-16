@@ -59,7 +59,7 @@ export const mockToastProvider = {
   errorToast: jest.fn()
 };
 export const mockNavController = {
-  setRoot: jest.fn()
+  navigateRoot: jest.fn()
 };
 export const mockRouter = {
   getCurrentNavigation: jest.fn()

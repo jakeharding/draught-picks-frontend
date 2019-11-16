@@ -9,15 +9,8 @@ exports[`ResendEmailPage should initialize the ResendEmailPage 1`] = `
   toastProvider={[Function Object]}
   userProvider={[Function Object]}
 >
-  
-  <draught-header />
-  
-  <ion-content>
-    
-    
+  <draught-header /><ion-content>
     <ion-row>
-      
-      
       <ion-col
         class="below-header"
         col-12=""
@@ -31,65 +24,35 @@ exports[`ResendEmailPage should initialize the ResendEmailPage 1`] = `
         offset-xl-4=""
         text-center=""
       >
-        
-        
         <form>
-          
-          
           <h1>
             Resend Email
           </h1>
-          
-          
           <br />
-          
-          
           <p>
             Please enter the email address below:
           </p>
-          
-          
           <ion-item>
-            
-            
             <ion-label
               floating=""
               text-left=""
             >
               Email
             </ion-label>
-            
-            
             <ion-input
               formcontrolname="email"
               type="text"
             />
-            
-          
           </ion-item>
-          
-        
         </form>
-        
-        
         <button
           ion-button=""
           margin-top="20px"
         >
-          
-          Submit
-        
+           Submit 
         </button>
-        
-      
       </ion-col>
-      
-    
     </ion-row>
-    
-  
-  
   </ion-content>
-  
 </page-resend-email>
 `;

@@ -11,8 +11,9 @@ import { DraughtHeaderComponent } from './draught-header';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthProvider } from '../../services/auth/auth';
-import { SignInPage } from '../../pages/sign-in/sign-in';
 import { HomePage } from '../../pages/home/home';
+import { ActivatedRoute } from '@angular/router';
+import { mockActivatedRoute, mockNavController } from '../../../../setup-jest';
 
 describe('DraughtHeaderComponent', () => {
   let component: DraughtHeaderComponent;
@@ -24,10 +25,10 @@ describe('DraughtHeaderComponent', () => {
     provide: jest.fn()
   };
 
-  const mockNavCtrl = {
-    setRoot: jest.fn(),
-    provide: jest.fn()
-  };
+  // const mockNavCtrl = {
+  //   setRoot: jest.fn(),
+  //   provide: jest.fn()
+  // };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -35,7 +36,9 @@ describe('DraughtHeaderComponent', () => {
       declarations: [DraughtHeaderComponent],
       providers: [
         {provide: AuthProvider, useValue: mockAuthProvider},
-        {provide: NavController, useValue: mockNavCtrl}
+        {provide: NavController, useValue: mockNavController},
+        {provide: ActivatedRoute, useValue: mockActivatedRoute},
+
       ]
     }).compileComponents();
   }));
@@ -54,20 +57,20 @@ describe('DraughtHeaderComponent', () => {
   test('logout() should call authProvider.clearToken and navCtrl.setRoot', () => {
     component.logout();
     expect(mockAuthProvider.clearToken).toHaveBeenCalledTimes(1);
-    expect(mockNavCtrl.setRoot).toHaveBeenCalledWith(SignInPage);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('sign-in');
   });
 
   test('home() should call authProvider.isLoggedIn and setRoot with HomePage when a user is logged in', () => {
     mockAuthProvider.isLoggedIn.mockReturnValue(true);
     component.home();
     expect(mockAuthProvider.isLoggedIn).toHaveBeenCalledTimes(1);
-    expect(mockNavCtrl.setRoot).toHaveBeenCalledWith(HomePage);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('/tabs/home');
   });
 
-  test('home() should call authProvider.isLoggedIn and setRoot with SignInPage when a user is not logged in', () => {
+  test('home() should call authProvider.isLoggedIn and navigateRoot with sign-in when a user is not logged in', () => {
     mockAuthProvider.isLoggedIn.mockReturnValue(false);
     component.home();
     expect(mockAuthProvider.isLoggedIn).toHaveBeenCalledTimes(1);
-    expect(mockNavCtrl.setRoot).toHaveBeenCalledWith(SignInPage);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('sign-in');
   });
 });

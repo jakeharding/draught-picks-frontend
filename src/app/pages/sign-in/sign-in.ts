@@ -1,9 +1,10 @@
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationPage } from '../registration/registration';
 import { AuthProvider } from '../../services/auth/auth';
 import { BasePage } from '../BasePage';
+import { ToastProvider } from '../../services/toast/toast';
 
 /**
  * Generated class for the SignInPage page.
@@ -24,7 +25,7 @@ export class SignInPage extends BasePage {
   private username: string;
   private password: string;
 
-  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastCtrl: ToastController,
+  constructor(public navCtrl: NavController, public formBuilder: FormBuilder, public toastProvider: ToastProvider,
               public authProvider: AuthProvider) {
     super('sign-in');
     if (this.authProvider.isLoggedIn()) {
@@ -48,16 +49,9 @@ export class SignInPage extends BasePage {
       (response) => {
         this.authProvider.setToken(response.token);
         this.navCtrl.navigateRoot('tabs');
-        // location.hash = '';
       },
-      async () => {
-        const toast = await this.toastCtrl.create({
-          message: 'Unable to sign you in. Have you verified your email address?',
-          duration: 3000,
-          position: 'top',
-          cssClass: 'error-toast'
-        });
-        await toast.present();
+      () => {
+        const toast = this.toastProvider.errorToast('Unable to sign you in. Have you verified your email address?');
       }
     );
 

@@ -3,8 +3,8 @@ import { ResendEmailPage } from './resend-email';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
 import { FormBuilder, FormGroupDirective } from '@angular/forms';
-import { ToastProvider } from '../../providers/toast/toast';
-import { UserProvider } from '../../providers/user/user';
+import { ToastProvider } from '../../services/toast/toast';
+import { UserProvider } from '../../services/user/user';
 
 /**
  * resend-email.spec.ts

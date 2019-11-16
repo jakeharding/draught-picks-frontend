@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SignInPage } from './sign-in';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NavController, NavPush, ToastController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { FormBuilder, FormGroupDirective } from '@angular/forms';
-import { AuthProvider } from '../../providers/auth/auth';
-import { mockNavController, mockToast, mockToastController } from '../../jestGlobalMocks';
-import { TabsPage } from '../tabs/tabs';
+import { AuthProvider } from '../../services/auth/auth';
+import { mockNavController, mockToastProvider } from '../../../../setup-jest';
+import { ToastProvider } from '../../services/toast/toast';
 
 /**
  * sign-in.spec.ts
@@ -29,9 +29,9 @@ describe('SignInPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      declarations: [SignInPage, FormGroupDirective, NavPush],
+      declarations: [SignInPage, FormGroupDirective],
       providers: [
-        { provide: ToastController, useValue: mockToastController},
+        { provide: ToastProvider, useValue: mockToastProvider},
         { provide: AuthProvider, useValue: mockAuthProvider},
         { provide: NavController, useValue: mockNavController},
         FormBuilder
@@ -47,8 +47,8 @@ describe('SignInPage', () => {
   it('should initialize the SignInPage and set root to TabsPage if logged in', () => {
     expect(component).toBeTruthy();
     expect(fixture).toMatchSnapshot();
-    expect(mockNavController.setRoot).toHaveBeenCalledTimes(1);
-    expect(mockNavController.setRoot).toHaveBeenCalledWith(TabsPage);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledTimes(1);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('tabs');
   });
 
   test('signIn should call authProvider.setToken and navCtrl.setRoot when promise resolves', async () => {
@@ -56,20 +56,14 @@ describe('SignInPage', () => {
     await component.signIn();
     expect(mockAuthProvider.setToken).toHaveBeenCalledTimes(1);
     expect(mockAuthProvider.setToken).toHaveBeenCalledWith('token');
-    expect(mockNavController.setRoot).toHaveBeenCalledTimes(1);
-    expect(mockNavController.setRoot).toHaveBeenCalledWith(TabsPage);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledTimes(1);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('tabs');
   });
 
   test('signIn should show error toast when promise is rejected', async () => {
     mockAuthProvider.signIn.mockReturnValue(Promise.reject('error'));
     await component.signIn();
-    expect(mockToastController.create).toHaveBeenCalledTimes(1);
-    expect(mockToastController.create).toHaveBeenCalledWith({
-      message: 'An error occurred please check your connection and try again.',
-      duration: 3000,
-      position: 'top',
-      cssClass: 'error-toast'
-    });
-    expect(mockToast.present).toHaveBeenCalledTimes(1);
+    expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);
+    expect(mockToastProvider.errorToast).toHaveBeenCalledWith('Unable to sign you in. Have you verified your email address?');
   });
 });

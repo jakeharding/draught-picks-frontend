@@ -11,9 +11,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
 import { UserProvider } from '../../services/user/user';
 import { ToastProvider } from '../../services/toast/toast';
-import { mockNavController } from '../../jestGlobalMocks';
-import { SignInPage } from '../sign-in/sign-in';
+import { 'sign-in' } from '../sign-in/sign-in';
 import { ResendEmailPage } from '../resend-email/resend-email';
+import { mockNavController } from '../../../../setup-jest';
 
 describe('ConfirmEmailPage', () => {
 
@@ -76,16 +76,16 @@ describe('ConfirmEmailPage', () => {
     expect(fixture).toMatchSnapshot();
   });
 
-  test('goToLink will go to SignInPage when showResendLink is false', () => {
+  test('goToLink will go to sign-in when showResendLink is false', () => {
     component.goToLink();
-    expect(mockNavController.setRoot).toHaveBeenCalledTimes(1);
-    expect(mockNavController.setRoot).toHaveBeenCalledWith(SignInPage);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledTimes(1);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('sign-in');
   });
 
   test('goToLink will go to ResendEmailPage when showResendLink is true', () => {
     component.showResendLink = true;
     component.goToLink();
-    expect(mockNavController.setRoot).toHaveBeenCalledTimes(1);
-    expect(mockNavController.setRoot).toHaveBeenCalledWith(ResendEmailPage);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledTimes(1);
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('resend-email');
   });
 });

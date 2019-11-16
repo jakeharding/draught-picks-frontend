@@ -9,16 +9,16 @@
 import { PreferencesPage } from './preferences';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NavController, NavParams, NavPush, ToastController } from '@ionic/angular';
-import { BeerProvider } from '../../providers/beer/beer';
-import { UserProvider } from '../../providers/user/user';
-import { PreferencesProvider } from '../../providers/preferences/preferences';
+import { NavController, NavParams, ToastController } from '@ionic/angular';
+import { BeerProvider } from '../../services/beer/beer';
+import { UserProvider } from '../../services/user/user';
+import { PreferencesProvider } from '../../services/preferences/preferences';
 import { FormBuilder, FormGroupDirective } from '@angular/forms';
-import { mockToast, mockToastController } from '../../jestGlobalMocks';
 import User from '../../models/User';
 import UserPreferences from '../../models/UserPreferences';
 import Beer from '../../models/Beer';
 import { Observable } from 'rxjs';
+import { mockToastProvider } from '../../../../setup-jest';
 
 describe('PreferencesPage', () => {
   let component: PreferencesPage;
@@ -42,14 +42,14 @@ describe('PreferencesPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      declarations: [PreferencesPage, NavPush, FormGroupDirective],
+      declarations: [PreferencesPage, FormGroupDirective],
       providers: [
         {provide: BeerProvider, useValue: mockBeerProvider},
         {provide: UserProvider, useValue: mockUserProvider},
         {provide: PreferencesProvider, useValue: mockPrefsProvider},
         {provide: NavController, useValue: {}},
         {provide: NavParams, useValue: {}},
-        {provide: ToastController, useValue: mockToastController},
+        {provide: ToastController, useValue: mockToastProvider},
         FormBuilder
       ]
     }).compileComponents();

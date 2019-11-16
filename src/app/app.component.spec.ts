@@ -11,11 +11,14 @@ describe('AppComponent', () => {
 
   let statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
 
-  beforeEach(async(() => {
-    statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
-    splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
-    platformReadySpy = Promise.resolve();
-    platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy });
+  beforeEach(() => {
+    statusBarSpy = {styleDefault: jest.fn()};
+    // statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
+    splashScreenSpy = {hide: jest.fn() };
+    // splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
+    platformReadySpy = jest.fn().mockReturnValue(Promise.resolve());
+    platformSpy = { ready: platformReadySpy };
+    // platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy });
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],
@@ -26,7 +29,7 @@ describe('AppComponent', () => {
         { provide: Platform, useValue: platformSpy },
       ],
     }).compileComponents();
-  }));
+  });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
