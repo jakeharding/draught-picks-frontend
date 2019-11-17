@@ -49,7 +49,7 @@
         <div *ngSwitchCase="'no'">
             <div class="ion-text-center" *ngIf="recommended?.length === 0">
               <p>Your recommended beers are coming soon! If you haven't created your beer profile yet,
-                <a class="pointer" routerLink="/tabs/preferences" routerDirection="root">click here to fill it out now!</a></p>
+                <a class="pointer" routerLink="/tabs/beer-profile" routerDirection="root">click here to fill it out now!</a></p>
             </div>
             <div *ngIf="recommended?.length > 0">
               <strong class="title">Your recommended beers:</strong>
