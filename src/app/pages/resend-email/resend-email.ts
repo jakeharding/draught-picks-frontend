@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BasePage } from '../BasePage';
 import { UserProvider } from '../../services/user/user';
@@ -12,7 +12,6 @@ import { ToastProvider } from '../../services/toast/toast';
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
 @Component({
   selector: 'page-resend-email',
   templateUrl: 'resend-email.html',
@@ -24,7 +23,6 @@ export class ResendEmailPage extends BasePage {
 
   constructor(public formBuilder: FormBuilder,
               public navCtrl: NavController,
-              public navParams: NavParams,
               private toastProvider: ToastProvider,
               private userProvider: UserProvider) {
     super('resend-email');

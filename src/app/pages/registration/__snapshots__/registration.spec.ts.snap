@@ -13,22 +13,23 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
   userProvider={[Function Object]}
   verifyAge="false"
 >
-  <draught-header /><ion-content
-    padding=""
+  <ion-header>
+    <draught-header />
+  </ion-header><ion-content
+    class="ion-padding"
   >
     <ion-row>
       <ion-col
-        class="below-header"
-        col-12=""
-        col-lg-6=""
-        col-md-6=""
-        col-sm-10=""
-        col-xl-4=""
-        offset-lg-3=""
-        offset-md-3=""
-        offset-sm-1=""
-        offset-xl-4=""
-        text-center=""
+        class="ion-text-center"
+        offsetlg="3"
+        offsetmd="3"
+        offsetsm="1"
+        offsetxl="4"
+        size="12"
+        sizelg="6"
+        sizemd="6"
+        sizesm="10"
+        sizexl="4"
       >
         <form>
           <h1>
@@ -42,9 +43,9 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
             >
               <ion-item>
                 <ion-label
+                  class="ion-text-left"
                   color="primary"
-                  floating=""
-                  text-left=""
+                  position="floating"
                 >
                   First Name
                 </ion-label>
@@ -56,13 +57,14 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
               </ion-item>
             </ion-col>
             <ion-col
-              text-center=""
+              class="ion-text-center"
+              r=""
             >
               <ion-item>
                 <ion-label
+                  class="ion-text-left"
                   color="primary"
-                  floating=""
-                  text-left=""
+                  position="floating"
                 >
                   Last Name
                 </ion-label>
@@ -76,9 +78,9 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
           </ion-row>
           <ion-item>
             <ion-label
+              class="ion-text-left"
               color="primary"
-              floating=""
-              text-left=""
+              position="floating"
             >
               Username
             </ion-label>
@@ -90,9 +92,9 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
           </ion-item>
           <ion-item>
             <ion-label
+              class="ion-text-left"
               color="primary"
-              floating=""
-              text-left=""
+              position="floating"
             >
               Email
             </ion-label>
@@ -104,9 +106,9 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
           </ion-item>
           <ion-item>
             <ion-label
+              class="ion-text-left"
               color="primary"
-              floating=""
-              text-left=""
+              position="floating"
             >
               Create Password
             </ion-label>
@@ -118,9 +120,9 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
           </ion-item>
           <ion-item>
             <ion-label
+              class="ion-text-left"
               color="primary"
-              floating=""
-              text-left=""
+              position="floating"
             >
               Confirm Password
             </ion-label>
@@ -132,9 +134,9 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
           </ion-item>
           <ion-item>
             <ion-label
+              class="ion-text-left"
               color="primary"
-              floating=""
-              text-left=""
+              position="floating"
             >
               Birthday
             </ion-label>
@@ -167,6 +169,8 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
             <ion-checkbox
               color="primary"
               formcontrolname="disclaimer_check"
+              routerdirection="forward"
+              routerlink="/disclaimer"
               tid="disclaimerVerification"
             />
             <ion-label>
@@ -178,18 +182,18 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
               </a>
             </ion-label>
           </ion-item>
-          <button
-            ion-button=""
+          <ion-button
             margin-top="20px"
             tid="registerButton"
           >
              Register 
-          </button>
+          </ion-button>
           <p>
             Already have an account?
           </p>
           <a
-            href="#/sign-in"
+            routerdirection="root"
+            routerlink="/sign-in"
             tid="signInLink"
           >
             Sign in.

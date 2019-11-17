@@ -71,10 +71,12 @@ export class RegistrationPage extends BasePage {
    * Creates a new user after the registration form was submitted and stores
    * all of the registration form values in the database
    */
-  public createUser() {
-    this.userProvider.create(this.registerForm.value).then(
+  public async createUser() {
+    console.log(this.registerForm.value.date_of_birth.substring(0, 10));
+    this.registerForm.value.date_of_birth = this.registerForm.value.date_of_birth.substring(0, 10);
+    await this.userProvider.create(this.registerForm.value).then(
       () => {
-        this.navCtrl.navigateRoot('email-sent');
+        this.navCtrl.navigateRoot('/email-sent');
       }, () => {
         this.toastProvider.errorToast();
       }

@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     IonicModule,
-    RouterModule.forChild([{path: 'email-sent', component: EmailSentPage}]),
+    RouterModule.forChild([{path: '', component: EmailSentPage}]),
     ComponentsModule,
   ],
 })

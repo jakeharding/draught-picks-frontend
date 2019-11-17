@@ -2,20 +2,21 @@
 
 exports[`DisclaimerPage should initialize the DisclaimerPage 1`] = `
 <page-disclaimer>
-  <draught-header /><ion-content>
+  <ion-header>
+    <draught-header />
+  </ion-header><ion-content>
     <ion-row>
       <ion-col
-        class="below-header"
-        col-12=""
-        col-lg-6=""
-        col-md-8=""
-        col-sm-10=""
-        col-xl-4=""
-        offset-lg-3=""
-        offset-md-2=""
-        offset-sm-1=""
-        offset-xl-4=""
-        text-center=""
+        class="ion-text-center"
+        offsetlg="3"
+        offsetmd="2"
+        offsetsm="1"
+        offsetxl="4"
+        size="12"
+        sizelg="6"
+        sizemd="8"
+        sizesm="10"
+        sizexl="4"
       >
         <h1>
           Disclaimer
@@ -29,7 +30,7 @@ exports[`DisclaimerPage should initialize the DisclaimerPage 1`] = `
           <p
             margin=""
           >
-            Draught Picks is not responsible for any over consumption of alchohol. By using this application you acknowledge your responsibility for your actions and exclude Draught Picks and the creators of Draught Picks from any liability without regard to your mental state. By using this application, you agree you will not pursue any litigation against Draught Picks and its creators at any time for any reason. 
+            Draught Picks is not responsible for any over consumption of alcohol. By using this application you acknowledge your responsibility for your actions and exclude Draught Picks and the creators of Draught Picks from any liability without regard to your mental state. By using this application, you agree you will not pursue any litigation against Draught Picks and its creators at any time for any reason. 
           </p>
           <p
             margin=""
@@ -38,7 +39,8 @@ exports[`DisclaimerPage should initialize the DisclaimerPage 1`] = `
           </p>
         </div>
         <a
-          navpop=""
+          routerdirection="back"
+          routerlink="/register"
           tid="disclaimerVerified"
         >
           I have read the disclaimer

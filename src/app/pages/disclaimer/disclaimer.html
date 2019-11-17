@@ -4,16 +4,18 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-
-<draught-header></draught-header>
+<ion-header>
+  <draught-header></draught-header>
+</ion-header>
 
 <ion-content>
   <ion-row>
-    <ion-col class="below-header" text-center col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+    <ion-col class="ion-text-center"
+             size="12" sizeSm="10" offsetSm="1" sizeMd="8" offsetMd="2" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
       <h1>Disclaimer</h1>
       <h4>Please drink responsibly.</h4>
       <div class="justify">
-        <p margin>Draught Picks is not responsible for any over consumption of alchohol.
+        <p margin>Draught Picks is not responsible for any over consumption of alcohol.
           By using this application you acknowledge your responsibility for your actions and exclude Draught Picks
           and the creators of Draught Picks from any liability without regard to your mental state.
           By using this application, you agree you will not pursue any litigation against Draught Picks and its creators
@@ -21,7 +23,7 @@
         </p>
         <p margin>You also acknowledge that you are over 21 by using this application. Draught Picks is not responsible for under age drinking.</p>
       </div>
-      <a tid="disclaimerVerified" navPop>I have read the disclaimer</a>
+      <a tid="disclaimerVerified" routerLink="/register" routerDirection="back">I have read the disclaimer</a>
     </ion-col>
   </ion-row>
 </ion-content>

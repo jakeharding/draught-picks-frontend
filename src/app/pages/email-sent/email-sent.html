@@ -9,18 +9,19 @@
 
 <ion-content>
   <ion-row>
-    <ion-col class="below-header" text-center col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+    <ion-col class="ion-text-center"
+             size="12" sizeSm="10" offsetSm="1" sizeMd="8" offsetMd="2" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
       <h1>Email Sent</h1>
       <div class="justify">
-        <p margin>
+        <p class="margin">
           An email has been sent to the address you provided. Please use the link in the email to confirm your ownership of the email address.
         </p>
-        <p margin>
+        <p class="margin">
           The link in the email is good for 24 hours.
         </p>
 
-        <p margin>
-          If you have trouble confirming the email click <a routerLink="resend" routerDirection="forward">this link to resend it</a>.
+        <p class="margin">
+          If you have trouble confirming the email click <a routerLink="/resend-email" routerDirection="forward">this link to resend it</a>.
         </p>
       </div>
     </ion-col>

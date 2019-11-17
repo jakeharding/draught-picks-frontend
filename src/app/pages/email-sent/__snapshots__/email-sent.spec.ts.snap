@@ -8,17 +8,16 @@ exports[`EmailSentPage should match the snapshot 1`] = `
   <draught-header /><ion-content>
     <ion-row>
       <ion-col
-        class="below-header"
-        col-12=""
-        col-lg-6=""
-        col-md-8=""
-        col-sm-10=""
-        col-xl-4=""
-        offset-lg-3=""
-        offset-md-2=""
-        offset-sm-1=""
-        offset-xl-4=""
-        text-center=""
+        class="ion-text-center"
+        offsetlg="3"
+        offsetmd="2"
+        offsetsm="1"
+        offsetxl="4"
+        size="12"
+        sizelg="6"
+        sizemd="8"
+        sizesm="10"
+        sizexl="4"
       >
         <h1>
           Email Sent
@@ -27,22 +26,22 @@ exports[`EmailSentPage should match the snapshot 1`] = `
           class="justify"
         >
           <p
-            margin=""
+            class="margin"
           >
              An email has been sent to the address you provided. Please use the link in the email to confirm your ownership of the email address. 
           </p>
           <p
-            margin=""
+            class="margin"
           >
              The link in the email is good for 24 hours. 
           </p>
           <p
-            margin=""
+            class="margin"
           >
              If you have trouble confirming the email click 
             <a
               routerdirection="forward"
-              routerlink="resend"
+              routerlink="/resend-email"
             >
               this link to resend it
             </a>

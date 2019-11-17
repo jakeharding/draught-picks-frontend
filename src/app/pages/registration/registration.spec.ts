@@ -57,7 +57,7 @@ describe('RegistrationPage', () => {
     expect(mockUserProvider.create).toHaveBeenCalledTimes(1);
     expect(mockUserProvider.create).toHaveBeenCalledWith(component.registerForm.value);
     expect(mockNavController.navigateRoot).toHaveBeenCalledTimes(1);
-    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('email-sent');
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('/email-sent');
   });
 
   test('createUser displays a toast when userProvider.create fails', async () => {

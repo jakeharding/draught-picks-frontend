@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ResendEmailPage } from './resend-email';
-// import { ComponentsModule } from '../../components/components.module';
+import { ComponentsModule } from '../../components/components.module';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,8 +11,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     IonicModule,
-    RouterModule.forChild([{path: 'resent-email', component: ResendEmailPage}]),
-    // ComponentsModule,
+    RouterModule.forChild([{path: '', component: ResendEmailPage}]),
+    ComponentsModule,
+    ReactiveFormsModule,
   ],
 })
 export class ResendEmailPageModule {}

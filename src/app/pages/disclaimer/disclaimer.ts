@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { IonicPage } from '@ionic/angular';
 import { BasePage } from '../BasePage';
 
 /**
@@ -9,7 +8,6 @@ import { BasePage } from '../BasePage';
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
 @Component({
   selector: 'page-disclaimer',
   templateUrl: 'disclaimer.html',

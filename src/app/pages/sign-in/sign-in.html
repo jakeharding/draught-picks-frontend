@@ -4,31 +4,32 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<draught-header></draught-header>
+<ion-header>
+  <draught-header></draught-header>
+</ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <ion-row>
-    <ion-col class="below-header" col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4>
+    <ion-col size="12" sizeSm="10" offsetSm="1" sizeMd="8" offsetMd="2" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
       <h1>Please Sign In</h1>
       <form [formGroup]="signInForm">
         <ion-item>
-          <ion-label floating>Username or Email</ion-label>
+          <ion-label position="floating">Username or Email</ion-label>
           <ion-input tid="usernameField" formControlName="username" type="text"></ion-input>
         </ion-item>
         <br>
         <ion-item>
-          <ion-label floating>Password</ion-label>
+          <ion-label position="floating">Password</ion-label>
           <ion-input tid="passwordField" formControlName="password" type="password"></ion-input>
         </ion-item>
-        <button
-            ion-button
+        <ion-button
             tid="signInButton"
             (click)="signIn();"
-            margin-top
+            class="margin-top"
             [disabled]="signInForm.invalid"
-        >Sign In</button>
+        >Sign In</ion-button>
         <p>Do you not have an account?</p>
-        <a routerLink="register" routerDirection="root">Click here to register</a>
+        <a routerLink="/register" routerDirection="forward">Click here to register</a>
       </form>
     </ion-col>
   </ion-row>

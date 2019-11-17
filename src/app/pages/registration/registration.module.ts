@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { RegistrationPage } from './registration';
-// import { ComponentsModule } from '../../components/components.module';
 import { RouterModule } from '@angular/router';
+import { ComponentsModule } from '../../components/components.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,8 +11,12 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     IonicModule,
-    RouterModule.forChild([{path: 'registration', component: RegistrationPage}]),
-    // ComponentsModule,
+    RouterModule.forChild([{
+      path: '',
+      component: RegistrationPage,
+    }]),
+    ComponentsModule,
+    ReactiveFormsModule,
   ],
 })
 export class RegistrationPageModule {}

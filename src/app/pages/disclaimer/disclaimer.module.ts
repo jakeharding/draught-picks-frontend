@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { DisclaimerPage } from './disclaimer';
-// import { ComponentsModule } from '../../components/components.module';
 import { RouterModule } from '@angular/router';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
@@ -10,8 +10,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     IonicModule,
-    RouterModule.forChild([{path: 'disclaimer', component: DisclaimerPage}])
-    // ComponentsModule,
+    RouterModule.forChild([{path: '', component: DisclaimerPage}]),
+    ComponentsModule,
   ],
 })
 export class DisclaimerPageModule {}

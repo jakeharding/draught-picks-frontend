@@ -7,6 +7,10 @@ import { AuthProvider } from './services/auth/auth';
 const routes: Routes = [
   { path: '', canActivate: [AuthProvider], loadChildren: './pages/tabs/tabs.module#TabsModule'},
   { path: 'sign-in', component: SignInPage },
+  { path: 'register', loadChildren: './pages/registration/registration.module#RegistrationPageModule'},
+  { path: 'disclaimer', loadChildren: './pages/disclaimer/disclaimer.module#DisclaimerPageModule'},
+  { path: 'email-sent', loadChildren: './pages/email-sent/email-sent.module#EmailSentPageModule'},
+  { path: 'resend-email', loadChildren: './pages/resend-email/resend-email.module#ResendEmailPageModule'},
   { path: 'beer/:uuid', canActivate: [AuthProvider], loadChildren: './pages/beer-detail/beer-detail.module#BeerDetailPageModule' }
 ];
 
