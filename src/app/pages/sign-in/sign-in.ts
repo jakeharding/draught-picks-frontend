@@ -48,10 +48,10 @@ export class SignInPage extends BasePage {
     this.authProvider.signIn(this.signInForm.value).then(
       (response) => {
         this.authProvider.setToken(response.token);
-        this.navCtrl.navigateRoot('tabs');
+        this.navCtrl.navigateRoot('/tabs/home');
       },
       () => {
-        const toast = this.toastProvider.errorToast('Unable to sign you in. Have you verified your email address?');
+        this.toastProvider.errorToast('Unable to sign you in. Have you verified your email address?');
       }
     );
 

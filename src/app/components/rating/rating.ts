@@ -33,7 +33,6 @@ export class RatingComponent {
     if (this.size === RatingComponent.LARGE) {
       const success = async beerRating => {
         this.rating = beerRating; // Update the beerRating returned from REST API
-        // TODO use ToastProvider
         this.toastProvider.successToast('Your rating is saved.');
         this.setRating.emit(beerRating); // Update parent component
       };

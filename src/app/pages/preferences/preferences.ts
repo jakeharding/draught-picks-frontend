@@ -8,8 +8,6 @@ import { PreferencesProvider } from '../../services/preferences/preferences';
 import UserPreferences from '../../models/UserPreferences';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BeerFavoriteInfoPage } from '../beer-favorite-info/beer-favorite-info';
-import { AbvInfoPage } from '../abv-info/abv-info';
-import { IbupagePage } from '../ibupage/ibupage';
 import { BasePage } from '../BasePage';
 import { ToastProvider } from '../../services/toast/toast';
 
@@ -50,8 +48,6 @@ export class PreferencesPage extends BasePage {
     super('preferences');
     this.beerSearch = '';
     this.goToBeerFavoriteInfoPage = BeerFavoriteInfoPage;
-    this.goToABVPage = AbvInfoPage;
-    this.goToIBUPage = IbupagePage;
     this.userProvider.retrieve().then( (user: User) => {
       this.user = user;
     });

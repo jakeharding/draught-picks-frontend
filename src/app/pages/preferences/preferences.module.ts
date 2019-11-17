@@ -5,7 +5,6 @@ import { ComponentsModule } from '../../components/components.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { IbupagePageModule } from '../ibupage/ibupage.module';
 import { AutoCompleteModule } from 'ionic4-auto-complete';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { AutoCompleteModule } from 'ionic4-auto-complete';
     PreferencesPage
   ],
   imports: [
-    // AutoCompleteModule,
     IonicModule,
     RouterModule.forChild([
       {
@@ -24,7 +22,6 @@ import { AutoCompleteModule } from 'ionic4-auto-complete';
     ComponentsModule,
     ReactiveFormsModule,
     CommonModule,
-    IbupagePageModule,
     FormsModule,
     AutoCompleteModule
   ],
