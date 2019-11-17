@@ -39,11 +39,11 @@ const routes: Routes = [
           path: '',
           children:
             [
-              { path: '', loadChildren: '../preferences/preferences.module#PreferencesPageModule' },
-              { path: 'preferences/ibu-info', loadChildren: '../ibu-info/ibu-info.module#IbuInfoPageModule' },
-              { path: 'preferences/abv-info', loadChildren: '../abv-info/abv-info.module#AbvInfoPageModule' },
+              { path: '', loadChildren: '../beer-profile/beer-profile.module#BeerProfilePageModule' },
+              { path: 'beer-profile/ibu-info', loadChildren: '../ibu-info/ibu-info.module#IbuInfoPageModule' },
+              { path: 'beer-profile/abv-info', loadChildren: '../abv-info/abv-info.module#AbvInfoPageModule' },
               {
-                path: 'preferences/beer-favorite-info',
+                path: 'beer-profile/beer-favorite-info',
                 loadChildren: '../beer-favorite-info/beer-favorite-info.module#BeerFavoriteInfoPageModule'
               },
             ]

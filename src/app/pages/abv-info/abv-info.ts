@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { IonicPage } from '@ionic/angular';
 import { BasePage } from '../BasePage';
 
 /**
@@ -9,7 +8,6 @@ import { BasePage } from '../BasePage';
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
 @Component({
   selector: 'page-abv-info',
   templateUrl: 'abv-info.html',
@@ -17,9 +15,6 @@ import { BasePage } from '../BasePage';
 })
 export class AbvInfoPage extends BasePage {
 
-  /*
-   * Empty but required constructor for AbvInfoPage class
-   */
   constructor() {
     super('abv-info');
   }
