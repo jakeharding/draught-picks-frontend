@@ -17,9 +17,5 @@ export class BeerItemComponent {
 
   @Input() beer: Beer;
 
-  constructor(public navCtrl: NavController) {}
-
-  beerTap() {
-    this.navCtrl.navigateForward(`/beer/${this.beer.uuid}`, { state: {beer: this.beer}});
-  }
+  constructor() {}
 }

@@ -8,6 +8,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs';
+import { AuthProvider } from '../../services/auth/auth';
 
 const routes: Routes = [
   {
@@ -19,20 +20,18 @@ const routes: Routes = [
           path: '',
           children:
             [
-              {
-                path: '',
-                loadChildren: '../search/search.module#SearchPageModule'
-              }
+              { path: '', loadChildren: '../search/search.module#SearchPageModule' },
+              { path: 'search/beer/:uuid', loadChildren: '../beer-detail/beer-detail.module#BeerDetailPageModule' },
+
             ]
         },
         {
           path: '',
           children:
             [
-              {
-                path: '',
-                loadChildren: '../home/home.module#HomePageModule'
-              }
+              { path: '', loadChildren: '../home/home.module#HomePageModule' },
+              { path: 'home/beer/:uuid', loadChildren: '../beer-detail/beer-detail.module#BeerDetailPageModule' },
+
             ]
         },
         {

@@ -15,6 +15,7 @@ import { BasePage } from '../BasePage';
   templateUrl: './beer-profile.page.html',
   styleUrls: ['./beer-profile.page.scss'],
 })
+// TODO Support more than one profile
 export class BeerProfilePage extends BasePage {
   beerResults: Array<Beer>;
   beerSearch: string;

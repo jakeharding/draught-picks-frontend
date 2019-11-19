@@ -11,8 +11,6 @@ const routes: Routes = [
   { path: 'disclaimer', loadChildren: './pages/disclaimer/disclaimer.module#DisclaimerPageModule'},
   { path: 'email-sent', loadChildren: './pages/email-sent/email-sent.module#EmailSentPageModule'},
   { path: 'resend-email', loadChildren: './pages/resend-email/resend-email.module#ResendEmailPageModule'},
-  { path: 'beer/:uuid', canActivate: [AuthProvider], loadChildren: './pages/beer-detail/beer-detail.module#BeerDetailPageModule' },
-  { path: 'ibu-info', loadChildren: './pages/ibu-info/ibu-info.module#IbuInfoPageModule' },
   { path: 'beer-profile', loadChildren: './pages/beer-profile/beer-profile.module#BeerProfilePageModule' }
 ];
 
