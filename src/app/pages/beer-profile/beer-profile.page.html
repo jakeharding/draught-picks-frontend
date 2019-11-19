@@ -52,27 +52,27 @@
         </ion-col>
       </ion-row>
 
-      <form [formGroup]="prefsForm">
+      <form [formGroup]="beerProfileForm">
         <ion-row class="ion-text-center">
           <ion-col class="ion-text-center">
             <ion-item>
               <ion-label color="primary" position="floating">High</ion-label>
-              <ion-input type="number" formControlName="abv_hi" tid="enterAbvHigh" [(ngModel)]="prefs.abv_hi"></ion-input>
+              <ion-input type="number" formControlName="abv_hi" tid="enterAbvHigh" [(ngModel)]="beerProfile.abv_hi"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label color="primary" position="floating">Low</ion-label>
-              <ion-input type="number" formControlName="abv_low" tid="enterAbvLow" [(ngModel)]="prefs.abv_low"></ion-input>
+              <ion-input type="number" formControlName="abv_low" tid="enterAbvLow" [(ngModel)]="beerProfile.abv_low"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col class="ion-text-center">
             <ion-item>
               <ion-label color="primary" position="floating">High</ion-label>
-              <ion-input type="number" formControlName="ibu_hi" tid="enterIbuHigh" [(ngModel)]="prefs.ibu_hi"></ion-input>
+              <ion-input type="number" formControlName="ibu_hi" tid="enterIbuHigh" [(ngModel)]="beerProfile.ibu_hi"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label color="primary" position="floating">Low</ion-label>
-              <ion-input type="number" formControlName="ibu_low" tid="enterIbuLow" [(ngModel)]="prefs.ibu_low"></ion-input>
+              <ion-input type="number" formControlName="ibu_low" tid="enterIbuLow" [(ngModel)]="beerProfile.ibu_low"></ion-input>
             </ion-item>
           </ion-col>
 
@@ -90,13 +90,13 @@
               formControlName="like_description"
               tid="enterTextArea"
               rows="7"
-              [(ngModel)]="prefs.like_description">
+              [(ngModel)]="beerProfile.like_description">
           </ion-textarea>
         </ion-row>
         <ion-button
             tid="submitBtn"
-            [disabled]="prefsForm.invalid"
-            (click)="savePrefs()"
+            [disabled]="beerProfileForm.invalid"
+            (click)="saveProfile()"
         >
           Submit
         </ion-button>

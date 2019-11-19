@@ -54,7 +54,7 @@ exports[`BeerFavoriteInfoPage should initialize the BeerFavoriteInfoPage 1`] = `
                   <br />
                 </p>
                 <p>
-                  "I do not like sweet and light beers. "
+                  "I do not like sweet and light beers."
                 </p>
               </ion-col>
             </ion-row>
@@ -62,11 +62,11 @@ exports[`BeerFavoriteInfoPage should initialize the BeerFavoriteInfoPage 1`] = `
         </ion-row>
         <br />
         <a
-          class="backToPreferences"
+          class="backToProfile"
           routerdirection="back"
-          routerlink="/tabs/preferences"
+          routerlink="/tabs/beer-profile"
         >
-          Back To Your Preferences
+          Back To Your Profile
         </a>
       </ion-col>
     </ion-row>

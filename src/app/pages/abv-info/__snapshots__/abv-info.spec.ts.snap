@@ -7,7 +7,7 @@ exports[`AbvInfoPage should initialize the AbvInfoPage 1`] = `
   </ion-header><ion-content>
     <ion-row>
       <ion-col
-        class="below-header ion-text-center"
+        class="ion-text-center"
         offsetlg="3"
         offsetmd="2"
         offsetsm="1"
@@ -76,14 +76,14 @@ exports[`AbvInfoPage should initialize the AbvInfoPage 1`] = `
           </ion-col>
         </ion-row>
         <p>
-          This information was summarized by the following links:
+          This information was summarized from the following links:
         </p>
         <li>
           <a
             href="http://www.efficientdrinker.com/beer/50beer_print.html"
             target="_blank"
           >
-            http://www.efficientdrinker.com/beer/50beer_print.html
+             Efficient Drinker 
           </a>
         </li>
         <br />
@@ -92,7 +92,7 @@ exports[`AbvInfoPage should initialize the AbvInfoPage 1`] = `
             href="https://craftbeeracademy.com/how-to-determine-abv/"
             target="_blank"
           >
-            https://craftbeeracademy.com/how-to-determine-abv/
+             Craft Beer Academy 
           </a>
         </li>
         <br />
@@ -103,16 +103,16 @@ exports[`AbvInfoPage should initialize the AbvInfoPage 1`] = `
             href="https://en.wikipedia.org/wiki/Alcohol_by_volume"
             target="_blank"
           >
-            https://en.wikipedia.org/wiki/Alcohol_by_volume
+             Wikipedia 
           </a>
         </li>
         <br />
         <a
-          class="backToPreferences"
+          class="backToProfile"
           routerdirection="back"
-          routerlink="/tabs/preferences"
+          routerlink="/tabs/beer-profile"
         >
-          Back to your Preferences
+          Back to your Profile
         </a>
       </ion-col>
     </ion-row>

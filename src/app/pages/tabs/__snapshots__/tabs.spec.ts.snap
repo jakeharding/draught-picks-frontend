@@ -27,7 +27,7 @@ exports[`TabsPage should initialize the TabsPage 1`] = `
         </ion-label>
       </ion-tab-button>
       <ion-tab-button
-        tab="preferences"
+        tab="beer-profile"
       >
         <ion-icon
           name="md-beer"

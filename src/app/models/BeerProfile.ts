@@ -1,14 +1,14 @@
 /**
- * UserPreferences.ts
+ * BeerProfile.ts
  *
  * Created by jake
  * Created on 2/27/18
  *
- * Model user preferences.
+ * Model beer profiles.
  */
 
 
-export default class UserPreferences {
+export default class BeerProfile {
   uuid: string;
   abv_low: string;
   abv_hi: string;

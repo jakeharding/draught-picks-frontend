@@ -1,24 +1,24 @@
 /**
- * preferences.spec.ts
+ * beer-profile.spec.ts
  *
  * Created by jake
  * Created on 11/11/18
  *
- * Test PreferencesProvider.
+ * Test BeerProfileProvider.
  */
-import { PreferencesProvider } from './preferences';
-import UserPreferences from '../../models/UserPreferences';
+import { BeerProfileProvider } from './beer-profile';
+import UserPreferences from '../../models/BeerProfile';
 import { httpClient, provide } from '../../../../setup-jest';
 
-describe('Test preferences provider', () => {
-  let prefsProvider: PreferencesProvider;
+describe('Test beer-profile provider', () => {
+  let prefsProvider: BeerProfileProvider;
   const mockPrefs = {
     uuid: 'prefID'
   } as UserPreferences;
 
   beforeEach(() => {
     jest.clearAllMocks();
-    prefsProvider = new PreferencesProvider(provide(httpClient));
+    prefsProvider = new BeerProfileProvider(provide(httpClient));
   });
 
   it('should call http.get and return the first result in the response', async () => {
@@ -29,13 +29,13 @@ describe('Test preferences provider', () => {
     expect(result).toBe(mockPrefs);
   });
 
-  it('should call http.put when updating an existing prefs object', () => {
+  it('should call http.put when updating an existing beerProfile object', () => {
     prefsProvider.save(mockPrefs);
     expect(httpClient.put).toHaveBeenCalledTimes(1);
     expect(httpClient.put).toHaveBeenCalledWith(expect.stringMatching(/\/preferences\/prefID$/), mockPrefs);
   });
 
-  it('should call http.post when creating a new prefs object', () => {
+  it('should call http.post when creating a new beerProfile object', () => {
     const newMockPrefs = {} as UserPreferences;
     prefsProvider.save(newMockPrefs);
     expect(httpClient.post).toHaveBeenCalledTimes(1);
