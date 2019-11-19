@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BeerItemComponent should initialize the BeerItemComponent and match snapshot 1`] = `
-<beer-item
-  navCtrl={[Function Object]}
->
+<beer-item>
   <div
     class="pointer"
+    routerdirection="forward"
+    tabindex="0"
   >
     <ion-row>
       <ion-col

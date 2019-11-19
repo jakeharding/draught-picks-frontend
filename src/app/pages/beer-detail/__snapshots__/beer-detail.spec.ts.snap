@@ -15,7 +15,7 @@ exports[`BeerDetailPage page init should initialize the BeerDetailPage using the
   <ion-header>
     <draught-header />
   </ion-header><ion-content
-    padding=""
+    class="ion-padding"
   >
     <ion-row>
       <ion-col
@@ -31,7 +31,7 @@ exports[`BeerDetailPage page init should initialize the BeerDetailPage using the
       >
         <ion-row>
           <ion-col
-            text-center=""
+            class="ion-text-center"
           >
             <h1>
               
@@ -200,7 +200,7 @@ exports[`BeerDetailPage page init should initialize the BeerDetailPage with the 
   <ion-header>
     <draught-header />
   </ion-header><ion-content
-    padding=""
+    class="ion-padding"
   >
     <ion-row>
       <ion-col
@@ -216,7 +216,7 @@ exports[`BeerDetailPage page init should initialize the BeerDetailPage with the 
       >
         <ion-row>
           <ion-col
-            text-center=""
+            class="ion-text-center"
           >
             <h1>
               

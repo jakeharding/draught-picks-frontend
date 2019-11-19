@@ -11,6 +11,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BeerItemComponent } from '../beer-item/beer-item';
 import { RatingComponent } from '../rating/rating';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { mockRouter } from '../../../../setup-jest';
+import { HttpClient } from '@angular/common/http';
 
 describe('BeerListComponent', () => {
   let component: BeerListComponent;
@@ -20,7 +23,12 @@ describe('BeerListComponent', () => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [BeerListComponent, BeerItemComponent, RatingComponent],
-      providers: []
+      imports: [RouterModule],
+      providers: [
+        { provide: Router, useValue: mockRouter},
+        { provide: ActivatedRoute, useValue: {} },
+        { provide: HttpClient, useValue: {} },
+      ]
     }).compileComponents();
   }));
 

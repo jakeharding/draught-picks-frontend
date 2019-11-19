@@ -13,6 +13,9 @@ import { NavController } from '@ionic/angular';
 import { RatingComponent } from '../rating/rating';
 import { RatingProvider } from '../../services/rating/rating';
 import { ToastController } from '@ionic/angular';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { mockRouter } from '../../../../setup-jest';
+import { HttpClient } from '@angular/common/http';
 
 describe('BeerItemComponent', () => {
   let component: BeerItemComponent;
@@ -22,10 +25,11 @@ describe('BeerItemComponent', () => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [BeerItemComponent, RatingComponent],
+      imports: [RouterModule],
       providers: [
-        { provide: NavController, useValue: {}},
-        { provide: RatingProvider, useValue: {}},
-        { provide: ToastController, useValue: {}}
+        { provide: Router, useValue: mockRouter},
+        { provide: ActivatedRoute, useValue: {} },
+        { provide: HttpClient, useValue: {} },
       ]
     }).compileComponents();
   }));

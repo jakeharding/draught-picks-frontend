@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeerProfilePage should initialize the BeerProfilePage 1`] = `
+<app-beer-profile
+  beerProfile={[Function Object]}
+  beerProfileForm={[Function FormGroup]}
+  beerProvider={[Function Object]}
+  beerSearch=""
+  formBuilder={[Function FormBuilder]}
+  navCtrl={[Function Object]}
+  profileProvider={[Function Object]}
+  toastProvider={[Function Object]}
+  user={[Function Object]}
+  userProvider={[Function Object]}
+>
+  <ion-header>
+    <draught-header />
+  </ion-header><ion-content
+    class="ion-padding"
+  >
+    <ion-row>
+      <ion-col
+        class="ion-text-center"
+        offsetlg="3"
+        offsetmd="3"
+        offsetsm="1"
+        offsetxl="4"
+        size="12"
+        sizelg="6"
+        sizemd="6"
+        sizesm="10"
+        sizexl="4"
+      >
+        <h1>
+          Tell us about the beer you like!
+        </h1>
+        <p>
+          <i>
+            The more you tell us the better we can recommend beers.
+          </i>
+        </p>
+        <ion-row>
+          <h3>
+            Select some of your favorites:
+          </h3>
+          <ion-auto-complete
+            class="ion-text-left"
+            tid="enterBeerInput"
+          />
+        </ion-row>
+        
+        <h2>
+          Ranges of ABV and IBU
+        </h2>
+        <ion-row
+          class="ion-text-center"
+        >
+          <ion-col>
+            <h3>
+              ABV 
+              <ion-icon
+                class="infoButton"
+                color="primary"
+                name="information-circle"
+                routerdirection="forward"
+                routerlink="./abv-info"
+                slot="end"
+                tid="abvInfoButton"
+              />
+            </h3>
+          </ion-col>
+          <ion-col>
+            <h3>
+              IBU 
+              <ion-icon
+                class="infoButton"
+                color="primary"
+                name="information-circle"
+                routerdirection="forward"
+                routerlink="./ibu-info"
+                tid="ibuInfoButton"
+              />
+            </h3>
+          </ion-col>
+        </ion-row>
+        <form>
+          <ion-row
+            class="ion-text-center"
+          >
+            <ion-col
+              class="ion-text-center"
+            >
+              <ion-item>
+                <ion-label
+                  color="primary"
+                  position="floating"
+                >
+                  High
+                </ion-label>
+                <ion-input
+                  formcontrolname="abv_hi"
+                  tid="enterAbvHigh"
+                  type="number"
+                />
+              </ion-item>
+              <ion-item>
+                <ion-label
+                  color="primary"
+                  position="floating"
+                >
+                  Low
+                </ion-label>
+                <ion-input
+                  formcontrolname="abv_low"
+                  tid="enterAbvLow"
+                  type="number"
+                />
+              </ion-item>
+            </ion-col>
+            <ion-col
+              class="ion-text-center"
+            >
+              <ion-item>
+                <ion-label
+                  color="primary"
+                  position="floating"
+                >
+                  High
+                </ion-label>
+                <ion-input
+                  formcontrolname="ibu_hi"
+                  tid="enterIbuHigh"
+                  type="number"
+                />
+              </ion-item>
+              <ion-item>
+                <ion-label
+                  color="primary"
+                  position="floating"
+                >
+                  Low
+                </ion-label>
+                <ion-input
+                  formcontrolname="ibu_low"
+                  tid="enterIbuLow"
+                  type="number"
+                />
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row
+            class="ion-margin"
+          >
+            <h2>
+              Describe your favorite beer(s) below: 
+              <ion-icon
+                class="infoButton"
+                color="primary"
+                name="information-circle"
+                routerlink="./beer-favorite-info"
+                tid="descInfoButton"
+              />
+            </h2>
+          </ion-row>
+          <ion-row>
+            <ion-textarea
+              formcontrolname="like_description"
+              rows="7"
+              tid="enterTextArea"
+            />
+          </ion-row>
+          <ion-button
+            tid="submitBtn"
+          >
+             Submit 
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</app-beer-profile>
+`;

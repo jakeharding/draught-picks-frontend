@@ -51,13 +51,13 @@ describe('SignInPage', () => {
     expect(mockNavController.navigateRoot).toHaveBeenCalledWith('tabs');
   });
 
-  test('signIn should call authProvider.setToken and navCtrl.setRoot when promise resolves', async () => {
+  test('signIn should call authProvider.setToken and navCtrl.navigateRoot when promise resolves', async () => {
     jest.clearAllMocks();
     await component.signIn();
     expect(mockAuthProvider.setToken).toHaveBeenCalledTimes(1);
     expect(mockAuthProvider.setToken).toHaveBeenCalledWith('token');
     expect(mockNavController.navigateRoot).toHaveBeenCalledTimes(1);
-    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('tabs');
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('/tabs/home');
   });
 
   test('signIn should show error toast when promise is rejected', async () => {

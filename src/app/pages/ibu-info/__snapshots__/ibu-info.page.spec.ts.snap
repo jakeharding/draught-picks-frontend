@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IbuInfoPage should initialize the IbuInfoPage 1`] = `
+<app-ibu-info>
+  <ion-header>
+    <draught-header />
+  </ion-header><ion-content
+    class="ion-padding"
+  >
+    <ion-row>
+      <ion-col
+        class="ion-text-center"
+        offsetlg="3"
+        offsetmd="2"
+        offsetsm="1"
+        offsetxl="4"
+        size="12"
+        sizelg="6"
+        sizemd="8"
+        sizesm="10"
+        sizexl="4"
+      >
+        <h1>
+          International Bitterness Units (IBU)
+        </h1>
+        <p
+          class="ion-margin"
+        >
+          International Bitterness Units (IBU), is defined as the standard measurement of how bitter your beer is based on the hops contained in the drink. According to berghoffbeer.com, IBU "gauges the isomerized alpha acids from hops in a beer in parts per million." It is measured on a scale between 0-100 and found on most alcoholic beverage labels. The higher the count the more bitter tasting the drink will be.
+        </p>
+        <p>
+          <b>
+            <u>
+              Example IBU for beers:
+            </u>
+          </b>
+        </p>
+        <ion-row>
+          <ion-col
+            offset="2"
+          >
+            <ion-row>
+              <ion-col
+                class="ion-text-left"
+              >
+                Budweiser:
+              </ion-col>
+              <ion-col
+                class="ion-text-left"
+              >
+                7 IBU
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col
+                class="ion-text-left"
+              >
+                American Brown Ale:
+              </ion-col>
+              <ion-col
+                class="ion-text-left"
+              >
+                20 IBU
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col
+                class="ion-text-left"
+              >
+                Avery's IPA:
+              </ion-col>
+              <ion-col
+                class="ion-text-left"
+              >
+                70 IBU
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col
+                class="ion-text-left"
+              >
+                Maharaja:
+              </ion-col>
+              <ion-col
+                class="ion-text-left"
+              >
+                100 IBU
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <p>
+          This information was summarized by the following links:
+        </p>
+        <li>
+          <a
+            href="http://berghoffbeer.com/blog/what-do-abv-and-ibu-mean/"
+            target="_blank"
+          >
+             What does ABV and IBU mean? 
+          </a>
+        </li>
+        <br />
+        <li
+          class="ion-margin-bottom"
+        >
+          <a
+            href="http://www.5280.com/2013/10/beer-lesson-ibu/"
+            target="_blank"
+          >
+             IBU Beer Lesson 
+          </a>
+        </li>
+        <br />
+        <a
+          class="backToProfile"
+          routerdirection="back"
+          routerlink="/tabs/beer-profile"
+        >
+          Back to your Profile
+        </a>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</app-ibu-info>
+`;
