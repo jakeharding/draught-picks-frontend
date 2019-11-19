@@ -60,15 +60,19 @@ exports[`SignInPage should initialize the SignInPage and set root to TabsPage if
           >
             Sign In
           </ion-button>
-          <p>
-            Do you not have an account?
-          </p>
-          <a
-            routerdirection="forward"
-            routerlink="/register"
+          <div
+            class="ion-text-center"
           >
-            Click here to register
-          </a>
+            <p>
+              Do you not have an account?
+            </p>
+            <a
+              routerdirection="forward"
+              routerlink="/register"
+            >
+              Click here to register
+            </a>
+          </div>
         </form>
       </ion-col>
     </ion-row>

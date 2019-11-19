@@ -196,7 +196,7 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
             routerlink="/sign-in"
             tid="signInLink"
           >
-            Sign in.
+            Sign in
           </a>
         </form>
       </ion-col>
