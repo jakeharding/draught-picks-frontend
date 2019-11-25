@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'disclaimer', loadChildren: './pages/disclaimer/disclaimer.module#DisclaimerPageModule'},
   { path: 'email-sent', loadChildren: './pages/email-sent/email-sent.module#EmailSentPageModule'},
   { path: 'resend-email', loadChildren: './pages/resend-email/resend-email.module#ResendEmailPageModule'},
-  { path: 'beer-profile', loadChildren: './pages/beer-profile/beer-profile.module#BeerProfilePageModule' }
+  { path: 'beer-profile', loadChildren: './pages/beer-profile/beer-profile.module#BeerProfilePageModule' },
+  { path: 'confirm-email/:key', loadChildren: './pages/confirm-email/confirm-email.module#ConfirmEmailPageModule'},
 ];
 
 @NgModule({

@@ -9,17 +9,16 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <ion-row>
     <ion-col
-        class="below-header"
-        text-justify
+        class="below-header ion-text-justify"
         size="12" sizeSm="10" offsetSm="1" sizeMd="8" offsetMd="2" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4"
     >
       <div class="ion-text-center">
         <p>{{ thankYouMessage }}</p>
         <p>{{ clickMessage }}</p>
-        <a text-center class="underline" (click)="goToLink()">{{ linkText }}</a>
+        <a class="pointer underline ion-text-center" (click)="goToLink()">{{ linkText }}</a>
       </div>
     </ion-col>
   </ion-row>
