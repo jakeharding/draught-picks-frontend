@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'resend-email', loadChildren: './pages/resend-email/resend-email.module#ResendEmailPageModule'},
   { path: 'beer-profile', loadChildren: './pages/beer-profile/beer-profile.module#BeerProfilePageModule' },
   { path: 'confirm-email/:key', loadChildren: './pages/confirm-email/confirm-email.module#ConfirmEmailPageModule'},
+  { path: '**', redirectTo: 'tabs/home', pathMatch: 'full'},
+
 ];
 
 @NgModule({
