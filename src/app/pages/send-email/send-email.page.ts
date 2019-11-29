@@ -1,23 +1,16 @@
-import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BasePage } from '../BasePage';
-import { UserProvider } from '../../services/user/user';
+import { NavController } from '@ionic/angular';
 import { ToastProvider } from '../../services/toast/toast';
-
-/**
- * Generated class for the ResendEmailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { UserProvider } from '../../services/user/user';
+import { BasePage } from '../BasePage';
 
 @Component({
-  selector: 'page-resend-email',
-  templateUrl: 'resend-email.html',
-  styleUrls: ['./resend-email.scss']
+  selector: 'app-send-email',
+  templateUrl: './send-email.page.html',
+  styleUrls: ['./send-email.page.scss'],
 })
-export class ResendEmailPage extends BasePage {
+export class SendEmailPage extends BasePage {
 
   emailForm: FormGroup;
 
