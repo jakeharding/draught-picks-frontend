@@ -3,9 +3,10 @@
 exports[`ConfirmEmailPage ionViewWillEnter on failed promise with client error 1`] = `
 <page-confirm-email
   clickMessage={[Function String]}
+  confirmKey={[Function String]}
   linkText={[Function String]}
   navCtrl={[Function Object]}
-  navParams={[Function NavParams]}
+  route={[Function Object]}
   showResendLink="false"
   thankYouMessage={[Function String]}
   toastProvider={[Function Object]}
@@ -14,11 +15,11 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with client error 1
   <ion-header>
     <draught-header />
   </ion-header><ion-content
-    padding=""
+    class="ion-padding"
   >
     <ion-row>
       <ion-col
-        class="below-header"
+        class="below-header ion-text-justify"
         offsetlg="3"
         offsetmd="2"
         offsetsm="1"
@@ -28,7 +29,6 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with client error 1
         sizemd="8"
         sizesm="10"
         sizexl="4"
-        text-justify=""
       >
         <div
           class="ion-text-center"
@@ -40,8 +40,7 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with client error 1
             Please click the link below to sign in.
           </p>
           <a
-            class="underline"
-            text-center=""
+            class="pointer underline ion-text-center"
           >
             Sign in.
           </a>
@@ -55,9 +54,10 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with client error 1
 exports[`ConfirmEmailPage ionViewWillEnter on failed promise with non client error 1`] = `
 <page-confirm-email
   clickMessage={[Function String]}
+  confirmKey={[Function String]}
   linkText={[Function String]}
   navCtrl={[Function Object]}
-  navParams={[Function NavParams]}
+  route={[Function Object]}
   showResendLink="false"
   thankYouMessage={[Function String]}
   toastProvider={[Function Object]}
@@ -66,11 +66,11 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with non client err
   <ion-header>
     <draught-header />
   </ion-header><ion-content
-    padding=""
+    class="ion-padding"
   >
     <ion-row>
       <ion-col
-        class="below-header"
+        class="below-header ion-text-justify"
         offsetlg="3"
         offsetmd="2"
         offsetsm="1"
@@ -80,7 +80,6 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with non client err
         sizemd="8"
         sizesm="10"
         sizexl="4"
-        text-justify=""
       >
         <div
           class="ion-text-center"
@@ -92,8 +91,7 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with non client err
             Please click the link below to sign in.
           </p>
           <a
-            class="underline"
-            text-center=""
+            class="pointer underline ion-text-center"
           >
             Sign in.
           </a>
@@ -107,9 +105,10 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with non client err
 exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
 <page-confirm-email
   clickMessage={[Function String]}
+  confirmKey="undefined"
   linkText={[Function String]}
   navCtrl={[Function Object]}
-  navParams={[Function NavParams]}
+  route={[Function Object]}
   showResendLink="false"
   thankYouMessage={[Function String]}
   toastProvider={[Function Object]}
@@ -118,11 +117,11 @@ exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
   <ion-header>
     <draught-header />
   </ion-header><ion-content
-    padding=""
+    class="ion-padding"
   >
     <ion-row>
       <ion-col
-        class="below-header"
+        class="below-header ion-text-justify"
         offsetlg="3"
         offsetmd="2"
         offsetsm="1"
@@ -132,7 +131,6 @@ exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
         sizemd="8"
         sizesm="10"
         sizexl="4"
-        text-justify=""
       >
         <div
           class="ion-text-center"
@@ -144,8 +142,7 @@ exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
             Please click the link below to sign in.
           </p>
           <a
-            class="underline"
-            text-center=""
+            class="pointer underline ion-text-center"
           >
             Sign in.
           </a>

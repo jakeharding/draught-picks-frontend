@@ -1,23 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ResendEmailPage } from './resend-email';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NavController, NavParams } from '@ionic/angular';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { SendEmailPage } from './send-email.page';
 import { FormBuilder, FormGroupDirective } from '@angular/forms';
+import { NavController, NavParams } from '@ionic/angular';
 import { ToastProvider } from '../../services/toast/toast';
 import { UserProvider } from '../../services/user/user';
 
-/**
- * resend-email.spec.ts
- *
- * Created by jake
- * Created on 2018-11-20
- *
- * Test ResendEmailPage.
- */
-
-describe('ResendEmailPage', () => {
-  let fixture: ComponentFixture<ResendEmailPage>;
-  let component: ResendEmailPage;
+describe('SendEmailPage', () => {
+  let component: SendEmailPage;
+  let fixture: ComponentFixture<SendEmailPage>;
 
   const mockUserProvider = {
     resendConfirmEmail: jest.fn(() => Promise.resolve())
@@ -31,7 +23,7 @@ describe('ResendEmailPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      declarations: [ResendEmailPage, FormGroupDirective],
+      declarations: [SendEmailPage, FormGroupDirective],
       providers: [
         { provide: NavController, useValue: {}},
         { provide: NavParams, useValue: {}},
@@ -43,11 +35,11 @@ describe('ResendEmailPage', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResendEmailPage);
+    fixture = TestBed.createComponent(SendEmailPage);
     component = fixture.debugElement.componentInstance;
   });
 
-  it('should initialize the ResendEmailPage', () => {
+  it('should initialize the SendEmailPage', () => {
     expect(component).toBeTruthy();
     expect(fixture).toMatchSnapshot();
   });

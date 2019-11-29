@@ -11,13 +11,14 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
 import { UserProvider } from '../../services/user/user';
 import { ToastProvider } from '../../services/toast/toast';
-import { mockNavController } from '../../../../setup-jest';
+import { mockActivatedRoute, mockNavController } from '../../../../setup-jest';
+import { ActivatedRoute } from '@angular/router';
 
 describe('ConfirmEmailPage', () => {
 
   let fixture: ComponentFixture<ConfirmEmailPage>;
   let component: ConfirmEmailPage;
-  const navParams = new NavParams({ key: 'key'});
+
   const mockUserProvider = {
     confirmEmail: jest.fn(() => Promise.resolve()),
   };
@@ -33,8 +34,8 @@ describe('ConfirmEmailPage', () => {
       providers: [
         { provide: NavController, useValue: mockNavController},
         { provide: UserProvider, useValue: mockUserProvider },
-        { provide: NavParams, useValue: navParams },
-        { provide: ToastProvider, useValue: mockToastProvider}
+        { provide: ToastProvider, useValue: mockToastProvider},
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
     }).compileComponents();
   });
@@ -52,6 +53,7 @@ describe('ConfirmEmailPage', () => {
 
   test('ionViewWillEnter on failed promise with non client error', () => {
     mockUserProvider.confirmEmail.mockReturnValue(Promise.reject('error'));
+    component.confirmKey = 'key';
     component.ionViewDidEnter();
     expect(mockUserProvider.confirmEmail).toHaveBeenCalledTimes(1);
     expect(mockUserProvider.confirmEmail).toHaveBeenCalledWith({key: 'key'});
@@ -67,6 +69,7 @@ describe('ConfirmEmailPage', () => {
       }
     });
     mockUserProvider.confirmEmail.mockReturnValue(rejectedPromise);
+    component.confirmKey = 'key';
     component.ionViewDidEnter();
     expect(mockUserProvider.confirmEmail).toHaveBeenCalledTimes(1);
     expect(mockUserProvider.confirmEmail).toHaveBeenCalledWith({key: 'key'});

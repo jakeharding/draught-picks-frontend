@@ -11,7 +11,7 @@ exports[`SignInPage should initialize the SignInPage and set root to TabsPage if
   <ion-header>
     <draught-header />
   </ion-header><ion-content
-    class="ion-padding"
+    class="ion-padding ion-text-center"
   >
     <ion-row>
       <ion-col
@@ -54,8 +54,12 @@ exports[`SignInPage should initialize the SignInPage and set root to TabsPage if
               type="password"
             />
           </ion-item>
+          <button
+            class="ion-page-hidden"
+            type="submit"
+          />
           <ion-button
-            class="margin-top"
+            class="ion-margin-top"
             tid="signInButton"
           >
             Sign In
@@ -72,6 +76,14 @@ exports[`SignInPage should initialize the SignInPage and set root to TabsPage if
             >
               Click here to register
             </a>
+            <p>
+              <a
+                routerdirection="forward"
+                routerlink="/reset-email"
+              >
+                Forgot password
+              </a>
+            </p>
           </div>
         </form>
       </ion-col>
