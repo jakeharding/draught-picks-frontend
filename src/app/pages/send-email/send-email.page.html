@@ -16,14 +16,13 @@
         <br>
         <div class="ion-text-left">
           <div *ngIf="reason">
-            <form [formGroup]="emailForm" (submit)="sendEmail()">
+            <form [formGroup]="emailForm" (ngSubmit)="sendEmail()">
               <p>An email with instructions on how to {{ reason?.message }} will be sent if the address is on record.</p>
               <p>Please enter the email address associated with your account:</p>
               <ion-item>
                 <ion-label class="ion-text-left" position="floating">Email</ion-label>
                 <ion-input type="text" formControlName="email"></ion-input>
               </ion-item>
-              <button type="submit" class="ion-page-hidden"></button>
               <ion-button
                   (click)="reason.sendEmail()"
                   class="ion-margin-top"

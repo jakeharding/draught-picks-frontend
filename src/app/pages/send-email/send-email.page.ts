@@ -24,20 +24,7 @@ interface Reason {
 })
 export class SendEmailPage extends BasePage {
 
-  // private RESET_MESSAGE = 'reset your password.';
-  // private CONFIRM_MESSAGE = 'confirm your email.';
-  private REASON_META = {
-    [EmailReason.CONFIRM]: {
-      message: 'confirm your email.',
-      title: 'Confirm',
-      sendEmail: this.sendConfirmEmail
-    },
-    [EmailReason.RESET]: {
-      message: 'reset your password.',
-      title: 'Password Reset',
-      sendEmail: this.sendResetEmail
-    }
-  };
+  REASON_META: any;
   emailForm: FormGroup;
   sendEmail: () => void;
   reason: Reason;
@@ -48,7 +35,18 @@ export class SendEmailPage extends BasePage {
               private route: ActivatedRoute,
               private userProvider: UserProvider) {
     super(`send-email/${route.snapshot.paramMap.get('reason')}`);
-    console.log('REASON:', route.snapshot.paramMap.get('reason'));
+    this.REASON_META = {
+      [EmailReason.CONFIRM]: {
+        message: 'confirm your email.',
+        title: 'Confirm',
+        sendEmail: () => this.sendConfirmEmail()
+      },
+      [EmailReason.RESET]: {
+        message: 'reset your password.',
+        title: 'Password Reset',
+        sendEmail: () => this.sendResetEmail()
+      }
+    };
     this.reason = this.REASON_META[route.snapshot.paramMap.get('reason')];
 
     this.emailForm = this.formBuilder.group({
@@ -57,19 +55,16 @@ export class SendEmailPage extends BasePage {
   }
 
   sendResetEmail() {
-    //TODO
-    console.log('RESET');
+    return this.userProvider.sendPasswordResetEmail(this.emailForm.value.email).then(r =>  {
+      this.toastProvider.successToast('The email will arrive soon.');
+    }).catch(err => {
+      console.error(err);
+      this.toastProvider.errorToast('The email cannot be sent at this time. Please check the email address and try again');
+    });
   }
 
   setReason(reason: EmailReason) {
     this.reason = this.REASON_META[reason];
-    // this.reason = reason;
-    // this.showForm = true;
-    // if (this.reason === EmailReason.CONFIRM) {
-    //   this.reasonMessage = this.CONFIRM_MESSAGE;
-    // } else {
-    //   this.reasonMessage = this.RESET_MESSAGE;
-    // }
   }
 
   sendConfirmEmail() {

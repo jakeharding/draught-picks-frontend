@@ -52,4 +52,8 @@ describe('UserProvider', () => {
     expect(httpClient.put).toHaveBeenCalledWith(expect.stringMatching(/confirm-email/), {confirm_key: 'aKey'});
   });
 
+  test('sendPasswordResetEmail calls http.post with the email input', async () => {
+    await userProvider.sendPasswordResetEmail('test@test.com');
+  });
+
 });

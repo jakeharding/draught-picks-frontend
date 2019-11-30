@@ -20,11 +20,13 @@ export class UserProvider {
   private readonly url: string;
   private readonly resendConfirmEmailUrl: string;
   private readonly confirmEmailUrl: string;
+  private readonly passwordResetUrl: string;
 
   constructor(public http: HttpClient) {
     this.url = `${Env.REST_API_ROOT}/users`;
     this.resendConfirmEmailUrl = `${this.url}/resend-confirm-email`;
     this.confirmEmailUrl = `${this.url}/confirm-email`;
+    this.passwordResetUrl = `${this.url}/reset-email`;
   }
 
   create(userData: AuthResponse | Beer | BeerRating | User) {
@@ -47,5 +49,9 @@ export class UserProvider {
 
   confirmEmail({key}): Promise<any> {
     return this.http.put(this.confirmEmailUrl, {confirm_key: key}).toPromise();
+  }
+
+  sendPasswordResetEmail(emailAddress: string): Promise<any> {
+    return this.http.post(this.passwordResetUrl, {email: emailAddress}).toPromise();
   }
 }

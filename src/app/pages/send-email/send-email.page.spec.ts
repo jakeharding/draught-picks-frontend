@@ -9,13 +9,15 @@ import { UserProvider } from '../../services/user/user';
 import { ActivatedRoute } from '@angular/router';
 import { mockActivatedRoute } from '../../../../setup-jest';
 import { By } from '@angular/platform-browser';
+import User from '../../models/User';
 
 describe('SendEmailPage', () => {
   let component: SendEmailPage;
   let fixture: ComponentFixture<SendEmailPage>;
 
   const mockUserProvider = {
-    resendConfirmEmail: jest.fn(() => Promise.resolve())
+    resendConfirmEmail: jest.fn(() => Promise.resolve()),
+    sendPasswordResetEmail: jest.fn()
   };
 
   const mockToastProvider = {
@@ -66,6 +68,24 @@ describe('SendEmailPage', () => {
     mockUserProvider.resendConfirmEmail.mockReturnValue(Promise.reject('error'));
     await component.sendConfirmEmail();
     expect(mockUserProvider.resendConfirmEmail).toHaveBeenCalledTimes(1);
+    expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);
+  });
+
+  test('sendResetEmail calls userProvider.sendPasswordResetEmail', async () => {
+    mockUserProvider.sendPasswordResetEmail.mockResolvedValue('');
+    component.emailForm.value.email = 't@t.com';
+    await component.sendResetEmail();
+    expect(mockUserProvider.sendPasswordResetEmail).toHaveBeenCalledTimes(1);
+    expect(mockUserProvider.sendPasswordResetEmail).toHaveBeenCalledWith('t@t.com');
+    expect(mockToastProvider.successToast).toHaveBeenCalledTimes(1);
+  });
+
+  test('sendResetEmail calls errorToast when not successful', async () => {
+    mockUserProvider.sendPasswordResetEmail.mockRejectedValue('BOOM');
+    component.emailForm.value.email = 't@t.com';
+    await component.sendResetEmail();
+    expect(mockUserProvider.sendPasswordResetEmail).toHaveBeenCalledTimes(1);
+    expect(mockUserProvider.sendPasswordResetEmail).toHaveBeenCalledWith('t@t.com');
     expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);
   });
 });
