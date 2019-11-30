@@ -83,10 +83,10 @@ describe('ConfirmEmailPage', () => {
     expect(mockNavController.navigateRoot).toHaveBeenCalledWith('sign-in');
   });
 
-  test('goToLink will go to ResendEmailPage when showResendLink is true', () => {
+  test('goToLink will go to sendEmailPage when showResendLink is true', () => {
     component.showResendLink = true;
     component.goToLink();
     expect(mockNavController.navigateRoot).toHaveBeenCalledTimes(1);
-    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('resend-email');
+    expect(mockNavController.navigateRoot).toHaveBeenCalledWith('send-email/confirm');
   });
 });

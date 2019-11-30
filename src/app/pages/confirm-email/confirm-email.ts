@@ -47,10 +47,6 @@ export class ConfirmEmailPage extends BasePage {
   }
 
   goToLink() {
-    let link = 'sign-in';
-    if (this.showResendLink) {
-      link = 'resend-email';
-    }
-    this.navCtrl.navigateRoot(link);
+    this.navCtrl.navigateRoot(this.showResendLink ?  'send-email/confirm' : 'sign-in');
   }
 }

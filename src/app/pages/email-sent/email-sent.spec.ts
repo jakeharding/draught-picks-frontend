@@ -10,7 +10,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { EmailSentPage } from './email-sent';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { ResendEmailPage } from '../resend-email/resend-email';
 
 describe('EmailSentPage', () => {
   let fixture: ComponentFixture<EmailSentPage>;
@@ -32,9 +31,8 @@ describe('EmailSentPage', () => {
   });
 
   it('should initialize the component', () => {
-    expect.assertions(2);
+    expect.assertions(1);
     expect(instance).toBeDefined();
-    expect(instance.resend).toBe(ResendEmailPage);
   });
 
   it('should match the snapshot', () => {

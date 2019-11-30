@@ -3,9 +3,10 @@
 exports[`EmailSentPage should match the snapshot 1`] = `
 <page-email-sent
   navCtrl={[Function Object]}
-  resend={[Function Function]}
 >
-  <draught-header /><ion-content>
+  <ion-header>
+    <draught-header />
+  </ion-header><ion-content>
     <ion-row>
       <ion-col
         class="ion-text-center"
@@ -41,7 +42,7 @@ exports[`EmailSentPage should match the snapshot 1`] = `
              If you have trouble confirming the email click 
             <a
               routerdirection="forward"
-              routerlink="/resend-email"
+              routerlink="/send-email"
             >
               this link to resend it
             </a>

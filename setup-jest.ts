@@ -8,6 +8,7 @@
 import 'jest-preset-angular';
 
 import ga from 'universal-ga';
+import { of } from 'rxjs';
 
 const mock = () => {
   let storage = {};
@@ -65,6 +66,7 @@ export const mockRouter = {
   getCurrentNavigation: jest.fn()
 };
 export const mockActivatedRoute = {
+  queryParams: of(),
   snapshot: {
     paramMap: {
       get: jest.fn()

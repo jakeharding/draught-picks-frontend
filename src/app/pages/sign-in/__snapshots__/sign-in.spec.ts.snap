@@ -79,9 +79,9 @@ exports[`SignInPage should initialize the SignInPage and set root to TabsPage if
             <p>
               <a
                 routerdirection="forward"
-                routerlink="/reset-email"
+                routerlink="/send-email/reset"
               >
-                Forgot password
+                Forgot password?
               </a>
             </p>
           </div>

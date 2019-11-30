@@ -12,21 +12,33 @@
   <ion-row>
     <ion-col class="ion-text-center"
              size="12" sizeSm="10" offsetSm="1" sizeMd="6" offsetMd="3" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
-      <form [formGroup]="emailForm">
-        <h1>Send Email</h1>
+        <h1>Send {{ reason?.title }} Email</h1>
         <br>
-        <p>Please enter the email address below:</p>
-        <ion-item>
-          <ion-label class="ion-text-left" position="floating">Email</ion-label>
-          <ion-input type="text" formControlName="email"></ion-input>
-        </ion-item>
-      </form>
-      <ion-button
-          (click)="sendConfirmEmail()"
-          margin-top="20px"
-          [disabled]="emailForm.invalid">
-        Submit
-      </ion-button>
+        <div class="ion-text-left">
+          <div *ngIf="reason">
+            <form [formGroup]="emailForm" (submit)="sendEmail()">
+              <p>An email with instructions on how to {{ reason?.message }} will be sent if the address is on record.</p>
+              <p>Please enter the email address associated with your account:</p>
+              <ion-item>
+                <ion-label class="ion-text-left" position="floating">Email</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+              </ion-item>
+              <button type="submit" class="ion-page-hidden"></button>
+              <ion-button
+                  (click)="reason.sendEmail()"
+                  class="ion-margin-top"
+                  [disabled]="emailForm.invalid">
+                Submit
+              </ion-button>
+            </form>
+          </div>
+          <div *ngIf="!reason">
+            <p>Please select the reason for sending an email below:</p>
+            <p><a class="pointer" routerLink="/send-email/confirm" routerDirection="forward">Resend Email Confirmation</a></p>
+            <p><a class="pointer" routerLink="/send-email/reset" routerDirection="forward">Reset password</a></p>
+          </div>
+        </div>
+
     </ion-col>
   </ion-row>
 

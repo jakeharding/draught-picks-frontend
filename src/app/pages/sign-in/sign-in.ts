@@ -1,7 +1,6 @@
 import { NavController } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegistrationPage } from '../registration/registration';
 import { AuthProvider } from '../../services/auth/auth';
 import { BasePage } from '../BasePage';
 import { ToastProvider } from '../../services/toast/toast';
@@ -20,8 +19,6 @@ import { ToastProvider } from '../../services/toast/toast';
 })
 export class SignInPage extends BasePage {
   signInForm: FormGroup;
-  goToRegistration: any;
-  goToResetPassword;
   private username: string;
   private password: string;
 
@@ -31,7 +28,6 @@ export class SignInPage extends BasePage {
     if (this.authProvider.isLoggedIn()) {
       this.navCtrl.navigateRoot('tabs');
     }
-    // this.goToRegistration = RegistrationPage;
     this.signInForm = formBuilder.group({
       username: [this.username, Validators.compose([Validators.required])],
       password: [this.password, Validators.compose([Validators.required, Validators.minLength(4)])]

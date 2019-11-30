@@ -40,7 +40,7 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with client error 1
             Please click the link below to sign in.
           </p>
           <a
-            class="pointer underline ion-text-center"
+            class="pointer ion-text-center"
           >
             Sign in.
           </a>
@@ -91,7 +91,7 @@ exports[`ConfirmEmailPage ionViewWillEnter on failed promise with non client err
             Please click the link below to sign in.
           </p>
           <a
-            class="pointer underline ion-text-center"
+            class="pointer ion-text-center"
           >
             Sign in.
           </a>
@@ -142,7 +142,7 @@ exports[`ConfirmEmailPage should initialize the ConfirmEmailPage 1`] = `
             Please click the link below to sign in.
           </p>
           <a
-            class="pointer underline ion-text-center"
+            class="pointer ion-text-center"
           >
             Sign in.
           </a>

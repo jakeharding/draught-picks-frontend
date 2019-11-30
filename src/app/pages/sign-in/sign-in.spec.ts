@@ -6,6 +6,7 @@ import { FormBuilder, FormGroupDirective } from '@angular/forms';
 import { AuthProvider } from '../../services/auth/auth';
 import { mockNavController, mockToastProvider } from '../../../../setup-jest';
 import { ToastProvider } from '../../services/toast/toast';
+import { RouterTestingModule } from '@angular/router/testing';
 
 /**
  * sign-in.spec.ts
@@ -30,6 +31,7 @@ describe('SignInPage', () => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [SignInPage, FormGroupDirective],
+      imports: [RouterTestingModule],
       providers: [
         { provide: ToastProvider, useValue: mockToastProvider},
         { provide: AuthProvider, useValue: mockAuthProvider},

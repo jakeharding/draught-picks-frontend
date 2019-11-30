@@ -1,4 +1,4 @@
-page-sign-in {
+:host {
   ion-title{
     position: absolute;
     top: 0;
@@ -13,14 +13,9 @@ page-sign-in {
     text-align: center;
   }
 
-//ion-input{
-//    border:
-//    width: 25%;
-//    display: block;
-//  }
   a{
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
   }
   form{
     text-align: center;
