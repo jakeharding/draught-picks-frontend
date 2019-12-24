@@ -26,8 +26,8 @@ export class SendEmailPage extends BasePage {
 
   REASON_META: any;
   emailForm: FormGroup;
-  sendEmail: () => void;
   reason: Reason;
+  sent: boolean;
 
   constructor(public formBuilder: FormBuilder,
               public navCtrl: NavController,
@@ -35,14 +35,15 @@ export class SendEmailPage extends BasePage {
               private route: ActivatedRoute,
               private userProvider: UserProvider) {
     super(`send-email/${route.snapshot.paramMap.get('reason')}`);
+    this.sent = false;
     this.REASON_META = {
       [EmailReason.CONFIRM]: {
-        message: 'confirm your email.',
+        message: 'confirm your email',
         title: 'Confirm',
         sendEmail: () => this.sendConfirmEmail()
       },
       [EmailReason.RESET]: {
-        message: 'reset your password.',
+        message: 'reset your password',
         title: 'Password Reset',
         sendEmail: () => this.sendResetEmail()
       }
@@ -57,9 +58,15 @@ export class SendEmailPage extends BasePage {
   sendResetEmail() {
     return this.userProvider.sendPasswordResetEmail(this.emailForm.value.email).then(r =>  {
       this.toastProvider.successToast('The email will arrive soon.');
+      this.sent = true;
     }).catch(err => {
-      console.error(err);
-      this.toastProvider.errorToast('The email cannot be sent at this time. Please check the email address and try again');
+      if (err.status === 400) {
+        // Email not found. Make it look successful.
+        this.toastProvider.successToast('The email will arrive soon.');
+        this.sent = true;
+      } else {
+        this.toastProvider.errorToast('The email cannot be sent at this time. Please check the email address and try again');
+      }
     });
   }
 
@@ -68,10 +75,11 @@ export class SendEmailPage extends BasePage {
   }
 
   sendConfirmEmail() {
-    this.userProvider.resendConfirmEmail(this.emailForm.value).then(() => {
+    return this.userProvider.resendConfirmEmail(this.emailForm.value).then(() => {
       this.toastProvider.successToast(
         'Email has been sent. Please check you spam folder and visit this page again if you don\'t receive it.');
-    }, () => {
+      this.sent = true;
+    }).catch(e => {
       this.toastProvider.errorToast('Unable to send the email. Please check your connection and try again.');
     });
   }

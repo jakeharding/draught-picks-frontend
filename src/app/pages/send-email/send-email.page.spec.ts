@@ -22,7 +22,7 @@ describe('SendEmailPage', () => {
 
   const mockToastProvider = {
     successToast: jest.fn(),
-    errorToast: jest.fn()
+    errorToast: jest.fn().mockName('errorToast')
   };
 
   beforeEach(async(() => {
@@ -55,7 +55,7 @@ describe('SendEmailPage', () => {
   test('setReason', () => {
     component.setReason(EmailReason.CONFIRM);
     expect(component.reason).toBeDefined();
-    expect(component.reason.message).toBe('confirm your email.');
+    expect(component.reason.message).toBe('confirm your email');
   });
 
   test('sendConfirmEmail successToast is called on promise resolve', async () => {
@@ -64,8 +64,9 @@ describe('SendEmailPage', () => {
     expect(mockToastProvider.successToast).toHaveBeenCalledTimes(1);
   });
 
-  test('sendConfirmEmail successToast is called on promise reject', async () => {
+  test('sendConfirmEmail errorToast is called on promise reject', async () => {
     mockUserProvider.resendConfirmEmail.mockReturnValue(Promise.reject('error'));
+    fixture.detectChanges();
     await component.sendConfirmEmail();
     expect(mockUserProvider.resendConfirmEmail).toHaveBeenCalledTimes(1);
     expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);

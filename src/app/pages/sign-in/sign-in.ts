@@ -47,7 +47,7 @@ export class SignInPage extends BasePage {
         this.navCtrl.navigateRoot('/tabs/home');
       },
       () => {
-        this.toastProvider.errorToast('Unable to sign you in. Have you verified your email address?');
+        this.toastProvider.errorToast('Unable to sign you in. Have you confirmed your email address?');
       }
     );
 

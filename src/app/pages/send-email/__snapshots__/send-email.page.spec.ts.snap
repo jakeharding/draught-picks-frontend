@@ -8,6 +8,7 @@ exports[`SendEmailPage should initialize the SendEmailPage with reason undefined
   navCtrl={[Function Object]}
   reason="undefined"
   route={[Function Object]}
+  sent="false"
   toastProvider={[Function Object]}
   userProvider={[Function Object]}
 >
@@ -34,6 +35,7 @@ exports[`SendEmailPage should initialize the SendEmailPage with reason undefined
         <div
           class="ion-text-left"
         >
+          
           
           
         </div>

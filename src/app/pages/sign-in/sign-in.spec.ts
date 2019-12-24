@@ -66,6 +66,6 @@ describe('SignInPage', () => {
     mockAuthProvider.signIn.mockReturnValue(Promise.reject('error'));
     await component.signIn();
     expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);
-    expect(mockToastProvider.errorToast).toHaveBeenCalledWith('Unable to sign you in. Have you verified your email address?');
+    expect(mockToastProvider.errorToast).toHaveBeenCalledWith('Unable to sign you in. Have you confirmed your email address?');
   });
 });
