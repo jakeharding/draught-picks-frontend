@@ -76,6 +76,8 @@
       "!src/models/*",
       "!src/setup-jest.ts"
     ],
-    "setupFilesAfterEnv": ["<rootDir>/setup-jest.ts"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/setup-jest.ts"
+    ]
   }
 }

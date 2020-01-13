@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'send-email', loadChildren: './pages/send-email/send-email.module#SendEmailPageModule' },
   { path: 'beer-profile', loadChildren: './pages/beer-profile/beer-profile.module#BeerProfilePageModule' },
   { path: 'confirm-email/:key', loadChildren: './pages/confirm-email/confirm-email.module#ConfirmEmailPageModule'},
+  { path: 'password-reset/:b64encoded/:token', loadChildren: './pages/password-reset/password-reset.module#PasswordResetPageModule' },
   { path: '**', redirectTo: 'tabs/home', pathMatch: 'full'},
 ];
 
