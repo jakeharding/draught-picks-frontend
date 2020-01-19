@@ -5,7 +5,6 @@ exports[`BeerDetailPage page init should initialize the BeerDetailPage using the
   beer={[Function Object]}
   beerProvider={[Function Object]}
   beerRating={[Function Object]}
-  hasRating={[Function Boolean]}
   navCtrl={[Function Object]}
   ratingProvider={[Function Object]}
   route={[Function Object]}
@@ -190,7 +189,6 @@ exports[`BeerDetailPage page init should initialize the BeerDetailPage with the 
   beer={[Function Object]}
   beerProvider={[Function Object]}
   beerRating={[Function Object]}
-  hasRating="false"
   navCtrl={[Function Object]}
   ratingProvider={[Function Object]}
   route={[Function Object]}

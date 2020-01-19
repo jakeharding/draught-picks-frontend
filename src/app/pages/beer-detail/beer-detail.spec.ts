@@ -62,7 +62,6 @@ describe('BeerDetailPage', () => {
       // Assert properties are set correctly for a beer with ratings
       expect(component.beerRating).toBeDefined();
       expect(mockBeerProvider.retrieve).toHaveBeenCalledTimes(1);
-      expect(component.hasRating).toBe(true);
       expect(component.beerRating).toEqual(mockRating);
     });
 
@@ -99,7 +98,6 @@ describe('BeerDetailPage', () => {
     });
 
     test('saveRatingDescription should call ratingProvider.partialUpdate and display a success toast', async () => {
-      component.hasRating = true;
       mockRatingProvider.partialUpdate.mockResolvedValue();
       await component.saveRatingDescription();
       expect(mockToastProvider.successToast).toHaveBeenCalledTimes(1);
@@ -107,7 +105,6 @@ describe('BeerDetailPage', () => {
     });
 
     test('saveRatingDescription should display a error toast', async () => {
-      component.hasRating = false;
       await component.saveRatingDescription();
       expect(mockToastProvider.errorToast).toHaveBeenCalledTimes(1);
       expect(mockToastProvider.errorToast).toHaveBeenCalledWith('Having trouble saving your description.');

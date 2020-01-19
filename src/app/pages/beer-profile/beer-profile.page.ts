@@ -52,15 +52,15 @@ export class BeerProfilePage extends BasePage {
    * No Parameters
    * Gets the user beer-profile and saves them in the database
    */
-  public async saveProfile() {
+  public saveProfile() {
     this.toastProvider.successToast('Your recommendations will be here soon!');
 
-    this.profileProvider.save(
+    return this.profileProvider.save(
       Object.assign({}, this.beerProfileForm.value, {user: this.user.uuid})).then((profile: BeerProfile) => {
-      this.beerProfileForm.patchValue(profile);
-      this.toastProvider.successToast('Your recommendations have arrived! Go to the home tab to see them!');
+      // this.beerProfileForm.patchValue(profile);
+      return this.toastProvider.successToast('Your recommendations have arrived! Go to the home tab to see them!');
     }, () => {
-      this.toastProvider.errorToast('We couldn\'t save your profile at the moment. Please try again.');
+      return  this.toastProvider.errorToast('We couldn\'t save your profile at the moment. Please try again.');
     });
 
   }

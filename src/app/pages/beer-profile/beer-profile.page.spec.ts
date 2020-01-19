@@ -69,7 +69,6 @@ describe('BeerProfilePage', () => {
     expect(mockUserProvider.retrieve).toHaveBeenCalledTimes(1);
     expect(mockProfileProvider.retrieve).toHaveBeenCalledTimes(1);
     expect(component.user).toBeDefined();
-    expect(component.beerProfile).toBeDefined();
     expect(component.beerProfileForm).toBeDefined();
   });
 

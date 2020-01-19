@@ -2,7 +2,6 @@
 
 exports[`BeerProfilePage should initialize the BeerProfilePage 1`] = `
 <app-beer-profile
-  beerProfile={[Function Object]}
   beerProfileForm={[Function FormGroup]}
   beerProvider={[Function Object]}
   beerSearch=""
@@ -163,11 +162,25 @@ exports[`BeerProfilePage should initialize the BeerProfilePage 1`] = `
             </h2>
           </ion-row>
           <ion-row>
-            <ion-textarea
-              formcontrolname="like_description"
-              rows="7"
-              tid="enterTextArea"
-            />
+            <ion-col
+              offsetmd="2"
+              offsetsm="0"
+              sizemd="9"
+              sizesm="12"
+            >
+              <ion-item>
+                <ion-label
+                  position="floating"
+                >
+                   Tell us what you like about beer! 
+                </ion-label>
+                <ion-textarea
+                  formcontrolname="like_description"
+                  rows="5"
+                  tid="enterTextArea"
+                />
+              </ion-item>
+            </ion-col>
           </ion-row>
           <ion-button
             tid="submitBtn"

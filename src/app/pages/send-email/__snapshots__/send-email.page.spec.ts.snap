@@ -32,13 +32,18 @@ exports[`SendEmailPage should initialize the SendEmailPage with reason undefined
           Send 
         </h1>
         <br />
-        <div
-          class="ion-text-left"
-        >
-          
-          
-          
-        </div>
+        <ion-row>
+          <ion-col
+            offset="1"
+            size="9"
+          >
+            <div>
+              
+              
+              
+            </div>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-content>

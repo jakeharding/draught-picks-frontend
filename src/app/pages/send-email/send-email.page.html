@@ -14,35 +14,38 @@
              size="12" sizeSm="10" offsetSm="1" sizeMd="6" offsetMd="3" sizeLg="6" offsetLg="3" sizeXl="4" offsetXl="4">
         <h1>Send {{ reason?.title }} Email</h1>
         <br>
-        <div class="ion-text-left">
-          <div *ngIf="reason && !sent">
-            <form [formGroup]="emailForm" (ngSubmit)="reason.sendEmail()">
-              <p>An email with instructions on how to {{ reason?.message }} will be sent if the address is on record.</p>
-              <p>Please enter the email address associated with your account:</p>
-              <ion-item>
-                <ion-label class="ion-text-left" position="floating">Email</ion-label>
-                <ion-input type="text" formControlName="email"></ion-input>
-              </ion-item>
-              <ion-button
-                  (click)="reason.sendEmail()"
-                  class="ion-margin-top"
-                  [disabled]="emailForm.invalid">
-                Submit
-              </ion-button>
-            </form>
-          </div>
-          <div *ngIf="!reason">
-            <p>Please select the reason for sending an email below:</p>
-            <p><a class="pointer" routerLink="/send-email/confirm" routerDirection="forward">Resend Email Confirmation</a></p>
-            <p><a class="pointer" routerLink="/send-email/reset" routerDirection="forward">Reset password</a></p>
-          </div>
-          <div *ngIf="sent">
-            <p>The email has been sent.</p>
-            <p>Don't forget to check your spam folder!</p>
-            <a class="pointer" routerLink="/sign-in" routerDirection="root">Sign in</a>
-          </div>
-        </div>
-
+        <ion-row>
+          <ion-col size="9" offset="1" >
+            <div *ngIf="reason && !sent" class="ion-text-justify">
+              <form [formGroup]="emailForm" (ngSubmit)="reason.sendEmail()">
+                <p>An email with instructions on how to {{ reason?.message }} will be sent if the address is on record.</p>
+                <p>Please enter the email address associated with your account:</p>
+                <ion-item>
+                  <ion-label class="ion-text-left" position="floating">Email</ion-label>
+                  <ion-input type="text" formControlName="email"></ion-input>
+                </ion-item>
+                <div class="ion-text-center">
+                  <ion-button
+                      (click)="reason.sendEmail()"
+                      class="ion-margin-top"
+                      [disabled]="emailForm.invalid">
+                    Submit
+                  </ion-button>
+                </div>
+              </form>
+            </div>
+            <div *ngIf="!reason">
+              <p>Please select the reason for sending an email below:</p>
+              <p><a class="pointer" routerLink="/send-email/confirm" routerDirection="forward">Resend Email Confirmation</a></p>
+              <p><a class="pointer" routerLink="/send-email/reset" routerDirection="forward">Reset password</a></p>
+            </div>
+            <div *ngIf="sent">
+              <p>The email has been sent.</p>
+              <p>Don't forget to check your spam folder!</p>
+              <a class="pointer" routerLink="/sign-in" routerDirection="root">Sign in</a>
+            </div>
+          </ion-col>
+        </ion-row>
     </ion-col>
   </ion-row>
 
