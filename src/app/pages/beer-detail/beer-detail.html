@@ -58,8 +58,8 @@
 
       <ion-row>
         <ion-col sizeSm="12" offsetSm="0" sizeMd="9" offsetMd="2">
-          <p *ngIf="hasRating">Your rating:</p>
-          <p *ngIf="!hasRating">You haven't rated this beer yet. Tap to rate!</p>
+          <p *ngIf="beerRating.rating">Your rating:</p>
+          <p *ngIf="!beerRating.rating">You haven't rated this beer yet. Tap to rate!</p>
         </ion-col>
       </ion-row>
 

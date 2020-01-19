@@ -24,7 +24,6 @@ export class BeerDetailPage extends BasePage {
 
   beer: Beer;
   beerRating: BeerRating;
-  hasRating = false;
 
   /**
    * Constructor for BeerDetailPage class
@@ -41,6 +40,7 @@ export class BeerDetailPage extends BasePage {
 
     this.beerRating = {
       description: '',
+      // Used as flag to tell if this beer ahs been rated since 0 is falsy.
       rating: 0,
       beer: this.beer.uuid,
     } as BeerRating;
@@ -53,7 +53,6 @@ export class BeerDetailPage extends BasePage {
     });
 
     if (this.beer.rating && this.beer.rating.length > 0) {
-      this.hasRating = true;
       this.beerRating = this.beer.rating[0];
     }
   }
@@ -83,7 +82,7 @@ export class BeerDetailPage extends BasePage {
       this.toastProvider.errorToast('Having trouble saving your description.');
     };
 
-    if (this.hasRating) {
+    if (this.beerRating.rating) {
       return this.ratingProvider.partialUpdate(this.beerRating).then(success, error);
     } else {
       return this.ratingProvider.create(this.beerRating).then(success, error);

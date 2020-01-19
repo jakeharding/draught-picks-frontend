@@ -20,7 +20,6 @@ export class BeerProfilePage extends BasePage {
   beerResults: Array<Beer>;
   beerSearch: string;
   user: User;
-  beerProfile: BeerProfile;
   beerProfileForm: FormGroup;
 
   constructor(public navCtrl: NavController,
@@ -33,28 +32,18 @@ export class BeerProfilePage extends BasePage {
       this.user = user;
     });
 
-    this.beerProfile = {
-      uuid: '',
-      abv_low: '',
-      abv_hi: '',
-      ibu_low: '',
-      ibu_hi: '',
-      like_description: '',
-      user: '',
-    } as BeerProfile;
-
-    this.profileProvider.retrieve().then((profile: BeerProfile) => {
-      if (profile) {
-        this.beerProfile = profile;
-      }
-    });
-
     this.beerProfileForm = this.formBuilder.group({
-      abv_low: [this.beerProfile.abv_low, [Validators.pattern('\\d+')]],
-      abv_hi: [this.beerProfile.abv_hi, [Validators.pattern('\\d+')]],
-      ibu_low: [this.beerProfile.ibu_low, [Validators.pattern('\\d+')]],
-      ibu_hi: [this.beerProfile.ibu_hi, [Validators.pattern('\\d+')]],
-      like_description: [this.beerProfile.like_description, []]
+      abv_low: ['', [Validators.pattern('\\d+')]],
+      abv_hi: ['', [Validators.pattern('\\d+')]],
+      ibu_low: ['', [Validators.pattern('\\d+')]],
+      ibu_hi: ['', [Validators.pattern('\\d+')]],
+      like_description: ['', []],
+      user: [],
+      uuid: []
+    });
+    // TODO Beer profile would be better stored in state
+    this.profileProvider.retrieve().then((profile: BeerProfile) => {
+      this.beerProfileForm.patchValue(profile || {});
     });
   }
 
@@ -66,14 +55,9 @@ export class BeerProfilePage extends BasePage {
   public async saveProfile() {
     this.toastProvider.successToast('Your recommendations will be here soon!');
 
-    this.beerProfileForm.value.abv_low = this.beerProfileForm.value.abv_low === '' ? null : this.beerProfileForm.value.abv_low;
-    this.beerProfileForm.value.abv_hi = this.beerProfileForm.value.abv_hi === '' ? null : this.beerProfileForm.value.abv_hi;
-    this.beerProfileForm.value.ibu_hi = this.beerProfileForm.value.ibu_hi === '' ? null : this.beerProfileForm.value.ibu_hi;
-    this.beerProfileForm.value.ibu_low = this.beerProfileForm.value.ibu_low === '' ? null : this.beerProfileForm.value.ibu_low;
-
     this.profileProvider.save(
-      Object.assign({}, this.beerProfile, this.beerProfileForm.value, {user: this.user.uuid})).then((profile: BeerProfile) => {
-      this.beerProfile = profile;
+      Object.assign({}, this.beerProfileForm.value, {user: this.user.uuid})).then((profile: BeerProfile) => {
+      this.beerProfileForm.patchValue(profile);
       this.toastProvider.successToast('Your recommendations have arrived! Go to the home tab to see them!');
     }, () => {
       this.toastProvider.errorToast('We couldn\'t save your profile at the moment. Please try again.');

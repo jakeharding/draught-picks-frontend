@@ -5,9 +5,9 @@
  * Created on 2/27/18
  *
  * Model beer profiles.
+ *
  */
-
-
+// tslint:disable:variable-name
 export default class BeerProfile {
   uuid: string;
   abv_low: string;

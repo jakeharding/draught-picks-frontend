@@ -1,4 +1,3 @@
-<script src="beer-profile.module.ts"></script>
 <ion-header>
   <draught-header></draught-header>
 </ion-header>
@@ -15,7 +14,6 @@
       <ion-row>
         <h3>Select some of your favorites:</h3>
         <ion-auto-complete class="ion-text-left" tid="enterBeerInput"
-                           [(ngModel)]="beerSearch"
                            (itemSelected)="favoriteSelected($event)"
                            [dataProvider]="beerProvider"></ion-auto-complete>
       </ion-row>
@@ -57,22 +55,22 @@
           <ion-col class="ion-text-center">
             <ion-item>
               <ion-label color="primary" position="floating">High</ion-label>
-              <ion-input type="number" formControlName="abv_hi" tid="enterAbvHigh" [(ngModel)]="beerProfile.abv_hi"></ion-input>
+              <ion-input type="number" formControlName="abv_hi" tid="enterAbvHigh" ></ion-input>
             </ion-item>
             <ion-item>
               <ion-label color="primary" position="floating">Low</ion-label>
-              <ion-input type="number" formControlName="abv_low" tid="enterAbvLow" [(ngModel)]="beerProfile.abv_low"></ion-input>
+              <ion-input type="number" formControlName="abv_low" tid="enterAbvLow"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col class="ion-text-center">
             <ion-item>
               <ion-label color="primary" position="floating">High</ion-label>
-              <ion-input type="number" formControlName="ibu_hi" tid="enterIbuHigh" [(ngModel)]="beerProfile.ibu_hi"></ion-input>
+              <ion-input type="number" formControlName="ibu_hi" tid="enterIbuHigh"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label color="primary" position="floating">Low</ion-label>
-              <ion-input type="number" formControlName="ibu_low" tid="enterIbuLow" [(ngModel)]="beerProfile.ibu_low"></ion-input>
+              <ion-input type="number" formControlName="ibu_low" tid="enterIbuLow"></ion-input>
             </ion-item>
           </ion-col>
 
@@ -86,12 +84,18 @@
         </ion-row>
 
         <ion-row>
-          <ion-textarea
-              formControlName="like_description"
-              tid="enterTextArea"
-              rows="7"
-              [(ngModel)]="beerProfile.like_description">
-          </ion-textarea>
+          <ion-col sizeSm="12" offsetSm="0" sizeMd="9" offsetMd="2">
+            <ion-item>
+              <ion-label position="floating">
+                Tell us what you like about beer!
+              </ion-label>
+              <ion-textarea
+                  formControlName="like_description"
+                  tid="enterTextArea"
+                  rows="5">
+              </ion-textarea>
+            </ion-item>
+          </ion-col>
         </ion-row>
         <ion-button
             tid="submitBtn"

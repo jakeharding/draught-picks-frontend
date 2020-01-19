@@ -16,6 +16,7 @@ import Beer from '../../models/Beer';
 @Injectable({
   providedIn: 'root',
 })
+// TODO Create a user profile page for users to manage info used to create an account.
 export class UserProvider {
   private readonly url: string;
   private readonly resendConfirmEmailUrl: string;
