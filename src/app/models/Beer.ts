@@ -8,6 +8,7 @@
  */
 import BeerRating from './BeerRating';
 import RecentBeer from './RecentBeers';
+import RecommendedBeer from './RecommendedBeer';
 
 
 export default interface Beer {
@@ -21,4 +22,5 @@ export default interface Beer {
   created_at: Date;
   recents: Array<RecentBeer>;
   rating?: Array<BeerRating>;
+  recommended?: RecommendedBeer;
 }
