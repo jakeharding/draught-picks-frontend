@@ -76,15 +76,18 @@ export class BeerDetailPage extends BasePage {
   saveRatingDescription() {
     const success = (rating) => {
       this.beerRating = rating;
+      console.log('SUCCESS')
       this.toastProvider.successToast('Your description has been saved!');
     };
     const error = (e) => {
+      console.log('ERROR');
       this.toastProvider.errorToast('Having trouble saving your description.');
     };
 
     if (this.beerRating.rating) {
       return this.ratingProvider.partialUpdate(this.beerRating).then(success, error);
     } else {
+      console.log('CREATE');
       return this.ratingProvider.create(this.beerRating).then(success, error);
     }
   }

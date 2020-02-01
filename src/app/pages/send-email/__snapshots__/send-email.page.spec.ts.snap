@@ -37,11 +37,9 @@ exports[`SendEmailPage should initialize the SendEmailPage with reason undefined
             offset="1"
             size="9"
           >
-            <div>
-              
-              
-              
-            </div>
+            
+            
+            
           </ion-col>
         </ion-row>
       </ion-col>

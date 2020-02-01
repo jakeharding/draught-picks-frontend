@@ -25,20 +25,20 @@ describe('Test beer-profile provider', () => {
     httpClient.get.mockImplementation(() => ({toPromise: () => Promise.resolve({results: [mockPrefs]})}));
     const result = await prefsProvider.retrieve();
     expect(httpClient.get).toHaveBeenCalledTimes(1);
-    expect(httpClient.get).toHaveBeenCalledWith(expect.stringMatching(/\/preferences$/));
+    expect(httpClient.get).toHaveBeenCalledWith(expect.stringMatching(/\/beer-profiles$/));
     expect(result).toBe(mockPrefs);
   });
 
   it('should call http.put when updating an existing beerProfile object', () => {
     prefsProvider.save(mockPrefs);
     expect(httpClient.put).toHaveBeenCalledTimes(1);
-    expect(httpClient.put).toHaveBeenCalledWith(expect.stringMatching(/\/preferences\/prefID$/), mockPrefs);
+    expect(httpClient.put).toHaveBeenCalledWith(expect.stringMatching(/\/beer-profiles\/prefID$/), mockPrefs);
   });
 
   it('should call http.post when creating a new beerProfile object', () => {
     const newMockPrefs = {} as UserPreferences;
     prefsProvider.save(newMockPrefs);
     expect(httpClient.post).toHaveBeenCalledTimes(1);
-    expect(httpClient.post).toHaveBeenCalledWith(expect.stringMatching(/\/preferences$/), newMockPrefs);
+    expect(httpClient.post).toHaveBeenCalledWith(expect.stringMatching(/\/beer-profiles$/), newMockPrefs);
   });
 });

@@ -36,10 +36,10 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
             Please Register Below
           </h1>
           <ion-row
-            text-center=""
+            class="ion-text-center"
           >
             <ion-col
-              text-center=""
+              class="ion-text-center"
             >
               <ion-item>
                 <ion-label
@@ -58,7 +58,6 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
             </ion-col>
             <ion-col
               class="ion-text-center"
-              r=""
             >
               <ion-item>
                 <ion-label
@@ -149,8 +148,8 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
           <br />
           <ion-item>
             <ion-label
+              class="text-lg-left"
               color="primary"
-              text-lg-left=""
             >
               Legal Age Confirmation and Disclaimer
             </ion-label>
@@ -183,7 +182,7 @@ exports[`RegistrationPage should initialize the RegistrationPage 1`] = `
             </ion-label>
           </ion-item>
           <ion-button
-            margin-top="20px"
+            class="ion-margin-top"
             tid="registerButton"
           >
              Register 

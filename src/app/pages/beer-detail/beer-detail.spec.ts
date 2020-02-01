@@ -79,6 +79,7 @@ describe('BeerDetailPage', () => {
 
   describe('test methods', () => {
     beforeEach(() => {
+      mockRouter.getCurrentNavigation.mockReturnValue({extras: {state: {beer: mockBeer}}});
       fixture = TestBed.createComponent(BeerDetailPage);
       component = fixture.debugElement.componentInstance;
     });
@@ -99,9 +100,13 @@ describe('BeerDetailPage', () => {
 
     test('saveRatingDescription should call ratingProvider.partialUpdate and display a success toast', async () => {
       mockRatingProvider.partialUpdate.mockResolvedValue();
+      component.beerRating = { rating: 4, uuid: 'aRating'} as BeerRating;
       await component.saveRatingDescription();
+      expect(mockRatingProvider.partialUpdate).toHaveBeenCalledWith({
+        rating: 4,
+        ...mockRating
+      });
       expect(mockToastProvider.successToast).toHaveBeenCalledTimes(1);
-      expect(mockRatingProvider.partialUpdate).toHaveBeenCalledWith(mockRating);
     });
 
     test('saveRatingDescription should display a error toast', async () => {

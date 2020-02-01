@@ -77,10 +77,10 @@ describe('BeerProfilePage', () => {
       await component.saveProfile();
       expect(mockToastProvider.successToast).toHaveBeenCalledTimes(2);
       expect(mockProfileProvider.save).toHaveBeenCalledTimes(1);
-      expect(component.beerProfileForm.value.abv_low).toBeNull();
-      expect(component.beerProfileForm.value.abv_hi).toBeNull();
-      expect(component.beerProfileForm.value.ibu_low).toBeNull();
-      expect(component.beerProfileForm.value.ibu_hi).toBeNull();
+      expect(component.beerProfileForm.value.abv_low).toBe('');
+      expect(component.beerProfileForm.value.abv_hi).toBe('');
+      expect(component.beerProfileForm.value.ibu_low).toBe('');
+      expect(component.beerProfileForm.value.ibu_hi).toBe('');
     });
 
   test('savePrefs should call the mockToastProvider.successToast, prefsProvider.save, and not change the prefsForm values',
